@@ -68,10 +68,10 @@ class ShelveCache(object):
             s.close()
 
     def __iter__(self):
-        """Iterator for values in Cache."""
+        """Iterator for keys in Cache."""
         s = self._sh.open(self._cache)
         for k in s.keys():
-            yield s[k]['value']
+            yield k
         s.close()
 
     def __len__(self):
