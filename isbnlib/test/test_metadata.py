@@ -3,9 +3,7 @@
 # flake8: noqa
 # pylint: skip-file
 
-""" nose tests
-D25 |-> RELEASE MINIMAL TESTING. (I DON'T WANTED TO BE BLACKLISTED BY THE SERVICES) <-|
-"""
+"""nose tests for metadata."""
 
 from random import randrange
 from .._metadata import query
@@ -23,7 +21,7 @@ def test_query():
     assert_equals(len(repr(query('9780321534965', 'merge'))) in (173, 179), True)
     assert_equals(len(repr(query('9780321534965', 'goob'))) in (154, 160, 189, 195), True)
     assert_equals(len(repr(query('9789934015960'))) in (166, 187), True)
-    assert_equals(len(repr(query('9781118241257'))) in (177, 183), True)
+    assert_equals(len(repr(query('9781118241257'))) > 149, True)
     assert_raises(Exception, query, '9780000000', 'wcat', None)
     assert_raises(Exception, query, randrange(0, 1000000), 'wcat')
 
