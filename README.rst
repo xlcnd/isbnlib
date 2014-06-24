@@ -167,7 +167,7 @@ using ``vias``'s other methods.
 Helpers
 -------
 
-In ``isbnlib.dev.lab`` you can find several methods, that we found very useful, some of then
+In ``isbnlib.dev.helpers`` you can find several methods, that we found very useful, some of then
 are only used in ``isbntools`` (*full version*).
 
 

@@ -9,7 +9,7 @@ from . import _goob as goob
 from . import _merge as merge
 from . import _openl as openl
 from . import _isbndb as isbndb
-from ._cache import Cache
+from ._imcache import IMCache
 from ._exceptions import PluginNotLoadedError
 
 
@@ -36,9 +36,11 @@ def add_service(name, query):         # pragma: no cover
     services[name] = query
 
 
-# CACHE
+# CACHE 
+# if you want a persistant cache you could use 
+# .dev.helpers ShelveCache(pathtofile)
 
-metadata_cache = Cache()              # should be an instance
+metadata_cache = IMCache()            # should be an instance
 
 
 def set_cache(cache):                 # pragma: no cover

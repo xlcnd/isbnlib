@@ -11,7 +11,7 @@ Please see http://stackoverflow.com/a/2438926
 from collections import MutableMapping
 
 
-class Cache(MutableMapping):
+class IMCache(MutableMapping):
 
     """Read and write to a dict-like cache."""
 
