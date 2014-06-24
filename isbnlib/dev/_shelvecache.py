@@ -70,7 +70,7 @@ class ShelveCache(object):
     def __iter__(self):
         """Iterator for values in Cache."""
         s = self._sh.open(self._cache)
-        for k in self.keys():
+        for k in s.keys():
             yield s[k]['value']
         s.close()
 
@@ -82,7 +82,7 @@ class ShelveCache(object):
         """Iterator for keys in cache."""
         try:
             s = self._sh.open(self._cache)
-            for k in self.keys():
+            for k in s.keys():
                 yield k
         finally:
             s.close()
@@ -90,7 +90,7 @@ class ShelveCache(object):
     def items(self):
         """Iterator for items in Cache."""
         s = self._sh.open(self._cache)
-        for k in self.keys():
+        for k in s.keys():
             yield k, s[k]['value']
         s.close()
 
