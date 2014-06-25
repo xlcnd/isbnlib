@@ -15,7 +15,7 @@ import datetime
 from time import time as timestamp
 
 
-class ShelveCache(object):
+class Cache(object):
 
     """Read and write shelve cache."""
 
@@ -79,11 +79,20 @@ class ShelveCache(object):
         return len(self.keys()) if self.keys() else 0
 
     def keys(self):
-        """Iterator for keys in cache."""
+        """Iterator for keys in Cache."""
         try:
             s = self._sh.open(self._cache)
             for k in s.keys():
                 yield k
+        finally:
+            s.close()
+
+    def values(self):
+        """Iterator for values in Cache."""
+        try:
+            s = self._sh.open(self._cache)
+            for k in s.keys():
+                yield s[k]['value']
         finally:
             s.close()
 
