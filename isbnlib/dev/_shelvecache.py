@@ -3,7 +3,6 @@
 
 """Read and write shelve cache.
 
-Implements The Basic Sequence and Mapping Protocol
 
 NOTES:
 1. cannot use context manager for shelve because py2
@@ -67,41 +66,17 @@ class Cache(object):
         finally:
             s.close()
 
-    def __iter__(self):
-        """Iterator for keys in Cache."""
-        s = self._sh.open(self._cache)
-        for k in s.keys():
-            yield k
-        s.close()
-
     def __len__(self):
         """Return the number of keys in cache."""
         return len(self.keys()) if self.keys() else 0
 
     def keys(self):
-        """Iterator for keys in Cache."""
+        """Return list of keys in Cache."""
         try:
             s = self._sh.open(self._cache)
-            for k in s.keys():
-                yield k
+            return list(s.keys())
         finally:
             s.close()
-
-    def values(self):
-        """Iterator for values in Cache."""
-        try:
-            s = self._sh.open(self._cache)
-            for k in s.keys():
-                yield s[k]['value']
-        finally:
-            s.close()
-
-    def items(self):
-        """Iterator for items in Cache."""
-        s = self._sh.open(self._cache)
-        for k in s.keys():
-            yield k, s[k]['value']
-        s.close()
 
     def ts(self, key):
         """Return the timestamp of the record with key."""
