@@ -20,7 +20,7 @@ class IMCache(MutableMapping):
     def __init__(self, maxlen=MAXLEN, *a, **k):
         self.maxlen = maxlen
         self.d = dict(*a, **k)
-        while len(self) > maxlen:
+        while len(self) > maxlen:  # pragma: no cache
             self.popitem()
 
     def __iter__(self):
