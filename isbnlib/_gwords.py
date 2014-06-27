@@ -11,8 +11,8 @@ LOGGER = logging.getLogger(__name__)
 
 def goos(words):
     """Use Google to get an ISBN from words from title and author's name."""
-    search_url = "http://www.google.com/search?q=%s+ISBN" % \
-                 words.replace(' ', '+')
+    service_url = "http://www.google.com/search?q={words}+ISBN"
+    search_url = service_url.format(words=words.replace(' ', '+'))
     user_agent = 'w3m/0.5.2'
 
     content = webservice.query(search_url, user_agent)
