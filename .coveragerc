@@ -15,6 +15,7 @@ omit =
     *lab*
     *__init__*
     *files.py
+    *cache*
 
 
 # Regexes for lines to exclude from consideration
