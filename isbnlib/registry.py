@@ -36,8 +36,8 @@ def add_service(name, query):         # pragma: no cover
     services[name] = query
 
 
-# CACHE 
-# if you want a persistant cache you could use 
+# CACHE
+# if you want a persistant cache you could use
 # .dev.helpers ShelveCache(pathtofile)
 
 metadata_cache = IMCache()            # should be an instance
