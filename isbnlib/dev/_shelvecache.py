@@ -14,7 +14,7 @@ import datetime
 from time import time as timestamp
 
 
-class Cache(object):
+class ShelveCache(object):
 
     """Read and write shelve cache."""
 

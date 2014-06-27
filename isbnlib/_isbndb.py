@@ -13,7 +13,7 @@ from .dev._exceptions import (DataWrongShapeError,
 
 
 UA = 'isbntools (gzip)'
-SERVICE_URL = 'http://isbndb.com/api/v2/json/%s/book/%s'
+SERVICE_URL = 'http://isbndb.com/api/v2/json/{apikey}/book/{isbn}'
 PATT_YEAR = re.compile(r'\d{4}')
 LOGGER = logging.getLogger(__name__)
 
@@ -65,5 +65,5 @@ def query(isbn):
     """Query the isbndb.org service for metadata."""
     if not apikeys.get('isbndb'):
         raise NoAPIKeyError
-    data = wquery(SERVICE_URL % (apikeys['isbndb'], isbn), UA)
+    data = wquery(SERVICE_URL.format(apikey=apikeys['isbndb'], isbn=isbn), UA)
     return _records(isbn, data)

@@ -10,7 +10,7 @@ from .dev._exceptions import (NoDataForSelectorError, RecordMappingError)
 
 UA = 'isbntools (gzip)'
 SERVICE_URL = 'http://openlibrary.org/api/books?bibkeys='\
-    'ISBN:%s&format=json&jscmd=data'
+    'ISBN:{isbn}&format=json&jscmd=data'
 LOGGER = logging.getLogger(__name__)
 
 
@@ -48,5 +48,5 @@ def _records(isbn, data):
 
 def query(isbn):
     """Query the openlibrary.org service for metadata."""
-    data = wquery(SERVICE_URL % isbn, UA)
+    data = wquery(SERVICE_URL.format(isbn=isbn), UA)
     return _records(isbn, data)

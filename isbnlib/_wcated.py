@@ -8,7 +8,7 @@ from .dev._exceptions import DataWrongShapeError, NoDataForSelectorError
 
 LOGGER = logging.getLogger(__name__)
 UA = 'isbntools (gzip)'
-SERVICE_URL = 'http://xisbn.worldcat.org/webservices/xid/isbn/%s?'\
+SERVICE_URL = 'http://xisbn.worldcat.org/webservices/xid/isbn/{isbn}?'\
               'method=getEditions&format=python'
 
 
@@ -30,5 +30,5 @@ def _editions(isbn, data):
 
 def query(isbn):
     """Query the worldcat.org service for related ISBNs."""
-    data = wquery(SERVICE_URL % isbn, UA, parser=literal_eval)
+    data = wquery(SERVICE_URL.format(isbn=isbn), UA, parser=literal_eval)
     return _editions(isbn, data)

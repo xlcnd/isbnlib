@@ -10,8 +10,8 @@ from .dev._exceptions import (DataWrongShapeError,
                               RecordMappingError)
 
 UA = 'isbntools (gzip)'
-SERVICE_URL = 'https://www.googleapis.com/books/v1/volumes?q=isbn+%s&fields='\
-    'items/volumeInfo(title,authors,publisher,publishedDate,language)'\
+SERVICE_URL = 'https://www.googleapis.com/books/v1/volumes?q=isbn+{isbn}'\
+    '&fields=items/volumeInfo(title,authors,publisher,publishedDate,language)'\
     '&maxResults=1'
 LOGGER = logging.getLogger(__name__)
 
@@ -57,5 +57,5 @@ def _records(isbn, data):
 
 def query(isbn):
     """Query the Google Books (JSON API v1) service for metadata."""
-    data = wquery(SERVICE_URL % isbn, UA)
+    data = wquery(SERVICE_URL.format(isbn=isbn), UA)
     return _records(isbn, data)

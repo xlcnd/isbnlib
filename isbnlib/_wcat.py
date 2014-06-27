@@ -11,7 +11,7 @@ from .dev._exceptions import (DataWrongShapeError,
 
 
 UA = 'isbntools (gzip)'
-SERVICE_URL = 'http://xisbn.worldcat.org/webservices/xid/isbn/%s?'\
+SERVICE_URL = 'http://xisbn.worldcat.org/webservices/xid/isbn/{isbn}?'\
     'method=getMetadata&format=json&fl=*'
 LOGGER = logging.getLogger(__name__)
 
@@ -53,5 +53,5 @@ def _records(isbn, data):
 
 def query(isbn):
     """Query the worldcat.org service for metadata."""
-    data = wquery(SERVICE_URL % isbn, UA)
+    data = wquery(SERVICE_URL.format(isbn=isbn), UA)
     return _records(isbn, data)
