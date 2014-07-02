@@ -61,12 +61,13 @@ class Metadata(object):
         """Delete value."""
         self._set_empty()
 
-    def merge(self, record, overwrite=(), overrule=lambda x: x == ''):
+    def merge(self, record, overwrite=(),
+              overrule=lambda x: x == u('') or x == [u('')]):
         """Merge the record with value."""
         # by default do nothing
         self._content.update((k, v) for k, v in list(record.items())
                              if k in overwrite and not overrule(v) or
-                             self._content[k] == '')
+                             self._content[k] == u(''))
         if not self._validate():  # pragma: no cover
             self._set_empty()
             raise NotValidMetadataError()
