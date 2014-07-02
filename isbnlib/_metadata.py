@@ -5,10 +5,10 @@ from .registry import services
 from ._exceptions import NotRecognizedServiceError
 
 
-def query(isbn, service='default', cache=None):
+def query(isbn, service='default', cache='UNDEFINED'):
     """Query worldcat.org, Google Books (JSON API), ... for metadata."""
-    from .registry import metadata_cache
-    if cache is None:
+    from .registry import metadata_cache   # <-- dinamic now!
+    if cache == 'UNDEFINED':
         cache = metadata_cache
     if service != 'default' and service not in services:
         raise NotRecognizedServiceError(service)
