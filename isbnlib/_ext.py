@@ -19,7 +19,8 @@ def mask(isbn, separator='-'):
 def meta(isbn, service='default'):
     """Get metadata from worldcat.org ('wcat'), Google Books ('goob') , ..."""
     service = service if service else 'default'
-    return query(isbn, service)
+    isbn = EAN13(isbn)
+    return query(isbn, service) if isbn else None
 
 
 def info(isbn):
