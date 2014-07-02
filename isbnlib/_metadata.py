@@ -1,14 +1,15 @@
 # -*- coding: utf-8 -*-
 """Query providers for metadata."""
 
-from .registry import services, metadata_cache
+from .registry import services
 from ._exceptions import NotRecognizedServiceError
 
-CACHE = metadata_cache
 
-
-def query(isbn, service='default', cache=CACHE):
+def query(isbn, service='default', cache=None):
     """Query worldcat.org, Google Books (JSON API), ... for metadata."""
+    from .registry import metadata_cache
+    if cache is None:
+        cache = metadata_cache
     if service != 'default' and service not in services:
         raise NotRecognizedServiceError(service)
     if cache is None:
