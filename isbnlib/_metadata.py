@@ -9,9 +9,10 @@ from ._exceptions import NotRecognizedServiceError, NotValidISBNError
 def query(isbn, service='default', cache='UNDEFINED'):
     """Query worldcat.org, Google Books (JSON API), ... for metadata."""
     from .registry import metadata_cache           # <-- dinamic now!
-    isbn = EAN13(isbn)
-    if not isbn:
+    ean = EAN13(isbn)
+    if not ean:
         raise NotValidISBNError(isbn)
+    isbn = ean
     if cache == 'UNDEFINED':
         cache = metadata_cache
     if service != 'default' and service not in services:
