@@ -3,7 +3,7 @@
 
 from .registry import services
 from ._core import EAN13
-from ._exceptions import NotRecognizedServiceError
+from ._exceptions import NotRecognizedServiceError, NotValidISBNError
 
 
 def query(isbn, service='default', cache='UNDEFINED'):
@@ -11,7 +11,7 @@ def query(isbn, service='default', cache='UNDEFINED'):
     from .registry import metadata_cache           # <-- dinamic now!
     isbn = EAN13(isbn)
     if not isbn:
-        return
+        raise NotValidISBNError(isbn)
     if cache == 'UNDEFINED':
         cache = metadata_cache
     if service != 'default' and service not in services:
