@@ -10,7 +10,7 @@ from .dev._exceptions import (DataWrongShapeError,
                               RecordMappingError)
 
 
-UA = 'isbntools (gzip)'
+UA = 'isbnlib (gzip)'
 SERVICE_URL = 'http://xisbn.worldcat.org/webservices/xid/isbn/{isbn}?'\
     'method=getMetadata&format=json&fl=*'
 LOGGER = logging.getLogger(__name__)

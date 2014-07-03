@@ -7,7 +7,7 @@ from .dev.webquery import query as wquery
 from .dev._exceptions import DataWrongShapeError, NoDataForSelectorError
 
 LOGGER = logging.getLogger(__name__)
-UA = 'isbntools (gzip)'
+UA = 'isbnlib (gzip)'
 SERVICE_URL = 'http://xisbn.worldcat.org/webservices/xid/isbn/{isbn}?'\
               'method=getEditions&format=python'
 

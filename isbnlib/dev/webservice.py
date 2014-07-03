@@ -13,7 +13,7 @@ except ImportError:      # pragma: no cover
     from urllib2 import Request, urlopen, HTTPError, URLError
 from ._exceptions import ISBNToolsHTTPError, ISBNToolsURLError
 
-UA = 'webservice (gzip)'
+UA = 'isbnlib (gzip)'
 LOGGER = logging.getLogger(__name__)
 
 
@@ -46,6 +46,7 @@ class WEBService(object):
     def data(self):
         """Return the uncompressed data."""
         self._response()
+        LOGGER.debug('Response headers:\n%s', self.response.info())
         if self.response.info().get('Content-Encoding') == 'gzip':
             buf = bstream(self.response.read())
             f = gzip.GzipFile(fileobj=buf)
@@ -58,4 +59,6 @@ class WEBService(object):
 def query(url, user_agent=UA, values=None):
     """Query to a web service."""
     service = WEBService(url, user_agent, values)
-    return service.data()
+    data = service.data()
+    LOGGER.debug('Raw data from service:\n%s', data)
+    return data

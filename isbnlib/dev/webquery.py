@@ -6,7 +6,7 @@ import json
 from . import webservice
 from ._exceptions import DataNotFoundAtServiceError, ServiceIsDownError
 
-UA = 'isbntools (gzip)'
+UA = 'isbnlib (gzip)'
 OUT_OF_SERVICE = 'Temporarily out of service'
 BOOK_NOT_FOUND = 'No results match your search'
 LOGGER = logging.getLogger(__name__)
