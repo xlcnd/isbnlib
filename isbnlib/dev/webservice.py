@@ -34,6 +34,7 @@ class WEBService(object):
     def _response(self):
         try:
             self.response = urlopen(self._request)
+            LOGGER.debug('Request headers:\n%s', self._request.header_items())
         except HTTPError as e:  # pragma: no cover
             LOGGER.critical('ISBNToolsHTTPError for %s with code %s',
                             self._url, e.code)
