@@ -120,8 +120,8 @@ In the namespace ``isbnlib`` you have access to the core methods:
 and ``isbn_from_words``. 
 
 The exceptions raised by these methods can all be catched using ``ISBNToolsException`` 
-[**for now, exceptions are the same as in ``isbntools``, however this will 
-change with version 4 of ``isbnlib``**].
+[for now, exceptions are the same as in ``isbntools``, however this will 
+change with version 4 of ``isbnlib``].
 
 
 You can extend the lib by using the classes and functions exposed in
