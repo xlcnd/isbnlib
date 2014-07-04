@@ -141,8 +141,8 @@ namespace ``isbnlib.dev``, namely:
 
 * ``Metadata`` a class that structures, cleans and 'validates' records of
   metadata. His method ``merge`` allows to implement a simple merging
-  procedure for records from different sources. The main features can be
-  implemented by a call to ``stdmeta`` function!
+  procedure for records from different sources. The main features of this class, can be
+  implemented by a call to the ``stdmeta`` function instead!
 
 * ``vias`` exposes several functions to put calls to services, just by passing the name and
   a pointer to the service's ``query`` function.
@@ -170,6 +170,7 @@ The original quality of metadata, at the several services, is not very good!
 If you need high quality metadata in your app, the only solution is to use
 *polling & merge* of several providers **and** a **lot** of cleaning and standardization
 for fields like ``Authors`` and ``Publisher``.
+
 A *merge* provider is now the default in ``meta``.
 It gives priority to ``wcat`` but overwrites the ``Authors`` field with the value from ``goob``.
 Uses the ``merge`` method of ``Metadata`` and *serial* calls to services
@@ -182,8 +183,8 @@ Caveats
 
 
 1. These classes are optimized for one-calls to services and not for batch calls. However,
-   is very easy to produce an high volume processing system using these classes, 
-   ``vias.multi`` and Redis.
+   is very easy to produce an high volume processing system using these classes 
+   (use ``vias.multi``) and Redis.
 
 2. If you inspect the library, you will see that there are a lot of private modules
    (their name starts with '_'). These modules **should not** be accessed directly since,
