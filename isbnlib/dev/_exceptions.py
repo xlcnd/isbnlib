@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
 
-""" Exceptions for isbntools.dev
+""" Exceptions for isbnlib.dev
 
-The classes in isbntools.dev should use the exceptions below.
+The classes in isbnlib.dev should use the exceptions below.
 """
 
 
 class ISBNToolsDevException(Exception):
-    """ Base class for isbntools.dev exceptions
+    """ Base class for isbnlib.dev exceptions
 
     This exception should not be raised directly,
     only subclasses of this exception should be used!

@@ -14,7 +14,7 @@ def quiet_errors(exc_type, exc_value, traceback):
 
 
 class ISBNToolsException(Exception):
-    """ Base class for isbntools exceptions
+    """ Base class for isbnlib exceptions
 
     This exception should not be raised directly,
     only subclasses of this exception should be used!
