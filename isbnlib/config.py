@@ -24,6 +24,7 @@ def setsocketstimeout(seconds):
 setsocketstimeout(SOCKETS_TIMEOUT)
 
 
+# THREADS_TIMEOUT is a parameter used downstream by Thread calls (see vias.py)
 def setthreadstimeout(seconds):   # pragma: no cover
     """Set the value of THREADS_TIMEOUT (in seconds)."""
     global THREADS_TIMEOUT

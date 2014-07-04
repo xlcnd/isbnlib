@@ -2,7 +2,6 @@
 """Registry for metadata services."""
 
 
-import imp
 import sys
 from . import _wcat as wcat
 from . import _goob as goob
@@ -49,10 +48,11 @@ def set_cache(cache):                 # pragma: no cover
     metadata_cache = cache
 
 
-# PLUGINS
+# PLUGINS (TODO: keep this for now, but delete it in version 4)
 
 def load_plugin(name, plugin_dir):    # pragma: no cover
     """Load pluggins."""
+    import imp
     try:
         return sys.modules[name]
     except KeyError:

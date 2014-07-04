@@ -23,7 +23,8 @@ def _mapper(isbn, records):
         canonical = {}
         canonical['ISBN-13'] = u(isbn)
         canonical['Title'] = records.get('title', u('')).replace(' :', ':')
-        canonical['Authors'] = [records.get('author', u(''))]
+        buf = records.get('author', u(''))
+        canonical['Authors'] = [x.strip('. ') for x in buf.split(';')]
         canonical['Publisher'] = records.get('publisher', u(''))
         canonical['Year'] = records.get('year', u(''))
         canonical['Language'] = records.get('lang', u(''))
