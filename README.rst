@@ -110,14 +110,15 @@ For Devs
 ========
 
 
-Main Namespaces
----------------
+API's Main Namespaces
+---------------------
 
 In the namespace ``isbnlib`` you have access to the core methods:
 ``is_isbn10``, ``is_isbn13``, ``to_isbn10``, ``to_isbn13``, ``canonical``,
 ``clean``, ``notisbn``, ``get_isbnlike``, ``get_canonical_isbn``, ``mask``,
 ``meta``, ``info``, ``editions``, ``ren``, ``doi``, ``EAN13``
-and ``isbn_from_words``.
+and ``isbn_from_words``. The exceptions raised by these methods can all be
+catched using ``ISBNToolsException``.
 
 
 You can extend the lib by using the classes and functions exposed in
@@ -149,6 +150,13 @@ namespace ``isbnlib.dev``, namely:
 * ``bouth23`` a small module to make it possible the code to run
   in **bouth** python 2 and python 3.
 
+The exceptions raised by these methods can all be catched using ``ISBNToolsDevException``.
+
+
+In ``isbnlib.dev.helpers`` you can find several methods, that we found very useful, some of then
+are only used in ``isbntools`` (*full version*).
+
+
 
 Merge Metadata
 --------------
@@ -160,23 +168,17 @@ for fields like ``Authors`` and ``Publisher``.
 A *merge* provider is now the default in ``meta``.
 It gives priority to ``wcat`` but overwrites the ``Authors`` field with the value from ``goob``.
 Uses the ``merge`` method of ``Metadata`` and *serial* calls to services
-by default (faster for faster internet connections). You can change that by
-using ``vias``'s other methods.
-
-
-Helpers
--------
-
-In ``isbnlib.dev.helpers`` you can find several methods, that we found very useful, some of then
-are only used in ``isbntools`` (*full version*).
-
+by default (faster for one-call to services through fast internet connections). 
+You can change that by using ``vias``'s other methods.
 
 
 Caveats
 -------
 
 
-1. These classes are optimized for one-calls to services and not for batch calls.
+1. These classes are optimized for one-calls to services and not for batch calls. However,
+   is very easy to produce an high volume processing system using this classes, 
+   ``vias.multi`` and Redis.
 
 2. If you inspect the library, you will see that there are a lot of private modules
    (their name starts with '_'). These modules **should not** be accessed directly since,
