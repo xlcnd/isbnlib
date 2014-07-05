@@ -14,7 +14,7 @@ __version__ = '3.3.7'                               # <-- literal IDs
 __support__ = 'py26, py27, py33, py34, pypy'        # <-- literal IDs
 
 import logging as _logging
-from ._exceptions import (quiet_errors, ISBNToolsException,
+from ._exceptions import (quiet_errors, ISBNLibException,
                           NotRecognizedServiceError,
                           NotValidISBNError,
                           PluginNotLoadedError)
