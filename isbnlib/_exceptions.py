@@ -13,7 +13,7 @@ def quiet_errors(exc_type, exc_value, traceback):
     sys.stderr.write('Error: %s\n' % exc_value)  # pragma: no cover
 
 
-class ISBNToolsException(Exception):
+class ISBNLibException(Exception):
     """ Base class for isbnlib exceptions
 
     This exception should not be raised directly,
@@ -24,7 +24,7 @@ class ISBNToolsException(Exception):
         return getattr(self, 'message', '')      # pragma: no cover
 
 
-class NotRecognizedServiceError(ISBNToolsException):
+class NotRecognizedServiceError(ISBNLibException):
     """ Exception raised when the service is not in config.py
     """
 
@@ -32,7 +32,7 @@ class NotRecognizedServiceError(ISBNToolsException):
         self.message = "(%s) is not a recognized service" % service
 
 
-class NotValidISBNError(ISBNToolsException):
+class NotValidISBNError(ISBNLibException):
     """ Exception raised when the ISBN is not valid
     """
 
@@ -40,8 +40,9 @@ class NotValidISBNError(ISBNToolsException):
         self.message = "(%s) is not a valid ISBN" % isbnlike
 
 
-class PluginNotLoadedError(ISBNToolsException):  # pragma: no cover
+class PluginNotLoadedError(ISBNLibException):  # pragma: no cover
     """ Exception raised when the plugin's loader doesn't load the plugin
+        TODO: Delete this in version 4
     """
 
     def __init__(self, path):
