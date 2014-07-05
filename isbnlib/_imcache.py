@@ -13,6 +13,7 @@ class IMCache(MutableMapping):
     MAXLEN = 1000
 
     def __init__(self, maxlen=MAXLEN, *a, **k):
+        self.filepath = 'IN MEMORY'
         self.maxlen = maxlen
         self.d = dict(*a, **k)
         while len(self) > maxlen:  # pragma: no cache
