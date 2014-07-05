@@ -119,9 +119,7 @@ In the namespace ``isbnlib`` you have access to the core methods:
 ``meta``, ``info``, ``editions``, ``ren``, ``doi``, ``EAN13``
 and ``isbn_from_words``. 
 
-The exceptions raised by these methods can all be catched using ``ISBNToolsException`` 
-[for now, exceptions are the same as in ``isbntools``, however this will 
-change with version 4 of ``isbnlib``].
+The exceptions raised by these methods can all be catched using ``ISBNLibException``.
 
 
 You can extend the lib by using the classes and functions exposed in
@@ -153,7 +151,7 @@ namespace ``isbnlib.dev``, namely:
 * ``bouth23`` a small module to make it possible the code to run
   in **bouth** python 2 and python 3.
 
-The exceptions raised by these methods can all be catched using ``ISBNToolsDevException``. 
+The exceptions raised by these methods can all be catched using ``ISBNLibDevException``. 
 You **should't raise** this exception in your code, only raise the specific exceptions 
 exposed in ``isbnlib.dev`` whose name end in Error.
 
