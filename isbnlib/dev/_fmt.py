@@ -75,9 +75,15 @@ ISBN:      $ISBN
 Year:      $Year
 Publisher: $Publisher"""
 
-templates = {'labels': labels, 'bibtex': bibtex,
-             'endnote': endnote, 'refworks': refworks,
-             'msword': msword, 'json': json, 'opf': opf}
+templates = {
+             'labels': labels,
+             'bibtex': bibtex,
+             'endnote': endnote,
+             'refworks': refworks,
+             'msword': msword,
+             'json': json,
+             'opf': opf
+             }
 
 fmts = list(templates.keys())
 
