@@ -17,7 +17,7 @@ def query(isbn, service='default', cache='UNDEFINED'):
         cache = metadata_cache
     if service != 'default' and service not in services:
         raise NotRecognizedServiceError(service)
-    if cache is None:
+    if cache is None:  # pragma: no cover
         return services[service](isbn)
     key = isbn + service
     try:
