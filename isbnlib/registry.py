@@ -46,24 +46,3 @@ def set_cache(cache):                 # pragma: no cover
     """Set cache for metadata."""
     global metadata_cache
     metadata_cache = cache
-
-
-# PLUGINS (TODO: keep this for now, but delete it in version 4)
-
-def load_plugin(name, plugin_dir):    # pragma: no cover
-    """Load pluggins."""
-    import imp
-    try:
-        return sys.modules[name]
-    except KeyError:
-        # not yet loaded so continue...
-        pass
-    try:
-        fp, pathname, description = imp.find_module(name, [plugin_dir])
-    except:
-        raise PluginNotLoadedError(pathname)
-    try:
-        return imp.load_module(name, fp, pathname, description)
-    finally:
-        if fp:
-            fp.close()
