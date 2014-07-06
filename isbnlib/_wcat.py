@@ -39,12 +39,12 @@ def _records(isbn, data):
     try:
         # put the selected data in records
         recs = data['list'][0]
-    except:
+    except:  # pragma: no cover
         try:
             extra = data['stat']
             LOGGER.debug('DataWrongShapeError for %s with data %s',
                          isbn, extra)
-        except:  # pragma: no cover
+        except:
             raise DataWrongShapeError(isbn)
         raise NoDataForSelectorError(isbn)
 
