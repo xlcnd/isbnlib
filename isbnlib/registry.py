@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""Registry for metadata services."""
+"""Registry for metadata services, formatters and cache."""
 
 
 import sys
@@ -9,7 +9,7 @@ from . import _merge as merge
 from . import _openl as openl
 from . import _isbndb as isbndb
 from ._imcache import IMCache
-from ._exceptions import PluginNotLoadedError
+from .dev._fmt import fmtbib
 
 
 # SERVICES
@@ -33,6 +33,35 @@ def add_service(name, query):         # pragma: no cover
     """Add a new service to services."""
     global services
     services[name] = query
+
+
+# FORMATTERS
+# TODO: use partial...
+# from functools import partial 
+# partial(fmtbib, 'labels') <-> lambda x: fmtbib('labels', x)
+
+bibformatters = {
+                 'default': lambda x: fmtbib('labels', x),
+                 'labels': lambda x: fmtbib('labels', x),
+                 'bibtex': lambda x: fmtbib('bibtex', x),
+                 'endnote': lambda x: fmtbib('endnote', x),
+                 'refworks': lambda x: fmtbib('refworks', x),
+                 'msword': lambda x: fmtbib('msword', x),
+                 'json': lambda x: fmtbib('json', x),
+                 'opf': lambda x: fmtbib('opf', x)
+                 }
+
+
+def setdefaultbibformatter(name):              # pragma: no cover
+    """Set the default formatter."""
+    global bibformatters
+    bibformatters['default'] = bibformatters[name]
+
+
+def add_bibformatter(name, formatter):         # pragma: no cover
+    """Add a new formatter to formatters."""
+    global bibformatters
+    bibformatters[name] = formatter
 
 
 # CACHE
