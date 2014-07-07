@@ -162,9 +162,18 @@ In ``isbnlib.dev.helpers`` you can find several methods, that we found very usef
 are only used in ``isbntools`` (*an app and framework that uses ``isbnlib``*).
 
 
-``isbnlib.registry`` ... setdefaultservice add_service and bibformatters setdefaultbibformatter add_bibformatter set_cache (switch off chache -> set_cache(None) this only works for calls through isbnlib.meta). (this changes are only for session)
+With ``isbnlib.registry`` you can change the metadata service to be used by default (``setdefaultservice``), 
+add a new service (``add_service``), access bibliographic formatters for metadata (``bibformatters``),
+set the default formatter (``setdefaultbibformatter``), add new formatters (``add_bibformatter``) and 
+set a new cache (``set_cache``) (e.g. to switch off the chache ``set_cache(None)``).
+The cache only works for calls through ``isbnlib.meta``. These changes only work for the 'current session',
+so should be done always before calling other methods.
 
-``isbnlib.config`` ... setsocketstimeout setthreadstimeout apikeys add_apikey options set_option
+
+Finally, from ``isbnlib.config`` with can read and set configuration options. 
+Change timeouts with ``setsocketstimeout`` and ``setthreadstimeout``, 
+access api keys with ``apikeys`` and add new one with ``add_apikey`` and
+access and set generic and user-defined options with ``options`` and ``set_option``.
 
 
 
@@ -181,7 +190,8 @@ A *merge* provider is now the default in ``meta``.
 It gives priority to ``wcat`` but overwrites the ``Authors`` field with the value from ``goob``.
 Uses the ``merge`` method of ``Metadata`` and *serial* calls to services
 by default (faster for one-call to services through fast internet connections). 
-You can change that by using ``vias``'s other methods.
+You can change that by using ``vias``'s other methods 
+(e.g. ``isbnlib.config.set_option('VIAS_MERGE', 'multi')``.
 
 
 Caveats
