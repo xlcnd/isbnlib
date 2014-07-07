@@ -27,7 +27,7 @@ except:              # pragma: no cover
         def emit(self, record):
             pass
     _nh = NullHandler()
-_logging.getLogger('isbn').addHandler(_nh)
+_logging.getLogger('isbnlib').addHandler(_nh)
 
 # configuration
 from . import config                                # <-- first import
