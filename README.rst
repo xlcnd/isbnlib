@@ -208,7 +208,7 @@ Caveats
 
 -------------------------------------------------------------
 
-For the full library see isbntools_
+Check isbntools_ and his documentation_.
 
 -------------------------------------------------------------
 
@@ -219,3 +219,5 @@ For the full library see isbntools_
 .. _here: http://isbndb.com/api/v2/docs
 
 .. _isbntools: https://pypi.python.org/pypi/isbntools
+
+.. _documentation: http://isbntools.readthedocs.org
