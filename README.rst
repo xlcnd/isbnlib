@@ -18,7 +18,7 @@
     :target: https://coveralls.io/r/xlcnd/isbnlib?branch=v3.3.7
     :alt: Coverage
 
-.. image:: https://travis-ci.org/xlcnd/isbnlib.png?branch=v3.3.7
+.. image:: https://travis-ci.org/xlcnd/isbnlib.svg?branch=v3.3.7
     :target: https://travis-ci.org/xlcnd/isbnlib
     :alt: Built Status
 
