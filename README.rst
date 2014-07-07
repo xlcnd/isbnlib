@@ -14,11 +14,11 @@
     :target: https://pypi.python.org/pypi/isbnlib/
     :alt: License
 
-.. image:: https://coveralls.io/repos/xlcnd/isbnlib/badge.png?branch=v3.3.8
-    :target: https://coveralls.io/r/xlcnd/isbnlib?branch=v3.3.8
+.. image:: https://coveralls.io/repos/xlcnd/isbnlib/badge.png?branch=v3.3.9
+    :target: https://coveralls.io/r/xlcnd/isbnlib?branch=v3.3.9
     :alt: Coverage
 
-.. image:: https://travis-ci.org/xlcnd/isbnlib.svg?branch=v3.3.8
+.. image:: https://travis-ci.org/xlcnd/isbnlib.svg?branch=v3.3.9
     :target: https://travis-ci.org/xlcnd/isbnlib
     :alt: Built Status
 
