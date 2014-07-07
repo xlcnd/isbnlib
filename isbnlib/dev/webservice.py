@@ -21,11 +21,14 @@ class WEBService(object):
 
     """Class to query web services."""
 
-    def __init__(self, url, user_agent=UA, values=None):
+    def __init__(self, url, user_agent=UA, values=None, appheaders=None):
         """Initialize main properties."""
         self._url = url
         # headers to accept gzipped content
         headers = {'Accept-Encoding': 'gzip', 'User-Agent': user_agent}
+        # add more user provided headers
+        if appheaders is not None:  # pragma: no cover
+            headers.update(appheaders)
         # if 'data' it does a PUT request (data must be urlencoded)
         data = urlencode(values) if values else None
         self._request = Request(url, data, headers=headers)
