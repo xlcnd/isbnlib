@@ -44,7 +44,7 @@ def add_apikey(service, apikey):  # pragma: no cover
 
 
 # Generic Options
-options = {}
+options = {'VIAS_MERGE': 'serial'}
 
 
 def set_option(option, value):    # pragma: no cover

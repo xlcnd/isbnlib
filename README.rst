@@ -1,9 +1,9 @@
 Info
 ====
 
-``isbnlib`` is a (pure) python library, based on isbntools_, that provides several
+``isbnlib`` is a (pure) python library that provides several
 useful methods and functions to validate, clean, transform, hyphenate and
-get metadata for ISBN strings.
+get metadata for ISBN strings. Its origin was as the core of isbntools_.
 
 This short version, is suitable to be include as a dependency in other projects.
 Has a straightforward setup and a very easy programmatic api.
@@ -57,7 +57,7 @@ Main Functions
 ``mask(isbn, separator='-')``
 	`Mask` (hyphenate) a canonical ISBN.
 
-``meta(isbn, service='default')``
+``meta(isbn, service='default', cache='default')``
     Gives you the main metadata associated with the ISBN. As `service` parameter you can use:
     ``'wcat'`` uses **worldcat.org**
     (**no key is needed**), ``'goob'`` uses the **Google Books service** (**no key is needed**),
@@ -68,7 +68,9 @@ Main Functions
     You can get an API key for the *isbndb.com service* here_.  You can enter API keys
     with ``config.add_apikey(service, apikey)``.
     The output can be formatted as ``bibtex``, ``msword``, ``endnote``, ``refworks``,
-    ``opf`` or ``json`` (BibJSON) bibliographic formats with ``dev.helpers.fmtbib``.
+    ``opf`` or ``json`` (BibJSON) bibliographic formats with ``isbnlib.registry.bibformatters``.
+    ``cache`` only allows two values: 'default' or None. You can change the kind of cache by using 
+    ``isbnlib.registry.set_cache`` (see below).
 
 ``editions(isbn)``
 	Return the list of ISBNs of editions related with this ISBN.
@@ -157,7 +159,13 @@ exposed in ``isbnlib.dev`` whose name end in Error.
 
 
 In ``isbnlib.dev.helpers`` you can find several methods, that we found very useful, some of then
-are only used in ``isbntools`` (*full version*).
+are only used in ``isbntools`` (*an app and framework that uses ``isbnlib``*).
+
+
+``isbnlib.registry`` ... setdefaultservice add_service and bibformatters setdefaultbibformatter add_bibformatter set_cache (switch off chache -> set_cache(None) this only works for calls through isbnlib.meta). (this changes are only for session)
+
+``isbnlib.config`` ... setsocketstimeout setthreadstimeout apikeys add_apikey options set_option
+
 
 
 
