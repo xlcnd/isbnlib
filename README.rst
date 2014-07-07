@@ -1,3 +1,30 @@
+.. image:: https://pypip.in/d/isbnlib/badge.png
+    :target: https://pypi.python.org/pypi/isbnlib/
+    :alt: Downloads
+
+.. image:: https://pypip.in/v/isbnlib/badge.png
+    :target: https://pypi.python.org/pypi/isbnlib/
+    :alt: Latest Version
+
+.. image:: https://pypip.in/format/isbnlib/badge.png
+    :target: https://pypi.python.org/pypi/isbnlib/
+    :alt: Download format
+
+.. image:: https://pypip.in/license/isbnlib/badge.png
+    :target: https://pypi.python.org/pypi/isbnlib/
+    :alt: License
+
+.. image:: https://coveralls.io/repos/xlcnd/isbnlib/badge.png?branch=v3.3.7
+    :target: https://coveralls.io/r/xlcnd/isbnlib?branch=v3.3.7
+    :alt: Coverage
+
+.. image:: https://travis-ci.org/xlcnd/isbnlib.png?branch=v3.3.7
+    :target: https://travis-ci.org/xlcnd/isbnlib
+    :alt: Built Status
+
+
+
+
 Info
 ====
 
