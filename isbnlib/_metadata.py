@@ -23,7 +23,7 @@ def query(isbn, service='default', cache='default'):
     try:
         if cache[key]:
             return cache[key]
-        else: 
+        else:
             raise
     except:
         meta = services[service](isbn)

@@ -2,7 +2,6 @@
 """Registry for metadata services, formatters and cache."""
 
 
-import sys
 from . import _wcat as wcat
 from . import _goob as goob
 from . import _merge as merge
@@ -36,12 +35,8 @@ def add_service(name, query):         # pragma: no cover
 
 
 # FORMATTERS
-# TODO: use partial...
-# from functools import partial 
-# partial(fmtbib, 'labels') <-> lambda x: fmtbib('labels', x)
 
-bibformatters = {
-                 'default': lambda x: fmtbib('labels', x),
+bibformatters = {'default': lambda x: fmtbib('labels', x),
                  'labels': lambda x: fmtbib('labels', x),
                  'bibtex': lambda x: fmtbib('bibtex', x),
                  'endnote': lambda x: fmtbib('endnote', x),
