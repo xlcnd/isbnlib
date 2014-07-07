@@ -21,7 +21,6 @@ install:
 - pip install flake8
 - pip install pep8-naming
 - pip install coveralls
-- pip install sphinx
 script:
 - "if [[ ! -z $TOXENV ]]; then tox -e $TOXENV; fi"
 after_success:
