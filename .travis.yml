@@ -11,6 +11,7 @@ env:
 - TOXENV=py33
 - TOXENV=py34
 - TOXENV=pypy
+- TOXENV=checkers
 matrix:
   allow_failures:
   - env: TOXENV=pypy
