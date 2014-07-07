@@ -1,16 +1,14 @@
 # -*- coding: utf-8 -*-
-"""Registry for metadata services."""
+"""Registry for metadata services, formatters and cache."""
 
 
-import imp
-import sys
 from . import _wcat as wcat
 from . import _goob as goob
 from . import _merge as merge
 from . import _openl as openl
 from . import _isbndb as isbndb
 from ._imcache import IMCache
-from ._exceptions import PluginNotLoadedError
+from .dev._fmt import fmtbib
 
 
 # SERVICES
@@ -36,6 +34,31 @@ def add_service(name, query):         # pragma: no cover
     services[name] = query
 
 
+# FORMATTERS
+
+bibformatters = {'default': lambda x: fmtbib('labels', x),
+                 'labels': lambda x: fmtbib('labels', x),
+                 'bibtex': lambda x: fmtbib('bibtex', x),
+                 'endnote': lambda x: fmtbib('endnote', x),
+                 'refworks': lambda x: fmtbib('refworks', x),
+                 'msword': lambda x: fmtbib('msword', x),
+                 'json': lambda x: fmtbib('json', x),
+                 'opf': lambda x: fmtbib('opf', x)
+                 }
+
+
+def setdefaultbibformatter(name):              # pragma: no cover
+    """Set the default formatter."""
+    global bibformatters
+    bibformatters['default'] = bibformatters[name]
+
+
+def add_bibformatter(name, formatter):         # pragma: no cover
+    """Add a new formatter to formatters."""
+    global bibformatters
+    bibformatters[name] = formatter
+
+
 # CACHE
 # if you want a persistant cache you could use
 # .dev.helpers ShelveCache(pathtofile)
@@ -47,23 +70,3 @@ def set_cache(cache):                 # pragma: no cover
     """Set cache for metadata."""
     global metadata_cache
     metadata_cache = cache
-
-
-# PLUGINS
-
-def load_plugin(name, plugin_dir):    # pragma: no cover
-    """Load pluggins."""
-    try:
-        return sys.modules[name]
-    except KeyError:
-        # not yet loaded so continue...
-        pass
-    try:
-        fp, pathname, description = imp.find_module(name, [plugin_dir])
-    except:
-        raise PluginNotLoadedError(pathname)
-    try:
-        return imp.load_module(name, fp, pathname, description)
-    finally:
-        if fp:
-            fp.close()

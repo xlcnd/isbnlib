@@ -10,7 +10,7 @@ from . import config
 def query(isbn, processor=None):
     """Query function for the `merge provider` (waterfall model)."""
     if not processor:
-        processor = config.options.get('VIAS_MERGE', processor)
+        processor = config.options.get('VIAS_MERGE', processor).lower()
         if not processor:     # pragma: no cover
             processor = 'serial'
 

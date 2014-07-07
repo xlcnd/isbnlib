@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
 
-""" Exceptions for isbntools.dev
+""" Exceptions for isbnlib.dev
 
-The classes in isbntools.dev should use the exceptions below.
+The classes in isbnlib.dev should use the exceptions below.
 """
 
 
-class ISBNToolsDevException(Exception):
-    """ Base class for isbntools.dev exceptions
+class ISBNLibDevException(Exception):
+    """ Base class for isbnlib.dev exceptions
 
     This exception should not be raised directly,
     only subclasses of this exception should be used!
@@ -21,61 +21,61 @@ class ISBNToolsDevException(Exception):
         return getattr(self, 'message', '')       # pragma: no cover
 
 
-class ISBNToolsHTTPError(ISBNToolsDevException):
+class ISBNLibHTTPError(ISBNLibDevException):
     """ Exception raised for HTTP related errors
     """
     message = "an HTTP error has ocurred"
 
 
-class ISBNToolsURLError(ISBNToolsDevException):
+class ISBNLibURLError(ISBNLibDevException):
     """ Exception raised for URL related errors
     """
     message = "an URL error has ocurred"
 
 
-class DataNotFoundAtServiceError(ISBNToolsDevException):
+class DataNotFoundAtServiceError(ISBNLibDevException):
     """ Exception raised when there is no target data from the service
     """
     message = "the target data was not found at this service"
 
 
-class ServiceIsDownError(ISBNToolsDevException):
+class ServiceIsDownError(ISBNLibDevException):
     """ Exception raised when the service is not available
     """
     message = "the service is down (try later)"
 
 
-class DataWrongShapeError(ISBNToolsDevException):
+class DataWrongShapeError(ISBNLibDevException):
     """ Exception raised when the data hasn't the expected format
     """
     message = "the data hasn't the expected format"
 
 
-class NoDataForSelectorError(ISBNToolsDevException):
+class NoDataForSelectorError(ISBNLibDevException):
     """ Exception raised when there is no data for the selector
     """
     message = "no data for this selector"
 
 
-class NotValidMetadataError(ISBNToolsDevException):
+class NotValidMetadataError(ISBNLibDevException):
     """ Exception raised when the metadata hasn't the expected format
     """
     message = "the metadata hasn't the expected format"
 
 
-class RecordMappingError(ISBNToolsDevException):
+class RecordMappingError(ISBNLibDevException):
     """ Exception raised when the mapping records -> canonical doesn't work
     """
     message = "the mapping `canonical <- records` doesn't work"
 
 
-class NoAPIKeyError(ISBNToolsDevException):
+class NoAPIKeyError(ISBNLibDevException):
     """ Exception raised when the API Key for a service is not found
     """
     message = "this service needs an API key"
 
 
-class FileNotFoundError(ISBNToolsDevException):
+class FileNotFoundError(ISBNLibDevException):
     """ Exception raised when a given file doesn't exist
     """
     message = "the file wasn't found"

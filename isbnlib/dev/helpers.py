@@ -9,3 +9,4 @@ from ._helpers import (normalize_space, last_first,
                        cutoff_tokens, parse_placeholders, in_virtual)
 from ._files import File, cwdfiles
 from ._shelvecache import ShelveCache
+from .._imcache import IMCache

@@ -1,9 +1,36 @@
+.. image:: https://pypip.in/d/isbnlib/badge.png
+    :target: https://pypi.python.org/pypi/isbnlib/
+    :alt: Downloads
+
+.. image:: https://pypip.in/v/isbnlib/badge.png
+    :target: https://pypi.python.org/pypi/isbnlib/
+    :alt: Latest Version
+
+.. image:: https://pypip.in/format/isbnlib/badge.png
+    :target: https://pypi.python.org/pypi/isbnlib/
+    :alt: Download format
+
+.. image:: https://pypip.in/license/isbnlib/badge.png
+    :target: https://pypi.python.org/pypi/isbnlib/
+    :alt: License
+
+.. image:: https://coveralls.io/repos/xlcnd/isbnlib/badge.png?branch=v3.3.7
+    :target: https://coveralls.io/r/xlcnd/isbnlib?branch=v3.3.7
+    :alt: Coverage
+
+.. image:: https://travis-ci.org/xlcnd/isbnlib.svg?branch=v3.3.7
+    :target: https://travis-ci.org/xlcnd/isbnlib
+    :alt: Built Status
+
+
+
+
 Info
 ====
 
-``isbnlib`` is a (pure) python library, based on isbntools_, that provides several
+``isbnlib`` is a (pure) python library that provides several
 useful methods and functions to validate, clean, transform, hyphenate and
-get metadata for ISBN strings.
+get metadata for ISBN strings. Its origin was as the core of isbntools_.
 
 This short version, is suitable to be include as a dependency in other projects.
 Has a straightforward setup and a very easy programmatic api.
@@ -57,7 +84,7 @@ Main Functions
 ``mask(isbn, separator='-')``
 	`Mask` (hyphenate) a canonical ISBN.
 
-``meta(isbn, service='default')``
+``meta(isbn, service='default', cache='default')``
     Gives you the main metadata associated with the ISBN. As `service` parameter you can use:
     ``'wcat'`` uses **worldcat.org**
     (**no key is needed**), ``'goob'`` uses the **Google Books service** (**no key is needed**),
@@ -68,7 +95,9 @@ Main Functions
     You can get an API key for the *isbndb.com service* here_.  You can enter API keys
     with ``config.add_apikey(service, apikey)``.
     The output can be formatted as ``bibtex``, ``msword``, ``endnote``, ``refworks``,
-    ``opf`` or ``json`` (BibJSON) bibliographic formats with ``dev.helpers.fmtbib``.
+    ``opf`` or ``json`` (BibJSON) bibliographic formats with ``isbnlib.registry.bibformatters``.
+    ``cache`` only allows two values: 'default' or None. You can change the kind of cache by using 
+    ``isbnlib.registry.set_cache`` (see below).
 
 ``editions(isbn)``
 	Return the list of ISBNs of editions related with this ISBN.
@@ -110,14 +139,16 @@ For Devs
 ========
 
 
-Main Namespaces
----------------
+API's Main Namespaces
+---------------------
 
 In the namespace ``isbnlib`` you have access to the core methods:
 ``is_isbn10``, ``is_isbn13``, ``to_isbn10``, ``to_isbn13``, ``canonical``,
 ``clean``, ``notisbn``, ``get_isbnlike``, ``get_canonical_isbn``, ``mask``,
 ``meta``, ``info``, ``editions``, ``ren``, ``doi``, ``EAN13``
-and ``isbn_from_words``.
+and ``isbn_from_words``. 
+
+The exceptions raised by these methods can all be catched using ``ISBNLibException``.
 
 
 You can extend the lib by using the classes and functions exposed in
@@ -137,8 +168,8 @@ namespace ``isbnlib.dev``, namely:
 
 * ``Metadata`` a class that structures, cleans and 'validates' records of
   metadata. His method ``merge`` allows to implement a simple merging
-  procedure for records from different sources. The main features can be
-  implemented by a call to ``stdmeta`` function!
+  procedure for records from different sources. The main features of this class, can be
+  implemented by a call to the ``stdmeta`` function instead!
 
 * ``vias`` exposes several functions to put calls to services, just by passing the name and
   a pointer to the service's ``query`` function.
@@ -149,6 +180,30 @@ namespace ``isbnlib.dev``, namely:
 * ``bouth23`` a small module to make it possible the code to run
   in **bouth** python 2 and python 3.
 
+The exceptions raised by these methods can all be catched using ``ISBNLibDevException``. 
+You **should't raise** this exception in your code, only raise the specific exceptions 
+exposed in ``isbnlib.dev`` whose name end in Error.
+
+
+In ``isbnlib.dev.helpers`` you can find several methods, that we found very useful, some of then
+are only used in ``isbntools`` (*an app and framework that uses ``isbnlib``*).
+
+
+With ``isbnlib.registry`` you can change the metadata service to be used by default (``setdefaultservice``), 
+add a new service (``add_service``), access bibliographic formatters for metadata (``bibformatters``),
+set the default formatter (``setdefaultbibformatter``), add new formatters (``add_bibformatter``) and 
+set a new cache (``set_cache``) (e.g. to switch off the chache ``set_cache(None)``).
+The cache only works for calls through ``isbnlib.meta``. These changes only work for the 'current session',
+so should be done always before calling other methods.
+
+
+Finally, from ``isbnlib.config`` with can read and set configuration options. 
+Change timeouts with ``setsocketstimeout`` and ``setthreadstimeout``, 
+access api keys with ``apikeys`` and add new one with ``add_apikey`` and
+access and set generic and user-defined options with ``options`` and ``set_option``.
+
+
+
 
 Merge Metadata
 --------------
@@ -157,26 +212,22 @@ The original quality of metadata, at the several services, is not very good!
 If you need high quality metadata in your app, the only solution is to use
 *polling & merge* of several providers **and** a **lot** of cleaning and standardization
 for fields like ``Authors`` and ``Publisher``.
+
 A *merge* provider is now the default in ``meta``.
 It gives priority to ``wcat`` but overwrites the ``Authors`` field with the value from ``goob``.
 Uses the ``merge`` method of ``Metadata`` and *serial* calls to services
-by default (faster for faster internet connections). You can change that by
-using ``vias``'s other methods.
-
-
-Helpers
--------
-
-In ``isbnlib.dev.helpers`` you can find several methods, that we found very useful, some of then
-are only used in ``isbntools`` (*full version*).
-
+by default (faster for one-call to services through fast internet connections). 
+You can change that by using ``vias``'s other methods 
+(e.g. ``isbnlib.config.set_option('VIAS_MERGE', 'multi')``.
 
 
 Caveats
 -------
 
 
-1. These classes are optimized for one-calls to services and not for batch calls.
+1. These classes are optimized for one-calls to services and not for batch calls. However,
+   is very easy to produce an high volume processing system using these classes 
+   (use ``vias.multi``) and Redis.
 
 2. If you inspect the library, you will see that there are a lot of private modules
    (their name starts with '_'). These modules **should not** be accessed directly since,
@@ -184,7 +235,7 @@ Caveats
 
 -------------------------------------------------------------
 
-For the full library see isbntools_
+Check isbntools_ and his documentation_.
 
 -------------------------------------------------------------
 
@@ -195,3 +246,5 @@ For the full library see isbntools_
 .. _here: http://isbndb.com/api/v2/docs
 
 .. _isbntools: https://pypi.python.org/pypi/isbntools
+
+.. _documentation: http://isbntools.readthedocs.org

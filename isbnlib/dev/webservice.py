@@ -11,9 +11,9 @@ try:                     # pragma: no cover
 except ImportError:      # pragma: no cover
     from urllib import urlencode
     from urllib2 import Request, urlopen, HTTPError, URLError
-from ._exceptions import ISBNToolsHTTPError, ISBNToolsURLError
+from ._exceptions import ISBNLibHTTPError, ISBNLibURLError
 
-UA = 'webservice (gzip)'
+UA = 'isbnlib (gzip)'
 LOGGER = logging.getLogger(__name__)
 
 
@@ -34,18 +34,20 @@ class WEBService(object):
     def _response(self):
         try:
             self.response = urlopen(self._request)
+            LOGGER.debug('Request headers:\n%s', self._request.header_items())
         except HTTPError as e:  # pragma: no cover
-            LOGGER.critical('ISBNToolsHTTPError for %s with code %s',
+            LOGGER.critical('ISBNLibHTTPError for %s with code %s',
                             self._url, e.code)
-            raise ISBNToolsHTTPError(e.code)
+            raise ISBNLibHTTPError(e.code)
         except URLError as e:   # pragma: no cover
-            LOGGER.critical('ISBNToolsURLError for %s with reason %s',
+            LOGGER.critical('ISBNLibURLError for %s with reason %s',
                             self._url, e.reason)
-            raise ISBNToolsURLError(e.reason)
+            raise ISBNLibURLError(e.reason)
 
     def data(self):
         """Return the uncompressed data."""
         self._response()
+        LOGGER.debug('Response headers:\n%s', self.response.info())
         if self.response.info().get('Content-Encoding') == 'gzip':
             buf = bstream(self.response.read())
             f = gzip.GzipFile(fileobj=buf)
@@ -58,4 +60,6 @@ class WEBService(object):
 def query(url, user_agent=UA, values=None):
     """Query to a web service."""
     service = WEBService(url, user_agent, values)
-    return service.data()
+    data = service.data()
+    LOGGER.debug('Raw data from service:\n%s', data)
+    return data

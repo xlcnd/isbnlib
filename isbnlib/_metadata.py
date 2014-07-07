@@ -1,21 +1,30 @@
 # -*- coding: utf-8 -*-
 """Query providers for metadata."""
 
-from .registry import services, metadata_cache
-from ._exceptions import NotRecognizedServiceError
+from .registry import services
+from ._core import EAN13
+from ._exceptions import NotRecognizedServiceError, NotValidISBNError
 
-CACHE = metadata_cache
 
-
-def query(isbn, service='default', cache=CACHE):
+def query(isbn, service='default', cache='default'):
     """Query worldcat.org, Google Books (JSON API), ... for metadata."""
-    if service != 'default' and service not in services:
+    from .registry import metadata_cache           # <-- dinamic now!
+    ean = EAN13(isbn)
+    if not ean:
+        raise NotValidISBNError(isbn)
+    isbn = ean
+    if cache == 'default':
+        cache = metadata_cache
+    if service != 'default' and service not in services:  # pragma: no cover
         raise NotRecognizedServiceError(service)
-    if cache is None:
+    if cache is None:  # pragma: no cover
         return services[service](isbn)
     key = isbn + service
     try:
-        return cache[key]
+        if cache[key]:
+            return cache[key]
+        else:          # pragma: no cover
+            raise
     except:
         meta = services[service](isbn)
         if meta:

@@ -6,15 +6,15 @@ __all__ = ('is_isbn10', 'is_isbn13', 'clean', 'mask', 'info', 'meta',
            'to_isbn10', 'to_isbn13', 'get_isbnlike', 'notisbn', 'EAN13',
            'canonical', 'get_canonical_isbn', 'editions', 'isbn_from_words',
            'quiet_errors', 'config', '__version__', '__support__',
-           'doi', 'ren', 'ISBN13', 'ISBNToolsException',
+           'doi', 'ren', 'ISBN13', 'ISBNToolsException', 'ISBNLibException',
            'NotRecognizedServiceError', 'NotValidISBNError',
            'PluginNotLoadedError')
 
-__version__ = '3.3.6'                               # <-- literal IDs
+__version__ = '3.3.7'                               # <-- literal IDs
 __support__ = 'py26, py27, py33, py34, pypy'        # <-- literal IDs
 
 import logging as _logging
-from ._exceptions import (quiet_errors, ISBNToolsException,
+from ._exceptions import (quiet_errors, ISBNLibException,
                           NotRecognizedServiceError,
                           NotValidISBNError,
                           PluginNotLoadedError)
@@ -40,3 +40,4 @@ from ._ext import (mask, meta, info, editions, isbn_from_words, doi, ren)
 
 # alias
 ISBN13 = EAN13
+ISBNToolsException = ISBNLibException

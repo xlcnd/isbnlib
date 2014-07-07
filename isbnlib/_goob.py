@@ -9,7 +9,7 @@ from .dev._exceptions import (DataWrongShapeError,
                               NoDataForSelectorError,
                               RecordMappingError)
 
-UA = 'isbntools (gzip)'
+UA = 'isbnlib (gzip)'
 SERVICE_URL = 'https://www.googleapis.com/books/v1/volumes?q=isbn+{isbn}'\
     '&fields=items/volumeInfo(title,authors,publisher,publishedDate,language)'\
     '&maxResults=1'

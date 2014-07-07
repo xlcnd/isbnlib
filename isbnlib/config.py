@@ -24,6 +24,7 @@ def setsocketstimeout(seconds):
 setsocketstimeout(SOCKETS_TIMEOUT)
 
 
+# THREADS_TIMEOUT is a parameter used downstream by Thread calls (see vias.py)
 def setthreadstimeout(seconds):   # pragma: no cover
     """Set the value of THREADS_TIMEOUT (in seconds)."""
     global THREADS_TIMEOUT
@@ -43,7 +44,7 @@ def add_apikey(service, apikey):  # pragma: no cover
 
 
 # Generic Options
-options = {}
+options = {'VIAS_MERGE': 'serial'}
 
 
 def set_option(option, value):    # pragma: no cover

@@ -8,7 +8,7 @@ from .dev.bouth23 import u
 from .dev._exceptions import (NoDataForSelectorError, RecordMappingError)
 
 
-UA = 'isbntools (gzip)'
+UA = 'isbnlib (gzip)'
 SERVICE_URL = 'http://openlibrary.org/api/books?bibkeys='\
     'ISBN:{isbn}&format=json&jscmd=data'
 LOGGER = logging.getLogger(__name__)

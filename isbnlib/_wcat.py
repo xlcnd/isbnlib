@@ -10,7 +10,7 @@ from .dev._exceptions import (DataWrongShapeError,
                               RecordMappingError)
 
 
-UA = 'isbntools (gzip)'
+UA = 'isbnlib (gzip)'
 SERVICE_URL = 'http://xisbn.worldcat.org/webservices/xid/isbn/{isbn}?'\
     'method=getMetadata&format=json&fl=*'
 LOGGER = logging.getLogger(__name__)
@@ -23,7 +23,8 @@ def _mapper(isbn, records):
         canonical = {}
         canonical['ISBN-13'] = u(isbn)
         canonical['Title'] = records.get('title', u('')).replace(' :', ':')
-        canonical['Authors'] = [records.get('author', u(''))]
+        buf = records.get('author', u(''))
+        canonical['Authors'] = [x.strip('. ') for x in buf.split(';')]
         canonical['Publisher'] = records.get('publisher', u(''))
         canonical['Year'] = records.get('year', u(''))
         canonical['Language'] = records.get('lang', u(''))
@@ -38,12 +39,12 @@ def _records(isbn, data):
     try:
         # put the selected data in records
         recs = data['list'][0]
-    except:
+    except:  # pragma: no cover
         try:
             extra = data['stat']
             LOGGER.debug('DataWrongShapeError for %s with data %s',
                          isbn, extra)
-        except:  # pragma: no cover
+        except:
             raise DataWrongShapeError(isbn)
         raise NoDataForSelectorError(isbn)
 

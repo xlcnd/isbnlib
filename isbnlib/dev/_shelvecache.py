@@ -18,20 +18,20 @@ class ShelveCache(object):
 
     """Read and write shelve cache."""
 
-    def __init__(self, cache):
+    def __init__(self, filepath):
         """Initialize attributes."""
         self._sh = shelve
-        self._cache = cache
+        self.filepath = filepath
         try:
-            s = self._sh.open(self._cache)
+            s = self._sh.open(self.filepath)
         except:
-            s = self._sh.open(self._cache, 'n')
+            s = self._sh.open(self.filepath, 'n')
         s.close()
 
     def __getitem__(self, key):
         """Read cache."""
         try:
-            s = self._sh.open(self._cache)
+            s = self._sh.open(self.filepath)
             return s[key]['value'] if s[key] else None
         except KeyError:
             return None
@@ -44,7 +44,7 @@ class ShelveCache(object):
     def __setitem__(self, key, value):
         """Write to cache."""
         try:
-            s = self._sh.open(self._cache)
+            s = self._sh.open(self.filepath)
             s[key] = {'value': value, 'timestamp': timestamp()}
             status = True
         except:
@@ -56,7 +56,7 @@ class ShelveCache(object):
     def __delitem__(self, key):
         """Delete record with key."""
         try:
-            s = self._sh.open(self._cache)
+            s = self._sh.open(self.filepath)
             del s[key]
         except KeyError:
             return
@@ -73,7 +73,7 @@ class ShelveCache(object):
     def keys(self):
         """Return list of keys in Cache."""
         try:
-            s = self._sh.open(self._cache)
+            s = self._sh.open(self.filepath)
             return list(s.keys())
         finally:
             s.close()
@@ -81,7 +81,7 @@ class ShelveCache(object):
     def ts(self, key):
         """Return the timestamp of the record with key."""
         try:
-            s = self._sh.open(self._cache)
+            s = self._sh.open(self.filepath)
             ts = s[key]['timestamp'] if s[key] else None
             if not ts:
                 return
@@ -97,5 +97,5 @@ class ShelveCache(object):
 
     def new(self):
         """Make new cache."""
-        s = self._sh.open(self._cache, 'n')
+        s = self._sh.open(self.filepath, 'n')
         s.close()

@@ -16,10 +16,10 @@ def mask(isbn, separator='-'):
     return msk(isbn, separator)
 
 
-def meta(isbn, service='default'):
+def meta(isbn, service='default', cache='default'):
     """Get metadata from worldcat.org ('wcat'), Google Books ('goob') , ..."""
     service = service if service else 'default'
-    return query(isbn, service)
+    return query(isbn, service, cache) if isbn else None
 
 
 def info(isbn):

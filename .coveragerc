@@ -16,6 +16,7 @@ omit =
     *__init__*
     *files.py
     *cache*
+    *exceptions*
 
 
 # Regexes for lines to exclude from consideration
