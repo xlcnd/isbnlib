@@ -27,7 +27,7 @@ class WEBService(object):
         # headers to accept gzipped content
         headers = {'Accept-Encoding': 'gzip', 'User-Agent': user_agent}
         # add more user provided headers
-        if appheaders is not None:  # pragma: no cover
+        if appheaders:  # pragma: no cover
             headers.update(appheaders)
         # if 'data' it does a PUT request (data must be urlencoded)
         data = urlencode(values) if values else None
@@ -60,9 +60,9 @@ class WEBService(object):
         return s(data)
 
 
-def query(url, user_agent=UA, values=None):
+def query(url, user_agent=UA, values=None, appheaders=None):
     """Query to a web service."""
-    service = WEBService(url, user_agent, values)
+    service = WEBService(url, user_agent, values, appheaders)
     data = service.data()
     LOGGER.debug('Raw data from service:\n%s', data)
     return data
