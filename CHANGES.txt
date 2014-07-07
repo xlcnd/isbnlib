@@ -3,4 +3,4 @@ v3.3.4, 2014-06-16 -- Fix small bug with wheel package (based in `isbntools 3.3.
 v3.3.5, 2014-06-22 -- Fix bug in 'notisbn' (based in `isbntools 3.3.4)`.
 v3.3.6, 2014-06-30 -- Small improvements and optional ShelveCache.
 v3.3.7, 2014-07-07 -- Fix issue #2, better debug logging and expose top exceptions. 
-v3.3.8, 2014-07-15 -- TENTATIVE 
+v3.3.8, 2014-07-15 -- Fix wrong logging identifier. 
