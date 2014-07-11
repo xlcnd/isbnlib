@@ -38,7 +38,7 @@ class WEBQuery(object):
 
     def parse_data(self, parser=json.loads):
         """Parse the data (default JSON -> PY)."""
-        if parser is None:
+        if parser is None:  # pragma: no cover
             return self.data
         return parser(self.data)   # <-- data is now unicode
 
