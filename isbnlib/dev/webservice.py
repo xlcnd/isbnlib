@@ -66,7 +66,8 @@ class WEBService(object):
 
 def query(url, user_agent=UA, values=None, appheaders=None):
     """Query to a web service."""
-    service = WEBService(url, user_agent, values, appheaders)
+    service = WEBService(url, user_agent=user_agent, values=values, 
+                         appheaders=appheaders)
     data = service.data()
     LOGGER.debug('Raw data from service:\n%s', data)
     return data
