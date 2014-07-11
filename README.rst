@@ -14,6 +14,10 @@
     :target: https://pypi.python.org/pypi/isbnlib/
     :alt: License
 
+.. image:: https://sourcegraph.com/api/repos/github.com/xlcnd/isbnlib/.badges/status.png
+    :target: https://sourcegraph.com/github.com/xlcnd/isbnlib
+    :alt: Graph
+
 .. image:: https://coveralls.io/repos/xlcnd/isbnlib/badge.png?branch=v3.3.9
     :target: https://coveralls.io/r/xlcnd/isbnlib?branch=v3.3.9
     :alt: Coverage
@@ -21,7 +25,6 @@
 .. image:: https://travis-ci.org/xlcnd/isbnlib.svg?branch=v3.3.9
     :target: https://travis-ci.org/xlcnd/isbnlib
     :alt: Built Status
-
 
 
 
@@ -235,7 +238,7 @@ Caveats
 
 -------------------------------------------------------------
 
-Check isbntools_ and his documentation_.
+Read ``isbnlib`` code in a very sctructured way at sourcegraph_.
 
 -------------------------------------------------------------
 
@@ -247,4 +250,4 @@ Check isbntools_ and his documentation_.
 
 .. _isbntools: https://pypi.python.org/pypi/isbntools
 
-.. _documentation: http://isbntools.readthedocs.org
+.. _sourcegraph: https://sourcegraph.com/github.com/xlcnd/isbnlib
