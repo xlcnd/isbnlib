@@ -39,9 +39,13 @@ class WEBService(object):
             self.response = urlopen(self._request)
             LOGGER.debug('Request headers:\n%s', self._request.header_items())
         except HTTPError as e:  # pragma: no cover
-            LOGGER.critical('ISBNLibHTTPError for %s with code %s',
-                            self._url, e.code)
-            raise ISBNLibHTTPError(e.code)
+            LOGGER.critical('ISBNLibHTTPError for %s with code %s [%s]',
+                            self._url, e.code, e.msg)
+            if e.code in ('401', '403', '429'):
+                raise ISBNLibHTTPError('Are you are making many requests?')
+            if e.code in ('502', '504'):
+                raise ISBNLibHTTPError('Service temporarily unavailable!')
+            raise ISBNLibHTTPError('(%s) %s' % (e.code, e.msg))
         except URLError as e:   # pragma: no cover
             LOGGER.critical('ISBNLibURLError for %s with reason %s',
                             self._url, e.reason)
