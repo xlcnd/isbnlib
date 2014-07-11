@@ -35,6 +35,7 @@ class WEBService(object):
         self.response = None
 
     def _response(self):
+        """Check errors on response."""
         try:
             self.response = urlopen(self._request)
             LOGGER.debug('Request headers:\n%s', self._request.header_items())
@@ -66,7 +67,7 @@ class WEBService(object):
 
 def query(url, user_agent=UA, values=None, appheaders=None):
     """Query to a web service."""
-    service = WEBService(url, user_agent=user_agent, values=values, 
+    service = WEBService(url, user_agent=user_agent, values=values,
                          appheaders=appheaders)
     data = service.data()
     LOGGER.debug('Raw data from service:\n%s', data)
