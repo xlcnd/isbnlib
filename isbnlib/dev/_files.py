@@ -35,7 +35,7 @@ class File(object):
     @staticmethod
     def exists(fp):
         """Check if a given filepath exists."""
-        return True if os.path.isfile(fp) else False
+        return True if os.path.exists(fp) else False
 
     @staticmethod
     def mkwinsafe(name, space=' '):
