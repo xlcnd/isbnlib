@@ -48,9 +48,8 @@ for fellow developers. Make your code as clear as possible.
 
 **Don't submit pull requests that are only comments to the code that is
 already in the repo!**
-Don't expect kindness if you do that :)
-
-You **can** comment and give suggestions on the code at the
+Don't expect kindness if you do that :) You **can** comment and give
+suggestions on the code at the
 [issues](https://github.com/xlcnd/isbnlib/issues) page.
 
 **No** doc tests! Remember point 6 above.
