@@ -21,7 +21,7 @@ class File(object):
 
     def __init__(self, fp):
         """Set and validate the basic properties."""
-        if not self.exists(fp):
+        if not self.isfile(fp):
             raise FileNotFoundError(fp)
         self.path = os.path.dirname(fp) or os.getcwd()
         self.basename = os.path.basename(fp)
@@ -33,9 +33,14 @@ class File(object):
         return [f for f in os.listdir(self.path) if f != self.basename]
 
     @staticmethod
-    def exists(fp):
-        """Check if a given filepath exists."""
-        return True if os.path.exists(fp) else False
+    def isfile(path):
+        """Check if a given path is a file."""
+        return os.path.isfile(path)
+
+    @staticmethod
+    def exists(path):
+        """Check if a given path is a file or a directory."""
+        return os.path.exists(path)
 
     @staticmethod
     def mkwinsafe(name, space=' '):
@@ -81,7 +86,7 @@ class File(object):
             self.ext = ext
             return True
         else:
-            LOGGER.info("The file (%s) already exists in the directory!",
+            LOGGER.info("The file (%s) already exist in the directory!",
                         new_basename)
             return True
 

@@ -24,9 +24,13 @@ def teardown_module():
     os.remove(os.path.join(os.path.dirname(TESTFILE), NEW_BASENAME))
 
 
+def test_isfile():
+    f = File(TESTFILE)
+    assert f.isfile(TESTFILE) == True
+
 def test_exists():
     f = File(TESTFILE)
-
+    assert f.exists(TESTFILE) == True
 
 def test_validate():
     f = File(TESTFILE)
