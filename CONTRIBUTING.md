@@ -35,10 +35,12 @@ configuration files adapted to the project.
 
 ## Style
 
-Your code **must** be PEP8 compliant and be concise as possible (check it with
+Your code **must** be [PEP8](http://legacy.python.org/dev/peps/pep-0008/) compliant
+and be concise as possible (check it with
 `flake8` and `pylint`).
 
-Use doc strings for the users and comments (**few**) as signposts
+Use doc strings [PEP257](http://legacy.python.org/dev/peps/pep-0257/)
+for the users and comments (**few**) as signposts
 for fellow developers. Make your code as clear as possible.
 
 
@@ -46,8 +48,9 @@ for fellow developers. Make your code as clear as possible.
 
 **Don't submit pull requests that are only comments to the code that is
 already in the repo!**
-Don't expect kindness if you do that:)
-You **can** comment and give suggestions on the code at
+Don't expect kindness if you do that :)
+
+You **can** comment and give suggestions on the code at the
 [issues](https://github.com/xlcnd/isbnlib/issues) page.
 
 **No** doc tests! Remember point 6 above.
