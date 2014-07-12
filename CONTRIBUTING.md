@@ -39,7 +39,7 @@ Your code **must** be [PEP8](http://legacy.python.org/dev/peps/pep-0008/) compli
 and be concise as possible (check it with
 `flake8` and `pylint`).
 
-Use doc strings [PEP257](http://legacy.python.org/dev/peps/pep-0257/)
+Use doc strings ([PEP257](http://legacy.python.org/dev/peps/pep-0257/))
 for users and comments (**few**) as signposts
 for fellow developers. Make your code as clear as possible.
 
@@ -62,14 +62,14 @@ suggestions on the code at the
 
 Read the code in a structured way at [sourcegraph](https://sourcegraph.com/github.com/xlcnd/isbnlib).
 
-Goto [issues/enhancement](https://github.com/xlcnd/isbnlib/issues?labels=enhancement&page=1&state=open) 
+Goto [issues/enhancement](https://github.com/xlcnd/isbnlib/issues?labels=enhancement&page=1&state=open)
 for possible enhancements to the code.
 If you have some idea that is not there enter your own.
 Select some focused issue and enter some comments on how you plan to tackle it.
 
-Take a look at the project [isbntools](https://github.com/xlcnd/isbntools) 
+Take a look at the project [isbntools](https://github.com/xlcnd/isbntools)
 and see if your code can be written as a *pluggin* (a new metadata provider) or as
-a *user script* [they are easier!]. For contributions to the core, you cannot use external 
+a *user script* [they are easier!]. For contributions to the core, you cannot use external
 libraries (except standard lib), and must be pure python. There is a package prefix
 `isbntools.contrib` where these requirements are not applied
 (download a [template package](https://github.com/xlcnd/isbntools/raw/dev/PLUGIN.zip)).
@@ -110,5 +110,3 @@ see them as a learning opportunity. Thanks!
 |                contributing | https://www.youtube.com/watch?v=IXnNgLmd6BM                             |
 |                             | http://openhatch.org/missions                                           |
 |                             | http://opensource.com/resources/how-get-started-open-source             |
-
-
