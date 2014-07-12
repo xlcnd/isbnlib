@@ -40,7 +40,7 @@ and be concise as possible (check it with
 `flake8` and `pylint`).
 
 Use doc strings [PEP257](http://legacy.python.org/dev/peps/pep-0257/)
-for the users and comments (**few**) as signposts
+for users and comments (**few**) as signposts
 for fellow developers. Make your code as clear as possible.
 
 
