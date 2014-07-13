@@ -18,11 +18,11 @@
     :target: https://sourcegraph.com/github.com/xlcnd/isbnlib
     :alt: Graph
 
-.. image:: https://coveralls.io/repos/xlcnd/isbnlib/badge.png?branch=v3.3.9
-    :target: https://coveralls.io/r/xlcnd/isbnlib?branch=v3.3.9
+.. image:: https://coveralls.io/repos/xlcnd/isbnlib/badge.png?branch=v3.4.1
+    :target: https://coveralls.io/r/xlcnd/isbnlib?branch=v3.4.1
     :alt: Coverage
 
-.. image:: https://travis-ci.org/xlcnd/isbnlib.svg?branch=v3.3.9
+.. image:: https://travis-ci.org/xlcnd/isbnlib.svg?branch=v3.4.1
     :target: https://travis-ci.org/xlcnd/isbnlib
     :alt: Built Status
 
