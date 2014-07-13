@@ -111,6 +111,8 @@ def is_isbn13(isbn13):
     if len(isbn13) != 13:
         return False          # pragma: no cover
     else:
+        if isbn13[0:3] not in ('978', '979'):
+            return False
         return False if _check_digit13(isbn13[:-1]) != isbn13[-1] else True
 
 

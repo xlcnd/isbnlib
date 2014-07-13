@@ -46,6 +46,9 @@ def test_is_isbn13():
     assert_equals(is_isbn13('9780826497529'), True)
     assert_equals(is_isbn13('9791090636071'), True)
     assert_equals(is_isbn13('9780826497520'), False)
+    assert_equals(is_isbn13('9700000000000'), False)
+    assert_equals(is_isbn13('9000000000000'), False)
+    assert_equals(is_isbn13('9710000000000'), False)
 
 
 def test_to_isbn10():
@@ -124,3 +127,6 @@ def test_EAN13():
     assert_equals(EAN13('ISBN9780826497529'), '9780826497529')
     assert_equals(EAN13('isbn9780826497529'), '9780826497529')
     assert_equals(EAN13('isbn 0826497527'), '9780826497529')
+    assert_equals(EAN13('9700000000000'), None)
+    assert_equals(EAN13('9000000000000'), None)
+    assert_equals(EAN13('9710000000000'), None)
