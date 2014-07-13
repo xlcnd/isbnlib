@@ -3,7 +3,7 @@
 
 import logging
 from ._data.data4mask import ranges
-from ._core import canonical, to_isbn13
+from ._core import canonical, to_isbn13, EAN13
 
 LOGGER = logging.getLogger(__name__)
 
@@ -19,6 +19,10 @@ def msk(isbn, separator='-'):
     O(n) for n - number of keys, if data structure like ranges in data4mask.py
     """
     ib = canonical(isbn)
+    ean = EAN13(ib)
+    if len(ib) not in (10, 13) or ean is None:
+        LOGGER.warning('%s is not a valid ISBN', isbn)
+        return
 
     isbn10 = False
     if len(ib) == 10:
