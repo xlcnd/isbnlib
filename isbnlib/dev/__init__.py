@@ -8,7 +8,7 @@ __all__ = ('ISBNToolsDevException',
            'NoDataForSelectorError',
            'RecordMappingError', 'NoAPIKeyError',
            'Metadata', 'stdmeta',
-           'WEBService', 'WEBQuery', 'vias'
+           'WEBService', 'WEBQuery', 'vias', 'bouth23', 'helpers'
            )
 
 
@@ -22,6 +22,8 @@ from ._exceptions import (ISBNLibDevException,
                           RecordMappingError, NoAPIKeyError)
 from ._data import Metadata, stdmeta
 from . import vias
+from . import bouth23
+from . import helpers
 
 # alias
 ISBNToolsDevException = ISBNLibDevException
