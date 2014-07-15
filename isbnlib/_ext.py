@@ -31,6 +31,8 @@ def editions(isbn):
     """Return the list of ISBNs of editions related with this ISBN."""
     return qed(isbn)
 
+def goom(words):
+
 
 def isbn_from_words(words):
     """Return the most probable ISBN from a list of words."""

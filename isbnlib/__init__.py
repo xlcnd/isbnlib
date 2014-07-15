@@ -8,7 +8,7 @@ __all__ = ('is_isbn10', 'is_isbn13', 'clean', 'mask', 'info', 'meta',
            'quiet_errors', 'config', '__version__', '__support__',
            'doi', 'ren', 'ISBN13', 'ISBNToolsException', 'ISBNLibException',
            'NotRecognizedServiceError', 'NotValidISBNError',
-           'PluginNotLoadedError')
+           'PluginNotLoadedError', 'goom')
 
 __version__ = '3.4.1'                               # <-- literal IDs
 __support__ = 'py26, py27, py33, py34, pypy'        # <-- literal IDs
@@ -37,7 +37,9 @@ from ._core import (is_isbn10, is_isbn13, to_isbn10, to_isbn13, clean,
                     canonical, notisbn, get_isbnlike, get_canonical_isbn,
                     EAN13)
 from ._ext import (mask, meta, info, editions, isbn_from_words, doi, ren)
+from ._goom import query as goomq
 
 # alias
 ISBN13 = EAN13
 ISBNToolsException = ISBNLibException
+goom = goomq
