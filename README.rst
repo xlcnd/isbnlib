@@ -148,7 +148,7 @@ API's Main Namespaces
 In the namespace ``isbnlib`` you have access to the core methods:
 ``is_isbn10``, ``is_isbn13``, ``to_isbn10``, ``to_isbn13``, ``canonical``,
 ``clean``, ``notisbn``, ``get_isbnlike``, ``get_canonical_isbn``, ``mask``,
-``meta``, ``info``, ``editions``, ``ren``, ``doi``, ``EAN13``
+``meta``, ``info``, ``editions``, ``goom``, ``ren``, ``doi``, ``EAN13``
 and ``isbn_from_words``. 
 
 The exceptions raised by these methods can all be catched using ``ISBNLibException``.
