@@ -31,8 +31,6 @@ def editions(isbn):
     """Return the list of ISBNs of editions related with this ISBN."""
     return qed(isbn)
 
-def goom(words):
-
 
 def isbn_from_words(words):
     """Return the most probable ISBN from a list of words."""
@@ -46,7 +44,7 @@ def doi(isbn):
 
 
 def ren(fp):
-    """Renames a file using metadata from an ISBN in his filename."""
+    """Rename a file using metadata from an ISBN in his filename."""
     cfp = File(fp)
     isbn = EAN13(cfp.name)
     if not isbn:                               # pragma: no cover
