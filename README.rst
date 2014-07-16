@@ -114,6 +114,9 @@ Main Functions
 ``doi(isbn)``
 	Return a DOI's ISBN-A from a ISBN-13.
 
+``doi2tex(DOI)``
+	Return metadata formated as BibTeX for a given DOI.
+
 ``ren(filename)``
 	Rename a file using metadata from an ISBN in his filename.
 
