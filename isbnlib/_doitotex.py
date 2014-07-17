@@ -3,7 +3,6 @@
 """Return metadata, of a given DOI, formated as BibTeX."""
 
 import logging
-from . import quiet_errors
 from .dev.webservice import query
 
 LOGGER = logging.getLogger(__name__)
@@ -23,5 +22,3 @@ def doi2tex(doi):
         LOGGER.warning('no data return for doi: %s', doi)
         return
     return data
-        
-
