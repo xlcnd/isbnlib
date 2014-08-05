@@ -203,8 +203,8 @@ The cache only works for calls through ``isbnlib.meta``. These changes only work
 so should be done always before calling other methods.
 
 
-Finally, from ``isbnlib.config`` with can read and set configuration options. 
-Change timeouts with ``setsocketstimeout`` and ``setthreadstimeout``, 
+Finally, from ``isbnlib.config`` you can read and set configuration options: 
+change timeouts with ``setsocketstimeout`` and ``setthreadstimeout``, 
 access api keys with ``apikeys`` and add new one with ``add_apikey`` and
 access and set generic and user-defined options with ``options`` and ``set_option``.
 
