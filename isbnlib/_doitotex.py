@@ -18,7 +18,7 @@ def doi2tex(doi):
                  user_agent=UA,
                  appheaders={'Accept': 'application/x-bibtex; charset=utf-8'}
                  )
-    if not data:
+    if not data:  # pragma: no cover
         LOGGER.warning('no data return for doi: %s', doi)
         return
     return data
