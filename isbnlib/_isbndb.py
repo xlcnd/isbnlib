@@ -12,7 +12,7 @@ from .dev._exceptions import (DataWrongShapeError,
                               RecordMappingError, NoAPIKeyError)
 
 
-UA = 'isbntools (gzip)'
+UA = 'isbnlib (gzip)'
 SERVICE_URL = 'http://isbndb.com/api/v2/json/{apikey}/book/{isbn}'
 PATT_YEAR = re.compile(r'\d{4}')
 LOGGER = logging.getLogger(__name__)
