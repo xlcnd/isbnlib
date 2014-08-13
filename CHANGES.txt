@@ -6,4 +6,4 @@ v3.3.7, 2014-07-07 -- Fix issue #2, better debug logging and expose top exceptio
 v3.3.8, 2014-07-07 -- Fix wrong logging identifier. 
 v3.3.9, 2014-07-13 -- Mark as not valid ISBN-13 in series not allocated yet.
 v3.4.1, 2014-07-16 -- Fix bug #7 and small improvements on the API.
-v3.4.2, 2014-08-06 -- TENTATIVE 
+v3.4.2, 2014-08-13 -- Add `doi2tex` and updated data.  
