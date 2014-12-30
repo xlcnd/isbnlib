@@ -17,7 +17,7 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 
-"""isbntools main file.
+"""isbnlib main file.
 
 Tools for extracting, cleaning, transforming and validating ISBN ids.
 """
