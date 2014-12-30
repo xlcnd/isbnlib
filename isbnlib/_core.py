@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# isbntools - tools for extracting, cleaning and transforming ISBNs
+# isbnlib - tools for extracting, cleaning and transforming ISBNs
 # Copyright (C) 2014  Alexandre Lima Conde
 
 # This program is free software: you can redistribute it and/or modify
@@ -41,7 +41,7 @@ RE_STRICT = re.compile(r'^(?:ISBN(?:-1[03])?:? )?(?=[0-9X]{10}$|'
 RE_NORMAL = re.compile(r'97[89]{1}(?:-?\d){10}|\d{9}[0-9X]{1}|'
                        r'[-0-9X]{10,16}',
                        re.I | re.M | re.S)
-RE_LOOSE = re.compile(r'[- 0-9X]{10,16}', re.I | re.M | re.S)
+RE_LOOSE = re.compile(r'[- 0-9X]{10,19}', re.I | re.M | re.S)
 ISBN13_PREFIX = '978'
 LEGAL = '0123456789xXisbnISBN- '
 
@@ -136,7 +136,9 @@ def to_isbn13(isbn10):
 
 def canonical(isbnlike):
     """Keep only numbers and X."""
-    numb = [c for c in isbnlike if c in '0123456789X']
+    numb = [c for c in isbnlike if c in '0123456789Xx']
+    if numb and numb[-1] == 'x':
+        numb[-1] = 'X'
     return ''.join(numb)
 
 
