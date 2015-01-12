@@ -12,7 +12,7 @@ from .dev._exceptions import (DataWrongShapeError,
 
 UA = 'isbnlib (gzip)'
 SERVICE_URL = 'http://xisbn.worldcat.org/webservices/xid/isbn/{isbn}?'\
-    'method=getMetadata&format=json&fl=*'
+    'method=getMetadata&format=json&fl=title,author,year,publisher,lang'
 LOGGER = logging.getLogger(__name__)
 
 
