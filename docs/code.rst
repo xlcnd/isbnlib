@@ -14,32 +14,32 @@ Search/Browse the code at sourcegraph_ or github_
 Status
 ------
 
-.. image:: https://pypip.in/d/isbntools/badge.png
-    :target: https://pypi.python.org/pypi/isbntools/
+.. image:: https://pypip.in/d/isbnlib/badge.png
+    :target: https://pypi.python.org/pypi/isbnlib/
     :alt: Downloads
 
-.. image:: https://pypip.in/v/isbntools/badge.png
-    :target: https://pypi.python.org/pypi/isbntools/
+.. image:: https://pypip.in/v/isbnlib/badge.png
+    :target: https://pypi.python.org/pypi/isbnlib/
     :alt: Latest Version
 
-.. image:: https://pypip.in/format/isbntools/badge.png
-    :target: https://pypi.python.org/pypi/isbntools/
+.. image:: https://pypip.in/format/isbnlib/badge.png
+    :target: https://pypi.python.org/pypi/isbnlib/
     :alt: Download format
 
-.. image:: https://pypip.in/license/isbntools/badge.png
-    :target: https://pypi.python.org/pypi/isbntools/
+.. image:: https://pypip.in/license/isbnlib/badge.png
+    :target: https://pypi.python.org/pypi/isbnlib/
     :alt: License
 
-.. image:: https://coveralls.io/repos/xlcnd/isbntools/badge.png?branch=master
-    :target: https://coveralls.io/r/xlcnd/isbntools?branch=master
+.. image:: https://coveralls.io/repos/xlcnd/isbnlib/badge.png?branch=master
+    :target: https://coveralls.io/r/xlcnd/isbnlib?branch=master
     :alt: Coverage
 
-.. image:: https://sourcegraph.com/api/repos/github.com/xlcnd/isbntools/badges/status.png
-    :target: https://sourcegraph.com/github.com/xlcnd/isbntools
+.. image:: https://sourcegraph.com/api/repos/github.com/xlcnd/isbnlib/badges/status.png
+    :target: https://sourcegraph.com/github.com/xlcnd/isbnlib
     :alt: Graph
 
-.. image:: https://travis-ci.org/xlcnd/isbntools.png?branch=master
-    :target: https://travis-ci.org/xlcnd/isbntools
+.. image:: https://travis-ci.org/xlcnd/isbnlib.png?branch=master
+    :target: https://travis-ci.org/xlcnd/isbnlib
     :alt: Built Status
 
 
@@ -49,9 +49,8 @@ Status
 How to Contribute
 -----------------
 
-``isbntools`` has a very small code base, so it is a good project to begin your
-adventure in open-source... and it is an app, a lib and a framework at the same
-time, so you will find plenty of opportunities to contribute.
+``isbnlib`` has a very small code base, so it is a good project to begin your
+adventure in open-source... 
 
 
 Main Steps
@@ -82,10 +81,10 @@ see them as a learning opportunity. Thanks!
      For full instructions read the CONTRIBUTING_ doc.
 
 
-.. _sourcegraph: http://bit.ly/1k14kHi
-.. _github: http://bit.ly/1oTm5ze
+.. _sourcegraph: https://sourcegraph.com/github.com/xlcnd/isbnlib
+.. _github: https://github.com/xlcnd/isbnlib
 .. _account: https://github.com/signup/free
-.. _issues: https://github.com/xlcnd/isbntools/issues
-.. _Coveralls: http://bit.ly/1mWwjuE
-.. _CONTRIBUTING: http://bit.ly/1jcxq8W
+.. _issues: https://github.com/xlcnd/isbnlib/issues
+.. _Coveralls: https://coveralls.io/r/xlcnd/isbnlib
+.. _CONTRIBUTING: https://github.com/xlcnd/isbnlib/blob/master/CONTRIBUTING.md
 
