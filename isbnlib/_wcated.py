@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""Query the worldcat.org service for related ISBNs."""
+"""Query the worldcat.org xID service for related ISBNs."""
 
 import logging
 from ast import literal_eval

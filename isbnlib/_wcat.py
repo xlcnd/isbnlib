@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""Query the worldcat.org service for metadata."""
+"""Query the worldcat.org xID service for metadata."""
 
 import logging
 from .dev.webquery import query as wquery
