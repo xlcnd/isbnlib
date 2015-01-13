@@ -43,7 +43,7 @@ namespace ``isbnlib.dev``, namely:
   **bouth** python 2 and python 3.
 
 
-The exceptions raised by these methods can all be catched using ``isbnlibDevException``.
+The exceptions raised by these methods can all be catched using ``ISBNLibDevException``.
 
 
 In ``isbnlib.dev.lab`` you can find several methods, that we found very useful,
