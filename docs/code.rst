@@ -64,7 +64,7 @@ Main Steps
 4. ``pip install -r requirements-dev.txt``
 5. Do your code... (**remember the code must run on python 2.6, 2.7, 3.3, 3.4, pypy
    and be OS independent**) (you will find ``travis-ci.org`` very handy for this!)
-6. Write tests for your code using ``nose`` and put then in the directory ``isbnools/test``
+6. Write tests for your code using ``nose`` and put then in the directory ``isbnlib/test``
 7. Pass **all tests** and with **coverage > 90%**.
    Check the coverage in Coveralls_.
 8. **Check if all requirements are fulfilled**!
