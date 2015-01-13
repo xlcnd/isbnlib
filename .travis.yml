@@ -1,8 +1,8 @@
 sudo: false
-os:
-    - linux
-    - osx
 language: python
+os:
+- linux
+- osx
 branches:
     except:
     - gh-pages
