@@ -25,3 +25,5 @@ Any issue that you would like to report, please do it at github_.
 
 
 .. _github: https://github.com/xlcnd/isbnlib/issues?labels=info&page=1&state=open
+
+.. _range: https://www.isbn-international.org/range_file_generation
