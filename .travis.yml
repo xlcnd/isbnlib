@@ -13,6 +13,7 @@ env:
 - TOXENV=py34
 - TOXENV=pypy
 - TOXENV=checkers
+- DOC=sphinx
 matrix:
   allow_failures:
   - env: TOXENV=pypy
@@ -22,7 +23,9 @@ install:
 - pip install flake8
 - pip install pep8-naming
 - pip install coveralls
+- pip install sphinx
 script:
 - "if [[ ! -z $TOXENV ]]; then tox -e $TOXENV; fi"
+- "if [[ $DOC == 'sphinx' ]]; then cd docs; sphinx-build -n -b html -d _build/.doctrees . _build/html; fi"
 after_success:
 - "if [[ $TOXENV == 'py27' ]]; then coveralls; fi"
