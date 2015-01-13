@@ -246,7 +246,7 @@ Read ``isbnlib`` code in a very sctructured way at sourcegraph_ or 'the docs' at
 
 ----------------------------------------------------------------------------------------------
 
-.. _github: https://github.com/xlcnd/isbn/issues?labels=info&page=1&state=open
+.. _github: https://github.com/xlcnd/isbn/issues
 
 .. _range: https://www.isbn-international.org/range_file_generation
 
@@ -254,6 +254,6 @@ Read ``isbnlib`` code in a very sctructured way at sourcegraph_ or 'the docs' at
 
 .. _isbntools: https://pypi.python.org/pypi/isbntools
 
-.. _sourcegraph: https://sourcegraph.com/github.com/xlcnd/isbnlib
+.. _sourcegraph: http://bit.ly/ISBNLib_srcgraph
 
-.. _readthedocs: http://isbnlib.readthedocs.org/en/latest/
+.. _readthedocs: http://bit.ly/ISBNLib_rtd
