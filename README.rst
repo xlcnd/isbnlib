@@ -239,11 +239,12 @@ Caveats
    (their name starts with '_'). These modules **should not** be accessed directly since,
    with high probability, your program will break with a further version of the library!
 
--------------------------------------------------------------
 
-Read ``isbnlib`` code in a very sctructured way at sourcegraph_.
+----------------------------------------------------------------------------------------------
 
--------------------------------------------------------------
+Read ``isbnlib`` code in a very sctructured way at sourcegraph_ or 'the docs' at readthedocs_.
+
+----------------------------------------------------------------------------------------------
 
 .. _github: https://github.com/xlcnd/isbn/issues?labels=info&page=1&state=open
 
@@ -254,3 +255,5 @@ Read ``isbnlib`` code in a very sctructured way at sourcegraph_.
 .. _isbntools: https://pypi.python.org/pypi/isbntools
 
 .. _sourcegraph: https://sourcegraph.com/github.com/xlcnd/isbnlib
+
+.. _readthedocs: http://isbnlib.readthedocs.org/en/latest/
