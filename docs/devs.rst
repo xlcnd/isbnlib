@@ -46,7 +46,7 @@ namespace ``isbnlib.dev``, namely:
 The exceptions raised by these methods can all be catched using ``ISBNLibDevException``.
 
 
-In ``isbnlib.dev.lab`` you can find several methods, that we found very useful,
+In ``isbnlib.dev.helpers`` you can find several methods, that we found very useful,
 but you should consider them as beta software. They can change a lot in
 the future.
 
