@@ -64,7 +64,7 @@ opf = r"""<?xml version='1.0' encoding='utf-8'?>
     $AUTHORS
     <dc:publisher>$Publisher</dc:publisher>
     <dc:date>$Year</dc:date>
-    <dc:contributor opf:file-as="isbntools" opf:role="mdc">isbntools [http://github.com/xlcnd/isbntools]</dc:contributor>
+    <dc:contributor opf:file-as="isbnlib" opf:role="mdc">isbnlib [http://github.com/xlcnd/isbnlib]</dc:contributor>
   </metadata>
 </package>"""
 
