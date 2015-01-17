@@ -26,4 +26,4 @@ def test_fmtbib():
     assert_equals(len(fmtbib("msword", canonical)), 485)
     assert_equals(len(fmtbib("json", canonical)), 213)
     assert_equals(len(fmtbib("refworks", canonical)), 130)
-    assert_equals(len(fmtbib("opf", canonical)), 867)
+    assert_equals(len(fmtbib("opf", canonical)), 861)
