@@ -2,8 +2,25 @@
 
 """Private helper functions."""
 
+import os
 import re
 import sys
+
+from .bouth23 import b2u3
+
+WINDOWS = os.name == 'nt'
+
+
+def sprint(content):    # pragma: no cover
+    """Smart print function so that redirection works... (see issue 75)"""
+    if WINDOWS:
+        # print detects the appropriate code
+        # (Windows terminal doesn't use UTF-8)
+        print(content)
+    else:
+        # stdout gets UTF-8
+        s = content + '\n'
+        sys.stdout.write(b2u3(s))
 
 
 def in_virtual():       # pragma: no cover
