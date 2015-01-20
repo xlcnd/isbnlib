@@ -2,10 +2,11 @@
 
 """Private helper functions."""
 
-import hashlib
 import os
 import re
 import sys
+
+from hashlib import md5
 
 from .bouth23 import b2u3, b
 
@@ -13,7 +14,7 @@ WINDOWS = os.name == 'nt'
 
 
 def sprint(content):    # pragma: no cover
-    """Smart print function so that redirection works... (see issue 75)"""
+    """Smart print function so that redirection works (see issue 75)."""
     if WINDOWS:
         # print detects the appropriate code
         # (Windows terminal doesn't use UTF-8)
@@ -31,8 +32,8 @@ def fake_isbn(title, sid=1):
     title = regex1.sub(' ', title)
     regex2 = re.compile(r'\s\s+', re.I | re.M | re.S)
     title = regex2.sub(' ', title).strip().lower()
-    #hash
-    return int(hashlib.md5(b(title)).hexdigest()[:10], 16) + sid * 1000000000000
+    # hash
+    return int(md5(b(title)).hexdigest()[:10], 16) + sid * 1000000000000
 
 
 def in_virtual():       # pragma: no cover
