@@ -5,7 +5,7 @@
 nose tests
 """
 
-from ..dev._helpers import last_first, cutoff_tokens, parse_placeholders
+from ..dev._helpers import last_first, cutoff_tokens, parse_placeholders, fake_isbn
 from nose.tools import assert_equals
 
 
@@ -21,4 +21,9 @@ def test_cutoff_tokens():
 
 def test_parse_placeholders():
     assert_equals(parse_placeholders('{isbn}_akaj_{name}'), ['{isbn}', '{name}'])
+
+
+def test_fake_isbn():
+    assert_equals(fake_isbn(' Hello?? Wer,  ! ksDf:  asdf. ; '), 1181593982422)
+    assert_equals(fake_isbn(' Hello?? Wer,  ! ksDf:  asdf. ; ', sid=2), 2181593982422)
     

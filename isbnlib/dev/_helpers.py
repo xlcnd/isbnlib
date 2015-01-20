@@ -2,6 +2,7 @@
 
 """Private helper functions."""
 
+import hashlib
 import os
 import re
 import sys
@@ -21,6 +22,17 @@ def sprint(content):    # pragma: no cover
         # stdout gets UTF-8
         s = content + '\n'
         sys.stdout.write(b2u3(s))
+
+
+def fake_isbn(title, sid=1):
+    """Produce a fake 'ISBN' from the title of the book."""
+    # normalize
+    regex1 = re.compile(r'\?|,|\.|!|\:|;', re.I | re.M | re.S)
+    title = regex1.sub(' ', title)
+    regex2 = re.compile(r'\s\s+', re.I | re.M | re.S)
+    title = regex2.sub(' ', title).strip().lower()
+    #hash
+    return int(hashlib.md5(title).hexdigest()[:10], 16) + sid * 1000000000000
 
 
 def in_virtual():       # pragma: no cover
