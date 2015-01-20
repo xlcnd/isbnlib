@@ -7,7 +7,7 @@ import os
 import re
 import sys
 
-from .bouth23 import b2u3
+from .bouth23 import b2u3, b
 
 WINDOWS = os.name == 'nt'
 
@@ -32,7 +32,7 @@ def fake_isbn(title, sid=1):
     regex2 = re.compile(r'\s\s+', re.I | re.M | re.S)
     title = regex2.sub(' ', title).strip().lower()
     #hash
-    return int(hashlib.md5(title).hexdigest()[:10], 16) + sid * 1000000000000
+    return int(hashlib.md5(b(title)).hexdigest()[:10], 16) + sid * 1000000000000
 
 
 def in_virtual():       # pragma: no cover
