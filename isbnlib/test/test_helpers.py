@@ -24,6 +24,7 @@ def test_parse_placeholders():
 
 
 def test_fake_isbn():
-    assert_equals(fake_isbn(' Hello?? Wer,  ! ksDf:  asdf. ; '), 1181593982422)
-    assert_equals(fake_isbn(' Hello?? Wer,  ! ksDf:  asdf. ; ', sid=2), 2181593982422)
-    
+    assert_equals(fake_isbn(' Hello?? Wer,  ! ksDf:  asdf. ; '), '2087382306365')
+    assert_equals(fake_isbn(' Hello?? Wer,  ! ksDf:  asdf. ; ', author=''), '1784360471164')
+    assert_equals(fake_isbn(' Hello?? Wer,  ! ksDf:  asdf. ; ', author=' '), '2034997941823')
+    assert_equals(fake_isbn(' Hello?? Wer,  ! ksDf:  asdf. ; ', author='', publisher=''), '1776871545080')

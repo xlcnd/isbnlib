@@ -8,7 +8,7 @@ import sys
 
 from hashlib import md5
 
-from .bouth23 import b2u3, b
+from .bouth23 import b2u3, b, u
 
 WINDOWS = os.name == 'nt'
 
@@ -25,19 +25,20 @@ def sprint(content):    # pragma: no cover
         sys.stdout.write(b2u3(s))
 
 
-def fake_isbn(title, sid=1):
-    """Produce a fake 'ISBN' from the title of the book."""
+def fake_isbn(title, author='unkown', publisher='unkown', sid=1):
+    """Produce a fake ISBN from the (title, author, publisher) of the book."""
+    key = "%s %s %s" % (title, author, publisher)
     # normalize
     regex1 = re.compile(r'\?|,|\.|!|\:|;', re.I | re.M | re.S)
-    title = regex1.sub(' ', title)
+    title = regex1.sub(' ', key)
     regex2 = re.compile(r'\s\s+', re.I | re.M | re.S)
-    title = regex2.sub(' ', title).strip().lower()
+    title = regex2.sub(' ', key).strip().lower()
     # hash
-    return int(md5(b(title)).hexdigest()[:10], 16) + sid * 1000000000000
+    return str(int(md5(b(key)).hexdigest()[:10], 16) + sid * 1000000000000)
 
 
 def in_virtual():       # pragma: no cover
-    """Detect if the program is running inside a python virtual environment."""
+    """Detect if program is running inside a python virtual environment."""
     return True if hasattr(sys, 'real_prefix') else False
 
 
