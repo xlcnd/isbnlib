@@ -30,11 +30,11 @@ def fake_isbn(title, author='unkown', publisher='unkown', sid=1):
     key = "%s %s %s" % (title, author, publisher)
     # normalize
     regex1 = re.compile(r'\?|,|\.|!|\:|;', re.I | re.M | re.S)
-    title = regex1.sub(' ', key)
     regex2 = re.compile(r'\s\s+', re.I | re.M | re.S)
-    title = regex2.sub(' ', key).strip().lower()
+    key = regex1.sub(' ', key)
+    key = regex2.sub(' ', key).strip().lower()
     # hash
-    return str(int(md5(b(key)).hexdigest()[:10], 16) + sid * 1000000000000)
+    return str(int(md5(b(key)).hexdigest()[:10], 16) + sid * 1000000000000)[:13]
 
 
 def in_virtual():       # pragma: no cover
