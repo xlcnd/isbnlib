@@ -77,7 +77,7 @@ You can write your own *merging scheme* by creating a new provider (see_ ``merge
 A full featured app!
 --------------------
 
-If you want a full featured app, that uses ``isbnlib``, with end users apps, configuration files and a
+If you want a full featured app, that uses ``isbnlib``, with end user apps, configuration files and a
 framework to further developement, take a look at isbntools_.
 
 ---------------------------------------------------------------------------------
