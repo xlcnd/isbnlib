@@ -152,6 +152,10 @@ A *simple merge* provider is now the default in ``isbnlib.meta``.
 It gives priority to ``wcat`` but overwrites the ``Authors`` field with the value from ``goob``.
 Uses the ``merge`` method of ``Metadata`` and *serial* calls to services
 by default (faster for fast Internet connections).
+ 
+You can change that by using ``vias``'s other methods 
+(e.g. ``isbnlib.config.set_option('VIAS_MERGE', 'multi')``.
+
 You can write your own *merging scheme* by creating a new provider (see_ ``merge`` for an example).
 
     **Take Note**: These classes are optimized for one-calls to services and not for batch calls.
