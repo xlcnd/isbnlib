@@ -10,7 +10,7 @@ In the namespace ``isbnlib`` you have access to the core methods:
 ``is_isbn10``, ``is_isbn13``, ``to_isbn10``, ``to_isbn13``, ``canonical``,
 ``clean``, ``notisbn``, ``get_isbnlike``, ``get_canonical_isbn``, ``mask``,
 ``meta``, ``info``, ``editions``, and ``isbn_from_words``.
-The exceptions raised by these methods can all be catched using ``isbnlibException``.
+The exceptions raised by these methods can all be catched using ``ISBNLibException``.
 
 You can extend the lib by using the classes and functions exposed in
 namespace ``isbnlib.dev``, namely:
@@ -77,7 +77,7 @@ You can write your own *merging scheme* by creating a new provider (see_ ``merge
 A full featured app!
 --------------------
 
-If you want a full featured app, that uses ``isbnlib``, with end users apps, configuration files and a 
+If you want a full featured app, that uses ``isbnlib``, with end users apps, configuration files and a
 framework to further developement, take a look at isbntools_.
 
 ---------------------------------------------------------------------------------
