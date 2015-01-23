@@ -34,8 +34,7 @@ def fake_isbn(title, author='unkown', publisher='unkown', sid=1):
     key = regex1.sub(' ', key)
     key = regex2.sub(' ', key).strip().lower()
     # hash
-    return str(int(md5(b(key)).hexdigest()[:10], 16)
-               + sid * 1000000000000)[:13]
+    return (str(sid) + str(int(md5(b(key)).hexdigest()[:10], 16)))[:13]
 
 
 def in_virtual():       # pragma: no cover
