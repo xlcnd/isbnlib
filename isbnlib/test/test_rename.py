@@ -13,9 +13,10 @@ from ..dev.bouth23 import u
 nose tests
 """
 
+WINDOWS = os.name == 'nt'
 
-TESTFILE = '/tmp/海明威-deleteme.pdf'
-NEW_BASENAME = '海明威-deleteme-PLEASE.pdf'
+TESTFILE_1 = './海明威-deleteme.pdf' if WINDOWS else '/tmp/海明威-deleteme.pdf'
+TESTFILE_2 = './海明威-deleteme-PLEASE.pdf' if WINDOWS else '/tmp/海明威-deleteme-PLEASE.pdf'
 
 F1 = '9780321534965.pdf'
 F2 = '9781597499644.pdf'
@@ -37,7 +38,7 @@ FILES = FISBN + FFT + [F11]
 
 
 def create_files(files):
-    os.chdir(os.path.dirname(TESTFILE))
+    os.chdir(os.path.dirname(TESTFILE_1))
     for fn in files:
         f = open(fn, 'w')
         f.write('ooo' + fn)
@@ -45,14 +46,14 @@ def create_files(files):
 
 
 def delete_files(fnpatt):
-    os.chdir(os.path.dirname(TESTFILE))
+    os.chdir(os.path.dirname(TESTFILE_1))
     for fn in cwdfiles(fnpatt):
         os.remove(fn)
 
 
 def setup_module():
-    create_files([TESTFILE, '/tmp/海明威-deleteme-PLEASE.pdf'])
-    os.chdir(os.path.dirname(TESTFILE))
+    create_files([TESTFILE_1, TESTFILE_2])
+    os.chdir(os.path.dirname(TESTFILE_1))
     create_files(FISBN+[F11])
 
 
