@@ -249,8 +249,8 @@ Help
 ____
 
 
-If you need help, please take a look at github_ or pose a question on
-stackoverflow_ (with tag ``isbnlib``)
+If you need help, please take a look at github_ or post a question on
+stackoverflow_ (with tag **isbnlib**)
 
 
 ----------------------------------------------------------------------------------------------
