@@ -1,0 +1,60 @@
+version: '{build}'
+build: off
+environment:
+  global:
+    WITH_COMPILER: "cmd /E:ON /V:ON /C .\\ci\\appveyor-with-compiler.cmd"
+  matrix:
+    - TOXENV: checkers
+      PYTHON_HOME: "C:\\Python27"
+      PYTHON_VERSION: "2.7"
+      PYTHON_ARCH: "32"
+    - TOXENV: "py27"
+      TOXPYTHON: "C:\\Python27\\python.exe"
+      WINDOWS_SDK_VERSION: "v7.0"
+      PYTHON_HOME: "C:\\Python27"
+      PYTHON_VERSION: "2.7"
+      PYTHON_ARCH: "32"
+    - TOXENV: "py27"
+      TOXPYTHON: "C:\\Python27-x64\\python.exe"
+      WINDOWS_SDK_VERSION: "v7.0"
+      PYTHON_HOME: "C:\\Python27-x64"
+      PYTHON_VERSION: "2.7"
+      PYTHON_ARCH: "64"
+    - TOXENV: "py33"
+      TOXPYTHON: "C:\\Python33\\python.exe"
+      WINDOWS_SDK_VERSION: "v7.1"
+      PYTHON_HOME: "C:\\Python33"
+      PYTHON_VERSION: "3.3"
+      PYTHON_ARCH: "32"
+    - TOXENV: "py33"
+      TOXPYTHON: "C:\\Python33-x64\\python.exe"
+      WINDOWS_SDK_VERSION: "v7.1"
+      PYTHON_HOME: "C:\\Python33-x64"
+      PYTHON_VERSION: "3.3"
+      PYTHON_ARCH: "64"
+    - TOXENV: "py34"
+      TOXPYTHON: "C:\\Python34\\python.exe"
+      WINDOWS_SDK_VERSION: "v7.1"
+      PYTHON_HOME: "C:\\Python34"
+      PYTHON_VERSION: "3.4"
+      PYTHON_ARCH: "32"
+    - TOXENV: "py34"
+      TOXPYTHON: "C:\\Python34-x64\\python.exe"
+      WINDOWS_SDK_VERSION: "v7.1"
+      PYTHON_HOME: "C:\\Python34-x64"
+      PYTHON_VERSION: "3.4"
+      PYTHON_ARCH: "64"
+init:
+  - "ECHO %TOXENV%"
+  - ps: "ls C:\\Python*"
+install:
+  - "powershell ci\\appveyor-bootstrap.ps1"
+  - ps: (new-object net.webclient).DownloadFile('https://raw.github.com/pypa/pip/master/contrib/get-pip.py', 'C:/get-pip.py')
+  - "%PYTHON%/python.exe C:/get-pip.py"
+  - "%PYTHON%/Scripts/pip.exe install -e ."
+test_script:
+  - "%PYTHON_HOME%\\Scripts\\tox --version"
+  - "%PYTHON_HOME%\\Scripts\\virtualenv --version"
+  - "%PYTHON_HOME%\\Scripts\\pip --version"
+  - "%WITH_COMPILER% %PYTHON_HOME%\\Scripts\\tox"
+
