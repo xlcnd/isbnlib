@@ -103,7 +103,7 @@ Main Functions
     with ``config.add_apikey(service, apikey)``.
     The output can be formatted as ``bibtex``, ``msword``, ``endnote``, ``refworks``,
     ``opf`` or ``json`` (BibJSON) bibliographic formats with ``isbnlib.registry.bibformatters``.
-    ``cache`` only allows two values: 'default' or None. You can change the kind of cache by using 
+    ``cache`` only allows two values: 'default' or None. You can change the kind of cache by using
     ``isbnlib.registry.set_cache`` (see below).
 
 ``editions(isbn)``
@@ -156,7 +156,7 @@ In the namespace ``isbnlib`` you have access to the core methods:
 ``is_isbn10``, ``is_isbn13``, ``to_isbn10``, ``to_isbn13``, ``canonical``,
 ``clean``, ``notisbn``, ``get_isbnlike``, ``get_canonical_isbn``, ``mask``,
 ``meta``, ``info``, ``editions``, ``goom``, ``ren``, ``doi``, ``EAN13``
-and ``isbn_from_words``. 
+and ``isbn_from_words``.
 
 The exceptions raised by these methods can all be catched using ``ISBNLibException``.
 
@@ -190,8 +190,8 @@ namespace ``isbnlib.dev``, namely:
 * ``bouth23`` a small module to make it possible the code to run
   in **bouth** python 2 and python 3.
 
-The exceptions raised by these methods can all be catched using ``ISBNLibDevException``. 
-You **should't raise** this exception in your code, only raise the specific exceptions 
+The exceptions raised by these methods can all be catched using ``ISBNLibDevException``.
+You **should't raise** this exception in your code, only raise the specific exceptions
 exposed in ``isbnlib.dev`` whose name end in Error.
 
 
@@ -199,16 +199,16 @@ In ``isbnlib.dev.helpers`` you can find several methods, that we found very usef
 are only used in ``isbntools`` (*an app and framework that uses ``isbnlib``*).
 
 
-With ``isbnlib.registry`` you can change the metadata service to be used by default (``setdefaultservice``), 
+With ``isbnlib.registry`` you can change the metadata service to be used by default (``setdefaultservice``),
 add a new service (``add_service``), access bibliographic formatters for metadata (``bibformatters``),
-set the default formatter (``setdefaultbibformatter``), add new formatters (``add_bibformatter``) and 
+set the default formatter (``setdefaultbibformatter``), add new formatters (``add_bibformatter``) and
 set a new cache (``set_cache``) (e.g. to switch off the chache ``set_cache(None)``).
 The cache only works for calls through ``isbnlib.meta``. These changes only work for the 'current session',
 so should be done always before calling other methods.
 
 
-Finally, from ``isbnlib.config`` you can read and set configuration options: 
-change timeouts with ``setsocketstimeout`` and ``setthreadstimeout``, 
+Finally, from ``isbnlib.config`` you can read and set configuration options:
+change timeouts with ``setsocketstimeout`` and ``setthreadstimeout``,
 access api keys with ``apikeys`` and add new one with ``add_apikey`` and
 access and set generic and user-defined options with ``options`` and ``set_option``.
 
@@ -226,8 +226,8 @@ for fields like ``Authors`` and ``Publisher``.
 A *merge* provider is now the default in ``meta``.
 It gives priority to ``wcat`` but overwrites the ``Authors`` field with the value from ``goob``.
 Uses the ``merge`` method of ``Metadata`` and *serial* calls to services
-by default (faster for one-call to services through fast internet connections). 
-You can change that by using ``vias``'s other methods 
+by default (faster for one-call to services through fast internet connections).
+You can change that by using ``vias``'s other methods
 (e.g. ``isbnlib.config.set_option('VIAS_MERGE', 'multi')``.
 
 
@@ -236,12 +236,21 @@ Caveats
 
 
 1. These classes are optimized for one-calls to services and not for batch calls. However,
-   is very easy to produce an high volume processing system using these classes 
+   is very easy to produce an high volume processing system using these classes
    (use ``vias.multi``) and Redis.
 
 2. If you inspect the library, you will see that there are a lot of private modules
    (their name starts with '_'). These modules **should not** be accessed directly since,
    with high probability, your program will break with a further version of the library!
+
+
+
+Help
+____
+
+
+If you need help, please take a look at github_ or pose a question on
+stackoverflow_ (with tag ``isbnlib``)
 
 
 ----------------------------------------------------------------------------------------------
@@ -250,7 +259,8 @@ Read ``isbnlib`` code in a very sctructured way at sourcegraph_ or 'the docs' at
 
 ----------------------------------------------------------------------------------------------
 
-.. _github: https://github.com/xlcnd/isbn/issues
+
+.. _github: https://github.com/xlcnd/isbnlib/issues
 
 .. _range: https://www.isbn-international.org/range_file_generation
 
@@ -261,3 +271,5 @@ Read ``isbnlib`` code in a very sctructured way at sourcegraph_ or 'the docs' at
 .. _sourcegraph: http://bit.ly/ISBNLib_srcgraph
 
 .. _readthedocs: http://bit.ly/ISBNLib_rtd
+
+.. _stackoverflow: http://stackoverflow.com/questions/tagged/isbnlib
