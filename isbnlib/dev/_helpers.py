@@ -14,13 +14,22 @@ WINDOWS = os.name == 'nt'
 
 
 def sprint(content):    # pragma: no cover
-    """Smart print function so that redirection works (see issue 75)."""
+    """Smart print function so that redirection works (see issue 75).
+
+    The print function doesn't work well with redirection
+    is best to work with bytes (unicode encoded as UTF-8).
+    """
     if WINDOWS:
-        # print detects the appropriate code
-        # (Windows terminal doesn't use UTF-8)
-        print(content)
+        if sys.version < '3':
+            s = content + '\n'
+            buf = s.encode("utf-8")
+            sys.stdout.write(buf)
+        else:
+            s = content + '\r\n'
+            buf = s.encode("utf-8")
+            sys.stdout.buffer.write(buf)
     else:
-        # stdout gets UTF-8
+        # py3 for linux, knows what to do...
         s = content + '\n'
         sys.stdout.write(b2u3(s))
 
