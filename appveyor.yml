@@ -39,7 +39,6 @@ init:
   - "ECHO %TOXENV%"
   - "ECHO %TOXPYTHON% %PYTHON_VERSION% %PYTHON_ARCH%"
 install:
-  - "powershell .appveyor\\install.ps1"
   - ps: (new-object net.webclient).DownloadFile('https://raw.github.com/pypa/pip/master/contrib/get-pip.py', 'C:/get-pip.py')
   - "%PYTHON%/python.exe C:/get-pip.py"
   - "%PYTHON%/Scripts/pip.exe install -r requirements-test.txt"
