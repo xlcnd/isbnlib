@@ -7,7 +7,7 @@ import os
 from nose.tools import assert_equals, assert_raises
 from .._ext import ren
 from ..dev.helpers import File, cwdfiles
-from ..dev.bouth23 import u
+from ..dev.bouth23 import b2u3, u
 
 """
 nose tests
@@ -15,8 +15,8 @@ nose tests
 
 WINDOWS = os.name == 'nt'
 
-TESTFILE_1 = './海明威-deleteme.pdf' if WINDOWS else '/tmp/海明威-deleteme.pdf'
-TESTFILE_2 = './海明威-deleteme-PLEASE.pdf' if WINDOWS else '/tmp/海明威-deleteme-PLEASE.pdf'
+TESTFILE_1 = './ç-deleteme.pdf' if WINDOWS else '/tmp/ç-deleteme.pdf'
+TESTFILE_2 = './ç-deleteme-PLEASE.pdf' if WINDOWS else '/tmp/ç-deleteme-PLEASE.pdf'
 
 F1 = '9780321534965.pdf'
 F2 = '9781597499644.pdf'
@@ -41,7 +41,7 @@ def create_files(files):
     os.chdir(os.path.dirname(TESTFILE_1))
     for fn in files:
         f = open(fn, 'w')
-        f.write('ooo' + fn)
+        f.write(b2u3('ooo') + b2u3(fn))
         f.close()
 
 
@@ -52,7 +52,7 @@ def delete_files(fnpatt):
 
 
 def setup_module():
-    create_files([TESTFILE_1, TESTFILE_2])
+    create_files([u(TESTFILE_1), u(TESTFILE_2]))
     os.chdir(os.path.dirname(TESTFILE_1))
     create_files(FISBN+[F11])
 
