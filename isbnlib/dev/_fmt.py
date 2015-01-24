@@ -48,11 +48,11 @@ msword = r'''<b:Source xmlns:b="http://schemas.microsoft.com/office/'''\
 </b:Source>'''
 
 json = r'''{"type": "book",
-"title": "$Title",
-"author": [$AUTHORS],
-"year": "$Year",
+     "title": "$Title",
+    "author": [$AUTHORS],
+      "year": "$Year",
 "identifier": [{"type": "ISBN", "id": "$ISBN"}],
-"publisher": "$Publisher"}'''
+ "publisher": "$Publisher"}'''
 
 opf = r"""<?xml version='1.0' encoding='utf-8'?>
 <package version="2.0" xmlns="http://www.idpf.org/2007/opf" unique-identifier="uuid_id">
