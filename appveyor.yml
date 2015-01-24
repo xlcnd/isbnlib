@@ -1,5 +1,4 @@
 version: '3.4.4.{build}'
-build: off
 environment:
   matrix:
     - TOXENV: checkers
@@ -46,3 +45,4 @@ install:
   - "%PYTHON%/Scripts/pip.exe install -r requirements-test.txt"
 test_script:
   - "%PYTHON_HOME%\\Scripts\\tox"
+build: off
