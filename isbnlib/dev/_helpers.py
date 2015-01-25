@@ -11,6 +11,8 @@ from hashlib import md5
 from .bouth23 import b2u3, b
 
 WINDOWS = os.name == 'nt'
+PY2 = sys.version < '3'
+EOL = '\r\n' if WINDOWS and not PY2 else '\n'
 
 
 def sprint(content):    # pragma: no cover
@@ -19,19 +21,12 @@ def sprint(content):    # pragma: no cover
     The print function doesn't work well with redirection
     is best to work with bytes (unicode encoded as UTF-8).
     """
-    if WINDOWS:
-        if sys.version < '3':
-            s = content + '\n'
-            buf = s.encode("utf-8")
-            sys.stdout.write(buf)
-        else:
-            s = content + '\r\n'
-            buf = s.encode("utf-8")
-            sys.stdout.buffer.write(buf)
+    s = content + EOL
+    buf = s.encode("utf-8")
+    if PY2:
+        sys.stdout.write(buf)
     else:
-        # py3 for linux, knows what to do...
-        s = content + '\n'
-        sys.stdout.write(b2u3(s))
+        sys.stdout.buffer.write(buf)
 
 
 def fake_isbn(title, author='unkown', publisher='unkown', sid=1):
