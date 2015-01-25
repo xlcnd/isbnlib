@@ -67,8 +67,4 @@ def test_ren():
     create_files([F5])
     ren(F5)
     assert_equals('Campos2011_Emergências obstétricas_9789727576807.pdf' in cwdfiles("*.pdf"), True)
-    ren(F2)
-    assert_equals("O'Connor2012_Violent Python A Cookbook For Hackers Forensic Analysts Penetration Testers_9781597499644.pdf" in cwdfiles("*.pdf"), True)
-    ren(F6)
-    assert_equals("Campos2011_Emergências obstétricas_9789727576807.pdf" in cwdfiles("*.pdf"), True)
 
