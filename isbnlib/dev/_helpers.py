@@ -8,7 +8,7 @@ import sys
 
 from hashlib import md5
 
-from .bouth23 import b2u3, b
+from .bouth23 import b
 
 WINDOWS = os.name == 'nt'
 PY2 = sys.version < '3'

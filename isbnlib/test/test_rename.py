@@ -52,7 +52,7 @@ def delete_files(fnpatt):
 
 
 def setup_module():
-    create_files([u(TESTFILE_1), u(TESTFILE_2]))
+    create_files([u(TESTFILE_1), u(TESTFILE_2)])
     os.chdir(os.path.dirname(TESTFILE_1))
     create_files(FISBN+[F11])
 
@@ -69,6 +69,6 @@ def test_ren():
     assert_equals('Campos2011_Emergências obstétricas_9789727576807.pdf' in cwdfiles("*.pdf"), True)
     ren(F2)
     assert_equals("O'Connor2012_Violent Python A Cookbook For Hackers Forensic Analysts Penetration Testers_9781597499644.pdf" in cwdfiles("*.pdf"), True)
-    ren(F4)
-    assert_equals("海明威2007_Lao ren yu hai_9787500117018.pdf" in cwdfiles("*.pdf"), True)
+    ren(F6)
+    assert_equals("Campos2011_Emergências obstétricas_9789727576807.pdf" in cwdfiles("*.pdf"), True)
 
