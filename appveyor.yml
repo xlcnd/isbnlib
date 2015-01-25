@@ -1,5 +1,11 @@
 version: '3.4.4.{build}'
 environment:
+  global:
+    # SDK v7.0 MSVC Express 2008's SetEnv.cmd script will fail if the
+    # /E:ON and /V:ON options are not enabled in the batch script intepreter
+    # See: http://stackoverflow.com/a/13751649/163740
+    CMD_IN_ENV: "cmd /E:ON /V:ON /C .\\appveyor\\run_with_env.cmd"
+
   matrix:
     - TOXENV: checkers
       PYTHON_HOME: "C:\\Python27"
@@ -56,11 +62,11 @@ build: false  # Not a C# project, build stuff at the test step instead.
 test_script:
   - "%PYTHON_HOME%\\Scripts\\tox"
 
-# after_test:
-#   # If tests are successful, create a whl package for the project.
-#   - "%TOXPYTHON% setup.py bdist_wheel bdist_wininst"
-#   - ps: "ls dist"
+after_test:
+  # If tests are successful, create a whl package for the project.
+  - "%CMD_IN_ENV% %TOXPYTHON% setup.py bdist_wheel"
+  - ps: "ls dist"
 
-# artifacts:
-#   # Archive the generated wheel package in the ci.appveyor.com build report.
-#   - path: dist\*
+artifacts:
+  # Archive the generated wheel package in the ci.appveyor.com build report.
+  - path: dist\*
