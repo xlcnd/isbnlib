@@ -9,9 +9,9 @@ import os
 from ..dev._files import File, cwdfiles
 from nose.tools import assert_equals, assert_raises
 
-
-TESTFILE = '/tmp/海明威-deleteme.pdf'
-NEW_BASENAME = '海明威-deleteme-PLEASE.pdf'
+WINDOWS = os.name == 'nt'
+TESTFILE = './ç-deleteme.pdf' if WINDOWS else '/tmp/海明威-deleteme.pdf'
+NEW_BASENAME = 'ç-deleteme-PLEASE.pdf' if WINDOWS else '海明威-deleteme-PLEASE.pdf'
 
 
 def setup_module():
