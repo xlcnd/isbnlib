@@ -5,43 +5,63 @@ environment:
       PYTHON_HOME: "C:\\Python27"
       PYTHON_VERSION: "2.7"
       PYTHON_ARCH: "32"
+
     - TOXENV: "py27"
       TOXPYTHON: "C:\\Python27\\python.exe"
       PYTHON_HOME: "C:\\Python27"
       PYTHON_VERSION: "2.7"
       PYTHON_ARCH: "32"
+
     - TOXENV: "py27"
       TOXPYTHON: "C:\\Python27-x64\\python.exe"
       PYTHON_HOME: "C:\\Python27-x64"
       PYTHON_VERSION: "2.7"
       PYTHON_ARCH: "64"
+
     - TOXENV: "py33"
       TOXPYTHON: "C:\\Python33\\python.exe"
       PYTHON_HOME: "C:\\Python33"
       PYTHON_VERSION: "3.3"
       PYTHON_ARCH: "32"
+
     - TOXENV: "py33"
       TOXPYTHON: "C:\\Python33-x64\\python.exe"
       PYTHON_HOME: "C:\\Python33-x64"
       PYTHON_VERSION: "3.3"
       PYTHON_ARCH: "64"
+
     - TOXENV: "py34"
       TOXPYTHON: "C:\\Python34\\python.exe"
       PYTHON_HOME: "C:\\Python34"
       PYTHON_VERSION: "3.4"
       PYTHON_ARCH: "32"
+
     - TOXENV: "py34"
       TOXPYTHON: "C:\\Python34-x64\\python.exe"
       PYTHON_HOME: "C:\\Python34-x64"
       PYTHON_VERSION: "3.4"
       PYTHON_ARCH: "64"
+
 init:
   - "ECHO %TOXENV%"
   - "ECHO %TOXPYTHON% %PYTHON_VERSION% %PYTHON_ARCH%"
+
 install:
   - ps: (new-object net.webclient).DownloadFile('https://raw.github.com/pypa/pip/master/contrib/get-pip.py', 'C:/get-pip.py')
   - "%TOXPYTHON% C:/get-pip.py"
   - "%PYTHON_HOME%/Scripts/pip.exe install -r requirements-test.txt"
+
+build: false  # Not a C# project, build stuff at the test step instead.
+
 test_script:
   - "%PYTHON_HOME%\\Scripts\\tox"
-build: off
+
+after_test:
+  # If tests are successful, create a whl package for the project.
+  - "%TOXPYTHON% setup.py bdist_wheel bdist_wininst"
+  - ps: "ls dist"
+
+artifacts:
+  # Archive the generated wheel package in the ci.appveyor.com build report.
+  - path: dist\*
+
