@@ -26,7 +26,7 @@
     :target: https://coveralls.io/r/xlcnd/isbnlib?branch=v3.4.4
     :alt: Coverage
 
-.. image:: https://ci.appveyor.com/api/projects/status/pthm3c4vjo1gohvn?svg=true)
+.. image:: https://ci.appveyor.com/api/projects/status/pthm3c4vjo1gohvn?svg=true
     :target: https://ci.appveyor.com/project/xlcnd/isbnlib
     :alt: Windows Built Status
 
