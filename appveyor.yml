@@ -1,11 +1,6 @@
 version: '3.4.4.{build}'
 environment:
   matrix:
-    - TOXENV: checkers
-      PYTHON_HOME: "C:\\Python27"
-      PYTHON_VERSION: "2.7"
-      PYTHON_ARCH: "32"
-
     - TOXENV: "py27"
       TOXPYTHON: "C:\\Python27\\python.exe"
       PYTHON_HOME: "C:\\Python27"
@@ -54,7 +49,7 @@ install:
 build: false  # First tests then build (is python not C)
 
 test_script:
-  - "%PYTHON_HOME%\\Scripts\\tox"
+  - "%PYTHON_HOME%\\Scripts\\tox -e %TOXENV%"
 
 clone_folder: 'c:\\projects\\isbnlib'
 
