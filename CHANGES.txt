@@ -9,3 +9,4 @@ v3.4.1, 2014-07-16 -- Fix bug #7 and small improvements on the API.
 v3.4.2, 2014-08-13 -- Add `doi2tex` and updated data.
 v3.4.3, 2015-01-13 -- Better LOOSE regex and allow 'x' in canonical.
 v3.4.4, 2015-01-26 -- Helpers sprint and fake_isbn. 
+v3.4.5, 2015-02-28 -- TENTATIVE 
