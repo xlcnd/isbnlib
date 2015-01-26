@@ -8,7 +8,7 @@ from ._exceptions import NotRecognizedServiceError, NotValidISBNError
 
 def query(isbn, service='default', cache='default'):
     """Query worldcat.org, Google Books (JSON API), ... for metadata."""
-    from .registry import metadata_cache           # <-- dinamic now!
+    from .registry import metadata_cache                  # <-- dinamic now!
     ean = EAN13(isbn)
     if not ean:
         raise NotValidISBNError(isbn)
