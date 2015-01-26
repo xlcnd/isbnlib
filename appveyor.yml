@@ -1,4 +1,4 @@
-version: '3.4.4.{build}'
+version: '3.4.5.{build}'
 environment:
   matrix:
     - TOXENV: "py27"
@@ -44,18 +44,18 @@ init:
 install:
   - ps: (new-object net.webclient).DownloadFile('https://raw.github.com/pypa/pip/master/contrib/get-pip.py', 'C:/get-pip.py')
   - "%TOXPYTHON% C:/get-pip.py"
-  - "%PYTHON_HOME%/Scripts/pip.exe install -r requirements-test.txt"
+  - "%PYTHON_HOME%/Scripts/pip.exe install -r requirements-appveyor.txt"
 
 build: false  # First tests then build (is python not C)
 
 test_script:
   - "%PYTHON_HOME%\\Scripts\\tox -e %TOXENV%"
 
-clone_folder: 'c:\\projects\\isbnlib'
+# clone_folder: 'c:\\projects\\isbnlib'
 
-after_test:
-  - "%TOXPYTHON% setup.py bdist_wheel"
-  - ps: "ls dist"
+# after_test:
+#   - "%TOXPYTHON% setup.py bdist_wheel"
+#   - ps: "ls dist"
 
-artifacts:
-  - path: 'dist\\*.whl'
+# artifacts:
+#   - path: 'dist\\*.whl'
