@@ -19,11 +19,13 @@ Known Issues
    ``isbnlib.meta(isbn, service='default', cache=None)``
 
 
-Any issue that you would like to report, please do it at github_.
-
+Any issue that you would like to report, please do it at github_ or post a question on
+stackoverflow_ (with tag **isbnlib**).
 
 
 
 .. _github: https://github.com/xlcnd/isbnlib/issues
 
 .. _range: https://www.isbn-international.org/range_file_generation
+
+.. _stackoverflow: http://stackoverflow.com/questions/tagged/isbnlib
