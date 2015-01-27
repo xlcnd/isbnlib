@@ -26,14 +26,13 @@
     :target: https://coveralls.io/r/xlcnd/isbnlib?branch=v3.4.5
     :alt: Coverage
 
-.. image:: https://ci.appveyor.com/api/projects/status/pthm3c4vjo1gohvn
-    :target: https://ci.appveyor.com/project/xlcnd/isbnlib
-    :alt: Windows Built Status
-
 .. image:: https://travis-ci.org/xlcnd/isbnlib.svg?branch=v3.4.5
     :target: https://travis-ci.org/xlcnd/isbnlib
     :alt: Built Status
 
+.. image:: https://ci.appveyor.com/api/projects/status/pthm3c4vjo1gohvn
+    :target: https://ci.appveyor.com/project/xlcnd/isbnlib
+    :alt: Windows Built Status
 
 
 Info

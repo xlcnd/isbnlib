@@ -38,13 +38,13 @@ Status
     :target: https://sourcegraph.com/github.com/xlcnd/isbnlib
     :alt: Graph
 
-.. image:: https://ci.appveyor.com/api/projects/status/pthm3c4vjo1gohvn
-    :target: https://ci.appveyor.com/project/xlcnd/isbnlib
-    :alt: Windows Built Status
-
 .. image:: https://travis-ci.org/xlcnd/isbnlib.png?branch=master
     :target: https://travis-ci.org/xlcnd/isbnlib
     :alt: Built Status
+
+.. image:: https://ci.appveyor.com/api/projects/status/pthm3c4vjo1gohvn
+    :target: https://ci.appveyor.com/project/xlcnd/isbnlib
+    :alt: Windows Built Status
 
 
 -------------------------------------------------------------------------------------------------------
