@@ -258,6 +258,8 @@ stackoverflow_ (with tag **isbnlib**)
 
 ----------------------------------------------------------------------------------------------
 
+.. class:: center
+
 Read ``isbnlib`` code in a very sctructured way at sourcegraph_ or 'the docs' at readthedocs_.
 
 ----------------------------------------------------------------------------------------------
