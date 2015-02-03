@@ -2,6 +2,7 @@
 """Query the worldcat.org xID service for metadata."""
 
 import logging
+
 from .dev.webquery import query as wquery
 from .dev import stdmeta
 from .dev.bouth23 import u
