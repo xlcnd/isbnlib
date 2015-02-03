@@ -17,14 +17,14 @@ def query(isbn, service='default', cache='default'):
         cache = metadata_cache
     if service != 'default' and service not in services:  # pragma: no cover
         raise NotRecognizedServiceError(service)
-    if cache is None:  # pragma: no cover
+    if cache is None:                                     # pragma: no cover
         return services[service](isbn)
     key = isbn + service
     try:
         if cache[key]:
             return cache[key]
-        else:          # pragma: no cover
-            raise
+        else:                                             # pragma: no cover
+            pass
     except:
         meta = services[service](isbn)
         if meta:
