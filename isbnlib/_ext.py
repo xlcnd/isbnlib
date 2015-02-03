@@ -51,7 +51,7 @@ def ren(fp):
         return
     data = meta(isbn)
     author = data.get('Authors', u('UNKNOWN'))
-    if author != u('UNKNOWN'):
+    if author != u('UNKNOWN'):                 # pragma: no cover
         author = last_first(author[0])['last']
     year = data.get('Year', u('UNKNOWN'))
     maxlen = 98 - (20 + len(author) + len(year))
@@ -60,7 +60,7 @@ def ren(fp):
         .replace('.', ' ').strip()
     if title == u('UNKNOWN') or not title:     # pragma: no cover
         return
-    if ' ' in title:
+    if ' ' in title:                           # pragma: no cover
         tokens = title.split(' ')
         stitle = cutoff_tokens(tokens, maxlen)
         title = ' '.join(stitle)
