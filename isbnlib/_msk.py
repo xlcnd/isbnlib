@@ -21,8 +21,8 @@ def msk(isbn, separator='-'):
     ib = canonical(isbn)
     ean = EAN13(ib)
     if len(ib) not in (10, 13) or ean is None:
-        LOGGER.warning('%s is not a valid ISBN', isbn)
-        return
+        LOGGER.critical('%s is not a valid ISBN', isbn)
+        raise NotValidISBNError(isbn)
 
     isbn10 = False
     if len(ib) == 10:
