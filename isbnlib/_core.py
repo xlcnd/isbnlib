@@ -120,7 +120,7 @@ def to_isbn10(isbn13):
     """Transform isbn-13 to isbn-10."""
     # Check prefix
     if isbn13[:3] != ISBN13_PREFIX:
-        return None
+        return isbn13 if len(isbn13) == 10 else None
     isbn10 = isbn13[3:]
     check = _check_digit10(isbn10[:-1])
     # Change check digit
@@ -129,6 +129,8 @@ def to_isbn10(isbn13):
 
 def to_isbn13(isbn10):
     """Transform isbn-10 to isbn-13."""
+    if len(isbn10) == 13:
+        return isbn10
     isbn13 = ISBN13_PREFIX + isbn10[:-1]
     check = _check_digit13(isbn13)
     return isbn13 + check if check else None
