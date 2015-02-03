@@ -30,9 +30,9 @@ def test_mask():
     assert_equals(mask('0-330284983'), '0-330-28498-3')
     assert_equals(mask('9791090636071'), '979-10-90636-07-1')
     assert_equals(mask('isbn 979-10-90636-07-1'), '979-10-90636-07-1')
-    assert_equals(mask(''), None)
-    assert_equals(mask('9786'), None)
-    assert_equals(mask('0000000000000'), None)
+    assert_raises(Exception, mask, '')
+    assert_raises(Exception, mask, '9786')
+    assert_raises(Exception, mask, '0000000000000')
 
 
 def test_editions():
