@@ -4,6 +4,7 @@
 import logging
 from ._data.data4mask import ranges
 from ._core import canonical, to_isbn13, EAN13
+from ._exceptions import NotValidISBNError
 
 LOGGER = logging.getLogger(__name__)
 
