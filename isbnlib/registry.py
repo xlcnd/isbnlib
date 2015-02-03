@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+
 """Registry for metadata services, formatters and cache."""
 
 
@@ -44,7 +45,7 @@ bibformatters = {'default': lambda x: fmtbib('labels', x),
                  'msword': lambda x: fmtbib('msword', x),
                  'json': lambda x: fmtbib('json', x),
                  'opf': lambda x: fmtbib('opf', x)
-                 }
+                 }                    # pragma: no cove
 
 
 def setdefaultbibformatter(name):              # pragma: no cover
