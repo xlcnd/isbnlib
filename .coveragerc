@@ -17,6 +17,7 @@ omit =
     *files.py
     *cache*
     *exceptions*
+    *registry.py*
 
 
 # Regexes for lines to exclude from consideration
