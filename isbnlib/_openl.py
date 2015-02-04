@@ -2,6 +2,8 @@
 """Query the openlibrary.org service for metadata."""
 
 import logging
+import re
+
 from .dev.webquery import query as wquery
 from .dev import stdmeta
 from .dev.bouth23 import u
@@ -27,8 +29,14 @@ def _mapper(isbn, records):
                                 records.get('authors', ({'name': u('')},))]
         canonical['Publisher'] = records.get('publishers',
                                              [{'name': u('')}, ])[0]['name']
-        canonical['Year'] = records.get('publish_date', u(',')).split(',')[1]
+        canonical['Year'] = u('')
+        strdate = records.get('publish_date', u(''))
+        if strdate:
+            match = re.search(r'\d{4}', strdate)
+            if match:
+                canonical['Year'] = match.group(0)
     except:   # pragma: no cover
+        LOGGER.debug("RecordMappingError for %s with data %s", isbn, records)
         raise RecordMappingError(isbn)
     # call stdmeta for extra cleanning and validation
     return stdmeta(canonical)

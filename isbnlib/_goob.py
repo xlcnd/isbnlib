@@ -2,6 +2,7 @@
 """Query the Google Books (JSON API v1) service for metadata."""
 
 import logging
+
 from .dev.webquery import query as wquery
 from .dev import stdmeta
 from .dev.bouth23 import u
@@ -32,6 +33,7 @@ def _mapper(isbn, records):
             canonical['Year'] = u('')
         canonical['Language'] = records.get('language', u(''))
     except:           # pragma: no cover
+        LOGGER.debug("RecordMappingError for %s with data %s", isbn, records)
         raise RecordMappingError(isbn)
     # call stdmeta for extra cleanning and validation
     return stdmeta(canonical)

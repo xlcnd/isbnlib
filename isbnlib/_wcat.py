@@ -30,6 +30,7 @@ def _mapper(isbn, records):
         canonical['Year'] = records.get('year', u(''))
         canonical['Language'] = records.get('lang', u(''))
     except:  # pragma: no cover
+        LOGGER.debug("RecordMappingError for %s with data %s", isbn, records)
         raise RecordMappingError(isbn)
     # call stdmeta for extra cleanning and validation
     return stdmeta(canonical)
