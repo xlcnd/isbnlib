@@ -4,11 +4,10 @@
 import logging
 import re
 
-from .dev.webquery import query as wquery
 from .dev import stdmeta
 from .dev.bouth23 import u
 from .dev._exceptions import (NoDataForSelectorError, RecordMappingError)
-
+from .dev.webquery import query as wquery
 
 UA = 'isbnlib (gzip)'
 SERVICE_URL = 'http://openlibrary.org/api/books?bibkeys='\
