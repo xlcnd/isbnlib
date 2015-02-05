@@ -24,7 +24,7 @@ def query(isbn, service='default', cache='default'):
         if cache[key]:
             return cache[key]
         else:                                             # pragma: no cover
-            pass
+            raise    # <-- IMPORTANT: usually the caches don't return error!
     except:
         meta = services[service](isbn)
         if meta:
