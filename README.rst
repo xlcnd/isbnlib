@@ -22,11 +22,11 @@
     :target: http://isbnlib.readthedocs.org/en/latest/
     :alt: Documentation Status
 
-.. image:: https://coveralls.io/repos/xlcnd/isbnlib/badge.png?branch=v3.4.6
-    :target: https://coveralls.io/r/xlcnd/isbnlib?branch=v3.4.6
+.. image:: https://coveralls.io/repos/xlcnd/isbnlib/badge.png?branch=v3.4.7
+    :target: https://coveralls.io/r/xlcnd/isbnlib?branch=v3.4.7
     :alt: Coverage
 
-.. image:: https://travis-ci.org/xlcnd/isbnlib.svg?branch=v3.4.6
+.. image:: https://travis-ci.org/xlcnd/isbnlib.svg?branch=v3.4.7
     :target: https://travis-ci.org/xlcnd/isbnlib
     :alt: Built Status
 
