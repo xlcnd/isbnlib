@@ -3,7 +3,7 @@
 """Define isbntools API and set lib environment."""
 
 __all__ = ('is_isbn10', 'is_isbn13', 'clean', 'mask', 'info', 'meta',
-           'to_isbn10', 'to_isbn13', 'get_isbnlike', 'notisbn', 'EAN13',
+           'to_isbn10', 'to_isbn13', 'get_isbnlike', 'notisbn', 'ean13', 'EAN13',
            'canonical', 'get_canonical_isbn', 'editions', 'isbn_from_words',
            'quiet_errors', 'config', '__version__', '__support__',
            'doi', 'ren', 'ISBN13', 'ISBNLibException',
@@ -46,3 +46,4 @@ from ._data.data4mask import RDDATE
 
 # alias
 ISBN13 = EAN13
+ean13 = EAN13

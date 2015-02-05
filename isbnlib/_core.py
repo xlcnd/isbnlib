@@ -241,3 +241,6 @@ def EAN13(isbnlike):
         return ib if is_isbn13(ib) else None
     elif len(ib) == 10:
         return to_isbn13(ib) if is_isbn10(ib) else None
+
+# Alias
+ean13 = EAN13
