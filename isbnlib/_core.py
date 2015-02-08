@@ -22,8 +22,8 @@
 Tools for extracting, cleaning, transforming and validating ISBN ids.
 """
 
-import re
 import logging
+import re
 
 LOGGER = logging.getLogger(__name__)
 
@@ -120,7 +120,7 @@ def to_isbn10(isbn13):
     """Transform isbn-13 to isbn-10."""
     isbn13 = canonical(isbn13)
     # Check prefix
-    if isbn13[:3] != ISBN13_PREFIX:  
+    if isbn13[:3] != ISBN13_PREFIX:
         return isbn13 if len(isbn13) == 10 and is_isbn10(isbn13) else None
     if not is_isbn13(isbn13):
         return None
@@ -131,7 +131,7 @@ def to_isbn10(isbn13):
 
 
 def to_isbn13(isbn10):
-    """Transform isbn-10 to isbn-13.""" 
+    """Transform isbn-10 to isbn-13."""
     isbn10 = canonical(isbn10)
     if len(isbn10) == 13 and is_isbn13(isbn10):
         return isbn10

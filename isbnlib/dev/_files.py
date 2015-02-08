@@ -2,12 +2,16 @@
 
 """Helper module to work with files."""
 
-import re
-import os
-import logging
+
 import fnmatch
-from stat import S_IRUSR, S_IWUSR, S_IRGRP, S_IWGRP, S_IROTH, S_IWOTH
+import logging
+import os
+import re
+
+from stat import S_IRGRP, S_IROTH, S_IRUSR, S_IWGRP, S_IWOTH, S_IWUSR
+
 from ._exceptions import FileNotFoundError
+
 
 MAXLEN = 120
 ILEGAL = r'<>:"/\|?*'
@@ -78,8 +82,8 @@ class File(object):
         if new_basename not in self.siblings():
             try:
                 os.rename(self.basename, new_basename)
-            except OSError as e:
-                LOGGER.critical("%s", e.message)
+            except OSError as err:
+                LOGGER.critical("%s", err.message)
                 return False
             self.basename = new_basename
             self.name = name
