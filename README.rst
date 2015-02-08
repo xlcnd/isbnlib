@@ -57,7 +57,6 @@ Typical usage (as library):
 
 
 **NOTE**
-~~~~~~~~
    The official form of an ISBN is something like 'ISBN 979-10-90636-07-1'. However for most
    applications only the numbers are important and you can always masked them if you need (see below).
    This library works mainly with 'striped' ISBNs  (only numbers and X) like '0826497527'. You can
