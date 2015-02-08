@@ -56,7 +56,7 @@ Typical usage (as library):
 
 
 
-NOTE
+Note
 ----
 
    The official form of an ISBN is something like ``ISBN 979-10-90636-07-1``. However for most
