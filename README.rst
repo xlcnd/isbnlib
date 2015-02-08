@@ -55,6 +55,16 @@ Typical usage (as library):
     ...
 
 
+        **NOTE**
+        The official form of an ISBN is something like 'ISBN 979-10-90636-07-1'. However for most
+        applications only the numbers are important and you can always masked them if you need (see below).
+        This library works mainly with 'striped' ISBNs  (only numbers and X) like '0826497527'. You can
+        strip an isbn's like string by using ``canonical(isbnlike)`` (see below). You can
+        'mask' the isbn by using ``mask(isbn)``. So in the examples below, when you see 'isbn'
+        in the argument, it is a 'striped' ISBN, when the argument is an 'isbnlike' it is a string 
+        like 'ISBN 979-10-90636-07-1' or even something dirty like 'asdf 979-10-90636-07-1 bla bla'.
+
+
 Main Functions
 --------------
 
@@ -71,13 +81,13 @@ Main Functions
 	Transform isbn-10 to isbn-13.
 
 ``canonical(isbnlike)``
-	Keep only numbers and X. You will get strings like `9780321534965`.
+	Keep only numbers and X. You will get strings like `9780321534965` and `954430603X`.
 
 ``clean(isbnlike)``
 	Clean ISBN (only legal characters).
 
 ``notisbn(isbnlike, level='strict')``
-	Check with the goal to invalidate isbn-like.
+	Check with the goal to invalidate isbn-like. 
 
 ``get_isbnlike(text, level='normal')``
 	Extract all substrings that seem like ISBNs (very useful for scraping).
@@ -127,6 +137,7 @@ Main Functions
 ``ren(filename)``
 	Rename a file using metadata from an ISBN in his filename.
 
+See the file test_core_ and test_ext_ for **a lot of examples**.
 
 
 Install
@@ -278,3 +289,7 @@ Read ``isbnlib`` code in a very sctructured way at sourcegraph_ or 'the docs' at
 .. _readthedocs: http://bit.ly/ISBNLib_rtd
 
 .. _stackoverflow: http://stackoverflow.com/questions/tagged/isbnlib
+
+.. _test_core: https://github.com/xlcnd/isbnlib/blob/master/isbnlib/test/test_core.py
+
+.. _test_ext: https://github.com/xlcnd/isbnlib/blob/master/isbnlib/test/test_ext.py
