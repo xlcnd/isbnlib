@@ -42,7 +42,7 @@ Status
     :target: https://travis-ci.org/xlcnd/isbnlib
     :alt: Built Status
 
-.. image:: https://ci.appveyor.com/api/projects/status/pthm3c4vjo1gohvn
+.. image:: https://ci.appveyor.com/api/projects/status/pthm3c4vjo1gohvn/branch/master?svg=true
     :target: https://ci.appveyor.com/project/xlcnd/isbnlib
     :alt: Windows Built Status
 
