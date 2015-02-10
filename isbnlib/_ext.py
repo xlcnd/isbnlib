@@ -1,14 +1,14 @@
 # -*- coding: utf-8 -*-
 """Extra methods."""
 
-from ._metadata import query
-from ._infogroup import infogroup
-from ._wcated import query as qed
-from ._msk import msk
-from ._gwords import goos
 from ._core import EAN13
-from .dev.bouth23 import u, b2u3
-from .dev.helpers import last_first, cutoff_tokens, File
+from ._gwords import goos
+from ._infogroup import infogroup
+from ._metadata import query
+from ._msk import msk
+from ._wcated import query as qed
+from .dev.bouth23 import b2u3, u
+from .dev.helpers import File, cutoff_tokens, last_first
 
 
 def mask(isbn, separator='-'):

@@ -2,12 +2,13 @@
 """Query the Google Books (JSON API v1) for metadata."""
 
 import logging
-from .dev.webquery import query as wquery
+
 from .dev import stdmeta
-from .dev.bouth23 import u
-from .dev._exceptions import (DataWrongShapeError,
-                              NoDataForSelectorError,
+from .dev._exceptions import (DataWrongShapeError, NoDataForSelectorError,
                               RecordMappingError)
+from .dev.bouth23 import u
+from .dev.webquery import query as wquery
+
 
 UA = 'isbntools (gzip)'
 SERVICE_URL = 'https://www.googleapis.com/books/v1/volumes?q={words}'\

@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 """Query providers for metadata."""
 
-from .registry import services
 from ._core import EAN13
 from ._exceptions import NotRecognizedServiceError, NotValidISBNError
+from .registry import services
 
 
 def query(isbn, service='default', cache='default'):

@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
 """Provide metadata by merging metadata from other providers."""
 
-from ._wcat import query as qwcat
-from ._goob import query as qgoob
-from .dev import vias, Metadata
 from . import config
+from ._goob import query as qgoob
+from ._wcat import query as qwcat
+from .dev import Metadata, vias
 
 
 def query(isbn, processor=None):

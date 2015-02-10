@@ -2,7 +2,8 @@
 """Get the Language/Country of an ISBN."""
 
 import logging
-from ._data.data4info import d, identifiers, dnew, newidentifiers
+
+from ._data.data4info import d, dnew, identifiers, newidentifiers
 from ._exceptions import NotValidISBNError
 
 LOGGER = logging.getLogger(__name__)
