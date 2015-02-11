@@ -11,4 +11,4 @@ v3.4.3, 2015-01-13 -- Better LOOSE regex and allow 'x' in canonical.
 v3.4.4, 2015-01-26 -- Helpers sprint and fake_isbn. 
 v3.4.5, 2015-02-05 -- Better yield for openl and better log model. 
 v3.4.6, 2015-02-05 -- Fix bug #13.
-v3.4.7, 2015-02-28 -- Fix bug #14. 
+v3.4.7, 2015-02-11 -- Fix bug #14. 
