@@ -7,8 +7,8 @@
 import re
 import uuid
 from string import Template
-from ._helpers import last_first
 
+from ._helpers import last_first
 
 bibtex = r"""@book{$ISBN,
      title = {$Title},

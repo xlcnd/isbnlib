@@ -6,7 +6,6 @@
 
 import socket
 
-
 # Timeouts
 SOCKETS_TIMEOUT = 12    # seconds
 THREADS_TIMEOUT = 11    # seconds

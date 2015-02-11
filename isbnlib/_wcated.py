@@ -7,7 +7,6 @@ from ast import literal_eval
 from .dev._exceptions import DataWrongShapeError, NoDataForSelectorError
 from .dev.webquery import query as wquery
 
-
 LOGGER = logging.getLogger(__name__)
 UA = 'isbnlib (gzip)'
 SERVICE_URL = 'http://xisbn.worldcat.org/webservices/xid/isbn/{isbn}?'\

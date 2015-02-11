@@ -3,6 +3,7 @@
 """Return metadata, of a given DOI, formated as BibTeX."""
 
 import logging
+
 from .dev.webservice import query
 
 LOGGER = logging.getLogger(__name__)

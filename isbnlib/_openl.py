@@ -5,8 +5,8 @@ import logging
 import re
 
 from .dev import stdmeta
+from .dev._exceptions import NoDataForSelectorError, RecordMappingError
 from .dev.bouth23 import u
-from .dev._exceptions import (NoDataForSelectorError, RecordMappingError)
 from .dev.webquery import query as wquery
 
 UA = 'isbnlib (gzip)'

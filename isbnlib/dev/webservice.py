@@ -1,9 +1,12 @@
 # -*- coding: utf-8 -*-
 """Query web services."""
 
-import logging
 import gzip
-from .bouth23 import s, bstream
+import logging
+
+from ._exceptions import ISBNLibHTTPError, ISBNLibURLError
+from .bouth23 import bstream, s
+
 try:                     # pragma: no cover
     from urllib.parse import urlencode
     from urllib.request import Request, urlopen
@@ -11,7 +14,6 @@ try:                     # pragma: no cover
 except ImportError:      # pragma: no cover
     from urllib import urlencode
     from urllib2 import Request, urlopen, HTTPError, URLError
-from ._exceptions import ISBNLibHTTPError, ISBNLibURLError
 
 UA = 'isbnlib (gzip)'
 LOGGER = logging.getLogger(__name__)

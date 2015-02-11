@@ -9,8 +9,8 @@ NOTES:
 2. shelve has different incompatible formats in py2 and py3
 """
 
-import shelve
 import datetime
+import shelve
 from time import time as timestamp
 
 

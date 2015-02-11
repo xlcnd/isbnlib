@@ -11,7 +11,6 @@ from .dev._exceptions import (DataWrongShapeError, NoAPIKeyError,
 from .dev.bouth23 import u
 from .dev.webquery import query as wquery
 
-
 UA = 'isbnlib (gzip)'
 SERVICE_URL = 'http://isbndb.com/api/v2/json/{apikey}/book/{isbn}'
 PATT_YEAR = re.compile(r'\d{4}')
