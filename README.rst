@@ -140,7 +140,7 @@ Main Functions
 ``ren(filename)``
 	Rename a file using metadata from an ISBN in his filename.
 
-See the file test_core_ and test_ext_ for **a lot of examples**.
+See files test_core_ and test_ext_ for **a lot of examples**.
 
 
 Install

@@ -89,6 +89,7 @@ In the namespace ``isbnlib`` you have access to the core methods:
 ``ren(filename)``
 	Rename a file using metadata from an ISBN in his filename.
 
+See files test_core_ and test_ext_ for **a lot of examples**.
 
 The exceptions raised by these methods can all be catched using ``ISBNLibException``.
 
@@ -195,3 +196,7 @@ framework to further developement, take a look at isbntools_.
 .. _sourcegraph: https://sourcegraph.com/github.com/xlcnd/isbnlib
 
 .. _isbntools: https://github.com/xlcnd/isbntools
+
+.. _test_core: https://github.com/xlcnd/isbnlib/blob/master/isbnlib/test/test_core.py
+
+.. _test_ext: https://github.com/xlcnd/isbnlib/blob/master/isbnlib/test/test_ext.py
