@@ -10,7 +10,6 @@ from .dev.bouth23 import u
 from .dev.webquery import query as wquery
 
 
-
 UA = 'isbnlib (gzip)'
 SERVICE_URL = 'http://xisbn.worldcat.org/webservices/xid/isbn/{isbn}?'\
     'method=getMetadata&format=json&fl=title,author,year,publisher,lang'
