@@ -30,19 +30,19 @@ Status
     :target: https://pypi.python.org/pypi/isbnlib/
     :alt: License
 
-.. image:: https://coveralls.io/repos/xlcnd/isbnlib/badge.png?branch=master
+.. image:: https://coveralls.io/repos/xlcnd/isbnlib/badge.svg?branch=master
     :target: https://coveralls.io/r/xlcnd/isbnlib?branch=master
     :alt: Coverage
 
-.. image:: https://sourcegraph.com/api/repos/github.com/xlcnd/isbnlib/badges/status.png
+.. image:: https://sourcegraph.com/api/repos/github.com/xlcnd/isbnlib/badges/status.svg
     :target: https://sourcegraph.com/github.com/xlcnd/isbnlib
     :alt: Graph
 
-.. image:: https://travis-ci.org/xlcnd/isbnlib.png?branch=master
+.. image:: https://travis-ci.org/xlcnd/isbnlib.svg?branch=master
     :target: https://travis-ci.org/xlcnd/isbnlib
     :alt: Built Status
 
-.. image:: https://ci.appveyor.com/api/projects/status/pthm3c4vjo1gohvn/branch/master?svg=true
+.. image:: https://ci.appveyor.com/api/projects/status/github/xlcnd/isbnlib?branch=master&svg=true
     :target: https://ci.appveyor.com/project/xlcnd/isbnlib
     :alt: Windows Built Status
 

@@ -1,20 +1,24 @@
-.. image:: https://pypip.in/d/isbnlib/badge.png
+.. image:: https://pypip.in/d/isbnlib/badge.svg?style=flat
     :target: https://pypi.python.org/pypi/isbnlib/
     :alt: Downloads
 
-.. image:: https://pypip.in/v/isbnlib/badge.png
+.. image:: https://pypip.in/v/isbnlib/badge.svg?style=flat
     :target: https://pypi.python.org/pypi/isbnlib/
     :alt: Latest Version
 
-.. image:: https://pypip.in/format/isbnlib/badge.png
+.. image:: https://pypip.in/format/isbnlib/badge.svg?style=flat
     :target: https://pypi.python.org/pypi/isbnlib/
     :alt: Download format
 
-.. image:: https://pypip.in/license/isbnlib/badge.png
+.. image:: https://pypip.in/py_versions/isbnlib/badge.svg?style=flat
+    :target: https://pypi.python.org/pypi/isbnlib/
+    :alt: Python Versions
+
+.. image:: https://pypip.in/license/isbnlib/badge.svg?style=flat
     :target: https://pypi.python.org/pypi/isbnlib/
     :alt: License
 
-.. image:: https://sourcegraph.com/api/repos/github.com/xlcnd/isbnlib/.badges/status.png
+.. image:: https://sourcegraph.com/api/repos/github.com/xlcnd/isbnlib/.badges/status.svg
     :target: https://sourcegraph.com/github.com/xlcnd/isbnlib
     :alt: Graph
 
@@ -22,7 +26,7 @@
     :target: http://isbnlib.readthedocs.org/en/latest/
     :alt: Documentation Status
 
-.. image:: https://coveralls.io/repos/xlcnd/isbnlib/badge.png?branch=v3.4.8
+.. image:: https://coveralls.io/repos/xlcnd/isbnlib/badge.svg?branch=v3.4.8
     :target: https://coveralls.io/r/xlcnd/isbnlib?branch=v3.4.8
     :alt: Coverage
 
@@ -30,7 +34,7 @@
     :target: https://travis-ci.org/xlcnd/isbnlib
     :alt: Built Status
 
-.. image:: https://ci.appveyor.com/api/projects/status/pthm3c4vjo1gohvn/branch/master?svg=true
+.. image:: https://ci.appveyor.com/api/projects/status/github/xlcnd/isbnlib?branch=master&svg=true
     :target: https://ci.appveyor.com/project/xlcnd/isbnlib
     :alt: Windows Built Status
 
