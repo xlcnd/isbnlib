@@ -1,4 +1,7 @@
 version: '3.4.8.{build}'
+branches:
+  only:
+    - /none/
 environment:
   matrix:
     - TOXENV: "py27"
