@@ -68,17 +68,17 @@ Note
    This library works mainly with 'striped' ISBNs  (only numbers and X) like '0826497527'. You can
    strip an ISBN like string by using ``canonical(isbnlike)``. You can
    'mask' the ISBN by using ``mask(isbn)``. So in the examples below, when you see 'isbn'
-   in the argument, it is a 'striped' ISBN, when the argument is an 'isbnlike' it is a string 
+   in the argument, it is a 'striped' ISBN, when the argument is an 'isbnlike' it is a string
    like ``ISBN 979-10-90636-07-1`` or even something dirty like ``asdf 979-10-90636-07-1 bla bla``.
 
-   Two important concepts: **valid ISBN** should be an ISBN that was built according with the rules, 
-   this is distinct from **issued ISBN** that is an ISBN that was already issued to a publisher 
+   Two important concepts: **valid ISBN** should be an ISBN that was built according with the rules,
+   this is distinct from **issued ISBN** that is an ISBN that was already issued to a publisher
    (this is the usage of the libraries). However *isbn.org*, probably by legal reasons, merges the two!
    So, according to *isbn.org*, '9786610326266' is not valid (because the block starting 978-66... has not been issued yet,
    however if you use ``is_isbn13('9786610326266')`` you will get ``True`` (because '9786610326266' follows
    the rules of an ISBN). But the situation is even murky. Try ``meta('9786610326266')`` and you will
    see that this ISBN was already used!
-      
+
 
 
 Main Functions
@@ -103,7 +103,7 @@ Main Functions
 	Clean ISBN (only legal characters).
 
 ``notisbn(isbnlike, level='strict')``
-	Check with the goal to invalidate isbn-like. 
+	Check with the goal to invalidate isbn-like.
 
 ``get_isbnlike(text, level='normal')``
 	Extract all substrings that seem like ISBNs (very useful for scraping).
