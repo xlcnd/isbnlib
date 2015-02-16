@@ -1,17 +1,4 @@
-__all__ = ('ISBNToolsDevException',
-           'ISBNLibDevException',
-           'ISBNToolsHTTPError', 'ISBNToolsURLError',
-           'ISBNLibHTTPError', 'ISBNLibURLError',
-           'DataNotFoundAtServiceError',
-           'ServiceIsDownError', 'DataWrongShapeError',
-           'NotValidMetadataError',
-           'NoDataForSelectorError',
-           'RecordMappingError', 'NoAPIKeyError',
-           'Metadata', 'stdmeta',
-           'WEBService', 'WEBQuery', 'vias', 'bouth23', 'helpers'
-           )
-
-
+# -*- coding: utf-8 -*-
 from .webservice import WEBService
 from .webquery import WEBQuery
 from ._exceptions import (ISBNLibDevException,
@@ -29,3 +16,18 @@ from . import helpers
 ISBNToolsDevException = ISBNLibDevException
 ISBNToolsHTTPError = ISBNLibHTTPError
 ISBNToolsURLError = ISBNLibURLError
+
+__all__ = ('ISBNToolsDevException',
+           'ISBNLibDevException',
+           'ISBNToolsHTTPError', 'ISBNToolsURLError',
+           'ISBNLibHTTPError', 'ISBNLibURLError',
+           'DataNotFoundAtServiceError',
+           'ServiceIsDownError', 'DataWrongShapeError',
+           'NotValidMetadataError',
+           'NoDataForSelectorError',
+           'RecordMappingError', 'NoAPIKeyError',
+           'Metadata', 'stdmeta',
+           'WEBService', 'WEBQuery', 'vias', 'bouth23', 'helpers'
+           )
+
+
