@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 # flake8: noqa
+# isort:skip_file
 
 """Define isbntools API and set lib environment."""
 
