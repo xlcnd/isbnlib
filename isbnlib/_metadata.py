@@ -9,7 +9,7 @@ from .registry import services
 def query(isbn, service='default', cache='default'):
     """Query worldcat.org, Google Books (JSON API), ... for metadata."""
     from .registry import metadata_cache                  # <-- dinamic now!
-    ean = EAN13(isbn)
+    ean = EAN13(isbn)                    # <-- XXX maybe this is too strict?
     if not ean:
         raise NotValidISBNError(isbn)
     isbn = ean
