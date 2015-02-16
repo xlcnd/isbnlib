@@ -165,7 +165,7 @@ def notisbn(isbnlike, level='strict'):
     loose  only filters obvious NO ISBNs
 
     """
-    if level not in ('strict', 'loose'):
+    if level not in ('strict', 'loose'):  # pragma: no cover
         LOGGER.error('level as no option %s', level)
         return
     isbnlike = canonical(isbnlike)
@@ -188,7 +188,7 @@ def get_isbnlike(text, level='normal'):
     loose  catch many as possible
 
     """
-    if level == 'normal':
+    if level == 'normal':  # pragma: no cover
         isbnlike = RE_NORMAL
     elif level == 'strict':
         isbnlike = RE_STRICT
@@ -209,7 +209,7 @@ def get_canonical_isbn(isbnlike, output='bouth'):
     bouth  (default)
 
     """
-    if output not in ('bouth', 'isbn10', 'isbn13'):
+    if output not in ('bouth', 'isbn10', 'isbn13'):  # pragma: no cover
         LOGGER.error('output as no option %s', output)
         return
 
