@@ -219,7 +219,7 @@ exposed in ``isbnlib.dev`` whose name end in Error.
 
 
 In ``isbnlib.dev.helpers`` you can find several methods, that we found very useful, some of then
-are only used in ``isbntools`` (*an app and framework that uses ``isbnlib``*).
+are only used in ``isbntools`` (*an app and framework* that uses ``isbnlib``).
 
 
 With ``isbnlib.registry`` you can change the metadata service to be used by default (``setdefaultservice``),
