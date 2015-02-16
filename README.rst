@@ -65,7 +65,8 @@ Note
 
    Two important concepts: **valid ISBN** should be an ISBN that was built according with the rules,
    this is distinct from **issued ISBN** that is an ISBN that was already issued to a publisher
-   (this is the usage of the libraries). However *isbn.org*, probably by legal reasons, merges the two!
+   (this is the usage of the libraries and most of the web services).
+   However *isbn.org*, probably by legal reasons, merges the two!
    So, according to *isbn.org*, '9786610326266' is not valid (because the block 978-66... has not been issued yet,
    however if you use ``is_isbn13('9786610326266')`` you will get ``True`` (because '9786610326266' follows
    the rules of an ISBN). But the situation is even murky. Try ``meta('9786610326266')`` and you will
