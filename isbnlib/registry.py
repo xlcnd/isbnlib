@@ -44,7 +44,7 @@ bibformatters = {'default': lambda x: fmtbib('labels', x),
                  'msword': lambda x: fmtbib('msword', x),
                  'json': lambda x: fmtbib('json', x),
                  'opf': lambda x: fmtbib('opf', x)
-                 }                    # pragma: no cove
+                 }                    # pragma: no cover
 
 
 def setdefaultbibformatter(name):              # pragma: no cover
