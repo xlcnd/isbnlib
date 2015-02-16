@@ -1,14 +1,6 @@
-.. image:: https://pypip.in/d/isbnlib/badge.svg?style=flat
-    :target: https://pypi.python.org/pypi/isbnlib/
-    :alt: Downloads
-
 .. image:: https://pypip.in/v/isbnlib/badge.svg?style=flat
     :target: https://pypi.python.org/pypi/isbnlib/
     :alt: Latest Version
-
-.. image:: https://pypip.in/format/isbnlib/badge.svg?style=flat
-    :target: https://pypi.python.org/pypi/isbnlib/
-    :alt: Download format
 
 .. image:: https://pypip.in/py_versions/isbnlib/badge.svg?style=flat
     :target: https://pypi.python.org/pypi/isbnlib/
@@ -66,7 +58,7 @@ Note
    The official form of an ISBN is something like ``ISBN 979-10-90636-07-1``. However for most
    applications only the numbers are important and you can always masked them if you need (see below).
    This library works mainly with 'striped' ISBNs  (only numbers and X) like '0826497527'. You can
-   strip an ISBN like string by using ``canonical(isbnlike)``. You can
+   strip an ISBN-like string by using ``canonical(isbnlike)``. You can
    'mask' the ISBN by using ``mask(isbn)``. So in the examples below, when you see 'isbn'
    in the argument, it is a 'striped' ISBN, when the argument is an 'isbnlike' it is a string
    like ``ISBN 979-10-90636-07-1`` or even something dirty like ``asdf 979-10-90636-07-1 bla bla``.
@@ -74,7 +66,7 @@ Note
    Two important concepts: **valid ISBN** should be an ISBN that was built according with the rules,
    this is distinct from **issued ISBN** that is an ISBN that was already issued to a publisher
    (this is the usage of the libraries). However *isbn.org*, probably by legal reasons, merges the two!
-   So, according to *isbn.org*, '9786610326266' is not valid (because the block starting 978-66... has not been issued yet,
+   So, according to *isbn.org*, '9786610326266' is not valid (because the block 978-66... has not been issued yet,
    however if you use ``is_isbn13('9786610326266')`` you will get ``True`` (because '9786610326266' follows
    the rules of an ISBN). But the situation is even murky. Try ``meta('9786610326266')`` and you will
    see that this ISBN was already used!
@@ -85,37 +77,37 @@ Main Functions
 --------------
 
 ``is_isbn10(isbn10like)``
-	Validate as ISBN-10.
+	Validates as ISBN-10.
 
 ``is_isbn13(isbn13like)``
-	Validate as ISBN-13.
+	Validates as ISBN-13.
 
 ``to_isbn10(isbn13)``
-	Transform isbn-13 to isbn-10.
+	Transforms isbn-13 to isbn-10.
 
 ``to_isbn13(isbn10)``
-	Transform isbn-10 to isbn-13.
+	Transforms isbn-10 to isbn-13.
 
 ``canonical(isbnlike)``
-	Keep only numbers and X. You will get strings like `9780321534965` and `954430603X`.
+	Keeps only numbers and X. You will get strings like `9780321534965` and `954430603X`.
 
 ``clean(isbnlike)``
-	Clean ISBN (only legal characters).
+	Cleans ISBN (only legal characters).
 
 ``notisbn(isbnlike, level='strict')``
 	Check with the goal to invalidate isbn-like.
 
 ``get_isbnlike(text, level='normal')``
-	Extract all substrings that seem like ISBNs (very useful for scraping).
+	Extracts all substrings that seem like ISBNs (very useful for scraping).
 
 ``get_canonical_isbn(isbnlike, output='bouth')``
-	Extract ISBNs and transform them to the canonical form.
+	Extracts ISBNs and transform them to the canonical form.
 
 ``EAN13(isbnlike)``
-	Transform an `isbnlike` string into an EAN13 number (validated canonical ISBN-13).
+	Transforms an `isbnlike` string into an EAN13 number (validated canonical ISBN-13).
 
 ``info(isbn)``
-	Get language or country assigned to this ISBN.
+	Gets the language or country assigned to this ISBN.
 
 ``mask(isbn, separator='-')``
 	`Mask` (hyphenate) a canonical ISBN.
@@ -136,22 +128,22 @@ Main Functions
     ``isbnlib.registry.set_cache`` (see below).
 
 ``editions(isbn)``
-	Return the list of ISBNs of editions related with this ISBN.
+	Returns the list of ISBNs of editions related with this ISBN.
 
 ``isbn_from_words(words)``
-	Return the most probable ISBN from a list of words (for your geographic area).
+	Returns the most probable ISBN from a list of words (for your geographic area).
 
 ``goom(words)``
-	Return a list of references from **Google Books multiple references**.
+	Returns a list of references from **Google Books multiple references**.
 
 ``doi(isbn)``
-	Return a DOI's ISBN-A from a ISBN-13.
+	Returns a DOI's ISBN-A from a ISBN-13.
 
 ``doi2tex(DOI)``
-	Return metadata formated as BibTeX for a given DOI.
+	Returns metadata formated as BibTeX for a given DOI.
 
 ``ren(filename)``
-	Rename a file using metadata from an ISBN in his filename.
+	Renames a file using metadata from an ISBN in his filename.
 
 See files test_core_ and test_ext_ for **a lot of examples**.
 
