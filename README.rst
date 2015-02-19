@@ -56,7 +56,7 @@ Note
 ----
 
    The official form of an ISBN is something like ``ISBN 979-10-90636-07-1``. However for most
-   applications only the numbers are important and you can always masked them if you need (see below).
+   applications only the numbers are important, you can always 'masked' them if you need (see below).
    This library works mainly with 'striped' ISBNs  (only numbers and X) like '0826497527'. You can
    strip an ISBN-like string by using ``canonical(isbnlike)``. You can
    'mask' the ISBN by using ``mask(isbn)``. So in the examples below, when you see 'isbn'
@@ -71,6 +71,10 @@ Note
    however if you use ``is_isbn13('9786610326266')`` you will get ``True`` (because '9786610326266' follows
    the rules of an ISBN). But the situation is even murky. Try ``meta('9786610326266')`` and you will
    see that this ISBN was already used!
+
+   If possible, work with ISBNs in the isbn-13 format (since 2007 only are issued ISBN in the isbn-13
+   format). You can always convert isbn-10 to isbn-13, but **not** the reverse.
+   Read more about ISBN at isbn-international.org_. 
 
 
 
@@ -302,3 +306,5 @@ Read ``isbnlib`` code in a very sctructured way at sourcegraph_ or 'the docs' at
 .. _test_core: https://github.com/xlcnd/isbnlib/blob/master/isbnlib/test/test_core.py
 
 .. _test_ext: https://github.com/xlcnd/isbnlib/blob/master/isbnlib/test/test_ext.py
+
+.. _isbn-international.org: https://www.isbn-international.org/content/what-isbn
