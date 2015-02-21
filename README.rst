@@ -69,8 +69,8 @@ Note
    However *isbn.org*, probably by legal reasons, merges the two!
    So, according to *isbn-international.org*, '9786610326266' is not valid (because the block 978-66...
    has not been issued yet, however if you use ``is_isbn13('9786610326266')`` you will get ``True``
-   (because '9786610326266' follows the rules of an ISBN). But the situation is even murky. 
-   Try ``meta('9786610326266')`` and you will see that this ISBN was already used!
+   (because '9786610326266' follows the rules of an ISBN). But the situation is even murkier, 
+   try ``meta('9786610326266')`` and you will see that this ISBN was already used!
 
    If possible, work with ISBNs in the isbn-13 format (since 2007, only are issued ISBNs in the isbn-13
    format). You can always convert isbn-10 to isbn-13, but **not** the reverse.
