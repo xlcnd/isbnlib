@@ -44,10 +44,12 @@ class WEBService(object):
         except HTTPError as e:  # pragma: no cover
             LOGGER.critical('ISBNLibHTTPError for %s with code %s [%s]',
                             self._url, e.code, e.msg)
-            if e.code in ('401', '403', '429'):
-                raise ISBNLibHTTPError('Are you are making many requests?')
-            if e.code in ('502', '504'):
-                raise ISBNLibHTTPError('Service temporarily unavailable!')
+            if e.code in (401, 403, 429):
+                raise ISBNLibHTTPError('%s Are you are making many requests?'
+                                       % e.code)
+            if e.code in (502, 504):
+                raise ISBNLibHTTPError('%s Service temporarily unavailable!'
+                                       % e.code)
             raise ISBNLibHTTPError('(%s) %s' % (e.code, e.msg))
         except URLError as e:   # pragma: no cover
             LOGGER.critical('ISBNLibURLError for %s with reason %s',
