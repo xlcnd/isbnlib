@@ -58,5 +58,8 @@ def test_desc():
 
 def test_cover():
     assert_equals(cover('9780156001311')[:13], '9780156001311')
-    assert_equals(cover('9780000000000'), None)
+    assert_equals(cover('9780000000000'), None)                  # <-- invalid ISBN
+    assert_equals(cover('9781408835029')[:13], '9781408835029')  # <-- no size 2 (in most areas) but size 1
+    assert_equals(cover('9786001191251'), None)                  # <-- no image of any size
+    
     

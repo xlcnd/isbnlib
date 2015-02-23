@@ -32,7 +32,13 @@ def download(url, tofile=None):
     except HTTPError as e:  # pragma: no cover
         LOGGER.critical('ISBNLibHTTPError for %s with code %s [%s]',
                         url, e.code, e.msg)
-        if e.code in (401, 403, 429):
+        if e.code == 403:
+            # Google uses this code when the image is not
+            # available for any size, but also when you are
+            # blacklisted by the service (should use 404)
+            LOGGER.debug('Cover not available or you are making many requests')
+            return True   # <-- no more attempts to download
+        if e.code in (401, 429):
             raise ISBNLibHTTPError('%s Are you are making many requests?'
                                    % e.code)
         if e.code in (502, 504):
@@ -58,12 +64,13 @@ def download(url, tofile=None):
         tofile = tofile.split('.')[0] + '.' + ext.split('-')[-1]
         with open(tofile, 'wb') as f:
             f.write(content)
-    else:
+    else:        # pragma: no cover
         print(content)
     return tofile
 
 
 def goo_id(isbn):
+    """Return the Google's id associated with each ISBN."""
     # check the cache fist
     cache = metadata_cache
     if cache is not None:
@@ -89,6 +96,7 @@ def goo_id(isbn):
 
 
 def google_cover(gid, isbn, zoom=COVERZOOM):
+    """Download the cover from Google."""
     tpl = "http://books.google.com/books/content?id={gid}&printsec=frontcover"\
           "&img=1&zoom={zoom}&edge=curl&source=gbs_api"
     url = tpl.format(gid=gid, zoom=zoom)
@@ -101,7 +109,7 @@ def google_cover(gid, isbn, zoom=COVERZOOM):
         else:    # pragma: nocover
             return
         coverfile = download(url, tofile=isbn)
-    return coverfile if coverfile else None
+    return coverfile if coverfile and coverfile is not True else None
 
 
 def gcover(isbn, size=2):
