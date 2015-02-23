@@ -5,10 +5,11 @@ try:                     # pragma: no cover
     from urllib.request import Request, urlopen
 except ImportError:      # pragma: no cover
     from urllib2 import Request, urlopen, HTTPError, URLError
+from json import loads
 
-from ._exceptions import ISBNLibHTTPError, ISBNLibURLError
+from .dev._exceptions import ISBNLibHTTPError, ISBNLibURLError
 from .dev.webservice import query
-
+from .registry import metadata_cache
 
 COVERZOOM = 2
 NOIMGSIZE = 15666
@@ -54,9 +55,8 @@ def download(url, tofile=None):
 
 def goo_id(isbn):
     # check the cache fist
-    from .registry import metadata_cache
     cache = metadata_cache
-    if cache:
+    if cache is not None:
         key = 'gid' + isbn
         try:
             if cache[key]:
@@ -69,8 +69,9 @@ def goo_id(isbn):
           "isbn+{isbn}&fields=items/id&maxResults=1".format(isbn=isbn)
     content = query(url, user_agent=UA)
     try:
+        content = loads(content)
         gid = content['items'][0]['id']
-        if gid and cache:
+        if gid and cache is not None:
             cache[key] = gid
         return gid
     except:
