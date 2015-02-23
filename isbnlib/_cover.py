@@ -1,4 +1,5 @@
-#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+"""Get the cover of the book."""
 
 import logging
 
@@ -24,6 +25,7 @@ LOGGER = logging.getLogger(__name__)
 
 
 def download(url, tofile=None):
+    """Download image."""
     headers = {'User-Agent': UA, 'Pragma': 'no-cache'}
     request = Request(url, headers=headers)
     try:
@@ -113,5 +115,6 @@ def google_cover(gid, isbn, zoom=COVERZOOM):
 
 
 def gcover(isbn, size=2):
+    """Main entry point for cover."""
     gid = goo_id(isbn)
     return google_cover(gid, isbn, zoom=size) if gid else None

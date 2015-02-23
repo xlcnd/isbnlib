@@ -1,4 +1,5 @@
-#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+"""Return a small description of the book."""
 
 from json import loads
 from textwrap import fill
@@ -10,6 +11,7 @@ UA = "isbnlib (gzip)"
 
 
 def goo_desc(isbn):
+    """Get description from Google Books api."""
     cache = metadata_cache
     if cache is not None:
         key = 'gdesc' + isbn
