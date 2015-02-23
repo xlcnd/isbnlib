@@ -60,7 +60,7 @@ def download(url, tofile=None):
             f.write(content)
     else:
         print(content)
-    return True
+    return tofile
 
 
 def goo_id(isbn):
@@ -92,16 +92,16 @@ def google_cover(gid, isbn, zoom=COVERZOOM):
     tpl = "http://books.google.com/books/content?id={gid}&printsec=frontcover"\
           "&img=1&zoom={zoom}&edge=curl&source=gbs_api"
     url = tpl.format(gid=gid, zoom=zoom)
-    tofile = isbn + '.png' if zoom > 1 else isbn + '.jpg'
-    while not download(url, tofile=tofile):
+    coverfile = download(url, tofile=isbn)
+    while not coverfile:
         # try a smaller resolution
         zoom -= 1
         if zoom > 0:
-            tofile = isbn + '.png' if zoom > 1 else isbn + '.jpg'
             url = tpl.format(gid=gid, zoom=zoom)
         else:    # pragma: nocover
             return
-    return tofile
+        coverfile = download(url, tofile=isbn)
+    return coverfile if coverfile else None
 
 
 def gcover(isbn, size=2):
