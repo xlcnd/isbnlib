@@ -1,10 +1,15 @@
 #!/usr/bin/env python
 
 import logging
+
 try:                     # pragma: no cover
+    # PY3
+    from urllib.error import HTTPError, URLError
     from urllib.request import Request, urlopen
 except ImportError:      # pragma: no cover
+    # PY2
     from urllib2 import Request, urlopen, HTTPError, URLError
+
 from json import loads
 
 from .dev._exceptions import ISBNLibHTTPError, ISBNLibURLError
@@ -43,13 +48,18 @@ def download(url, tofile=None):
     if noimageavailable:
         return False
     if tofile:
-        content_type = response.info().getheader('Content-Type')
+        try:     # pragma: no cover
+            # PY2
+            content_type = response.info().getheader('Content-Type')
+        except:  # pragma: no cover
+            # PY3
+            content_type = response.getheader('Content-Type')
         _, ext = content_type.split('/')
         tofile = tofile.split('.')[0] + '.' + ext.split('-')[-1]
         with open(tofile, 'wb') as f:
             f.write(content)
     else:
-        print content
+        print(content)
     return True
 
 
@@ -74,7 +84,7 @@ def goo_id(isbn):
         if gid and cache is not None:
             cache[key] = gid
         return gid
-    except:
+    except:    # pragma: nocover
         return
 
 
@@ -89,11 +99,11 @@ def google_cover(gid, isbn, zoom=COVERZOOM):
         if zoom > 0:
             tofile = isbn + '.png' if zoom > 1 else isbn + '.jpg'
             url = tpl.format(gid=gid, zoom=zoom)
-        else:
+        else:    # pragma: nocover
             return
     return tofile
 
 
-def cover(isbn, size=2):
+def gcover(isbn, size=2):
     gid = goo_id(isbn)
     return google_cover(gid, isbn, zoom=size) if gid else None

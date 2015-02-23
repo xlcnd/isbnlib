@@ -2,7 +2,7 @@
 """Extra methods."""
 
 from ._core import EAN13
-from ._cover import cover as gcover
+from ._cover import gcover
 from ._desc import goo_desc
 from ._gwords import goos
 from ._infogroup import infogroup
@@ -73,9 +73,11 @@ def ren(fp):
 
 def cover(isbn, size=2):
     """Download the cover of the ISBN."""
-    return gcover(isbn, size)
+    isbn = EAN13(isbn)
+    return gcover(isbn, size) if isbn else None
 
 
 def desc(isbn):
     """Return a descripion of the ISBN."""
-    return goo_desc(isbn)
+    isbn = EAN13(isbn)
+    return goo_desc(isbn) if isbn else None

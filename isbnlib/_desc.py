@@ -4,11 +4,22 @@ from json import loads
 from textwrap import fill
 
 from .dev.webservice import query as wsquery
+from .registry import metadata_cache
 
 UA = "isbnlib (gzip)"
 
 
 def goo_desc(isbn):
+    cache = metadata_cache
+    if cache is not None:
+        key = 'gdesc' + isbn
+        try:
+            if cache[key]:
+                return cache[key]
+            else:                                           # pragma: no cover
+                raise  # <-- IMPORTANT: usually the caches don't return error!
+        except:
+            pass
     url = "https://www.googleapis.com/books/v1/volumes?q=isbn+{isbn}"\
           "&fields=items/volumeInfo(description)"\
           "&maxResults=1".format(isbn=isbn)
@@ -16,6 +27,9 @@ def goo_desc(isbn):
     try:
         content = loads(content)
         content = content['items'][0]['volumeInfo']['description']
-        return fill(content, width=75)
-    except:
+        content = fill(content, width=75) if content else None
+        if content and cache is not None:
+            cache[key] = content
+        return content
+    except KeyError:  # pragma: nocover
         return
