@@ -26,8 +26,8 @@ def query(isbn, processor=None):
     rg = results.get('goob')
 
     if not rw and not rg:
-       return None 
- 
+        return None
+
     md = Metadata(rw) if rw else None
 
     if md and rg:
