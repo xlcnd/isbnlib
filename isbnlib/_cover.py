@@ -39,7 +39,7 @@ def download(url, tofile=None):
             # available for any size, but also when you are
             # blacklisted by the service (should use 404)
             LOGGER.debug('Cover not available or you are making many requests')
-            return True   # <-- no more attempts to download
+            return True     # <-- no more attempts to download
         if e.code in (401, 429):
             raise ISBNLibHTTPError('%s Are you are making many requests?'
                                    % e.code)
