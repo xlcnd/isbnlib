@@ -2,6 +2,8 @@
 """Extra methods."""
 
 from ._core import EAN13
+from ._cover import cover as gcover
+from ._desc import goo_desc
 from ._gwords import goos
 from ._infogroup import infogroup
 from ._metadata import query
@@ -67,3 +69,13 @@ def ren(fp):
     isbn13 = data.get('ISBN-13', u('UNKNOWN'))
     new_name = "%s%s_%s_%s" % (author, year, title, isbn13)
     return cfp.baserename(b2u3(new_name + cfp.ext))
+
+
+def cover(isbn, size=2):
+    """Download the cover of the ISBN."""
+    return gcover(isbn, size)
+
+
+def desc(isbn):
+    """Return a descripion of the ISBN."""
+    return goo_desc(isbn)

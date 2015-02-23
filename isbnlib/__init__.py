@@ -6,7 +6,7 @@
 
 __all__ = ('is_isbn10', 'is_isbn13', 'clean', 'mask', 'info', 'meta',
            'to_isbn10', 'to_isbn13', 'get_isbnlike', 'notisbn',
-           'ean13', 'EAN13',
+           'ean13', 'EAN13', 'cover', 'desc',
            'canonical', 'get_canonical_isbn', 'editions', 'isbn_from_words',
            'quiet_errors', 'config', '__version__', '__support__',
            'doi', 'ren', 'ISBN13', 'ISBNLibException',
@@ -40,7 +40,8 @@ from . import config                                # <-- first import
 from ._core import (is_isbn10, is_isbn13, to_isbn10, to_isbn13, clean,
                     canonical, notisbn, get_isbnlike, get_canonical_isbn,
                     EAN13)
-from ._ext import (mask, meta, info, editions, isbn_from_words, doi, ren)
+from ._ext import (cover, desc, mask, meta, info, editions, isbn_from_words,
+                   doi, ren)
 from ._goom import query as goom
 from ._doitotex import doi2tex
 
