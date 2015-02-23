@@ -2,11 +2,10 @@
 
 from .. import config
 
-RESULTS = {}
-
 
 def serial(named_tasks, arg):
     """Serial calls."""
+    RESULTS = {}
     try:
         for name, task in named_tasks:
             RESULTS[name] = task(arg)
@@ -18,6 +17,7 @@ def serial(named_tasks, arg):
 def parallel(named_tasks, arg):
     """Threaded calls."""
     from threading import Thread
+    RESULTS = {}
 
     def _worker(name, task, arg):
         try:
@@ -35,6 +35,7 @@ def parallel(named_tasks, arg):
 def multi(named_tasks, arg):
     """Multiprocessing: using several cores (if available)."""
     from multiprocessing import Process, Queue
+    RESULTS = {}
     q = Queue()
 
     def _worker(name, task, arg, q):

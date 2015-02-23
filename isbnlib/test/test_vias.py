@@ -22,3 +22,8 @@ def test_vias():
     assert_equals(len(repr(merge.query('9780321534965', 'parallel'))) in (173, 179), True)
     assert_equals(len(repr(merge.query('9780321534965', 'multi'))) in (173, 179), True)
     assert_equals(len(repr(merge.query('9780321534965', 'serial'))) in (173, 179), True)
+
+    # test if the secondary cache (cache in vias) does clears... sequentially
+    assert_equals(len(repr(merge.query('9788806219345', 'serial'))) < 20, True)
+    assert_equals(len(repr(merge.query('9780321534965', 'serial'))) in (173, 179), True)
+    assert_equals(len(repr(merge.query('9788806219345', 'serial'))) < 20, True)
