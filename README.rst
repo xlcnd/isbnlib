@@ -150,6 +150,15 @@ Main Functions
 ``ren(filename)``
 	Renames a file using metadata from an ISBN in his filename.
 
+``desc(isbn)``
+	**BETA** Returns a small description of the book. 
+        *Almost all data available are for US books!*
+
+``cover(isbn)``
+	**BETA** Returns an image of the cover of the book. 
+        *Almost all data available are for US books!*
+
+
 See files test_core_ and test_ext_ for **a lot of examples**.
 
 
@@ -182,8 +191,8 @@ API's Main Namespaces
 In the namespace ``isbnlib`` you have access to the core methods:
 ``is_isbn10``, ``is_isbn13``, ``to_isbn10``, ``to_isbn13``, ``canonical``,
 ``clean``, ``notisbn``, ``get_isbnlike``, ``get_canonical_isbn``, ``mask``,
-``meta``, ``info``, ``editions``, ``goom``, ``ren``, ``doi``, ``EAN13``
-and ``isbn_from_words``.
+``meta``, ``info``, ``editions``, ``goom``, ``ren``, ``doi``, ``EAN13``,
+``isbn_from_words``, ``desc`` and ``cover``.
 
 The exceptions raised by these methods can all be catched using ``ISBNLibException``.
 

@@ -103,6 +103,14 @@ In the namespace ``isbnlib`` you have access to the core methods:
 ``ren(filename)``
 	Renames a file using metadata from an ISBN in his filename.
 
+``desc(isbn)``
+	**BETA** Returns a small description of the book. 
+        *Almost all data available are for US books!*
+
+``cover(isbn)``
+	**BETA** Returns an image of the cover of the book. 
+        *Almost all data available are for US books!*
+
 See files test_core_ and test_ext_ for **a lot of examples**.
 
 The exceptions raised by these methods can all be catched using ``ISBNLibException``.
