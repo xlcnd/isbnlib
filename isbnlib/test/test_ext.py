@@ -57,6 +57,6 @@ def test_desc():
 
 
 def test_cover():
-    assert_equals(cover('9780156001311'), '9780156001311.jpg')
+    assert_equals(cover('9780156001311')[:13], '9780156001311')
     assert_equals(cover('9780000000000'), None)
     
