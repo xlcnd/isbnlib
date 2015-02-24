@@ -8,7 +8,7 @@ from .dev import Metadata, vias
 
 
 def query(isbn, processor=None):
-    """Query function for the `merge provider` (waterfall model)."""
+    """Query function for the 'merge provider' (waterfall model)."""
     if not processor:
         processor = config.options.get('VIAS_MERGE', processor).lower()
         if not processor:     # pragma: no cover
@@ -32,7 +32,7 @@ def query(isbn, processor=None):
 
     if md and rg:
         # Overwrite with Authors and Language from Google
-        md.merge(rg, overwrite=('Authors', 'Language'))
+        md.merge(rg, overwrite=('Authors'))
         return md.value
     if not md and rg:       # pragma: no cover
         md = Metadata(rg)
