@@ -15,10 +15,10 @@ def goo_desc(isbn):
     cache = metadata_cache
     if cache is not None:
         key = 'gdesc' + isbn
-        try:
+        try:                     # pragma: no cover
             if cache[key]:
                 return cache[key]
-            else:                                           # pragma: no cover
+            else:
                 raise  # <-- IMPORTANT: usually the caches don't return error!
         except:
             pass
@@ -33,5 +33,5 @@ def goo_desc(isbn):
         if content and cache is not None:
             cache[key] = content
         return content
-    except KeyError:  # pragma: nocover
+    except KeyError:             # pragma: no cover
         return

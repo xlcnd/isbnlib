@@ -53,20 +53,20 @@ def download(url, tofile=None):
         raise ISBNLibURLError(e.reason)
     content = response.read()
     noimageavailable = len(content) == NOIMGSIZE
-    if noimageavailable:
+    if noimageavailable:  # pragma: no cover
         return False
     if tofile:
-        try:     # pragma: no cover
+        try:              # pragma: no cover
             # PY2
             content_type = response.info().getheader('Content-Type')
-        except:  # pragma: no cover
+        except:           # pragma: no cover
             # PY3
             content_type = response.getheader('Content-Type')
         _, ext = content_type.split('/')
         tofile = tofile.split('.')[0] + '.' + ext.split('-')[-1]
         with open(tofile, 'wb') as f:
             f.write(content)
-    else:        # pragma: no cover
+    else:                 # pragma: no cover
         print(content)
     return tofile
 
@@ -77,12 +77,12 @@ def goo_id(isbn):
     cache = metadata_cache
     if cache is not None:
         key = 'gid' + isbn
-        try:
+        try:                     # pragma: no cover
             if cache[key]:
                 return cache[key]
-            else:                                           # pragma: no cover
+            else:
                 raise  # <-- IMPORTANT: usually the caches don't return error!
-        except:
+        except:                  # pragma: no cover
             pass
     url = "https://www.googleapis.com/books/v1/volumes?q="\
           "isbn+{isbn}&fields=items/id&maxResults=1".format(isbn=isbn)
@@ -93,7 +93,7 @@ def goo_id(isbn):
         if gid and cache is not None:
             cache[key] = gid
         return gid
-    except:    # pragma: nocover
+    except:                      # pragma: no cover
         return
 
 
@@ -108,7 +108,7 @@ def google_cover(gid, isbn, zoom=COVERZOOM):
         zoom -= 1
         if zoom > 0:
             url = tpl.format(gid=gid, zoom=zoom)
-        else:    # pragma: nocover
+        else:                    # pragma: no cover
             return
         coverfile = download(url, tofile=isbn)
     return coverfile if coverfile and coverfile is not True else None
