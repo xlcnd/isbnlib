@@ -13,7 +13,7 @@ __all__ = ('is_isbn10', 'is_isbn13', 'clean', 'mask', 'info', 'meta',
            'NotRecognizedServiceError', 'NotValidISBNError',
            'PluginNotLoadedError', 'goom', 'doi2tex', 'RDDATE')
 
-__version__ = '3.4.8'                               # <-- literal IDs
+__version__ = '3.4.9'                               # <-- literal IDs
 __support__ = 'py26, py27, py33, py34, pypy'        # <-- literal IDs
 
 import logging as _logging
