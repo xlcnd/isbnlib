@@ -5,13 +5,14 @@ from json import loads
 from textwrap import fill
 
 from .dev.webservice import query as wsquery
-from .registry import metadata_cache
+
 
 UA = "isbnlib (gzip)"
 
 
 def goo_desc(isbn):
     """Get description from Google Books api."""
+    from .registry import metadata_cache  # <-- dynamic
     cache = metadata_cache
     if cache is not None:
         key = 'gdesc' + isbn

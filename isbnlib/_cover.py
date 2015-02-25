@@ -15,7 +15,7 @@ from json import loads
 
 from .dev._exceptions import ISBNLibHTTPError, ISBNLibURLError
 from .dev.webservice import query
-from .registry import metadata_cache
+
 
 COVERZOOM = 2
 NOIMGSIZE = 15666
@@ -73,6 +73,7 @@ def download(url, tofile=None):
 
 def goo_id(isbn):
     """Return the Google's id associated with each ISBN."""
+    from .registry import metadata_cache  # <-- dynamic
     # check the cache fist
     cache = metadata_cache
     if cache is not None:
