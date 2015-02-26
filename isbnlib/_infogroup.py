@@ -27,6 +27,6 @@ def infogroup(isbn):
     for ident in idents:
         iid = prefix + isbn[ixi:ixf]
         ixf += 1
-        # stop if identifier is found else continue!
+        # stop if identifier is found
         if iid in ident:
             return dtxt[iid]

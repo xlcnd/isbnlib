@@ -1,10 +1,11 @@
-#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 # flake8: noqa
 # pylint: skip-file
+
 """ nose tests
 
 """
+
 import os
 from ..dev._files import File, cwdfiles
 from nose.tools import assert_equals, assert_raises

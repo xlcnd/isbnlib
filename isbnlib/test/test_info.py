@@ -1,5 +1,6 @@
-#!/usr/bin/env python
 # -*- coding: utf-8 -*-
+# flake8: noqa
+# pylint: skip-file
 
 
 from .._infogroup import infogroup
@@ -27,5 +28,3 @@ def test_infogroup():
 def test_ext_info():
     assert_equals(info('9524712946'), 'Finland')
     assert_raises(Exception, info, '')
-
-# flake8: noqa
