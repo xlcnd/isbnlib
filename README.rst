@@ -74,7 +74,7 @@ Note
 
    If possible, work with ISBNs in the isbn-13 format (since 2007, only are issued ISBNs in the isbn-13
    format). You can always convert isbn-10 to isbn-13, but **not** the reverse.
-   Read more about ISBN at isbn-international.org_. 
+   Read more about ISBN at isbn-international.org_ or wikipedia_. 
 
 
 
@@ -317,3 +317,5 @@ Read ``isbnlib`` code in a very sctructured way at sourcegraph_ or 'the docs' at
 .. _test_ext: https://github.com/xlcnd/isbnlib/blob/master/isbnlib/test/test_ext.py
 
 .. _isbn-international.org: https://www.isbn-international.org/content/what-isbn
+
+.. _wikipedia: http://en.wikipedia.org/wiki/International_Standard_Book_Number
