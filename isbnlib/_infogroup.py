@@ -20,7 +20,7 @@ def infogroup(isbn):
         raise NotValidISBNError(isbn)
     # put isbn in the form 978-...
     prefix = isbn[0:3] + '-'
-    isbn =  prefix + isbn[3:]
+    isbn = prefix + isbn[3:]
     dtxt = d
     idents = identifiers
     ixi, ixf = 4, 5
