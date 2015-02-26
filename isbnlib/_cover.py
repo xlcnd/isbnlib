@@ -18,7 +18,7 @@ from .dev.webservice import query
 
 
 COVERZOOM = 2
-NOIMGSIZE = 15666
+NOIMGSIZE = (15666, 16641)
 UA = "isbntools (gzip)"
 
 LOGGER = logging.getLogger(__name__)
@@ -52,7 +52,7 @@ def download(url, tofile=None):
                         url, e.reason)
         raise ISBNLibURLError(e.reason)
     content = response.read()
-    noimageavailable = len(content) == NOIMGSIZE
+    noimageavailable = len(content) in NOIMGSIZE
     if noimageavailable:  # pragma: no cover
         return False
     if tofile:
