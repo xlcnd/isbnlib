@@ -22,6 +22,7 @@ def test_infogroup():
     assert_raises(Exception, infogroup, '')
     assert_equals(infogroup('9791090636071'), 'France')
     assert_equals(infogroup('9786131796364'), 'Mauritius')
+    assert_equals(infogroup('9789992158104'), 'Qatar')
 
 def test_ext_info():
     assert_equals(info('9524712946'), 'Finland')
