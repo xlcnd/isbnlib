@@ -151,11 +151,12 @@ Main Functions
 	Renames a file using metadata from an ISBN in his filename.
 
 ``desc(isbn)``
-	**BETA** Returns a small description of the book. 
+	Returns a small description of the book. 
         *Almost all data available are for US books!*
 
 ``cover(isbn)``
-	**BETA** Returns an image of the cover of the book. 
+	Downloads an image of the cover of the book or with 
+        ``cover(isbn, mode='url')`` an url of the image. 
         *Almost all data available are for US books!*
 
 
