@@ -98,11 +98,13 @@ def goo_id(isbn):
         return
 
 
-def google_cover(gid, isbn, zoom=COVERZOOM):
+def google_cover(gid, isbn, zoom=COVERZOOM, mode='prt'):
     """Download the cover from Google."""
     tpl = "http://books.google.com/books/content?id={gid}&printsec=frontcover"\
           "&img=1&zoom={zoom}&edge=curl&source=gbs_api"
     url = tpl.format(gid=gid, zoom=zoom)
+    if mode == 'url':
+        return url
     coverfile = download(url, tofile=isbn)
     while not coverfile:
         # try a smaller resolution
@@ -110,12 +112,12 @@ def google_cover(gid, isbn, zoom=COVERZOOM):
         if zoom > 0:
             url = tpl.format(gid=gid, zoom=zoom)
         else:                    # pragma: no cover
-            return
+            return None
         coverfile = download(url, tofile=isbn)
     return coverfile if coverfile and coverfile is not True else None
 
 
-def gcover(isbn, size=2):
+def gcover(isbn, size=2, mode='prt'):
     """Main entry point for cover."""
     gid = goo_id(isbn)
-    return google_cover(gid, isbn, zoom=size) if gid else None
+    return google_cover(gid, isbn, zoom=size, mode=mode) if gid else None
