@@ -117,7 +117,7 @@ def google_cover(gid, isbn, zoom=COVERZOOM, mode='prt'):
     return coverfile if coverfile and coverfile is not True else None
 
 
-def gcover(isbn, size=2, mode='prt'):
+def gcover(isbn, size=COVERZOOM, mode='prt'):
     """Main entry point for cover."""
     gid = goo_id(isbn)
     return google_cover(gid, isbn, zoom=size, mode=mode) if gid else None
