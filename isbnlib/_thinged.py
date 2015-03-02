@@ -1,0 +1,38 @@
+# -*- coding: utf-8 -*-
+"""Query the ThingISBN api (Library Thing) for related ISBNs."""
+
+import logging
+from xml.dom.minidom import parseString
+
+from ._core import EAN13
+from .dev.webquery import query as wquery
+
+LOGGER = logging.getLogger(__name__)
+UA = 'isbnlib (gzip)'
+SERVICE_URL = 'http://www.librarything.com/api/thingISBN/{isbn}'
+
+
+def _get_text(topnode):
+    """Get the text values in the child nodes."""
+    text = ""
+    for node in topnode.childNodes:
+        if node.nodeType == node.TEXT_NODE:
+            text = text + node.data
+    return text
+
+
+def parser_thinged(xml):
+    """Parse the response from the ThingISBN service."""
+    dom = parseString(xml)
+    editions = []
+    nodes = dom.getElementsByTagName("idlist")[0].getElementsByTagName("isbn")
+    for isbn in nodes:
+        content = _get_text(isbn)
+        editions.append(EAN13(content))
+    return editions
+
+
+def query(isbn):
+    """Query the worldcat.org service for related ISBNs."""
+    data = wquery(SERVICE_URL.format(isbn=isbn), UA, parser=parser_thinged)
+    return data
