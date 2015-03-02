@@ -9,7 +9,7 @@ from .dev._exceptions import (DataWrongShapeError, NoDataForSelectorError,
 from .dev.bouth23 import u
 from .dev.webquery import query as wquery
 
-UA = 'isbntools (gzip)'
+UA = 'isbnlib (gzip)'
 SERVICE_URL = 'https://www.googleapis.com/books/v1/volumes?q={words}'\
     '&fields=items/volumeInfo(title,authors,publisher,publishedDate,'\
     'language,industryIdentifiers)&maxResults=10'

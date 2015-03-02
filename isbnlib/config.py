@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""Config file for isbntools."""
+"""Config file for isbnlib."""
 
 # --> Import only external modules! <--
 

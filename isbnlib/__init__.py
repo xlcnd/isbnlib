@@ -2,7 +2,7 @@
 # flake8: noqa
 # isort:skip_file
 
-"""Define isbntools API and set lib environment."""
+"""Define isbnlib API and set lib environment."""
 
 __all__ = ('is_isbn10', 'is_isbn13', 'clean', 'mask', 'info', 'meta',
            'to_isbn10', 'to_isbn13', 'get_isbnlike', 'notisbn',
