@@ -69,12 +69,12 @@ Note
    However *isbn.org*, probably by legal reasons, merges the two!
    So, according to *isbn-international.org*, '9786610326266' is not valid (because the block 978-66...
    has not been issued yet, however if you use ``is_isbn13('9786610326266')`` you will get ``True``
-   (because '9786610326266' follows the rules of an ISBN). But the situation is even murkier, 
+   (because '9786610326266' follows the rules of an ISBN). But the situation is even murkier,
    try ``meta('9786610326266')`` and you will see that this ISBN was already used!
 
    If possible, work with ISBNs in the isbn-13 format (since 2007, only are issued ISBNs in the isbn-13
    format). You can always convert isbn-10 to isbn-13, but **not** the reverse.
-   Read more about ISBN at isbn-international.org_ or wikipedia_. 
+   Read more about ISBN at isbn-international.org_ or wikipedia_.
 
 
 
@@ -151,13 +151,13 @@ Main Functions
 	Renames a file using metadata from an ISBN in his filename.
 
 ``desc(isbn)``
-	Returns a small description of the book. 
-        *Almost all data available are for US books!*
+	Returns a small description of the book.
+    *Almost all data available are for US books!*
 
 ``cover(isbn)``
-	Downloads an image of the cover of the book or with 
-        ``cover(isbn, mode='url')`` an url of the image. 
-        *Almost all data available are for US books!*
+	Downloads an image of the cover of the book or, with
+    ``cover(isbn, mode='url')``, returns an url of the image.
+    *Almost all data available are for US books!*
 
 
 See files test_core_ and test_ext_ for **a lot of examples**.
