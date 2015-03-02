@@ -3,9 +3,10 @@
 """Read and write shelve cache.
 
 
-NOTES:
-1. cannot use context manager for shelve because py2
-2. shelve has different incompatible formats in py2 and py3
+NOTE
+1. shelve has different incompatible formats in py2 and py3
+2. if some methods detect that the cache is not consistent
+   they delete the cache and create a new one.
 """
 
 import datetime
