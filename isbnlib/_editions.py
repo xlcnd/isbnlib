@@ -9,7 +9,7 @@ from ._thinged import query as ted
 from ._wcated import query as wed
 
 PROVIDERS = ('any', 'merge', 'thingl', 'wcat')
-TRUEPROVIDERS = ('wcat', 'thingl') # <-- by priority
+TRUEPROVIDERS = ('wcat', 'thingl')  # <-- by priority
 LOGGER = logging.getLogger(__name__)
 
 
@@ -49,7 +49,7 @@ def eds(isbn, service='wcat'):
     if not isbn:
         LOGGER.critical('%s is not a valid ISBN', isbn)
         raise NotValidISBNError(isbn)
-    
+
     if service == 'any':
         return fake_provider_any(isbn)
 
