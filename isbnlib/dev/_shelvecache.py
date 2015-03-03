@@ -7,6 +7,8 @@ NOTE
 1. shelve has different incompatible formats in py2 and py3
 2. if some methods detect that the cache is not consistent
    they delete the cache and create a new one.
+3. After purge the cache keeps the records with more hits
+   and the newests.
 """
 
 import datetime
@@ -17,6 +19,8 @@ from time import time as timestamp
 class ShelveCache(object):
 
     """Read and write shelve cache."""
+
+    MAXLEN = 1000
 
     def __init__(self, filepath):
         """Initialize attributes."""
@@ -31,8 +35,12 @@ class ShelveCache(object):
     def __getitem__(self, key):
         """Read cache."""
         try:
-            s = self._sh.open(self.filepath)
-            return s[key]['value'] if s[key] else None
+            s = self._sh.open(self.filepath, writeback=True)
+            if s[key]:
+                s[key]['hits'] += 1
+                return s[key]['value']
+            else:
+                return None
         except KeyError:
             return None
         except ValueError:
@@ -45,7 +53,7 @@ class ShelveCache(object):
         """Write to cache."""
         try:
             s = self._sh.open(self.filepath)
-            s[key] = {'value': value, 'timestamp': timestamp()}
+            s[key] = {'value': value, 'hits': 0, 'timestamp': timestamp()}
             status = True
         except:
             status = False
@@ -95,7 +103,35 @@ class ShelveCache(object):
         finally:
             s.close()
 
+    def hits(self, key):
+        """Return the number of hits for the record with key."""
+        try:
+            s = self._sh.open(self.filepath)
+            hts = s[key]['hits'] if s[key] else None
+            return hts
+        except KeyError:
+            return
+        except ValueError:
+            self.new()
+            return
+        finally:
+            s.close()
+
     def new(self):
         """Make new cache."""
         s = self._sh.open(self.filepath, 'n')
         s.close()
+
+    def purge(self):
+        """Purge the cache."""
+        try:
+            if len(self.keys()) < self.MAXLEN:
+                return
+            s = self._sh.open(self.filepath)
+            data = [(k, s[k]['timestamp'], s[k]['hits']) for k in s.keys()]
+            data.sort(key=lambda tup: (-tup[2], -tup[1]))
+            garbk = [k[0] for k in data[self.MAXLEN:]]
+            for k in garbk:
+                del s[k]
+        finally:
+            s.close()
