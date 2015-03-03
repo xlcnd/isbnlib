@@ -20,7 +20,7 @@ class ShelveCache(object):
 
     """Read and write shelve cache."""
 
-    MAXLEN = 1000
+    HALFMAXLEN = 1000
 
     def __init__(self, filepath):
         """Initialize attributes."""
@@ -125,12 +125,12 @@ class ShelveCache(object):
     def purge(self):
         """Purge the cache."""
         try:
-            if len(self.keys()) < self.MAXLEN:
+            if len(self.keys()) < self.HALFMAXLEN:
                 return
             s = self._sh.open(self.filepath)
             data = [(k, s[k]['timestamp'], s[k]['hits']) for k in s.keys()]
             data.sort(key=lambda tup: (-tup[2], -tup[1]))
-            garbk = [k[0] for k in data[self.MAXLEN:]]
+            garbk = [k[0] for k in data[self.HALFMAXLEN:]]
             for k in garbk:
                 del s[k]
         finally:
