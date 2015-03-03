@@ -35,13 +35,6 @@ def test_mask():
     assert_raises(Exception, mask, '0000000000000')
 
 
-def test_editions():
-    assert_equals(len(editions('9780156001311', service='wcat')) > 19, True)
-    assert_equals(len(editions('9780151446476', service='thing')) > 19, True)
-    assert_equals(len(editions('9780151446476')) > 19, True)
-    assert_raises(TypeError, len(editions('9780151446476')))
-
-
 def test_isbn_from_words():
     assert_equals(len(isbn_from_words('old men and sea')), 13)
 

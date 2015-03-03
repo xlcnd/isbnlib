@@ -4,11 +4,11 @@
 from ._core import EAN13
 from ._cover import gcover
 from ._desc import goo_desc
+from ._editions import eds
 from ._gwords import goos
 from ._infogroup import infogroup
 from ._metadata import query
 from ._msk import msk
-from ._wcated import query as qed
 from .dev.bouth23 import b2u3, u
 from .dev.helpers import File, cutoff_tokens, last_first
 
@@ -29,9 +29,12 @@ def info(isbn):
     return infogroup(isbn)
 
 
-def editions(isbn):
-    """Return the list of ISBNs of editions related with this ISBN."""
-    return qed(isbn)
+def editions(isbn, service='wcat'):
+    """Return the list of ISBNs of editions related with this ISBN.
+
+    'service' can have the values 'any', 'merge', 'thingl' and 'wcat' (default)
+    """
+    return eds(isbn, service)
 
 
 def isbn_from_words(words):

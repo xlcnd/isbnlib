@@ -24,12 +24,8 @@ def _get_text(topnode):
 def parser_thinged(xml):
     """Parse the response from the ThingISBN service."""
     dom = parseString(xml)
-    editions = []
     nodes = dom.getElementsByTagName("idlist")[0].getElementsByTagName("isbn")
-    for isbn in nodes:
-        content = _get_text(isbn)
-        editions.append(EAN13(content))
-    return editions
+    return [EAN13(_get_text(isbn)) for isbn in nodes]
 
 
 def query(isbn):
