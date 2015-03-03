@@ -132,8 +132,11 @@ Main Functions
     ``cache`` only allows two values: 'default' or None. You can change the kind of cache by using
     ``isbnlib.registry.set_cache`` (see below).
 
-``editions(isbn)``
-	Returns the list of ISBNs of editions related with this ISBN.
+``editions(isbn, service='wcat')``
+	Returns the list of ISBNs of editions related with this ISBN. By default
+    uses 'wcat', but other providers are avilable: 'thingl' (uses the
+    service ThingISBN from **LibraryThing**), 'merge' (merges 'wcat' with 'thingl')
+    and 'any' (first tries 'wcat', if no data, tries 'thingl').
 
 ``isbn_from_words(words)``
 	Returns the most probable ISBN from a list of words (for your geographic area).
@@ -156,7 +159,7 @@ Main Functions
 
 ``cover(isbn)``
 	Downloads an image of the cover of the book or, with
-    ``cover(isbn, mode='url')``, returns an url of the image.
+    `cover(isbn, mode='url')`, returns an url of the image.
     *Almost all data available are for US books!*
 
 
