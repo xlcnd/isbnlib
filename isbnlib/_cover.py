@@ -24,7 +24,34 @@ UA = "isbnlib (gzip)"
 LOGGER = logging.getLogger(__name__)
 
 
-def download(url, tofile=None):
+def bookid(isbn):
+    """Return the Google's id associated with each ISBN."""
+    from .registry import metadata_cache  # <-- dynamic
+    # check the cache fist
+    cache = metadata_cache
+    if cache is not None:
+        key = 'gid' + isbn
+        try:                     # pragma: no cover
+            if cache[key]:
+                return cache[key]
+            else:
+                raise  # <-- IMPORTANT: usually the caches don't return error!
+        except:                  # pragma: no cover
+            pass
+    url = "https://www.googleapis.com/books/v1/volumes?q="\
+          "isbn+{isbn}&fields=items/id&maxResults=1".format(isbn=isbn)
+    content = query(url, user_agent=UA)
+    try:
+        content = loads(content)
+        gid = content['items'][0]['id']
+        if gid and cache is not None:
+            cache[key] = gid
+        return gid
+    except:                      # pragma: no cover
+        return
+
+
+def _download(url, tofile=None):
     """Download image."""
     headers = {'User-Agent': UA, 'Pragma': 'no-cache'}
     request = Request(url, headers=headers)
@@ -71,41 +98,14 @@ def download(url, tofile=None):
     return tofile
 
 
-def goo_id(isbn):
-    """Return the Google's id associated with each ISBN."""
-    from .registry import metadata_cache  # <-- dynamic
-    # check the cache fist
-    cache = metadata_cache
-    if cache is not None:
-        key = 'gid' + isbn
-        try:                     # pragma: no cover
-            if cache[key]:
-                return cache[key]
-            else:
-                raise  # <-- IMPORTANT: usually the caches don't return error!
-        except:                  # pragma: no cover
-            pass
-    url = "https://www.googleapis.com/books/v1/volumes?q="\
-          "isbn+{isbn}&fields=items/id&maxResults=1".format(isbn=isbn)
-    content = query(url, user_agent=UA)
-    try:
-        content = loads(content)
-        gid = content['items'][0]['id']
-        if gid and cache is not None:
-            cache[key] = gid
-        return gid
-    except:                      # pragma: no cover
-        return
-
-
-def google_cover(gid, isbn, zoom=COVERZOOM, mode='prt'):
+def _google_cover(gid, isbn, zoom=COVERZOOM, mode='prt'):
     """Download the cover from Google."""
     tpl = "http://books.google.com/books/content?id={gid}&printsec=frontcover"\
           "&img=1&zoom={zoom}&edge=curl&source=gbs_api"
     url = tpl.format(gid=gid, zoom=zoom)
     if mode == 'url':
         return url
-    coverfile = download(url, tofile=isbn)
+    coverfile = _download(url, tofile=isbn)
     while not coverfile:
         # try a smaller resolution
         zoom -= 1
@@ -113,11 +113,11 @@ def google_cover(gid, isbn, zoom=COVERZOOM, mode='prt'):
             url = tpl.format(gid=gid, zoom=zoom)
         else:                    # pragma: no cover
             return None
-        coverfile = download(url, tofile=isbn)
+        coverfile = _download(url, tofile=isbn)
     return coverfile if coverfile and coverfile is not True else None
 
 
 def cover(isbn, size=COVERZOOM, mode='prt'):
     """Main entry point for cover."""
-    gid = goo_id(isbn)
-    return google_cover(gid, isbn, zoom=size, mode=mode) if gid else None
+    gid = bookid(isbn)
+    return _google_cover(gid, isbn, zoom=size, mode=mode) if gid else None
