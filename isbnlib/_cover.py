@@ -36,8 +36,8 @@ def download(url, tofile=None):
                         url, e.code, e.msg)
         if e.code == 403:
             # Google uses this code when the image is not
-            # available for any size, but also when you are
-            # blacklisted by the service (should use 404)
+            # available for any size (should use 404),
+            # but also when you are blacklisted by the service
             LOGGER.debug('Cover not available or you are making many requests')
             return True     # <-- no more attempts to download
         if e.code in (401, 429):
@@ -53,20 +53,20 @@ def download(url, tofile=None):
         raise ISBNLibURLError(e.reason)
     content = response.read()
     noimageavailable = len(content) in NOIMGSIZE
-    if noimageavailable:  # pragma: no cover
+    if noimageavailable:    # pragma: no cover
         return False
     if tofile:
-        try:              # pragma: no cover
+        try:                # pragma: no cover
             # PY2
             content_type = response.info().getheader('Content-Type')
-        except:           # pragma: no cover
+        except:             # pragma: no cover
             # PY3
             content_type = response.getheader('Content-Type')
         _, ext = content_type.split('/')
         tofile = tofile.split('.')[0] + '.' + ext.split('-')[-1]
         with open(tofile, 'wb') as f:
             f.write(content)
-    else:                 # pragma: no cover
+    else:                   # pragma: no cover
         print(content)
     return tofile
 
@@ -117,7 +117,7 @@ def google_cover(gid, isbn, zoom=COVERZOOM, mode='prt'):
     return coverfile if coverfile and coverfile is not True else None
 
 
-def gcover(isbn, size=COVERZOOM, mode='prt'):
+def cover(isbn, size=COVERZOOM, mode='prt'):
     """Main entry point for cover."""
     gid = goo_id(isbn)
     return google_cover(gid, isbn, zoom=size, mode=mode) if gid else None

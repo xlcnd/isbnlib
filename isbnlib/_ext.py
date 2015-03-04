@@ -2,9 +2,9 @@
 """Extra methods."""
 
 from ._core import EAN13
-from ._cover import gcover
+from ._cover import cover as gcover
 from ._desc import goo_desc
-from ._editions import eds
+from ._editions import editions as eds
 from ._gwords import goos
 from ._infogroup import infogroup
 from ._metadata import query

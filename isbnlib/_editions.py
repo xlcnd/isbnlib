@@ -43,7 +43,7 @@ def fake_provider_merge(isbn):
         return data
 
 
-def eds(isbn, service='wcat'):
+def editions(isbn, service='wcat'):
     """Return the list of ISBNs of editions related with this ISBN."""
     isbn = EAN13(isbn)
     if not isbn:
