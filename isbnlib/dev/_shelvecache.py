@@ -126,12 +126,13 @@ class ShelveCache(object):
         """Purge the cache."""
         try:
             if len(self.keys()) < self.HALFMAXLEN:
-                return
+                return True
             s = self._sh.open(self.filepath)
             data = [(k, s[k]['timestamp'], s[k]['hits']) for k in s.keys()]
             data.sort(key=lambda tup: (-tup[2], -tup[1]))
             garbk = [k[0] for k in data[self.HALFMAXLEN:]]
             for k in garbk:
                 del s[k]
+            return True
         finally:
             s.close()
