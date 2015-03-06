@@ -2,13 +2,16 @@
 
 """Read and write shelve cache.
 
-
-NOTE
-1. shelve has different incompatible formats in py2 and py3
-2. if some methods detect that the cache is not consistent
+NOTES
+1. shelve has different incompatible formats in py2 and py3.
+2. If some methods detect that the cache is not consistent
    they delete the cache and create a new one.
 3. After purge the cache keeps the records with more hits
    and the newests.
+4. By opening and closing in each operation, the cache performs badly
+   for many records (because it doesn't use the 'in memory' part of cache).
+   So don't increase MAXLEN too much.
+
 """
 
 import datetime
@@ -20,7 +23,8 @@ class ShelveCache(object):
 
     """Read and write shelve cache."""
 
-    HALFMAXLEN = 1000
+    MAXLEN = 2000
+    CUTOFF = 0.5
 
     def __init__(self, filepath):
         """Initialize attributes."""
@@ -28,6 +32,8 @@ class ShelveCache(object):
         self.filepath = filepath
         try:
             s = self._sh.open(self.filepath)
+            if self.len(self._sh) > MAXLEN:
+                self.purge()
         except:
             s = self._sh.open(self.filepath, 'n')
         s.close()
@@ -125,14 +131,14 @@ class ShelveCache(object):
     def purge(self):
         """Purge the cache."""
         try:
-            if len(self.keys()) < self.HALFMAXLEN:
-                return True
+            if len(self.keys()) < self.MAXLEN:
+                return
             s = self._sh.open(self.filepath)
             data = [(k, s[k]['timestamp'], s[k]['hits']) for k in s.keys()]
             data.sort(key=lambda tup: (-tup[2], -tup[1]))
-            garbk = [k[0] for k in data[self.HALFMAXLEN:]]
+            keep = int(self.CUTOFF * self.MAXLEN)
+            garbk = [k[0] for k in data[keep:]]
             for k in garbk:
                 del s[k]
-            return True
         finally:
             s.close()
