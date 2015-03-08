@@ -141,7 +141,6 @@ class CoversCache(object):
                 self._index[key] = (url, None)
             checked.append(self._index[key][1])
         # delete files not on index
-        print checked
         diff = tuple(set(self.files()) - set(checked))
         for fp in diff:
             os.remove(fp)
