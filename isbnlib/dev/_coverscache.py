@@ -69,12 +69,13 @@ class CoversCache(object):
         """Write to cache."""
         url, pth = value
         try:
-            if pth and os.path.isfile(pth):
+            if pth and os.path.isfile(pth) and url:
                 target = os.path.join(self._get_slot(), os.path.basename(pth))
                 shutil.copyfile(pth, target)
-            if os.path.isfile(target) and url:
-                self._index[key] = (url, target)
-                return True
+                if os.path.isfile(target):
+                    self._index[key] = (url, target)
+                    return True
+                return False
             else:
                 raise
         except:

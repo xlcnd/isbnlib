@@ -104,7 +104,7 @@ def _google_cover(gid, isbn, zoom=COVERZOOM, mode='prt'):
           "&img=1&zoom={zoom}&edge=curl&source=gbs_api"
     url = tpl.format(gid=gid, zoom=zoom)
     if mode == 'url':
-        return url
+        return (url, None)
     coverfile = _download(url, tofile=isbn)
     while not coverfile:
         # try a smaller resolution
@@ -114,10 +114,10 @@ def _google_cover(gid, isbn, zoom=COVERZOOM, mode='prt'):
         else:                    # pragma: no cover
             return None
         coverfile = _download(url, tofile=isbn)
-    return coverfile if coverfile and coverfile is not True else None
+    return (url, coverfile) if coverfile and coverfile is not True else (url, None)
 
 
 def cover(isbn, size=COVERZOOM, mode='prt'):
     """Main entry point for cover."""
     gid = bookid(isbn)
-    return _google_cover(gid, isbn, zoom=size, mode=mode) if gid else None
+    return _google_cover(gid, isbn, zoom=size, mode=mode) if gid else (None, None)

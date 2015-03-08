@@ -32,8 +32,11 @@ class ShelveCache(object):
         self.filepath = filepath
         try:
             s = self._sh.open(self.filepath)
-            if self.len(self._sh) > MAXLEN:
-                self.purge()
+            try:
+                if len(list(s.keys())) > MAXLEN:
+                    self.purge()
+            except:
+                pass
         except:
             s = self._sh.open(self.filepath, 'n')
         s.close()
