@@ -114,10 +114,12 @@ def _google_cover(gid, isbn, zoom=COVERZOOM, mode='prt'):
         else:                    # pragma: no cover
             return None
         coverfile = _download(url, tofile=isbn)
-    return (url, coverfile) if coverfile and coverfile is not True else (url, None)
+    return (url, coverfile) if coverfile and coverfile is not True\
+        else (url, None)
 
 
 def cover(isbn, size=COVERZOOM, mode='prt'):
     """Main entry point for cover."""
     gid = bookid(isbn)
-    return _google_cover(gid, isbn, zoom=size, mode=mode) if gid else (None, None)
+    return _google_cover(gid, isbn, zoom=size, mode=mode) if gid\
+        else (None, None)
