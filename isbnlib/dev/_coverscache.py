@@ -14,20 +14,20 @@
 
     Examples:
     cc = CoversCache('.covers')
-    cc.['gooc.9780000000000.2'] = (
+    cc.['9781408835029'] = (
         "http://books.google.com/books/content?id=uUcvgfTYTRnjh"\
         "&printsec=frontcover"\
         "&img=1&zoom=2&edge=curl&source=gbs_api",
-        ".covers/slot01/9780000000000.jpg"
+        ".covers/slot01/9781408835029.jpg"
         )
-    cc['gooc.9780000000000.2']
-    cc.hits('gooc.9780000000000.2')
+    cc['9781408835029']
+    cc.hits('9781408835029')
     cc.keys()
     cc.files()
     cc.sync()
     cc.make()
     cc.delete()
-    del cc['gooc.9780000000000.2']
+    del cc['9781408835029']
 
 """
 
