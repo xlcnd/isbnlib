@@ -16,8 +16,11 @@ EOL = '\r\n' if WINDOWS and PY3 else '\n'
 
 
 def set_codepage():
-    if sys.stdout.encoding == 'cp65001':
-        return
+    try:
+        if sys.stdout.encoding == 'cp65001':
+            return
+    except:
+        pass
     try:
         # if pywin32 is installed change code page
         import win32console
