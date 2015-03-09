@@ -2,12 +2,11 @@
 
 """Private helper functions."""
 
-import os
 import re
 import sys
 from hashlib import md5
 
-from .bouth23 import b
+from .bouth23 import b, s
 
 
 def fake_isbn(title, author='unkown', publisher='unkown', sid=1):
@@ -37,13 +36,13 @@ def normalize_space(item):
     return item.strip()
 
 
-def titlecase(s):
+def titlecase(st):
     """Format string in title case.
 
     Only changes the first character of each word.
     """
     return re.sub(r"[A-Za-z]+('[A-Za-z]+)?",
-                  lambda m: m.group(0)[0].upper() + m.group(0)[1:], s)
+                  lambda m: m.group(0)[0].upper() + m.group(0)[1:], st)
 
 
 def last_first(author):
@@ -61,7 +60,6 @@ def last_first(author):
 
 def unicode_to_utf8tex(utex, filtre=()):
     """Replace unicode entities with tex entitites and returns utf8 bytes."""
-    from .bouth23 import b, s
     from .._data.data4tex import unicode_to_tex
     btex = utex.encode('utf-8')
     table = dict((k.encode('utf-8'), v) for k, v in unicode_to_tex.items()
