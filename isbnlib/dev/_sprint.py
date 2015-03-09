@@ -1,22 +1,36 @@
 # -*- coding: utf-8 -*-
-"""isbnlib sprint file."""
+"""isbnlib sprint file.
+
+This is a fix for UTF-8 printing on Windows.
+"""
 # flake8: noqa
 
 import os
 import sys
 
+
 WINDOWS = os.name == 'nt'
 PY2 = sys.version < '3'
-EOL = '\r\n' if WINDOWS and not PY2 else '\n'
+PY3 = not PY2
+EOL = '\r\n' if WINDOWS and PY3 else '\n'
 
 
-def set_codepage(cp=65001):
-    import win32console
-    win32console.SetConsoleOutputCP(cp)
-    win32console.SetConsoleCP(cp)
+def set_codepage():
+    if sys.stdout.encoding == 'cp65001':
+        return
+    try:
+        # if pywin32 is installed change code page
+        import win32console
+        win32console.SetConsoleOutputCP(65001)
+        win32console.SetConsoleCP(65001)
+    except:
+        # fallback
+        import subprocess
+        subprocess.call("chcp 65001 > %TMP%\\xxx", shell = True)
 
 
 def set_cmdfont(fontname="Lucida Console"):
+    """stackoverflow.com/questions/3592673/change-console-font-in-windows"""
     import ctypes
 
     LF_FACESIZE = 32
@@ -47,12 +61,6 @@ def set_cmdfont(fontname="Lucida Console"):
         handle, ctypes.c_long(False), ctypes.pointer(font))
 
 
-if WINDOWS:
-    # cp65001 == utf8
-    set_codepage(65001)
-    set_cmdfont('Lucida Console')
-
-
 def sprint(content, filep=None, mode='w'):
     """Smart print function.
 
@@ -63,6 +71,14 @@ def sprint(content, filep=None, mode='w'):
     if filep:
         stdout = sys.stdout
         sys.stdout = open(filep, mode)
-    sys.stdout.write(buf)
+    if PY3:
+        sys.stdout.buffer.write(buf)
+    if PY2:
+        sys.stdout.write(buf)
     if filep:
         sys.stdout = stdout
+
+
+if WINDOWS:
+    set_codepage()
+    set_cmdfont('Lucida Console')
