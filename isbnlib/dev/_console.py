@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
-"""isbnlib sprint file.
+"""isbnlib console & uprint file.
 
 This is a 'just good enough' fix for UTF-8 printing and redirection.
-On Windows, it works well with PY3 but, with PY2, some characters
-(cyrillic, chinese, ...) are missing in console, however if you 
-redirect to a file they will shown! Its OK on Linux and OSX.
+On Windows, some characters (cyrillic, chinese, ...) are missing
+in console, however if you redirect to a file they will shown!
+Its OK on Linux and OSX.
 """
 # flake8: noqa
 
@@ -18,26 +18,13 @@ PY3 = not PY2
 EOL = '\r\n' if WINDOWS else '\n'
 
 
-def set_mscp65001():
-    try:
-        if sys.stdout.encoding == 'cp65001':
-            return
-    except:
-        pass
-    try:
-        # change code page
-        # use pywin32 if installed
-        import win32console
-        win32console.SetConsoleOutputCP(65001)
-        win32console.SetConsoleCP(65001)
-    except:
-        # fallback
-        import subprocess
-        subprocess.call("chcp 65001 > %TMP%\\xxx", shell = True)
-
-
 def set_msconsolefont(fontname="Lucida Console"):
-    """stackoverflow.com/questions/3592673/change-console-font-in-windows"""
+    """stackoverflow.com/questions/3592673/change-console-font-in-windows.
+
+    At least in Windows 8, the kernel changes the console code page
+    to cp65001 (Windows's UTF-8) too. But in case you need, you have
+    a function to do that below.
+    """
     import ctypes
 
     LF_FACESIZE = 32
@@ -68,8 +55,30 @@ def set_msconsolefont(fontname="Lucida Console"):
         handle, ctypes.c_long(False), ctypes.pointer(font))
 
 
-def sprint(content, filep=None, mode='w'):
-    """Smart print function."""
+def set_mscp65001():
+    """Change Windows console to cp65001 (UTF-8)."""
+    try:
+        if sys.stdout.encoding == 'cp65001':
+            return
+    except:
+        pass
+    try:
+        # change code page
+        # use pywin32 if installed
+        import win32console
+        win32console.SetConsoleOutputCP(65001)
+        win32console.SetConsoleCP(65001)
+    except:
+        # fallback
+        import subprocess
+        subprocess.call("chcp 65001 > %TMP%\\xxx", shell = True)
+
+
+def uprint(content, filep=None, mode='w'):
+    """Unicode print function.
+
+    Works with redirection too.
+    """
     s = content + EOL
     buf = s.encode("utf-8")
     if filep:
@@ -81,8 +90,4 @@ def sprint(content, filep=None, mode='w'):
         sys.stdout.write(buf)
     if filep:
         sys.stdout = stdout
-
-
-if WINDOWS:
-    set_mscp65001()
-    set_msconsolefont('Lucida Console')
+    return True
