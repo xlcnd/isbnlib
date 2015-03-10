@@ -18,15 +18,15 @@
     :target: http://isbnlib.readthedocs.org/en/latest/
     :alt: Documentation Status
 
-.. image:: https://coveralls.io/repos/xlcnd/isbnlib/badge.svg?branch=v3.5.1
-    :target: https://coveralls.io/r/xlcnd/isbnlib?branch=v3.5.1
+.. image:: https://coveralls.io/repos/xlcnd/isbnlib/badge.svg?branch=v3.5.2
+    :target: https://coveralls.io/r/xlcnd/isbnlib?branch=v3.5.2
     :alt: Coverage
 
-.. image:: https://travis-ci.org/xlcnd/isbnlib.svg?branch=v3.5.1
+.. image:: https://travis-ci.org/xlcnd/isbnlib.svg?branch=v3.5.2
     :target: https://travis-ci.org/xlcnd/isbnlib
     :alt: Built Status
 
-.. image:: https://ci.appveyor.com/api/projects/status/github/xlcnd/isbnlib?branch=v3.5.1&svg=true
+.. image:: https://ci.appveyor.com/api/projects/status/github/xlcnd/isbnlib?branch=v3.5.2&svg=true
     :target: https://ci.appveyor.com/project/xlcnd/isbnlib
     :alt: Windows Built Status
 
@@ -134,7 +134,7 @@ Main Functions
 
 ``editions(isbn, service='wcat')``
     Returns the list of ISBNs of editions related with this ISBN. By default
-    uses 'wcat', but other providers are avilable: 'thingl' (uses the
+    uses 'wcat', but other providers are available: 'thingl' (uses the
     service ThingISBN from **LibraryThing**), 'merge' (merges 'wcat' with 'thingl')
     and 'any' (first tries 'wcat', if no data, tries 'thingl').
 
