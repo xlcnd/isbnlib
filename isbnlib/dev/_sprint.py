@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 """isbnlib sprint file.
 
-This is a fix for UTF-8 printing. 
-On Windows, it works well with PY3 but, with PY2, 
-some characters are missing (cyrillic, chinese, ...)
+This is a fix for UTF-8 printing.
+On Windows, it works well with PY3 but, with PY2,
+some characters (cyrillic, chinese, ...) are missing
 in console, however if you redirect to a file they will shown!
 Its OK in Linux and OSX.
 """
@@ -85,5 +85,5 @@ def sprint(content, filep=None, mode='w'):
 
 
 if WINDOWS:
-    set_mscp65001(65001)
+    set_mscp65001()
     set_msconsolefont('Lucida Console')
