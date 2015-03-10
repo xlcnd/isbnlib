@@ -133,7 +133,7 @@ Main Functions
     ``isbnlib.registry.set_cache`` (see below).
 
 ``editions(isbn, service='wcat')``
-	Returns the list of ISBNs of editions related with this ISBN. By default
+    Returns the list of ISBNs of editions related with this ISBN. By default
     uses 'wcat', but other providers are avilable: 'thingl' (uses the
     service ThingISBN from **LibraryThing**), 'merge' (merges 'wcat' with 'thingl')
     and 'any' (first tries 'wcat', if no data, tries 'thingl').
@@ -154,11 +154,11 @@ Main Functions
 	Renames a file using metadata from an ISBN in his filename.
 
 ``desc(isbn)``
-	**BETA** Returns a small description of the book.
+    **BETA** Returns a small description of the book.
     *Almost all data available are for US books!*
 
 ``cover(isbn)``
-	**BETA** Downloads an image of the cover of the book or, with
+    **BETA** Downloads an image of the cover of the book or, with
     `cover(isbn, mode='url')`, returns an url of the image.
     *Almost all data available are for US books!*
 

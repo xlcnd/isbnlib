@@ -86,7 +86,7 @@ In the namespace ``isbnlib`` you have access to the core methods:
     ``isbnlib.registry.set_cache`` (see below).
 
 ``editions(isbn, service='wcat')``
-	Returns the list of ISBNs of editions related with this ISBN. By default
+    Returns the list of ISBNs of editions related with this ISBN. By default
     uses 'wcat', but other providers are avilable: 'thingl' (uses the
     service ThingISBN from **LibraryThing**), 'merge' (merges 'wcat' with 'thingl')
     and 'any' (first tries 'wcat', if no data, tries 'thingl').
