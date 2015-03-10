@@ -1,11 +1,10 @@
 # -*- coding: utf-8 -*-
 """isbnlib sprint file.
 
-This is a fix for UTF-8 printing.
-On Windows, it works well with PY3 but, with PY2,
-some characters (cyrillic, chinese, ...) are missing
-in console, however if you redirect to a file they will shown!
-Its OK in Linux and OSX.
+This is a 'just good enough' fix for UTF-8 printing and redirection.
+On Windows, it works well with PY3 but, with PY2, some characters
+(cyrillic, chinese, ...) are missing in console, however if you 
+redirect to a file they will shown! Its OK on Linux and OSX.
 """
 # flake8: noqa
 
@@ -16,7 +15,7 @@ import sys
 WINDOWS = os.name == 'nt'
 PY2 = sys.version < '3'
 PY3 = not PY2
-EOL = '\r\n' if WINDOWS and PY3 else '\n'
+EOL = '\r\n' if WINDOWS else '\n'
 
 
 def set_mscp65001():
