@@ -43,7 +43,7 @@ class CoversCache(object):
     """Covers cache."""
 
     CACHEFOLDER = '.covers'
-    INDEXFN = '.index'
+    INDEXFN = '.index.dat'  # <-- PY3W
     MAXLEN = 3000
     NSLOTS = 10
 
