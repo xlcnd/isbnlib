@@ -14,4 +14,4 @@ v3.4.6, 2015-02-05 -- Fix bug #13.
 v3.4.7, 2015-02-11 -- Fix bug #14. 
 v3.4.8, 2015-02-25 -- Fix bug #16, add 'desc' and 'cover' features. 
 v3.4.9, 2015-02-27 -- Fix issue #17 and bug #18, data range 20150227.
-v3.5.1, 2015-02-27 -- TENTATIVE 
+v3.5.1, 2015-02-27 -- New CoversCache and better unicode printing in Windows.
