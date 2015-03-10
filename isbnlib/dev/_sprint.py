@@ -1,7 +1,11 @@
 # -*- coding: utf-8 -*-
 """isbnlib sprint file.
 
-This is a fix for UTF-8 printing on Windows.
+This is a fix for UTF-8 printing. 
+On Windows, it works well with PY3 but, with PY2, 
+some characters are missing (cyrillic, chinese, ...)
+in console, however if you redirect to a file they will shown!
+Its OK in Linux and OSX.
 """
 # flake8: noqa
 
@@ -15,14 +19,15 @@ PY3 = not PY2
 EOL = '\r\n' if WINDOWS and PY3 else '\n'
 
 
-def set_codepage():
+def set_mscp65001():
     try:
         if sys.stdout.encoding == 'cp65001':
             return
     except:
         pass
     try:
-        # if pywin32 is installed change code page
+        # change code page
+        # use pywin32 if installed
         import win32console
         win32console.SetConsoleOutputCP(65001)
         win32console.SetConsoleCP(65001)
@@ -32,7 +37,7 @@ def set_codepage():
         subprocess.call("chcp 65001 > %TMP%\\xxx", shell = True)
 
 
-def set_cmdfont(fontname="Lucida Console"):
+def set_msconsolefont(fontname="Lucida Console"):
     """stackoverflow.com/questions/3592673/change-console-font-in-windows"""
     import ctypes
 
@@ -65,10 +70,7 @@ def set_cmdfont(fontname="Lucida Console"):
 
 
 def sprint(content, filep=None, mode='w'):
-    """Smart print function.
-
-    So that redirection works and Win console works with utf-8.
-    """
+    """Smart print function."""
     s = content + EOL
     buf = s.encode("utf-8")
     if filep:
@@ -83,5 +85,5 @@ def sprint(content, filep=None, mode='w'):
 
 
 if WINDOWS:
-    set_codepage()
-    set_cmdfont('Lucida Console')
+    set_mscp65001(65001)
+    set_msconsolefont('Lucida Console')
