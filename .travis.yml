@@ -6,6 +6,7 @@ os:
 branches:
     except:
     - gh-pages
+    - dev
 matrix:
     include:
     - python: "2.7"
