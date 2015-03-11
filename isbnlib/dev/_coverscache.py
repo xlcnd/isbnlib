@@ -121,7 +121,7 @@ class CoversCache(object):
         self._create_slots()
 
     def _get_slot(self):
-        slot = "slot%02d" % (randint(0, 9),)
+        slot = "slot%02d" % randint(0, self.NSLOTS - 1)
         return os.path.join(self.cachepath, slot)
 
     def files(self):
