@@ -8,6 +8,7 @@ Its OK on Linux and OSX.
 """
 # flake8: noqa
 
+
 import os
 import sys
 
@@ -15,15 +16,22 @@ import sys
 WINDOWS = os.name == 'nt'
 PY2 = sys.version < '3'
 PY3 = not PY2
-EOL = '\r\n' if WINDOWS else '\n'
+EOL = '\r\n' if WINDOWS and PY3 else '\n'
+DEFAULT_CODEPAGE = sys.stdout.encoding if WINDOWS else None
 
 
-def set_msconsolefont(fontname="Lucida Console"):
-    """stackoverflow.com/questions/3592673/change-console-font-in-windows.
+def set_codepage(cp):
+    try:
+        if sys.stdout.encoding == 'cp65001':
+            return
+    except:
+        pass
+    import subprocess
+    subprocess.call("chcp " + cp[2:] + " > %TMP%\\xxx", shell = True)
 
-    You need to complement this with changing the console code page
-    to cp65001 (Windows's UTF-8). See a function to do that below.
-    """
+
+def set_consolefont(fontname="Lucida Console"):
+    """stackoverflow.com/questions/3592673/change-console-font-in-windows"""
     import ctypes
 
     LF_FACESIZE = 32
@@ -54,35 +62,20 @@ def set_msconsolefont(fontname="Lucida Console"):
         handle, ctypes.c_long(False), ctypes.pointer(font))
 
 
-def set_mscp65001():
-    """Change Windows console to cp65001 (UTF-8)."""
-    try:
-        if sys.stdout.encoding == 'cp65001':
-            return
-    except:
-        pass
-    try:
-        # change code page
-        # use pywin32 if installed
-        import win32console
-        win32console.SetConsoleOutputCP(65001)
-        win32console.SetConsoleCP(65001)
-    except:
-        # fallback
-        import subprocess
-        subprocess.call("chcp 65001 > %TMP%\\xxx", shell = True)
-
-
 def set_msconsole():
-    """Combine together the aove functions."""
-    set_mscp65001()
-    set_msconsolefont("Lucida Console")
+    if sys.stdout.encoding != 'cp65001':
+        set_codepage('cp65001')
+        set_consolefont('Lucida Console')
+
+
+def reset_msconsole():
+    set_codepage(DEFAULT_CODEPAGE)
 
 
 def uprint(content, filep=None, mode='w'):
     """Unicode print function.
 
-    Works with redirection too.
+    Redirection works and Win console works with utf-8.
     """
     s = content + EOL
     buf = s.encode("utf-8")
@@ -95,4 +88,3 @@ def uprint(content, filep=None, mode='w'):
         sys.stdout.write(buf)
     if filep:
         sys.stdout = stdout
-    return True
