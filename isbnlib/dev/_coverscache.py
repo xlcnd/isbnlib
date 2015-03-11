@@ -14,7 +14,7 @@
 
     Examples:
     cc = CoversCache('.covers')
-    cc.['9781408835029'] = (
+    cc['9781408835029'] = (
         "http://books.google.com/books/content?id=uUcvgfTYTRnjh"\
         "&printsec=frontcover"\
         "&img=1&zoom=2&edge=curl&source=gbs_api",
@@ -33,9 +33,13 @@
 
 import os
 import shutil
+import sys
 from random import randint
 
 from ._shelvecache import ShelveCache
+
+WINDOWS = os.name == 'nt'
+PY3 = sys.version > '3'
 
 
 class CoversCache(object):
@@ -43,7 +47,7 @@ class CoversCache(object):
     """Covers cache."""
 
     CACHEFOLDER = '.covers'
-    INDEXFN = '.index.dat'  # <-- PY3W
+    INDEXFN = '.index'
     MAXLEN = 3000
     NSLOTS = 10
 
@@ -51,7 +55,9 @@ class CoversCache(object):
         """Initialize attributes."""
         self.cachepath = cachepath
         self._indexpath = os.path.join(cachepath, self.INDEXFN)
-        if not os.path.isfile(self._indexpath):
+        if WINDOWS and PY3 and not os.path.isfile(self._indexpath + '.dat'):
+            self.make()
+        elif not os.path.isfile(self._indexpath):
             self.make()
         self._index = ShelveCache(self._indexpath)
         self._index.MAXLEN = self.MAXLEN
@@ -103,7 +109,7 @@ class CoversCache(object):
 
     def _create_slots(self):
         for slot in range(self.NSLOTS):
-            name = "slot%02d" % (slot,)
+            name = "slot%02d" % slot
             pth = os.path.join(self.cachepath, name)
             if not os.path.exists(pth):
                 os.mkdir(pth)
@@ -143,7 +149,8 @@ class CoversCache(object):
         # delete files not on index
         diff = tuple(set(self.files()) - set(checked))
         for fp in diff:
-            os.remove(fp)
+            if self.INDEXFN not in fp:
+                os.remove(fp)
 
     def purge(self):
         try:
