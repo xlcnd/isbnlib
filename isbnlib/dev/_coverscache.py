@@ -55,8 +55,9 @@ class CoversCache(object):
         """Initialize attributes."""
         self.cachepath = cachepath
         self._indexpath = os.path.join(cachepath, self.INDEXFN)
-        if WINDOWS and PY3 and not os.path.isfile(self._indexpath + '.dat'):
-            self.make()
+        if WINDOWS and PY3:
+            if not os.path.isfile(os.path.join(self._indexpath, '.dat')):
+                self.make()
         elif not os.path.isfile(self._indexpath):
             self.make()
         self._index = ShelveCache(self._indexpath)

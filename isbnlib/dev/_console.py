@@ -21,9 +21,8 @@ EOL = '\r\n' if WINDOWS else '\n'
 def set_msconsolefont(fontname="Lucida Console"):
     """stackoverflow.com/questions/3592673/change-console-font-in-windows.
 
-    At least in Windows 8, the kernel changes the console code page
-    to cp65001 (Windows's UTF-8) too. But in case you need, you have
-    a function to do that below.
+    You need to complement this with changing the console code page
+    to cp65001 (Windows's UTF-8). See a function to do that below.
     """
     import ctypes
 
@@ -72,6 +71,12 @@ def set_mscp65001():
         # fallback
         import subprocess
         subprocess.call("chcp 65001 > %TMP%\\xxx", shell = True)
+
+
+def set_msconsole():
+    """Combine together the aove functions."""
+    set_mscp65001()
+    set_msconsolefont("Lucida Console")
 
 
 def uprint(content, filep=None, mode='w'):
