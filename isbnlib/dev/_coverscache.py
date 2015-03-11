@@ -48,6 +48,7 @@ class CoversCache(object):
 
     CACHEFOLDER = '.covers'
     INDEXFN = '.index'
+    WINSHADOWIDX = INDEXFN + '.dat'
     MAXLEN = 3000
     NSLOTS = 10
 
@@ -56,7 +57,7 @@ class CoversCache(object):
         self.cachepath = cachepath
         self._indexpath = os.path.join(cachepath, self.INDEXFN)
         if WINDOWS and PY3:
-            if not os.path.isfile(os.path.join(self._indexpath, '.dat')):
+            if not os.path.isfile(os.path.join(cachepath, self.WINSHADOWIDX)):
                 self.make()
         elif not os.path.isfile(self._indexpath):
             self.make()
