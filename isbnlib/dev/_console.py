@@ -17,7 +17,10 @@ WINDOWS = os.name == 'nt'
 PY2 = sys.version < '3'
 PY3 = not PY2
 EOL = '\r\n' if WINDOWS and PY3 else '\n'
-DEFAULT_CODEPAGE = sys.stdout.encoding if WINDOWS else None
+try:
+    DEFAULT_CODEPAGE = sys.stdout.encoding if WINDOWS else None
+except:
+    sys.stdout = sys.__stdout__
 
 
 def set_codepage(cp):
