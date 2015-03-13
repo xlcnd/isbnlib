@@ -69,7 +69,9 @@ class CoversCache(object):
     def __getitem__(self, key):
         """Read cache."""
         try:
-            return self._index[key]
+            url, pth = self._index[key]
+            pth = os.path.join(self.cachepath, pth)
+            return (url, pth)
         except:
             return None
 
@@ -78,10 +80,11 @@ class CoversCache(object):
         url, pth = value
         try:
             if pth and os.path.isfile(pth) and url:
-                target = os.path.join(self._get_slot(), os.path.basename(pth))
+                tocache = os.path.join(self._get_slot(), os.path.basename(pth))
+                target = os.path.join(self.cachepath, tocache)
                 shutil.copyfile(pth, target)
                 if os.path.isfile(target):
-                    self._index[key] = (url, target)
+                    self._index[key] = (url, tocache)
                     return True
                 return False
             else:
@@ -129,8 +132,7 @@ class CoversCache(object):
         self._create_slots()
 
     def _get_slot(self):
-        slot = "slot%02d" % randint(0, self.NSLOTS - 1)
-        return os.path.join(self.cachepath, slot)
+        return "slot%02d" % randint(0, self.NSLOTS - 1)
 
     def files(self):
         pths = []
@@ -145,6 +147,7 @@ class CoversCache(object):
         checked = [self._indexpath]
         for key in self._index.keys():
             url, pth = self._index[key]
+            pth = os.path.join(self.cachepath, pth)
             if not os.path.isfile(pth):
                 self._index[key] = (url, None)
             checked.append(self._index[key][1])
