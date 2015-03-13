@@ -150,7 +150,7 @@ class CoversCache(object):
             pth = os.path.join(self.cachepath, pth)
             if not os.path.isfile(pth):
                 self._index[key] = (url, None)
-            checked.append(self._index[key][1])
+            checked.append(pth)
         # delete files not on index
         diff = tuple(set(self.files()) - set(checked))
         for fp in diff:
