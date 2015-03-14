@@ -169,7 +169,7 @@ See files test_core_ and test_ext_ for **a lot of examples**.
 Install
 =======
 
-From the command line enter (in some cases you have to preced the
+From the command line, enter (in some cases you have to preced the
 command with ``sudo``):
 
 
