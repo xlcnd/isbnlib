@@ -16,7 +16,7 @@ def goo_desc(isbn):
     cache = metadata_cache
     if cache is not None:                     # pragma: no cover
         key = 'gdesc' + isbn
-        try:                                  
+        try:
             if cache[key]:
                 return cache[key]
             else:
