@@ -14,9 +14,9 @@ def goo_desc(isbn):
     """Get description from Google Books api."""
     from .registry import metadata_cache  # <-- dynamic
     cache = metadata_cache
-    if cache is not None:
+    if cache is not None:                     # pragma: no cover
         key = 'gdesc' + isbn
-        try:                     # pragma: no cover
+        try:                                  
             if cache[key]:
                 return cache[key]
             else:
@@ -31,8 +31,8 @@ def goo_desc(isbn):
         content = loads(content)
         content = content['items'][0]['volumeInfo']['description']
         content = fill(content, width=75) if content else None
-        if content and cache is not None:
+        if content and cache is not None:     # pragma: no cover
             cache[key] = content
         return content
-    except KeyError:             # pragma: no cover
+    except KeyError:                          # pragma: no cover
         return
