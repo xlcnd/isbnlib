@@ -31,5 +31,6 @@ def parser_thinged(xml):
 def query(isbn):
     """Query the worldcat.org service for related ISBNs."""
     data = wquery(SERVICE_URL.format(isbn=isbn), UA, parser=parser_thinged)
-    LOGGER.debug('No data from ThingISBN for isbn %s', isbn)
+    if not data:
+        LOGGER.debug('No data from ThingISBN for isbn %s', isbn)
     return data

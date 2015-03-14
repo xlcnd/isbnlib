@@ -111,7 +111,7 @@ def _google_cover(gid, isbn, zoom=COVERZOOM, mode='prt'):
         zoom -= 1
         if zoom > 0:
             url = tpl.format(gid=gid, zoom=zoom)
-        else:                    
+        else:
             return None
         coverfile = _download(url, tofile=isbn)
     return (url, coverfile) if coverfile and coverfile is not True\
