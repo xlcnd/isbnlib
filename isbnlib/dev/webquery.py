@@ -3,6 +3,7 @@
 
 import json
 import logging
+from time import sleep, time as timestamp
 
 from . import webservice
 from ._exceptions import DataNotFoundAtServiceError, ServiceIsDownError
@@ -11,16 +12,24 @@ UA = 'isbnlib (gzip)'
 OUT_OF_SERVICE = 'Temporarily out of service'
 BOOK_NOT_FOUND = 'No results match your search'
 LOGGER = logging.getLogger(__name__)
+THROTTLING = 1
 
 
 class WEBQuery(object):
 
     """Base class to query a webservice and parse the result to py objects."""
 
+    T = {'id': timestamp()}  # noqa
+
     def __init__(self, service_url, ua=UA):
         """Initialize & call webservice."""
+        srv = service_url[8:16]
+        last = WEBQuery.T[srv] if srv in WEBQuery.T else WEBQuery.T['id']
+        wait = 0 if timestamp() - last > THROTTLING else THROTTLING
+        sleep(wait)
         self.url = service_url
         self.data = webservice.query(service_url, ua)
+        WEBQuery.T[srv] = timestamp()
 
     def check_data(self, data_checker=None):  # pragma: no cover
         """Check the data & handle errors."""
