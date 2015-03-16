@@ -11,6 +11,7 @@ from ..dev.bouth23 import u
 
 
 def test_stdmeta():
+    """Test the transformation of raw records into standard metadata."""
     # test stdmeta from data
     r={
        'ISBN-13': u('9780123456789 '),
@@ -50,6 +51,7 @@ def test_stdmeta():
     assert_raises(Exception, stdmeta, B)
 
 def test_metaclass():
+    """Test the creation of a Metadata class from raw records."""
     R={
        'ISBN-13': u('9780123456789'),
        'Title': u('Bla. Bla /Title'),

@@ -11,6 +11,7 @@ from nose.tools import assert_equals, assert_raises
 
 
 def test_query():
+    """Test the query of metadata with 'low level' queries."""
     # test query from metadata
     assert_raises(Exception, query, '9781849692341', 'goog')
     assert_equals(len(repr(query('9781849692342', 'goob'))) > 150, True)
@@ -26,6 +27,7 @@ def test_query():
 
 
 def test_ext_meta():
+    """Test the query of metadata with 'high level' meta function."""
     # test meta from core
     assert_equals(len(repr(meta('9781849692342', 'goob'))) > 150, True)
     assert_equals(len(repr(meta('9780321534965', 'wcat'))) > 150, True)

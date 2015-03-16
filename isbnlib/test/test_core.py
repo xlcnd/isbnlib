@@ -12,6 +12,7 @@ from .data4tests import ISBNs
 # nose tests
 
 def test__check_digit10():
+    """Test check digit algo for ISBN-10."""
     assert_equals(_check_digit10('082649752'), '7')
     assert_equals(_check_digit10('585270001'), '0')
     assert_equals(_check_digit10('08264975X'), None)
@@ -19,23 +20,27 @@ def test__check_digit10():
 
 
 def test__check_digit13():
+    """Test check digit algo for ISBN-13."""
     assert_equals(_check_digit13('978082649752'), '9')
     assert_equals(_check_digit13('97808264975'), None)
     assert_equals(_check_digit13('97808264975X'), None)
 
 
 def test__check_structure10():
+    """Test structure detection for ISBN-10."""
     assert_equals(_check_structure10('0826497527'), True)
     assert_equals(_check_structure10('0826497X27'), True) # isbnlike!
     assert_equals(_check_structure10('0826497XI7'), False)
 
 
 def test__check_structure13():
+    """Test structure detection for ISBN-13."""
     assert_equals(_check_structure13('9780826497529'), True)
     assert_equals(_check_structure13('978082649752X'), False)
 
 
 def test_is_isbn10():
+    """Test detection and validation for ISBN-10."""
     assert_equals(is_isbn10('0826497527'), True)
     assert_equals(is_isbn10('isbn 0-8264-9752-7'), True)
     assert_equals(is_isbn10('0826497520'), False)
@@ -43,6 +48,7 @@ def test_is_isbn10():
 
 
 def test_is_isbn13():
+    """Test detection and validation for ISBN-13."""
     assert_equals(is_isbn13('9780826497529'), True)
     assert_equals(is_isbn13('9791090636071'), True)
     assert_equals(is_isbn13('isbn 979-10-90636-07-1'), True)
@@ -53,6 +59,7 @@ def test_is_isbn13():
 
 
 def test_to_isbn10():
+    """Test transformation of ISBN to ISBN-10."""
     assert_equals(to_isbn10('9780826497529'), '0826497527')
     assert_equals(to_isbn10('0826497527'), '0826497527')
     assert_equals(to_isbn10('9780826497520'), None)     # ISBN13 not valid
@@ -66,6 +73,7 @@ def test_to_isbn10():
 
 
 def test_to_isbn13():
+    """Test transformation of ISBN to ISBN-13."""
     assert_equals(to_isbn13('0826497527'), '9780826497529')
     assert_equals(to_isbn13('9780826497529'), '9780826497529')
     assert_equals(to_isbn13('0826497520'), None)        # ISBN10 not valid
@@ -76,12 +84,14 @@ def test_to_isbn13():
 
 
 def test_clean():
+    """Test the cleanning of ISBN-like strings."""
     assert_equals(clean(' 978.0826.497529'), '9780826497529')
     assert_equals(clean('ISBN: 9791090636071'), 'ISBN 9791090636071')
     assert_equals(clean('978,0826497520'), '9780826497520')
 
 
 def test_notisbn():
+    """Test the impossibility of extracting valid ISBN from ISBN-like strings."""
     assert_equals(notisbn('0826497527'), False)
     assert_equals(notisbn('0826497520'), True)
     assert_equals(notisbn('9780826497529', level='strict'), False)
@@ -98,6 +108,7 @@ def test_notisbn():
 
 
 def test_get_isbnlike():
+    """Test the extraction of ISBN-like strings."""
     assert_equals(len(get_isbnlike(ISBNs)), 79)
     assert_equals(len(get_isbnlike(ISBNs, 'normal')), 79)
     assert_equals(len(get_isbnlike(ISBNs, 'strict')), 69)
@@ -106,6 +117,7 @@ def test_get_isbnlike():
 
 
 def test_get_canonical_isbn():
+    """Test the extraction of canonical ISBN from ISBN-like string."""
     assert_equals(get_canonical_isbn('0826497527', output='bouth'),
                   '0826497527')
     assert_equals(get_canonical_isbn('0826497527'), '0826497527')
@@ -124,6 +136,7 @@ def test_get_canonical_isbn():
 
 
 def test_canonical():
+    """Test the extraction of 'only numbers and X' from ISBN-like string."""
     assert_equals(canonical('ISBN 9789720404427'), '9789720404427')
     assert_equals(canonical('ISBN-9780826497529'), '9780826497529')
     assert_equals(canonical('ISBN9780826497529'), '9780826497529')
@@ -133,6 +146,7 @@ def test_canonical():
 
 
 def test_EAN13():
+    """Test the extraction and validation of EAN13 from ISBN-like string."""
     assert_equals(EAN13('ISBN 9789720404427'), None)
     assert_equals(EAN13('ISBN 9789720404428'), '9789720404428')
     assert_equals(EAN13('ISBN-9780826497529'), '9780826497529')

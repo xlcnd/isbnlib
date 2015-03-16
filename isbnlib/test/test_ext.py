@@ -10,6 +10,7 @@ from .._ext import mask, editions, isbn_from_words, doi, desc, cover
 
 
 def test_mask():
+    """Test 'mask' command."""
     assert_equals(mask('5852700010'), '5-85270-001-0')
     assert_equals(mask('0330284983'), '0-330-28498-3')
     assert_equals(mask('3796519008'), '3-7965-1900-8')
@@ -36,21 +37,25 @@ def test_mask():
 
 
 def test_isbn_from_words():
+    """Test 'isbn_from_words' command."""
     assert_equals(len(isbn_from_words('old men and sea')), 13)
 
 
 def test_doi():
+    """Test 'doi' command."""
     assert_equals(doi('9780195132861'), '10.978.019/5132861')
     assert_equals(doi('9780321534965'), '10.978.0321/534965')
     assert_equals(doi('9791090636071'), '10.979.1090636/071')
 
 
 def test_desc():
+    """Test 'desc' command."""
     assert_equals(len(desc('9780156001311')) > 10, True)
     assert_equals(desc('9780000000000'), None)
 
 
 def test_cover():
+    """Test 'cover' command."""
     assert_equals(cover('9780156001311')[1][:13], '9780156001311')  # <-- no size 2 (in most areas) but size 1
     assert_equals(cover('9780000000000'), None)                     # <-- invalid ISBN
     assert_equals(cover('9781408835029')[1][:13], '9781408835029')

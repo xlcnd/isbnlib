@@ -10,6 +10,7 @@ from nose.tools import assert_equals, assert_raises
 
 # nose tests
 def test_infogroup():
+    """Test 'infogroup' language/country function."""
     assert_equals(infogroup('9789727576807'), 'Portugal')
     assert_equals(infogroup('978-972-757-680-7'), 'Portugal')
     assert_equals(infogroup('7500117019'), "China, People's Republic")
@@ -26,5 +27,6 @@ def test_infogroup():
     assert_equals(infogroup('9789992158104'), 'Qatar')
 
 def test_ext_info():
+    """Test 'info' language/country function."""
     assert_equals(info('9524712946'), 'Finland')
     assert_raises(Exception, info, '')

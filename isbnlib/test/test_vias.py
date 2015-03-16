@@ -16,6 +16,7 @@ WINDOWS = os.name == 'nt'
 
 
 def test_vias():
+    """Test 'vias' several modes of operation."""
     if WINDOWS:
         # appveyor doesn't allow!
         return

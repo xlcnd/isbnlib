@@ -26,14 +26,17 @@ def teardown_module():
 
 
 def test_isfile():
+    """Test if a path is a file."""
     f = File(TESTFILE)
     assert f.isfile(TESTFILE) == True
 
 def test_exists():
+    """Test if a path is a file or a directory."""
     f = File(TESTFILE)
     assert f.exists(TESTFILE) == True
 
 def test_validate():
+    """Test if a string is a valid filename for 'ren' command."""
     f = File(TESTFILE)
     assert f.validate('basename.pdf') == True
     assert f.validate('as/basename.pdf') == False
@@ -43,6 +46,7 @@ def test_validate():
 
 
 def test_mkwinsafe():
+    """Test if a string is a valid basename in Windows."""
     f = File(TESTFILE)
     assert f.mkwinsafe('Açtr: ') == 'Açtr'
     assert f.mkwinsafe('as/tiõ') == 'astiõ'
@@ -52,12 +56,14 @@ def test_mkwinsafe():
 
 
 def test_baserename():
+    """Test the rename of a basename."""
     f = File(TESTFILE)
     assert f.baserename(NEW_BASENAME) == True
     assert f.baserename(NEW_BASENAME) == True
 
 
 def test_cwdfiles():
+    """Test the renaming of files in cwd."""
     assert (NEW_BASENAME in cwdfiles()) == True
     assert (NEW_BASENAME in cwdfiles('*.pdf')) == True
     assert (NEW_BASENAME in cwdfiles('*.txt')) == False
