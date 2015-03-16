@@ -1,3 +1,2 @@
 [nosetests]
-verbosity=3     
-with-xcoverage=1
+verbosity=1
