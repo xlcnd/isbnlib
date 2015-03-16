@@ -23,8 +23,8 @@ class WEBQuery(object):
 
     def __init__(self, service_url, ua=UA):
         """Initialize & call webservice."""
-        srv = service_url[8:16]
-        last = WEBQuery.T[srv] if srv in WEBQuery.T else WEBQuery.T['id']
+        srv = service_url[8:20]
+        last = WEBQuery.T[srv] if srv in WEBQuery.T else 0.0
         wait = 0 if timestamp() - last > THROTTLING else THROTTLING
         sleep(wait)
         self.url = service_url
