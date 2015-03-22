@@ -132,7 +132,8 @@ namespace ``isbnlib.dev``, namely:
   by subclassing this class.
   His main methods allow passing custom
   functions (*handlers*) that specialize them to specific needs (``data_checker`` and
-  ``parser``).
+  ``parser``). It implements a **throttling mechanism** with a default rate of
+  one call per seconde per service.
 
 * ``Metadata`` a class that structures, cleans and 'validates' records of
   metadata. His method ``merge`` allows to implement a simple merging
@@ -141,8 +142,8 @@ namespace ``isbnlib.dev``, namely:
 
 * ``vias`` exposes several functions to put calls to services, just by passing the name and
   a pointer to the service's ``query`` function.
-  ``vias.parallel`` allows to put threaded calls, however doesn't implement
-  throttling! You can use ``vias.serial`` to make serial calls and
+  ``vias.parallel`` allows to put threaded calls. You can use ``vias.serial`` 
+  to make serial calls and
   ``vias.multi`` to use several cores. The default is ``vias.serial``, but
   you can change that in the conf file.
 
