@@ -33,16 +33,20 @@ class ShelveCache(object):
         try:
             s = self._sh.open(self.filepath)
             try:
-                if len(list(s.keys())) > self.MAXLEN:
+                self._keys = list(s.keys())
+                if len(self._keys) > self.MAXLEN:
                     self.purge()
             except:
                 pass
         except:
             s = self._sh.open(self.filepath, 'n')
+            self._keys = []
         s.close()
 
     def __getitem__(self, key):
         """Read cache."""
+        if key not in self._keys:
+            return None
         try:
             s = self._sh.open(self.filepath, writeback=True)
             if s[key]:
@@ -63,6 +67,7 @@ class ShelveCache(object):
         try:
             s = self._sh.open(self.filepath)
             s[key] = {'value': value, 'hits': 0, 'timestamp': timestamp()}
+            self._keys.append(key)
             status = True
         except:
             status = False
@@ -75,6 +80,7 @@ class ShelveCache(object):
         try:
             s = self._sh.open(self.filepath)
             del s[key]
+            self._keys.remove(key)
         except KeyError:
             return
         except ValueError:
@@ -89,14 +95,19 @@ class ShelveCache(object):
 
     def keys(self):
         """Return list of keys in Cache."""
+        if self._keys:
+            return self._keys
         try:
             s = self._sh.open(self.filepath)
-            return list(s.keys())
+            self._keys = list(s.keys())
+            return self._keys
         finally:
             s.close()
 
     def ts(self, key):
         """Return the timestamp of the record with key."""
+        if key not in self._keys:
+            return None
         try:
             s = self._sh.open(self.filepath)
             ts = s[key]['timestamp'] if s[key] else None
@@ -114,6 +125,8 @@ class ShelveCache(object):
 
     def hits(self, key):
         """Return the number of hits for the record with key."""
+        if key not in self._keys:
+            return None
         try:
             s = self._sh.open(self.filepath)
             hts = s[key]['hits'] if s[key] else None
@@ -130,6 +143,7 @@ class ShelveCache(object):
         """Make new cache."""
         s = self._sh.open(self.filepath, 'n')
         s.close()
+        self._keys = []
 
     def purge(self):
         """Purge the cache."""
@@ -143,5 +157,6 @@ class ShelveCache(object):
             garbk = [k[0] for k in data[keep:]]
             for k in garbk:
                 del s[k]
+            self._keys = s.keys()
         finally:
             s.close()
