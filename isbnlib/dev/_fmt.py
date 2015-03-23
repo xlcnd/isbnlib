@@ -68,11 +68,11 @@ opf = r"""<?xml version='1.0' encoding='utf-8'?>
   </metadata>
 </package>"""
 
-labels = r"""Type:      BOOK
-Title:     $Title
-Author:    $AUTHORS
-ISBN:      $ISBN
-Year:      $Year
+labels = r"""Type: BOOK
+    Title: $Title
+   Author: $AUTHORS
+     ISBN: $ISBN
+     Year: $Year
 Publisher: $Publisher"""
 
 templates = {
@@ -100,7 +100,7 @@ def _spec_proc(name, fmtrec, authors):
     if name not in fmts:
         return
     if name == 'labels':
-        AUTHORS = '\nAuthor:    '.join(authors)
+        AUTHORS = '\n   Author: '.join(authors)
     elif name == 'bibtex':
         AUTHORS = ' and '.join(authors)
     elif name == 'refworks':
