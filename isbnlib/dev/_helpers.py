@@ -37,12 +37,16 @@ def normalize_space(item):
 
 
 def titlecase(st):
-    """Format string in title case.
+    """Format string in title case (for ascii).
 
     Only changes the first character of each word.
     """
-    return re.sub(r"[A-Za-z]+('[A-Za-z]+)?",
-                  lambda m: m.group(0)[0].upper() + m.group(0)[1:], st)
+    try:
+        st.decode('ascii')
+        return re.sub(r"[A-Za-z]+('[A-Za-z]+)?",
+                      lambda m: m.group(0)[0].upper() + m.group(0)[1:], st)
+    except UnicodeDecodeError:
+        return st
 
 
 def last_first(author):
