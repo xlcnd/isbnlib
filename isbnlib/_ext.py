@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 """Extra methods."""
 
+import re
+
 from ._core import EAN13
 from ._cover import cover as gcover
 from ._desc import goo_desc
@@ -60,9 +62,13 @@ def ren(fp):
         author = last_first(author[0])['last']
     year = data.get('Year', u('UNKNOWN'))
     maxlen = 98 - (20 + len(author) + len(year))
-    title = data.get('Title', u('UNKNOWN'))\
-        .replace(',', ' ')\
-        .replace('.', ' ').strip()
+    title = data.get('Title', u('UNKNOWN'))
+    if title != u('UNKNOWN'):
+        regex1 = re.compile(r'[.,_!?/\\]')
+        regex2 = re.compile('\s\s+')
+        title = regex1.sub(' ', title)
+        title = regex2.sub(' ', title)
+        title = title.strip()
     if title == u('UNKNOWN') or not title:     # pragma: no cover
         return
     if ' ' in title:                           # pragma: no cover
