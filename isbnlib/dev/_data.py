@@ -3,7 +3,7 @@
 
 
 from ._exceptions import NotValidMetadataError
-from ._helpers import normalize_space, titlecase
+from ._helpers import normalize_space
 from .bouth23 import type3str, u
 
 # For now you cannot add custom fields!
@@ -40,7 +40,7 @@ class Metadata(object):
                                         self._content['Authors']]
         self._content['Title'] = self._content['Title'].strip(',.:;-_ ')
         if self._content['Language'].lower() in ('en', 'eng', 'english'):
-            self._content['Title'] = titlecase(self._content['Title'])
+            self._content['Title'] = self._content['Title']
 
     @property
     def value(self):
