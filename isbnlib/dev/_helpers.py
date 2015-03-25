@@ -42,7 +42,7 @@ def titlecase(st):
     Only changes the first character of each word.
     """
     try:
-        st.decode('ascii')
+        st.encode('ascii')
         return re.sub(r"[A-Za-z]+('[A-Za-z]+)?",
                       lambda m: m.group(0)[0].upper() + m.group(0)[1:], st)
     except UnicodeDecodeError:
