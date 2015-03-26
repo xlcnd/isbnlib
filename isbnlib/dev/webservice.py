@@ -45,7 +45,7 @@ class WEBService(object):
             LOGGER.critical('ISBNLibHTTPError for %s with code %s [%s]',
                             self._url, e.code, e.msg)
             if e.code in (401, 403, 429):
-                raise ISBNLibHTTPError('%s Are you are making many requests?'
+                raise ISBNLibHTTPError('%s Are you making many requests?'
                                        % e.code)
             if e.code in (502, 504):
                 raise ISBNLibHTTPError('%s Service temporarily unavailable!'
