@@ -29,7 +29,7 @@ def bookid(isbn):
     from .registry import metadata_cache  # <-- dynamic
     # check the cache fist
     cache = metadata_cache
-    if cache is not None:
+    if cache is not None:        # pragma: no cover
         key = 'gid' + isbn
         try:                     # pragma: no cover
             if cache[key]:

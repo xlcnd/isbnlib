@@ -25,7 +25,7 @@ def fake_provider_any(isbn):
             continue       # pragma: no cover
         except:
             continue       # pragma: no cover
-    return data
+    return data            # pragma: no cover
 
 
 def fake_provider_merge(isbn):
@@ -39,7 +39,7 @@ def fake_provider_merge(isbn):
                 data = list(set(wdata + tdata))
                 return data
         raise
-    except:
+    except:                # pragma: no cover
         return data
 
 

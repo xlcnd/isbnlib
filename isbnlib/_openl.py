@@ -30,11 +30,11 @@ def _mapper(isbn, records):
                                              [{'name': u('')}, ])[0]['name']
         canonical['Year'] = u('')
         strdate = records.get('publish_date', u(''))
-        if strdate:
+        if strdate:        # pragma: no cover
             match = re.search(r'\d{4}', strdate)
             if match:
                 canonical['Year'] = match.group(0)
-    except:   # pragma: no cover
+    except:                # pragma: no cover
         LOGGER.debug("RecordMappingError for %s with data %s", isbn, records)
         raise RecordMappingError(isbn)
     # call stdmeta for extra cleanning and validation
