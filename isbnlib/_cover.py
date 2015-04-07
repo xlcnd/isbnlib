@@ -18,7 +18,7 @@ from .dev.webservice import query
 
 
 COVERZOOM = 2
-NOIMGSIZE = (15666, 16641)
+NOIMGSIZE = (15666, 16641, 2690)
 UA = "isbnlib (gzip)"
 
 LOGGER = logging.getLogger(__name__)
@@ -112,7 +112,7 @@ def _google_cover(gid, isbn, zoom=COVERZOOM, mode='prt'):
         if zoom > 0:
             url = tpl.format(gid=gid, zoom=zoom)
         else:
-            return None
+            return (None, None)
         coverfile = _download(url, tofile=isbn)
     return (url, coverfile) if coverfile and coverfile is not True\
         else (url, None)
