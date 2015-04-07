@@ -16,7 +16,10 @@ if sys.version < '3':
         return x
 
     def u(x):
-        return unicode(x, "utf-8")
+        try:
+            return unicode(x, "utf-8")
+        except TypeError:
+            return x
 
     def b2u3(x):
         return x.encode("utf-8")
