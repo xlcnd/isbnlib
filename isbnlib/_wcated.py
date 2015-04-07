@@ -31,5 +31,7 @@ def _editions(isbn, data):
 
 def query(isbn):
     """Query the worldcat.org service for related ISBNs."""
-    data = wquery(SERVICE_URL.format(isbn=isbn), UA, parser=literal_eval)
+    data = wquery(SERVICE_URL.format(isbn=isbn),
+                  user_agent=UA,
+                  parser=literal_eval)
     return _editions(isbn, data)

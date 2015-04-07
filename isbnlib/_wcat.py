@@ -54,5 +54,5 @@ def _records(isbn, data):
 
 def query(isbn):
     """Query the worldcat.org service for metadata."""
-    data = wquery(SERVICE_URL.format(isbn=isbn), UA)
+    data = wquery(SERVICE_URL.format(isbn=isbn), user_agent=UA)
     return _records(isbn, data)
