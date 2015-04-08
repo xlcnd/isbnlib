@@ -77,6 +77,8 @@ class ShelveCache(object):
 
     def __delitem__(self, key):
         """Delete record with key."""
+        if key not in self._keys:
+            return
         try:
             s = self._sh.open(self.filepath)
             del s[key]
@@ -92,6 +94,10 @@ class ShelveCache(object):
     def __len__(self):
         """Return the number of keys in cache."""
         return len(self.keys()) if self.keys() else 0
+
+    def __iter__(self):
+        """Define the default iterator."""
+        return iter(self._keys)
 
     def keys(self):
         """Return list of keys in Cache."""
