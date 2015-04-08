@@ -95,10 +95,6 @@ class ShelveCache(object):
         """Return the number of keys in cache."""
         return len(self.keys()) if self.keys() else 0
 
-    def __iter__(self):
-        """Define the default iterator."""
-        return iter(self._keys)
-
     def keys(self):
         """Return list of keys in Cache."""
         if self._keys:
