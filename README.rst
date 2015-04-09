@@ -276,7 +276,7 @@ Caveats
 -------
 
 
-1. These classes are optimized for one-calls to services and not for batch calls. However,
+1. These classes are optimized for one-call to services and not for batch calls. However,
    is very easy to produce an high volume processing system using these classes
    (use ``vias.multi``) and Redis.
 
