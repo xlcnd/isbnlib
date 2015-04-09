@@ -6,11 +6,12 @@ from .. import config
 def serial(named_tasks, arg):
     """Serial calls."""
     RESULTS = {}
-    try:
-        for name, task in named_tasks:
+    for name, task in named_tasks:
+        try:
             RESULTS[name] = task(arg)
-    except:        # pragma: no cover
-        pass
+        except:    # pragma: no cover
+            RESULTS[name] = None
+            continue
     return RESULTS
 
 

@@ -22,8 +22,14 @@ def query(isbn, processor=None):
     elif processor == 'multi':
         results = vias.multi(named_tasks, isbn)
 
-    rw = results.get('wcat')
-    rg = results.get('goob')
+    try:
+        rw = results.get('wcat')
+    except:
+        rw = None
+    try:
+        rg = results.get('goob')
+    except:
+        rg = None
 
     if not rw and not rg:
         return None
