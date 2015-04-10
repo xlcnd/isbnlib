@@ -1,42 +1,42 @@
 # -*- coding: utf-8 -*-
+"""Process tasks in several modes."""
 
 from .. import config
 
 
 def serial(named_tasks, arg):
     """Serial calls."""
-    RESULTS = {}
+    results = {}
     for name, task in named_tasks:
         try:
-            RESULTS[name] = task(arg)
+            results[name] = task(arg)
         except:    # pragma: no cover
-            RESULTS[name] = None
-            continue
-    return RESULTS
+            results[name] = None
+    return results
 
 
 def parallel(named_tasks, arg):
     """Threaded calls."""
     from threading import Thread
-    RESULTS = {}
+    results = {}
 
     def _worker(name, task, arg):
         try:
-            RESULTS[name] = task(arg)
+            results[name] = task(arg)
         except:    # pragma: no cover
-            pass
+            results[name] = None
 
     for name, task in named_tasks:
         t = Thread(target=_worker, args=(name, task, arg))
         t.start()
         t.join(config.THREADS_TIMEOUT)
-    return RESULTS
+    return results
 
 
 def multi(named_tasks, arg):
     """Multiprocessing: using several cores (if available)."""
     from multiprocessing import Process, Queue
-    RESULTS = {}
+    results = {}
     q = Queue()
 
     def _worker(name, task, arg, q):
@@ -52,5 +52,5 @@ def multi(named_tasks, arg):
         el = q.get()
         if el == 'STOP':
             break
-        RESULTS[el[0]] = el[1]
-    return RESULTS
+        results[el[0]] = el[1]
+    return results
