@@ -25,6 +25,6 @@ def test_vias():
     assert_equals(len(repr(merge.query('9780321534965', 'serial'))) > 170, True)
 
     # test if the secondary cache (cache in vias) does clears... sequentially
-    # assert_equals(len(repr(merge.query('9788806219345', 'serial'))) < 20, True)
-    # assert_equals(len(repr(merge.query('9780321534965', 'serial'))) > 170, True)
-    # assert_equals(len(repr(merge.query('9788806219345', 'serial'))) < 20, True)
+    assert_equals(len(repr(merge.query('9781484206546', 'serial'))) < 20, True)  # NO METADATA
+    assert_equals(len(repr(merge.query('9780321534965', 'serial'))) > 170, True)
+    assert_equals(len(repr(merge.query('9781484206546', 'serial'))) < 20, True)  # NO METADATA
