@@ -10,6 +10,12 @@ environment:
       PYTHON_VERSION: "2.7"
       PYTHON_ARCH: "32"
 
+    - TOXENV: "py34"
+      TOXPYTHON: "C:\\Python34-x64\\python.exe"
+      PYTHON_HOME: "C:\\Python34-x64"
+      PYTHON_VERSION: "3.4"
+      PYTHON_ARCH: "64"
+
     - TOXENV: "py27"
       TOXPYTHON: "C:\\Python27-x64\\python.exe"
       PYTHON_HOME: "C:\\Python27-x64"
@@ -21,12 +27,6 @@ environment:
       PYTHON_HOME: "C:\\Python33"
       PYTHON_VERSION: "3.3"
       PYTHON_ARCH: "32"
-
-    - TOXENV: "py34"
-      TOXPYTHON: "C:\\Python34-x64\\python.exe"
-      PYTHON_HOME: "C:\\Python34-x64"
-      PYTHON_VERSION: "3.4"
-      PYTHON_ARCH: "64"
 
 init:
   - "ECHO %TOXENV%"
