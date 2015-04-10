@@ -18,3 +18,4 @@ v3.5.1, 2015-03-10 -- New CoversCache and better unicode printing in Windows.
 v3.5.2, 2015-03-15 -- Fix bug #19, relative paths on coverscache and data range 20150310.
 v3.5.3, 2015-03-26 -- Add throttling for web services, data range 20150325 and 'in memory' keys cache.
 v3.5.4, 2015-04-10 -- Issue #20, fix bugs #21 and #22 and data range 20150401. 
+v3.5.5, 2015-04-10 -- TENTATIVE
