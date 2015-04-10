@@ -1,7 +1,10 @@
 # -*- coding: utf-8 -*-
 """Process tasks in several modes."""
 
+import logging
 from .. import config
+
+LOGGER = logging.getLogger(__name__)
 
 
 def serial(named_tasks, arg):
@@ -11,6 +14,8 @@ def serial(named_tasks, arg):
         try:
             results[name] = task(arg)
         except:    # pragma: no cover
+            LOGGER.debug("No result in 'serial' for %s[%s](%s)",
+                         task, name, arg)
             results[name] = None
     return results
 
@@ -24,6 +29,8 @@ def parallel(named_tasks, arg):
         try:
             results[name] = task(arg)
         except:    # pragma: no cover
+            LOGGER.debug("No result in 'parallel' for %s[%s](%s)",
+                         task, name, arg)
             results[name] = None
 
     for name, task in named_tasks:
@@ -40,7 +47,12 @@ def multi(named_tasks, arg):
     q = Queue()
 
     def _worker(name, task, arg, q):
-        q.put((name, task(arg)))    # pragma: no cover
+        try:
+            q.put((name, task(arg)))    # pragma: no cover
+        except:
+            LOGGER.debug("No result in 'multi' for %s[%s](%s)",
+                         task, name, arg)
+            q.put((name, None))         # pragma: no cover
 
     for name, task in named_tasks:
         p = Process(target=_worker, args=(name, task, arg, q))
