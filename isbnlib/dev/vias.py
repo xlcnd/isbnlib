@@ -2,6 +2,7 @@
 """Process tasks in several modes."""
 
 import logging
+
 from .. import config
 
 LOGGER = logging.getLogger(__name__)
