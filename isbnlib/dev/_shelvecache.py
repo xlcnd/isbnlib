@@ -14,6 +14,8 @@ NOTES
 
 """
 
+# TODO rewrite using context managers!
+
 import datetime
 import shelve
 from time import time as timestamp
