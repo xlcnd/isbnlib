@@ -6,11 +6,13 @@ NOTES
 1. shelve has different incompatible formats in py2 and py3.
 2. If some methods detect that the cache is not consistent
    they delete the cache and create a new one.
-3. After purge the cache keeps the records with more hits
+3. After purge, the cache keeps the records with more hits
    and the newests.
 4. By opening and closing in each operation, the cache performs badly
    for many records (because it doesn't use the 'in memory' part of cache).
    So don't increase MAXLEN too much.
+5. The cache is optimized for low hit frequency (using a simple dict lookup
+   not a Bloom filter!).
 
 """
 
