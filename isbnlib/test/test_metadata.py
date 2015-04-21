@@ -14,7 +14,7 @@ def test_query():
     """Test the query of metadata with 'low level' queries."""
     # test query from metadata
     assert_raises(Exception, query, '9781849692341', 'goog')
-    assert_equals(len(repr(query('9781849692342', 'goob'))) > 150, True)
+    assert_raises(Exception, query, '9781849692342', 'goob')
     assert_raises(Exception, query, '9781849692341', 'wcat')
     assert_equals(len(repr(query('9780321534965', 'wcat'))) > 150, True)
     assert_equals(len(repr(query('9780321534965'))) > 150, True)
@@ -29,9 +29,9 @@ def test_query():
 def test_ext_meta():
     """Test the query of metadata with 'high level' meta function."""
     # test meta from core
-    assert_equals(len(repr(meta('9781849692342', 'goob'))) > 150, True)
     assert_equals(len(repr(meta('9780321534965', 'wcat'))) > 150, True)
     assert_equals(len(repr(meta('9780321534965', 'merge'))) > 150, True)
     assert_equals(len(repr(meta('9780321534965'))) > 150, True)
     assert_raises(Exception, meta, '9780000000', 'wcat', None)
     assert_raises(Exception, meta, randrange(0, 1000000), 'wcat')
+    assert_raises(Exception, meta, '9781849692342', 'goob', None)

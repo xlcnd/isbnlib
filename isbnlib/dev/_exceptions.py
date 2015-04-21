@@ -63,6 +63,12 @@ class NotValidMetadataError(ISBNLibDevException):
     message = "the metadata hasn't the expected format"
 
 
+class ISBNNotConsistentError(ISBNLibDevException):
+    """ Exception raised when the isbn request != isbn response
+    """
+    message = "isbn request != isbn response"
+
+
 class RecordMappingError(ISBNLibDevException):
     """ Exception raised when the mapping records -> canonical doesn't work
     """

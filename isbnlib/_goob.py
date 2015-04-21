@@ -4,8 +4,8 @@
 import logging
 
 from .dev import stdmeta
-from .dev._exceptions import (DataWrongShapeError, NoDataForSelectorError,
-                              RecordMappingError)
+from .dev._exceptions import (DataWrongShapeError, ISBNNotConsistentError,
+                              NoDataForSelectorError, RecordMappingError)
 from .dev.bouth23 import u
 from .dev.webquery import query as wquery
 
@@ -46,8 +46,8 @@ def _records(isbn, data):
         # consistency check (isbn request = isbn response)
         ids = records.get('industryIdentifiers', '')
         if isbn not in repr(ids):   # pragma: no cover
-            LOGGER.warning('Possible not consistent data for %s (%s)',
-                           isbn, repr(ids))
+            LOGGER.debug('Not consistent data for %s (%s)', isbn, repr(ids))
+            raise ISBNNotConsistentError(isbn)
     except:                         # pragma: no cover
         try:
             extra = data['stat']
