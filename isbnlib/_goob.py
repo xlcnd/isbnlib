@@ -11,8 +11,8 @@ from .dev.webquery import query as wquery
 
 UA = 'isbnlib (gzip)'
 SERVICE_URL = 'https://www.googleapis.com/books/v1/volumes?q=isbn+{isbn}'\
-    '&fields=items/volumeInfo(title,authors,publisher,publishedDate,language)'\
-    '&maxResults=1'
+    '&fields=items/volumeInfo(title,authors,publisher,publishedDate,language,'\
+    'industryIdentifiers)&maxResults=1'
 LOGGER = logging.getLogger(__name__)
 
 
@@ -43,7 +43,12 @@ def _records(isbn, data):
     try:
         # put the selected data in records
         records = data['items'][0]['volumeInfo']
-    except:           # pragma: no cover
+        # consistency check (isbn request = isbn response)
+        ids = records.get('industryIdentifiers', '')
+        if isbn not in repr(ids):   # pragma: no cover
+            LOGGER.warning('Possible not consistent data for %s (%s)',
+                           isbn, repr(ids))
+    except:                         # pragma: no cover
         try:
             extra = data['stat']
             LOGGER.debug('DataWrongShapeError for %s with data %s',
