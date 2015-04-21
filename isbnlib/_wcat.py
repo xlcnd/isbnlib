@@ -4,8 +4,8 @@
 import logging
 
 from .dev import stdmeta
-from .dev._exceptions import (DataWrongShapeError, NoDataForSelectorError,
-                              RecordMappingError)
+from .dev._exceptions import (DataWrongShapeError, ISBNNotConsistentError,
+                              NoDataForSelectorError, RecordMappingError)
 from .dev.bouth23 import u
 from .dev.webquery import query as wquery
 
@@ -36,18 +36,27 @@ def _mapper(isbn, records):
 
 def _records(isbn, data):
     """Classify (canonically) the parsed data."""
+    # check status
     try:
-        # put the selected data in records
+        status = data['stat']
+        if status != 'ok':
+            raise
+    except:
+        LOGGER.debug('DataWrongShapeError for %s with status %s',
+                     isbn, status)
+        raise DataWrongShapeError(isbn)
+    # put the selected data in records
+    try:
         recs = data['list'][0]
     except:  # pragma: no cover
-        try:
-            extra = data['stat']
-            LOGGER.debug('DataWrongShapeError for %s with data %s',
-                         isbn, extra)
-        except:
-            raise DataWrongShapeError(isbn)
+        LOGGER.debug('NoDataForSelectorError for %s', isbn)
         raise NoDataForSelectorError(isbn)
-
+    # consistency check (isbn request = isbn response)
+    if recs:
+        ids = recs.get('isbn', '')
+        if isbn not in repr(ids):   # pragma: no cover
+            LOGGER.debug('Not consistent data for %s (%s)', isbn, repr(ids))
+            raise ISBNNotConsistentError(isbn)
     # map canonical <- records
     return _mapper(isbn, recs)
 
