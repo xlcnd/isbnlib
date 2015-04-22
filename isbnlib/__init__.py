@@ -51,5 +51,5 @@ __all__ = ('is_isbn10', 'is_isbn13', 'clean', 'mask', 'info', 'meta',
            'NotRecognizedServiceError', 'NotValidISBNError',
            'PluginNotLoadedError', 'goom', 'doi2tex', 'RDDATE')
 
-__version__ = '3.5.5'                               # <-- literal IDs
+__version__ = '3.5.6'                               # <-- literal IDs
 __support__ = 'py26, py27, py33, py34, pypy'        # <-- literal IDs
