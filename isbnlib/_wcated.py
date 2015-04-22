@@ -20,7 +20,7 @@ def _editions(isbn, data):
         status = data['stat']
         if status != 'ok':
             raise
-    except:
+    except:  # pragma: no cover
         LOGGER.debug('DataWrongShapeError for %s with status %s',
                      isbn, status)
         raise DataWrongShapeError(isbn)
