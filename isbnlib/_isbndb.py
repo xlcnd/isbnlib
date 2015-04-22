@@ -64,7 +64,7 @@ def _records(isbn, data):
     if recs:
         ids = recs.get('isbn13', '')
         if isbn not in repr(ids):   # pragma: no cover
-            LOGGER.debug('Not consistent data for %s (%s)', isbn, repr(ids))
+            LOGGER.debug('ISBNNotConsistentError for %s (%s)', isbn, repr(ids))
             raise ISBNNotConsistentError(isbn)
     # map canonical <- records
     return _mapper(isbn, recs)

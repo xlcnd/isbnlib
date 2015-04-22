@@ -47,6 +47,7 @@ def _records(isbn, data):
         # put the selected data in records
         records = data['ISBN:%s' % isbn]
     except:   # pragma: no cover
+        LOGGER.debug('NoDataForSelectorError for %s', isbn)
         raise NoDataForSelectorError(isbn)
 
     # map canonical <- records

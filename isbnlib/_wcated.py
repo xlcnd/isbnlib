@@ -15,18 +15,22 @@ SERVICE_URL = 'http://xisbn.worldcat.org/webservices/xid/isbn/{isbn}?'\
 
 def _editions(isbn, data):
     """Return the records from the parsed response."""
+    # check status
     try:
-        # put the selected data in records
-        records = [ib['isbn'][0] for ib in data['list']]
-    except:    # pragma: no cover
-        try:
-            extra = data['stat']
-            LOGGER.debug('DataWrongShapeError for %s with data %s',
-                         isbn, extra)
-        except:
-            raise DataWrongShapeError(isbn)
+        status = data['stat']
+        if status != 'ok':
+            raise
+    except:
+        LOGGER.debug('DataWrongShapeError for %s with status %s',
+                     isbn, status)
+        raise DataWrongShapeError(isbn)
+    # put the selected data in records
+    try:
+        recs = [ib['isbn'][0] for ib in data['list']]
+    except:  # pragma: no cover
+        LOGGER.debug('NoDataForSelectorError for %s', isbn)
         raise NoDataForSelectorError(isbn)
-    return records
+    return recs
 
 
 def query(isbn):

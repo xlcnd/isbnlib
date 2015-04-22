@@ -50,20 +50,14 @@ def _mapper(record):
 
 def _records(words, data):
     """Classify (canonically) the parsed data."""
+    # put the selected data in records
     try:
-        # put the selected data in records
-        records = [d['volumeInfo'] for d in data['items']]
-    except:           # pragma: no cover
-        try:
-            extra = data['stat']
-            LOGGER.debug('DataWrongShapeError for %s with data %s',
-                         words, extra)
-        except:
-            raise DataWrongShapeError(words)
+        recs = [d['volumeInfo'] for d in data['items']]
+    except:  # pragma: no cover
+        LOGGER.debug('NoDataForSelectorError for (%s)', words)
         raise NoDataForSelectorError(words)
-
     # map canonical <- records
-    return [_mapper(r) for r in records if _mapper(r)]
+    return [_mapper(r) for r in recs if _mapper(r)]
 
 
 def query(words):
