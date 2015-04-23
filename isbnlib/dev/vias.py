@@ -48,12 +48,12 @@ def multi(named_tasks, arg):
     q = Queue()
 
     def _worker(name, task, arg, q):
-        try:
-            q.put((name, task(arg)))    # pragma: no cover
-        except:
+        try:      # pragma: no cover
+            q.put((name, task(arg)))
+        except:   # pragma: no cover
             LOGGER.debug("No result in 'multi' for %s[%s](%s)",
                          task, name, arg)
-            q.put((name, None))         # pragma: no cover
+            q.put((name, None))
 
     for name, task in named_tasks:
         p = Process(target=_worker, args=(name, task, arg, q))

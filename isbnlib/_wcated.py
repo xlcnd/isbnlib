@@ -19,15 +19,15 @@ def _editions(isbn, data):
     try:
         status = data['stat']
         if status != 'ok':
-            raise
-    except:  # pragma: no cover
+            raise  # pragma: no cover
+    except:        # pragma: no cover
         LOGGER.debug('DataWrongShapeError for %s with status %s',
                      isbn, status)
         raise DataWrongShapeError(isbn)
     # put the selected data in records
     try:
         recs = [ib['isbn'][0] for ib in data['list']]
-    except:  # pragma: no cover
+    except:        # pragma: no cover
         LOGGER.debug('NoDataForSelectorError for %s', isbn)
         raise NoDataForSelectorError(isbn)
     return recs

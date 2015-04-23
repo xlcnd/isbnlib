@@ -23,8 +23,8 @@ def fake_provider_any(isbn):
             if data:
                 return data
             continue       # pragma: no cover
-        except:
-            continue       # pragma: no cover
+        except:            # pragma: no cover
+            continue
     return data            # pragma: no cover
 
 
