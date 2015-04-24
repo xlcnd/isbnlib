@@ -33,7 +33,6 @@ setup(
               'isbnlib/_data',
               'isbnlib/test',
               ],
-    install_requires=['future>=0.14.3'],
     license='LGPL v3',
     description='Extract, clean, transform, hyphenate and metadata for ISBNs (International Standard Book Number).',
     long_description=open('README.rst').read(),
