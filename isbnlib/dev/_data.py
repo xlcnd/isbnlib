@@ -3,11 +3,15 @@
 
 from __future__ import unicode_literals
 
+import logging
+
 from ._exceptions import NotValidMetadataError
 from ._helpers import normalize_space, titlecase
 
 # For now you cannot add custom fields!
 FIELDS = ('ISBN-13', 'Title', 'Authors', 'Publisher', 'Year', 'Language')
+
+LOGGER = logging.getLogger(__name__)
 
 
 class Metadata(object):
@@ -22,6 +26,7 @@ class Metadata(object):
             self._content.update((k, v) for k, v in list(record.items()))
             if not self._validate():
                 self._set_empty()
+                LOGGER.debug(record)
                 raise NotValidMetadataError()
             self.clean()
 
@@ -53,6 +58,7 @@ class Metadata(object):
         self._content.update((k, v) for k, v in list(record.items()))
         if not self._validate():
             self._set_empty()
+            LOGGER.debug(record)
             raise NotValidMetadataError()
         self.clean()
 
@@ -70,6 +76,7 @@ class Metadata(object):
                              self._content[k] == '')
         if not self._validate():  # pragma: no cover
             self._set_empty()
+            LOGGER.debug(record)
             raise NotValidMetadataError()
         self.clean()
 
