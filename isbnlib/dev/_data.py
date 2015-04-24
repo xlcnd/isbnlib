@@ -77,7 +77,8 @@ class Metadata(object):
         """Validate value."""
         # 'minimal' check
         for k in self._content:
-            if not type(self._content[k]) is type(''):
+            # if not isinstance(self._content[k], unicode):
+            if not type(self._content[k]) is type(''):  # noqa: E721
                 if k != 'Authors':
                     return False
         if not type(self._content['Authors']) is list:
