@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
 """Handle metadata objects."""
 
+from __future__ import unicode_literals
 
 from ._exceptions import NotValidMetadataError
 from ._helpers import normalize_space, titlecase
-from .bouth23 import type3str, u
 
 # For now you cannot add custom fields!
 FIELDS = ('ISBN-13', 'Title', 'Authors', 'Publisher', 'Year', 'Language')
@@ -62,12 +62,12 @@ class Metadata(object):
         self._set_empty()
 
     def merge(self, record, overwrite=(),
-              overrule=lambda x: x == u('') or x == [u('')]):
+              overrule=lambda x: x == '' or x == ['']):
         """Merge the record with value."""
         # by default do nothing
         self._content.update((k, v) for k, v in list(record.items())
                              if k in overwrite and not overrule(v) or
-                             self._content[k] == u(''))
+                             self._content[k] == '')
         if not self._validate():  # pragma: no cover
             self._set_empty()
             raise NotValidMetadataError()
@@ -77,7 +77,7 @@ class Metadata(object):
         """Validate value."""
         # 'minimal' check
         for k in self._content:
-            if not type(self._content[k]) is type3str():
+            if not type(self._content[k]) is type(''):
                 if k != 'Authors':
                     return False
         if not type(self._content['Authors']) is list:
@@ -86,8 +86,8 @@ class Metadata(object):
 
     def _set_empty(self):
         """Set an empty value record."""
-        self._content = dict.fromkeys(list(FIELDS), u(''))
-        self._content['Authors'] = [u('')]
+        self._content = dict.fromkeys(list(FIELDS), '')
+        self._content['Authors'] = ['']
 
 
 def stdmeta(records):
