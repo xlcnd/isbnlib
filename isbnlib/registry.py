@@ -43,8 +43,7 @@ bibformatters = {'default': lambda x: fmtbib('labels', x),
                  'refworks': lambda x: fmtbib('refworks', x),
                  'msword': lambda x: fmtbib('msword', x),
                  'json': lambda x: fmtbib('json', x),
-                 'opf': lambda x: fmtbib('opf', x)
-                 }                    # pragma: no cover
+                 'opf': lambda x: fmtbib('opf', x)}   # pragma: no cover
 
 
 def setdefaultbibformatter(name):              # pragma: no cover
@@ -74,7 +73,7 @@ def set_cache(cache):                 # pragma: no cover
 covers_cache = None                   # should be an instance
 
 
-def set_covers_cache(cache):           # pragma: no cover
+def set_covers_cache(cache):          # pragma: no cover
     """Set cache for covers."""
     global covers_cache
     covers_cache = cache
@@ -82,7 +81,7 @@ def set_covers_cache(cache):           # pragma: no cover
 custom_cache = None                   # should be an instance
 
 
-def set_custom_cache(cache):           # pragma: no cover
+def set_custom_cache(cache):          # pragma: no cover
     """Set a 'spare' cache."""
     global custom_cache
     custom_cache = cache
