@@ -3,9 +3,9 @@
 
 import logging
 
+from ._bouth23 import type3str, u
 from ._exceptions import NotValidMetadataError
 from ._helpers import normalize_space, titlecase
-from ._bouth23 import type3str, u
 
 # For now you cannot add custom fields!
 FIELDS = ('ISBN-13', 'Title', 'Authors', 'Publisher', 'Year', 'Language')
