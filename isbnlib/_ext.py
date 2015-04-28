@@ -11,7 +11,7 @@ from ._gwords import goos
 from ._infogroup import infogroup
 from ._metadata import query
 from ._msk import msk
-from .dev.bouth23 import b2u3, u
+from .dev._bouth23 import b2u3, u
 from .dev.helpers import File, cutoff_tokens, last_first
 
 

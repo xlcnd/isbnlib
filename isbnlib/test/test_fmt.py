@@ -6,9 +6,9 @@
 nose tests
 """
 
-from ..dev._fmt import fmtbib
 from nose.tools import assert_equals
-from ..dev.bouth23 import u
+from ..dev._bouth23 import u
+from ..dev._fmt import fmtbib
 
 
 canonical = {

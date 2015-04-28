@@ -5,8 +5,8 @@
 import os
 from nose.tools import assert_equals, assert_raises
 from .._ext import ren
+from ..dev._bouth23 import b2u3, u
 from ..dev.helpers import File, cwdfiles
-from ..dev.bouth23 import b2u3, u
 
 """
 nose tests

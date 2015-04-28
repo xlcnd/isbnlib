@@ -6,7 +6,7 @@ import re
 import sys
 from hashlib import md5
 
-from .bouth23 import b, s
+from ._bouth23 import b, s
 
 
 def fake_isbn(title, author='unkown', publisher='unkown', sid=1):
