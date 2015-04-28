@@ -133,7 +133,7 @@ namespace ``isbnlib.dev``, namely:
   His main methods allow passing custom
   functions (*handlers*) that specialize them to specific needs (``data_checker`` and
   ``parser``). It implements a **throttling mechanism** with a default rate of
-  one call per seconde per service.
+  one call per second per service.
 
 * ``Metadata`` a class that structures, cleans and 'validates' records of
   metadata. His method ``merge`` allows to implement a simple merging
