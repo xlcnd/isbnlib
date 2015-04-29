@@ -53,7 +53,7 @@ def _records(isbn, data):
     except:
         LOGGER.debug('DataWrongShapeError for %s with status %s',
                      isbn, err)
-        raise DataWrongShapeError(isbn)
+        raise DataWrongShapeError("error: '%s' for isbn %s" % (err, isbn))
     # put the selected data in records
     try:
         recs = data['data'][0]

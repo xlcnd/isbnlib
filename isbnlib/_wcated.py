@@ -23,7 +23,7 @@ def _editions(isbn, data):
     except:        # pragma: no cover
         LOGGER.debug('DataWrongShapeError for %s with status %s',
                      isbn, status)
-        raise DataWrongShapeError(isbn)
+        raise DataWrongShapeError("status: '%s' for isbn %s" % (status, isbn))
     # put the selected data in records
     try:
         recs = [ib['isbn'][0] for ib in data['list']]

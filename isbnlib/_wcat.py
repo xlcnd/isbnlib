@@ -39,12 +39,13 @@ def _records(isbn, data):
     # check status
     try:
         status = data['stat']
+        print(status)
         if status != 'ok':
             raise
     except:
         LOGGER.debug('DataWrongShapeError for %s with status %s',
                      isbn, status)
-        raise DataWrongShapeError(isbn)
+        raise DataWrongShapeError("status: '%s' for isbn %s" % (status, isbn))
     # put the selected data in records
     try:
         recs = data['list'][0]
