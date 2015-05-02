@@ -26,7 +26,7 @@ adventure in open-source.
    Check the coverage in [Coveralls](https://coveralls.io/r/xlcnd/isbnlib) or locally with the command
    `nosetests --with-coverage --cover-package=isbnlib`.
 8. **Check if all requirements are fulfilled**!
-9. **Push** you local changes to GitHub and make there a **pull request**
+9. **Push** your local changes to GitHub and make there a **pull request**
    ([help](https://help.github.com/articles/using-pull-requests/))
    **using `dev` as base branch** (by the way, we follow the *fork & pull* model with this small change).
 
