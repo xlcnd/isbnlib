@@ -229,7 +229,8 @@ namespace ``isbnlib.dev``, namely:
   ``vias.multi`` to use several cores. The default is ``vias.serial``.
 
 * ``bouth23`` (**DEPRECATED**) a small module to make it possible the code to run
-  in **bouth** python 2 and python 3. **It will disappear in the next major version!**. 
+  in **bouth** python 2 and python 3. **It will disappear in the next major version!**.
+  See python-future.org_ for an built-in alternative to ``bouth23``. 
 
 The exceptions raised by these methods can all be catched using ``ISBNLibDevException``.
 You **should't raise** this exception in your code, only raise the specific exceptions
@@ -324,3 +325,5 @@ Read ``isbnlib`` code in a very sctructured way at sourcegraph_ or 'the docs' at
 .. _isbn-international.org: https://www.isbn-international.org/content/what-isbn
 
 .. _wikipedia: http://en.wikipedia.org/wiki/International_Standard_Book_Number
+
+.. _python-future.org: http://python-future.org/compatible_idioms.html
