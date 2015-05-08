@@ -1,14 +1,3 @@
-.. image:: https://pypip.in/v/isbnlib/badge.svg?style=flat
-    :target: https://pypi.python.org/pypi/isbnlib/
-    :alt: Latest Version
-
-.. image:: https://pypip.in/py_versions/isbnlib/badge.svg?style=flat
-    :target: https://pypi.python.org/pypi/isbnlib/
-    :alt: Python Versions
-
-.. image:: https://pypip.in/license/isbnlib/badge.svg?style=flat
-    :target: https://pypi.python.org/pypi/isbnlib/
-    :alt: License
 
 .. image:: https://sourcegraph.com/api/repos/github.com/xlcnd/isbnlib/.badges/status.svg
     :target: https://sourcegraph.com/github.com/xlcnd/isbnlib
