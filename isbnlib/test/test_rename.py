@@ -40,7 +40,7 @@ def create_files(files):
     os.chdir(os.path.dirname(TESTFILE_1))
     for fn in files:
         f = open(fn, 'w')
-        f.write(b2u3('ooo'))
+        f.write(b2u3('ooo') + b2u3(fn))
         f.close()
 
 
@@ -64,7 +64,7 @@ def test_ren():
     """Test 'high level' ren function."""
     ren(F1)
     assert_equals('Knuth2008_The Art Of Computer Programming_9780321534965.pdf' in cwdfiles("*.pdf"), True)
-    create_files([F5])
+    # create_files([F5])
     # ren(F5)
     # assert_equals('Campos2011_Emergências obstétricas_9789727576807.pdf' in cwdfiles("*.pdf"), True)
 
