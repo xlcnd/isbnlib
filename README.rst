@@ -219,7 +219,7 @@ namespace ``isbnlib.dev``, namely:
 
 * ``bouth23`` (**DEPRECATED**) a small module to make it possible the code to run
   in **bouth** python 2 and python 3. **It will disappear in the next major version!**.
-  See python-future.org_ for an built-in alternative to ``bouth23``. 
+  See python-future.org_ for a built-in alternative to ``bouth23``. 
 
 The exceptions raised by these methods can all be catched using ``ISBNLibDevException``.
 You **should't raise** this exception in your code, only raise the specific exceptions
