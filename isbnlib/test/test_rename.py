@@ -40,7 +40,7 @@ def create_files(files):
     os.chdir(os.path.dirname(TESTFILE_1))
     for fn in files:
         f = open(fn, 'w')
-        f.write(b2u3('ooo') + b2u3(fn))
+        f.write(b2u3('ooo'))
         f.close()
 
 
