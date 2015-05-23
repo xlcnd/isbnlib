@@ -51,7 +51,7 @@ def delete_files(fnpatt):
 
 
 def setup_module():
-    create_files([u(TESTFILE_1), u(TESTFILE_2)])
+    # create_files([u(TESTFILE_1), u(TESTFILE_2)])
     os.chdir(os.path.dirname(TESTFILE_1))
     create_files(FISBN+[F11])
 
