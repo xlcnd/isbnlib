@@ -2,6 +2,7 @@
 # flake8: noqa
 # pylint: skip-file
 
+import locale
 import os
 from nose.tools import assert_equals, assert_raises
 from .._ext import ren
@@ -39,8 +40,11 @@ FILES = FISBN + FFT + [F11]
 def create_files(files):
     os.chdir(os.path.dirname(TESTFILE_1))
     for fn in files:
-        with open(fn, 'w') as f:
-            f.write(b2u3('ooo') + b2u3(fn))
+        try:
+            with open(fn, 'w') as f:
+                f.write(b2u3('ooo') + b2u3(fn))
+        except UnicodeEncodeError:
+            print("Your default locale (%s) doesn't allow non-ascii filenames!" % locale.CODESET)
 
 
 def delete_files(fnpatt):
