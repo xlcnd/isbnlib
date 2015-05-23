@@ -14,6 +14,10 @@ nose tests
 """
 
 WINDOWS = os.name == 'nt'
+ENCODING = locale.getpreferredencoding()
+if ENCODING != 'UTF-8':
+    print("Your default locale encoding (%s) doesn't allow unicode filenames!" % ENCODING)
+    print("=> Some tests could fail.")
 
 TESTFILE_1 = './ç-deleteme.pdf' if WINDOWS else '/tmp/ç-deleteme.pdf'
 TESTFILE_2 = './ç-deleteme-PLEASE.pdf' if WINDOWS else '/tmp/ç-deleteme-PLEASE.pdf'

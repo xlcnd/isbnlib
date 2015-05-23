@@ -6,24 +6,28 @@
 
 """
 
+import locale
 import os
 from ..dev._files import File, cwdfiles
 from nose.tools import assert_equals, assert_raises
 
 WINDOWS = os.name == 'nt'
-TESTFILE = './ç-deleteme.pdf' if WINDOWS else '/tmp/海明威-deleteme.pdf'
-NEW_BASENAME = 'ç-deleteme-PLEASE.pdf' if WINDOWS else '海明威-deleteme-PLEASE.pdf'
+ENCODING = locale.getpreferredencoding()
+if ENCODING == 'UTF-8':
+    TESTFILE = './ç-deleteme.pdf' if WINDOWS else '/tmp/海明威-deleteme.pdf'
+    NEW_BASENAME = 'ç-deleteme-PLEASE.pdf' if WINDOWS else '海明威-deleteme-PLEASE.pdf'
+else:
+    print("Your default locale encoding (%s) doesn't allow unicode filenames!" % ENCODING)
+    TESTFILE = './deleteme.pdf'
+    NEW_BASENAME = 'deleteme-PLEASE.pdf'
 
-
-def setup_module():
-    f = open(TESTFILE, 'w')
-    f.write('ooo')
-    f.close()
+def setup_module():   
+    with open(TESTFILE, 'w') as f:
+            f.write('ooo')      
     os.chdir(os.path.dirname(TESTFILE))
 
 def teardown_module():
     os.remove(os.path.join(os.path.dirname(TESTFILE), NEW_BASENAME))
-
 
 def test_isfile():
     """Test if a path is a file."""
