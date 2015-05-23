@@ -21,9 +21,9 @@ else:
     TESTFILE = './deleteme.pdf'
     NEW_BASENAME = 'deleteme-PLEASE.pdf'
 
-def setup_module():   
+def setup_module():
     with open(TESTFILE, 'w') as f:
-            f.write('ooo')      
+            f.write('ooo')
     os.chdir(os.path.dirname(TESTFILE))
 
 def teardown_module():
