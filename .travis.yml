@@ -5,7 +5,7 @@ os:
 - osx
 branches:
     only:
-    - v3.5.6
+    - v3.5.7
     - none
 matrix:
     include:

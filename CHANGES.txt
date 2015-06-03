@@ -20,3 +20,4 @@ v3.5.3, 2015-03-26 -- Add throttling for web services, data range 20150325 and '
 v3.5.4, 2015-04-10 -- Issue #20, fix bugs #21 and #22 and data range 20150401. 
 v3.5.5, 2015-04-22 -- Add logging to vias, fix bug #23, and data range 20150422.
 v3.5.6, 2015-06-03 -- Deprecated 'bouth23' and data range 20150603. 
+v3.5.7, 2015-06-03 -- TENTATIVE 
