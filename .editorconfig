@@ -5,8 +5,9 @@ root = true
 [*]
 end_of_line = lf
 insert_final_newline = true
+trim_trailing_whitespace = true
 
-[*.{py,md,rst,txt,conf}]
+[*.{py,md,rst,txt,conf,cfg}]
 charset = utf-8
 
 [*.py]
@@ -15,6 +16,9 @@ indent_size = 4
 
 [Makefile]
 indent_style = tab
+
+[*.{md,rst}]
+trim_trailing_whitespace = false
 
 [{appveyor.yml,.travis.yml}]
 indent_style = space
