@@ -35,7 +35,6 @@ Typical usage (as library):
 
 .. code-block:: python
 
-    #!/usr/bin/env python
     import isbnlib
     ...
 
