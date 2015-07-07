@@ -11,7 +11,7 @@ from .dev.webquery import query as wquery
 
 UA = 'isbnlib (gzip)'
 SERVICE_URL = 'http://xisbn.worldcat.org/webservices/xid/isbn/{isbn}?'\
-    'method=getMetadata&format=json&fl=title,author,year,publisher,lang'
+    'method=getMetadata&format=json&fl=title,author,year,publisher,lang,city'
 LOGGER = logging.getLogger(__name__)
 
 
@@ -25,6 +25,7 @@ def _mapper(isbn, records):
         buf = records.get('author', u(''))
         canonical['Authors'] = [x.strip('. ') for x in buf.split(';')]
         canonical['Publisher'] = records.get('publisher', u(''))
+        canonical['City'] = records.get('city', u(''))
         canonical['Year'] = records.get('year', u(''))
         canonical['Language'] = records.get('lang', u(''))
     except:  # pragma: no cover
