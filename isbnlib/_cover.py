@@ -18,7 +18,7 @@ from .dev.webservice import query
 
 
 COVERZOOM = 2
-NOIMGSIZE = (15666, 16641, 2690)
+NOIMGSIZE = (15666, 16641, 2690, 8983)
 UA = "isbnlib (gzip)"
 
 LOGGER = logging.getLogger(__name__)
