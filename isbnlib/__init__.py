@@ -2,7 +2,9 @@
 # flake8: noqa
 # isort:skip_file
 
-"""Define isbnlib API and set lib environment."""
+"""Library to validate, clean, transform and get metadata of ISBN strings (for devs)."""
+
+# Define isbnlib API and set lib environment
 
 import logging as _logging
 
