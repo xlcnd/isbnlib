@@ -1,5 +1,5 @@
 
-.. image:: https://sourcegraph.com/api/repos/github.com/xlcnd/isbnlib/.badges/status.svg
+.. image:: https://img.shields.io/badge/Sourcegraph-Status-blue.svg
     :target: https://sourcegraph.com/github.com/xlcnd/isbnlib
     :alt: Graph
 
