@@ -34,7 +34,7 @@ def msk(isbn, separator='-'):
         isbn10 = True
 
     idx = None
-    check = ib[-1:]                     # <-- hack!
+    check = ib[-1:]                     # <-- HACK!
     cur = 3
     igi = cur
     buf = ib[igi:cur + 1]
@@ -50,7 +50,7 @@ def msk(isbn, separator='-'):
             break
         cur += 1
         buf = ib[igi:cur + 1]
-        group = group + buf[-1:]        # <-- hack!
+        group = group + buf[-1:]        # <-- HACK!
 
     if idx:
         if isbn10:
