@@ -52,6 +52,6 @@ setup(
         'Topic :: Text Processing :: General',
         'Topic :: Software Development :: Libraries :: Python Modules',
     ],
-    tests_require=['nose'],
+    tests_require=['nose', 'coverage'],
     test_suite='nose.collector',
 )
