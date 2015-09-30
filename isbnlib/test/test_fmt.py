@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 # flake8: noqa
 # pylint: skip-file
-
 """
 nose tests
 """
@@ -10,15 +9,15 @@ from nose.tools import assert_equals
 from ..dev._bouth23 import u
 from ..dev._fmt import fmtbib
 
-
 canonical = {
-             'ISBN-13': u('9780123456789'),
-             'Title': u('A book about nothing'),
-             'Publisher': u('No Paper Press'),
-             'Year': u('2000'),
-             'Language': u('en'),
-             'Authors': [u('John Smith'), u('José Silva')]
-             }
+    'ISBN-13': u('9780123456789'),
+    'Title': u('A book about nothing'),
+    'Publisher': u('No Paper Press'),
+    'Year': u('2000'),
+    'Language': u('en'),
+    'Authors': [u('John Smith'), u('José Silva')]
+}
+
 
 def test_fmtbib():
     """Test the formating into several bibliographic formats."""

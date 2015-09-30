@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 # flake8: noqa
 # pylint: skip-file
-
 """nose tests for metadata."""
 
 from random import randrange

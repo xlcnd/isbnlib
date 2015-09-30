@@ -38,10 +38,10 @@ def _mapper(record):
         if 'publishedDate' in record \
            and len(record['publishedDate']) >= 4:
             canonical['Year'] = record['publishedDate'][0:4]
-        else:         # pragma: no cover
+        else:  # pragma: no cover
             canonical['Year'] = u('')
         canonical['Language'] = record.get('language', u(''))
-    except:           # pragma: no cover
+    except:  # pragma: no cover
         raise RecordMappingError(isbn)
     # call stdmeta for extra cleanning and validation
     return stdmeta(canonical)

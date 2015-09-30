@@ -14,7 +14,6 @@ def quiet_errors(exc_type, exc_value, traceback):
 
 
 class ISBNLibException(Exception):
-
     """Base class for isbnlib exceptions.
 
     This exception should not be raised directly,
@@ -22,11 +21,10 @@ class ISBNLibException(Exception):
     """
 
     def __str__(self):
-        return getattr(self, 'message', '')      # pragma: no cover
+        return getattr(self, 'message', '')  # pragma: no cover
 
 
 class NotRecognizedServiceError(ISBNLibException):
-
     """Exception raised when the service is not in config.py."""
 
     def __init__(self, service):
@@ -34,7 +32,6 @@ class NotRecognizedServiceError(ISBNLibException):
 
 
 class NotValidISBNError(ISBNLibException):
-
     """Exception raised when the ISBN is not valid."""
 
     def __init__(self, isbnlike):
@@ -42,7 +39,6 @@ class NotValidISBNError(ISBNLibException):
 
 
 class PluginNotLoadedError(ISBNLibException):  # pragma: no cover
-
     """Exception raised when the plugin's loader doesn't load the plugin.
 
         TODO: Delete this in version 4

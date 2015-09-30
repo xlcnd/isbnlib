@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 # flake8: noqa
 # pylint: skip-file
-
 """ nose tests
 
 """
@@ -17,27 +16,33 @@ if ENCODING == 'UTF-8':
     TESTFILE = './ç-deleteme.pdf' if WINDOWS else '/tmp/海明威-deleteme.pdf'
     NEW_BASENAME = 'ç-deleteme-PLEASE.pdf' if WINDOWS else '海明威-deleteme-PLEASE.pdf'
 else:
-    print("Your default locale encoding (%s) doesn't allow unicode filenames!" % ENCODING)
+    print("Your default locale encoding (%s) doesn't allow unicode filenames!"
+          % ENCODING)
     TESTFILE = './deleteme.pdf'
     NEW_BASENAME = 'deleteme-PLEASE.pdf'
 
+
 def setup_module():
     with open(TESTFILE, 'w') as f:
-            f.write('ooo')
+        f.write('ooo')
     os.chdir(os.path.dirname(TESTFILE))
+
 
 def teardown_module():
     os.remove(os.path.join(os.path.dirname(TESTFILE), NEW_BASENAME))
+
 
 def test_isfile():
     """Test if a path is a file."""
     f = File(TESTFILE)
     assert f.isfile(TESTFILE) == True
 
+
 def test_exists():
     """Test if a path is a file or a directory."""
     f = File(TESTFILE)
     assert f.exists(TESTFILE) == True
+
 
 def test_validate():
     """Test if a string is a valid filename for 'ren' command."""

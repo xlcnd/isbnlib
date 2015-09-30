@@ -51,8 +51,7 @@ def _records(isbn, data):
         if err:
             raise
     except:
-        LOGGER.debug('DataWrongShapeError for %s with status %s',
-                     isbn, err)
+        LOGGER.debug('DataWrongShapeError for %s with status %s', isbn, err)
         raise DataWrongShapeError("error: '%s' for isbn %s" % (err, isbn))
     # put the selected data in records
     try:
@@ -63,7 +62,7 @@ def _records(isbn, data):
     # consistency check (isbn request = isbn response)
     if recs:
         ids = recs.get('isbn13', '')
-        if isbn not in repr(ids):   # pragma: no cover
+        if isbn not in repr(ids):  # pragma: no cover
             LOGGER.debug('ISBNNotConsistentError for %s (%s)', isbn, repr(ids))
             raise ISBNNotConsistentError("%s not in %s" % (isbn, repr(ids)))
     # map canonical <- records
@@ -74,6 +73,7 @@ def query(isbn):
     """Query the isbndb.org service for metadata."""
     if not apikeys.get('isbndb'):
         raise NoAPIKeyError
-    data = wquery(SERVICE_URL.format(apikey=apikeys['isbndb'], isbn=isbn),
+    data = wquery(SERVICE_URL.format(apikey=apikeys['isbndb'],
+                                     isbn=isbn),
                   user_agent=UA)
     return _records(isbn, data)

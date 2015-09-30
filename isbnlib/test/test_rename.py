@@ -8,7 +8,6 @@ from nose.tools import assert_equals, assert_raises
 from .._ext import ren
 from ..dev._bouth23 import b2u3, u
 from ..dev.helpers import File, cwdfiles
-
 """
 nose tests
 """
@@ -16,7 +15,8 @@ nose tests
 WINDOWS = os.name == 'nt'
 ENCODING = locale.getpreferredencoding()
 if ENCODING != 'UTF-8':
-    print("Your default locale encoding (%s) doesn't allow unicode filenames!" % ENCODING)
+    print("Your default locale encoding (%s) doesn't allow unicode filenames!"
+          % ENCODING)
     print("=> Some tests could fail.")
 
 TESTFILE_1 = './ç-deleteme.pdf' if WINDOWS else '/tmp/ç-deleteme.pdf'
@@ -48,7 +48,8 @@ def create_files(files):
             with open(fn, 'w') as f:
                 f.write(b2u3('ooo') + b2u3(fn))
         except UnicodeEncodeError:
-            print("Your default locale (%s) doesn't allow non-ascii filenames!" % locale.CODESET)
+            print("Your default locale (%s) doesn't allow non-ascii filenames!"
+                  % locale.CODESET)
 
 
 def delete_files(fnpatt):
@@ -60,7 +61,7 @@ def delete_files(fnpatt):
 def setup_module():
     # create_files([u(TESTFILE_1), u(TESTFILE_2)])
     os.chdir(os.path.dirname(TESTFILE_1))
-    create_files(FISBN+[F11])
+    create_files(FISBN + [F11])
 
 
 def teardown_module():
@@ -70,8 +71,8 @@ def teardown_module():
 def test_ren():
     """Test 'high level' ren function."""
     ren(F1)
-    assert_equals('Knuth2008_The Art Of Computer Programming_9780321534965.pdf' in cwdfiles("*.pdf"), True)
+    assert_equals('Knuth2008_The Art Of Computer Programming_9780321534965.pdf'
+                  in cwdfiles("*.pdf"), True)
     # create_files([F5])
     # ren(F5)
     # assert_equals('Campos2011_Emergências obstétricas_9789727576807.pdf' in cwdfiles("*.pdf"), True)
-

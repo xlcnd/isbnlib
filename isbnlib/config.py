@@ -3,12 +3,11 @@
 
 # --> Import only external modules! <--
 
-
 import socket
 
 # Timeouts
-SOCKETS_TIMEOUT = 12    # seconds
-THREADS_TIMEOUT = 11    # seconds
+SOCKETS_TIMEOUT = 12  # seconds
+THREADS_TIMEOUT = 11  # seconds
 
 
 def setsocketstimeout(seconds):
@@ -24,11 +23,10 @@ setsocketstimeout(SOCKETS_TIMEOUT)
 
 
 # THREADS_TIMEOUT is a parameter used downstream by Thread calls (see vias.py)
-def setthreadstimeout(seconds):   # pragma: no cover
+def setthreadstimeout(seconds):  # pragma: no cover
     """Set the value of THREADS_TIMEOUT (in seconds)."""
     global THREADS_TIMEOUT
     THREADS_TIMEOUT = seconds
-
 
 # API keys
 apikeys = {}
@@ -41,11 +39,10 @@ def add_apikey(service, apikey):  # pragma: no cover
     """
     apikeys[service] = apikey
 
-
 # Generic Options
 options = {'VIAS_MERGE': 'serial'}
 
 
-def set_option(option, value):    # pragma: no cover
+def set_option(option, value):  # pragma: no cover
     """Set the value for option."""
     options[option] = value

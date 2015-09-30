@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 """Use Google to get an ISBN from words from title and author's name."""
 
-
 import logging
 
 from ._core import get_canonical_isbn, get_isbnlike
@@ -23,7 +22,7 @@ def goos(words):
         isbn = get_canonical_isbn(item, output='isbn13')
         if isbn:
             break
-    if not isbns or not isbn:    # pragma: no cover
+    if not isbns or not isbn:  # pragma: no cover
         LOGGER.debug('No ISBN found for %s', words)
         return
     return isbn

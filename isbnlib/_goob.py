@@ -5,8 +5,8 @@ import logging
 
 from .dev import stdmeta
 from .dev._bouth23 import u
-from .dev._exceptions import (ISBNNotConsistentError,
-                              NoDataForSelectorError, RecordMappingError)
+from .dev._exceptions import (ISBNNotConsistentError, NoDataForSelectorError,
+                              RecordMappingError)
 from .dev.webquery import query as wquery
 
 UA = 'isbnlib (gzip)'
@@ -28,10 +28,10 @@ def _mapper(isbn, records):
         if 'publishedDate' in records \
            and len(records['publishedDate']) >= 4:
             canonical['Year'] = records['publishedDate'][0:4]
-        else:         # pragma: no cover
+        else:  # pragma: no cover
             canonical['Year'] = u('')
         canonical['Language'] = records.get('language', u(''))
-    except:           # pragma: no cover
+    except:  # pragma: no cover
         LOGGER.debug("RecordMappingError for %s with data %s", isbn, records)
         raise RecordMappingError(isbn)
     # call stdmeta for extra cleanning and validation
@@ -49,7 +49,7 @@ def _records(isbn, data):
     # consistency check (isbn request = isbn response)
     if recs:
         ids = recs.get('industryIdentifiers', '')
-        if isbn not in repr(ids):   # pragma: no cover
+        if isbn not in repr(ids):  # pragma: no cover
             LOGGER.debug('ISBNNotConsistentError for %s (%s)', isbn, repr(ids))
             raise ISBNNotConsistentError("%s not in %s" % (isbn, repr(ids)))
     # map canonical <- records

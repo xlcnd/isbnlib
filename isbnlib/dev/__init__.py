@@ -1,11 +1,10 @@
 # -*- coding: utf-8 -*-
 from . import bouth23, helpers, vias
 from ._data import Metadata, stdmeta
-from ._exceptions import (DataNotFoundAtServiceError, DataWrongShapeError,
-                          ISBNLibDevException, ISBNLibHTTPError,
-                          ISBNLibURLError, NoAPIKeyError,
-                          NoDataForSelectorError, NotValidMetadataError,
-                          RecordMappingError, ServiceIsDownError)
+from ._exceptions import (
+    DataNotFoundAtServiceError, DataWrongShapeError, ISBNLibDevException,
+    ISBNLibHTTPError, ISBNLibURLError, NoAPIKeyError, NoDataForSelectorError,
+    NotValidMetadataError, RecordMappingError, ServiceIsDownError)
 from .webquery import WEBQuery
 from .webservice import WEBService
 
@@ -14,15 +13,10 @@ ISBNToolsDevException = ISBNLibDevException
 ISBNToolsHTTPError = ISBNLibHTTPError
 ISBNToolsURLError = ISBNLibURLError
 
-__all__ = ('ISBNToolsDevException',
-           'ISBNLibDevException',
-           'ISBNToolsHTTPError', 'ISBNToolsURLError',
-           'ISBNLibHTTPError', 'ISBNLibURLError',
-           'DataNotFoundAtServiceError',
+__all__ = ('ISBNToolsDevException', 'ISBNLibDevException',
+           'ISBNToolsHTTPError', 'ISBNToolsURLError', 'ISBNLibHTTPError',
+           'ISBNLibURLError', 'DataNotFoundAtServiceError',
            'ServiceIsDownError', 'DataWrongShapeError',
-           'NotValidMetadataError',
-           'NoDataForSelectorError',
-           'RecordMappingError', 'NoAPIKeyError',
-           'Metadata', 'stdmeta',
-           'WEBService', 'WEBQuery', 'vias', 'bouth23', 'helpers'
-           )
+           'NotValidMetadataError', 'NoDataForSelectorError',
+           'RecordMappingError', 'NoAPIKeyError', 'Metadata', 'stdmeta',
+           'WEBService', 'WEBQuery', 'vias', 'bouth23', 'helpers')

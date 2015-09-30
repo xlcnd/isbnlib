@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-
 """Read and write cover cache.
 
 
@@ -43,7 +42,6 @@ PY3 = sys.version > '3'
 
 
 class CoversCache(object):
-
     """Covers cache."""
 
     CACHEFOLDER = '.covers'

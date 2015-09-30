@@ -42,8 +42,7 @@ def _records(isbn, data):
         if status != 'ok':
             raise
     except:
-        LOGGER.debug('DataWrongShapeError for %s with status %s',
-                     isbn, status)
+        LOGGER.debug('DataWrongShapeError for %s with status %s', isbn, status)
         raise DataWrongShapeError("status: '%s' for isbn %s" % (status, isbn))
     # put the selected data in records
     try:
@@ -54,7 +53,7 @@ def _records(isbn, data):
     # consistency check (isbn request = isbn response)
     if recs:
         ids = recs.get('isbn', '')
-        if isbn not in repr(ids):   # pragma: no cover
+        if isbn not in repr(ids):  # pragma: no cover
             LOGGER.debug('ISBNNotConsistentError for %s (%s)', isbn, repr(ids))
             raise ISBNNotConsistentError("%s not in %s" % (isbn, repr(ids)))
     # map canonical <- records

@@ -34,13 +34,13 @@ def msk(isbn, separator='-'):
         isbn10 = True
 
     idx = None
-    check = ib[-1:]                     # <-- HACK!
+    check = ib[-1:]  # <-- HACK!
     cur = 3
     igi = cur
     buf = ib[igi:cur + 1]
     group = ib[0:cur] + '-' + buf
 
-    for _ in range(6):                             # pragma: no cover
+    for _ in range(6):  # pragma: no cover
         if group in ranges:
             sevens = ib[cur + 1:cur + 8].ljust(7, '0')
             for l in ranges[group]:
@@ -50,14 +50,14 @@ def msk(isbn, separator='-'):
             break
         cur += 1
         buf = ib[igi:cur + 1]
-        group = group + buf[-1:]        # <-- HACK!
+        group = group + buf[-1:]  # <-- HACK!
 
     if idx:
         if isbn10:
             group = group[4:]
             check = check10
         return separator.join([group, ib[cur + 1:cur + idx + 1],
-                              ib[cur + idx + 1:-1], check])
+                               ib[cur + idx + 1:-1], check])
     LOGGER.warning('identifier not found! '
                    'Please, update the program.')  # pragma: no cover
-    return                                         # pragma: no cover
+    return  # pragma: no cover

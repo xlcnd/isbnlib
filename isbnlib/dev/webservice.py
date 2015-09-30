@@ -7,11 +7,11 @@ import logging
 from ._bouth23 import bstream, s
 from ._exceptions import ISBNLibHTTPError, ISBNLibURLError
 
-try:                     # pragma: no cover
+try:  # pragma: no cover
     from urllib.parse import urlencode
     from urllib.request import Request, urlopen
     from urllib.error import HTTPError, URLError
-except ImportError:      # pragma: no cover
+except ImportError:  # pragma: no cover
     from urllib import urlencode
     from urllib2 import Request, urlopen, HTTPError, URLError
 
@@ -20,7 +20,6 @@ LOGGER = logging.getLogger(__name__)
 
 
 class WEBService(object):
-
     """Class to query web services."""
 
     def __init__(self, url, user_agent=UA, values=None, appheaders=None):
@@ -45,15 +44,15 @@ class WEBService(object):
             LOGGER.critical('ISBNLibHTTPError for %s with code %s [%s]',
                             self._url, e.code, e.msg)
             if e.code in (401, 403, 429):
-                raise ISBNLibHTTPError('%s Are you making many requests?'
-                                       % e.code)
+                raise ISBNLibHTTPError('%s Are you making many requests?' %
+                                       e.code)
             if e.code in (502, 504):
-                raise ISBNLibHTTPError('%s Service temporarily unavailable!'
-                                       % e.code)
+                raise ISBNLibHTTPError('%s Service temporarily unavailable!' %
+                                       e.code)
             raise ISBNLibHTTPError('(%s) %s' % (e.code, e.msg))
-        except URLError as e:   # pragma: no cover
-            LOGGER.critical('ISBNLibURLError for %s with reason %s',
-                            self._url, e.reason)
+        except URLError as e:  # pragma: no cover
+            LOGGER.critical('ISBNLibURLError for %s with reason %s', self._url,
+                            e.reason)
             raise ISBNLibURLError(e.reason)
 
     def data(self):
@@ -64,14 +63,16 @@ class WEBService(object):
             buf = bstream(self.response.read())
             f = gzip.GzipFile(fileobj=buf)
             data = f.read()
-        else:                   # pragma: no cover
+        else:  # pragma: no cover
             data = self.response.read()
         return s(data)
 
 
 def query(url, user_agent=UA, values=None, appheaders=None):
     """Query to a web service."""
-    service = WEBService(url, user_agent=user_agent, values=values,
+    service = WEBService(url,
+                         user_agent=user_agent,
+                         values=values,
                          appheaders=appheaders)
     data = service.data()
     LOGGER.debug('Raw data from service:\n%s', data)

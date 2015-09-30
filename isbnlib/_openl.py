@@ -24,17 +24,18 @@ def _mapper(isbn, records):
         canonical = {}
         canonical['ISBN-13'] = u(isbn)
         canonical['Title'] = records.get('title', u('')).replace(' :', ':')
-        canonical['Authors'] = [a['name'] for a in
-                                records.get('authors', ({'name': u('')},))]
-        canonical['Publisher'] = records.get('publishers',
-                                             [{'name': u('')}, ])[0]['name']
+        canonical['Authors'] = [
+            a['name'] for a in records.get('authors', ({'name': u('')}, ))
+        ]
+        canonical['Publisher'] = records.get('publishers', [{'name': u('')},
+                                              ])[0]['name']
         canonical['Year'] = u('')
         strdate = records.get('publish_date', u(''))
-        if strdate:        # pragma: no cover
+        if strdate:  # pragma: no cover
             match = re.search(r'\d{4}', strdate)
             if match:
                 canonical['Year'] = match.group(0)
-    except:                # pragma: no cover
+    except:  # pragma: no cover
         LOGGER.debug("RecordMappingError for %s with data %s", isbn, records)
         raise RecordMappingError(isbn)
     # call stdmeta for extra cleanning and validation
@@ -46,7 +47,7 @@ def _records(isbn, data):
     try:
         # put the selected data in records
         records = data['ISBN:%s' % isbn]
-    except:   # pragma: no cover
+    except:  # pragma: no cover
         LOGGER.debug('NoDataForSelectorError for %s', isbn)
         raise NoDataForSelectorError(isbn)
 

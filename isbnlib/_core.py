@@ -15,8 +15,6 @@
 
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
-
-
 """isbnlib main file.
 
 Tools for extracting, cleaning, transforming and validating ISBN ids.
@@ -27,7 +25,6 @@ import re
 
 LOGGER = logging.getLogger(__name__)
 
-
 RE_ISBN10 = re.compile(r'ISBN\x20(?=.{13}$)\d{1,5}([- ])\d{1,7}'
                        r'\1\d{1,6}\1(\d|X)$|[- 0-9X]{10,16}')
 RE_ISBN13 = re.compile(r'97[89]{1}(?:-?\d){10,16}|97[89]{1}[- 0-9]{10,16}')
@@ -36,11 +33,10 @@ RE_STRICT = re.compile(r'^(?:ISBN(?:-1[03])?:? )?(?=[0-9X]{10}$|'
                        r'[- 0-9X]{13}$|97[89][0-9]{10}$|'
                        r'(?=(?:[0-9]+[- ]){4})'
                        r'[- 0-9]{17}$)(?:97[89][- ]?)?[0-9]{1,5}'
-                       r'[- ]?[0-9]+[- ]?[0-9]+[- ]?[0-9X]$',
-                       re.I | re.M | re.S)
+                       r'[- ]?[0-9]+[- ]?[0-9]+[- ]?[0-9X]$', re.I | re.M
+                       | re.S)
 RE_NORMAL = re.compile(r'97[89]{1}(?:-?\d){10}|\d{9}[0-9X]{1}|'
-                       r'[-0-9X]{10,16}',
-                       re.I | re.M | re.S)
+                       r'[-0-9X]{10,16}', re.I | re.M | re.S)
 RE_LOOSE = re.compile(r'[- 0-9X]{10,19}', re.I | re.M | re.S)
 ISBN13_PREFIX = '978'
 LEGAL = '0123456789xXisbnISBN- '
@@ -56,8 +52,8 @@ def _check_digit10(firstninedigits):
     except:  # pragma: no cover
         return None
     # checksum
-    val = sum((i + 2) * int(x) for
-              i, x in enumerate(reversed(firstninedigits)))
+    val = sum((i + 2) * int(x)
+              for i, x in enumerate(reversed(firstninedigits)))
     remainder = int(val % 11)
     if remainder == 0:
         tenthdigit = 0
@@ -78,8 +74,8 @@ def _check_digit13(firsttwelvedigits):
     except:  # pragma: no cover
         return None
     # checksum
-    val = sum((i % 2 * 2 + 1) * int(x) for
-              i, x in enumerate(firsttwelvedigits))
+    val = sum((i % 2 * 2 + 1) * int(x)
+              for i, x in enumerate(firsttwelvedigits))
     thirteenthdigit = 10 - int(val % 10)
     if thirteenthdigit == 10:
         thirteenthdigit = '0'
@@ -100,7 +96,7 @@ def is_isbn10(isbn10):
     """Validate as ISBN-10."""
     isbn10 = canonical(isbn10)
     if len(isbn10) != 10:
-        return False          # pragma: no cover
+        return False  # pragma: no cover
     else:
         return False if _check_digit10(isbn10[:-1]) != isbn10[-1] else True
 
@@ -109,7 +105,7 @@ def is_isbn13(isbn13):
     """Validate as ISBN-13."""
     isbn13 = canonical(isbn13)
     if len(isbn13) != 13:
-        return False          # pragma: no cover
+        return False  # pragma: no cover
     else:
         if isbn13[0:3] not in ('978', '979'):
             return False

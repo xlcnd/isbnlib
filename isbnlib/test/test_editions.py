@@ -7,7 +7,6 @@ from nose.tools import assert_equals, raises
 from .._exceptions import NotRecognizedServiceError, NotValidISBNError
 from .._ext import editions
 
-
 # nose tests
 
 

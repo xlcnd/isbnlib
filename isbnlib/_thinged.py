@@ -33,6 +33,6 @@ def query(isbn):
     data = wquery(SERVICE_URL.format(isbn=isbn),
                   user_agent=UA,
                   parser=parser_thinged)
-    if not data:           # pragma: no cover
+    if not data:  # pragma: no cover
         LOGGER.debug('No data from ThingISBN for isbn %s', isbn)
     return data

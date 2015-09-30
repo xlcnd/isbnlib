@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 # flake8: noqa
 # pylint: skip-file
-
 """Format canonical in bibliographic formats."""
 
 import re
@@ -76,14 +75,14 @@ Year:      $Year
 Publisher: $Publisher"""
 
 templates = {
-             'labels': labels,
-             'bibtex': bibtex,
-             'endnote': endnote,
-             'refworks': refworks,
-             'msword': msword,
-             'json': json,
-             'opf': opf
-             }
+    'labels': labels,
+    'bibtex': bibtex,
+    'endnote': endnote,
+    'refworks': refworks,
+    'msword': msword,
+    'json': json,
+    'opf': opf
+}
 
 fmts = list(templates.keys())
 
@@ -112,11 +111,9 @@ def _spec_proc(name, fmtrec, authors):
         person = r"<b:Person><b:Last>$last</b:Last>"\
                  r"<b:First>$first</b:First></b:Person>"
         AUTHORS = '\n'.join(
-            Template(person).safe_substitute(last_first(a))
-            for a in authors)
+            Template(person).safe_substitute(last_first(a)) for a in authors)
     elif name == 'json':
-        AUTHORS = ', '.join('{"name": "$"}'.replace("$", a)
-                            for a in authors)
+        AUTHORS = ', '.join('{"name": "$"}'.replace("$", a) for a in authors)
     elif name == 'opf':
         fmtrec = fmtrec.replace('$uid', str(uuid.uuid4()))
         creator = r'<dc:creator opf:file-as="$last, $first"'\

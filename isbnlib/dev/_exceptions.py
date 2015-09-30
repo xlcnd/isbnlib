@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-
 """ Exceptions for isbnlib.dev
 
 The classes in isbnlib.dev should use the exceptions below.
@@ -18,7 +17,7 @@ class ISBNLibDevException(Exception):
             self.message = '%s (%s)' % (self.message, msg)
 
     def __str__(self):
-        return getattr(self, 'message', '')       # pragma: no cover
+        return getattr(self, 'message', '')  # pragma: no cover
 
 
 class ISBNLibHTTPError(ISBNLibDevException):

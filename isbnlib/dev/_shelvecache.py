@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-
 """Read and write shelve cache.
 
 NOTES
@@ -24,7 +23,6 @@ from time import time as timestamp
 
 
 class ShelveCache(object):
-
     """Read and write shelve cache."""
 
     MAXLEN = 2000

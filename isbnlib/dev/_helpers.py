@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-
 """Private helper functions."""
 
 import re
@@ -21,7 +20,7 @@ def fake_isbn(title, author='unkown', publisher='unkown', sid=1):
     return (str(sid) + str(int(md5(b(key)).hexdigest()[:10], 16)))[:13]
 
 
-def in_virtual():       # pragma: no cover
+def in_virtual():  # pragma: no cover
     """Detect if program is running inside a python virtual environment."""
     return True if hasattr(sys, 'real_prefix') else False
 

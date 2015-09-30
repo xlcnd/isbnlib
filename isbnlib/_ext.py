@@ -54,11 +54,11 @@ def ren(fp):
     """Rename a file using metadata from an ISBN in his filename."""
     cfp = File(fp)
     isbn = EAN13(cfp.name)
-    if not isbn:                               # pragma: no cover
+    if not isbn:  # pragma: no cover
         return
     data = meta(isbn)
     author = data.get('Authors', u('UNKNOWN'))
-    if author != u('UNKNOWN'):                 # pragma: no cover
+    if author != u('UNKNOWN'):  # pragma: no cover
         author = last_first(author[0])['last']
     year = data.get('Year', u('UNKNOWN'))
     maxlen = 98 - (20 + len(author) + len(year))
@@ -69,9 +69,9 @@ def ren(fp):
         title = regex1.sub(' ', title)
         title = regex2.sub(' ', title)
         title = title.strip()
-    if title == u('UNKNOWN') or not title:     # pragma: no cover
+    if title == u('UNKNOWN') or not title:  # pragma: no cover
         return
-    if ' ' in title:                           # pragma: no cover
+    if ' ' in title:  # pragma: no cover
         tokens = title.split(' ')
         stitle = cutoff_tokens(tokens, maxlen)
         title = ' '.join(stitle)

@@ -1,13 +1,10 @@
 # -*- coding: utf-8 -*-
-
 """Read and write to a dict-like cache."""
-
 
 from collections import MutableMapping
 
 
 class IMCache(MutableMapping):
-
     """Read and write to a dict-like cache."""
 
     MAXLEN = 1000

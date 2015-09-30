@@ -16,7 +16,6 @@ THROTTLING = 1
 
 
 class WEBQuery(object):
-
     """Base class to query a webservice and parse the result to py objects."""
 
     T = {'id': timestamp()}  # noqa
@@ -50,7 +49,7 @@ class WEBQuery(object):
         """Parse the data (default JSON -> PY)."""
         if parser is None:  # pragma: no cover
             return self.data
-        return parser(self.data)   # <-- data is now unicode
+        return parser(self.data)  # <-- data is now unicode
 
 
 def query(url, user_agent=UA, data_checker=None, parser=json.loads):

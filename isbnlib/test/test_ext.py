@@ -5,7 +5,6 @@
 from nose.tools import assert_equals, assert_raises
 from .._ext import mask, editions, isbn_from_words, doi, desc, cover
 
-
 # nose tests
 
 
@@ -57,8 +56,6 @@ def test_desc():
 def test_cover():
     """Test 'cover' command."""
     assert_equals(cover('9780156001311')[1][:13], '9780156001311')  # <-- no size 2 (in most areas) but size 1
-    assert_equals(cover('9780000000000'), None)                     # <-- invalid ISBN
+    assert_equals(cover('9780000000000'), None)  # <-- invalid ISBN
     assert_equals(cover('9781408835029')[1][:13], '9781408835029')
-    assert_equals(cover('9783642331046')[1], None)                  # <-- no image of any size
-
-
+    assert_equals(cover('9783642331046')[1], None)  # <-- no image of any size

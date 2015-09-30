@@ -6,7 +6,6 @@ from textwrap import fill
 
 from .dev.webservice import query as wsquery
 
-
 UA = "isbnlib (gzip)"
 
 
@@ -14,7 +13,7 @@ def goo_desc(isbn):
     """Get description from Google Books api."""
     from .registry import metadata_cache  # <-- dynamic
     cache = metadata_cache
-    if cache is not None:                     # pragma: no cover
+    if cache is not None:  # pragma: no cover
         key = 'gdesc' + isbn
         try:
             if cache[key]:
@@ -31,8 +30,8 @@ def goo_desc(isbn):
         content = loads(content)
         content = content['items'][0]['volumeInfo']['description']
         content = fill(content, width=75) if content else None
-        if content and cache is not None:     # pragma: no cover
+        if content and cache is not None:  # pragma: no cover
             cache[key] = content
         return content
-    except KeyError:                          # pragma: no cover
+    except KeyError:  # pragma: no cover
         return
