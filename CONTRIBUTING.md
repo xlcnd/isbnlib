@@ -36,7 +36,7 @@ configuration files adapted to the project.
 ## Style
 
 Your code **must** be [PEP8](http://legacy.python.org/dev/peps/pep-0008/) compliant
-and be concise as possible (check it with
+and be concise as possible (use `yapf` then check it with
 `flake8` and `pylint`).
 
 Use doc strings ([PEP257](http://legacy.python.org/dev/peps/pep-0257/))
