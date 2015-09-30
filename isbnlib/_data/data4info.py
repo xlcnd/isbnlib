@@ -1,4 +1,5 @@
 # flake8: noqa
+# -*- coding: utf-8 -*-
 # GeneratedWith: mk_data4info.py (isbntools)
 # MessageSource: http://www.isbn-international.org/agency?rmxml=1
 # MessageDate: Thu, 3 Sep 2015 12:56:52 CEST

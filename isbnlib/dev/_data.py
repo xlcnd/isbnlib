@@ -9,7 +9,6 @@ from ._helpers import normalize_space, titlecase
 
 # For now you cannot add custom fields!
 FIELDS = ('ISBN-13', 'Title', 'Authors', 'Publisher', 'Year', 'Language')
-
 LOGGER = logging.getLogger(__name__)
 
 
