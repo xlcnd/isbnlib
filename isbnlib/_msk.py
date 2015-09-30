@@ -21,6 +21,8 @@ def msk(isbn, separator='-'):
     O(n) for n (number of keys),
     if data structure like 'ranges' in data4mask.py
     """
+
+
     ib = canonical(isbn)
     ean = EAN13(ib)
     if len(ib) not in (10, 13) or ean is None:
