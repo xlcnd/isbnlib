@@ -32,3 +32,6 @@ class IMCache(MutableMapping):
 
     def __delitem__(self, k):
         del self.d[k]
+
+    def __bool__(self):
+        return len(self) != 0
