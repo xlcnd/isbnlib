@@ -111,6 +111,7 @@ class CoversCache(object):
         return self._index.hits(key)
 
     def _create_slots(self):
+        """Create slots."""
         for slot in range(self.NSLOTS):
             name = "slot%02d" % slot
             pth = os.path.join(self.cachepath, name)
@@ -130,9 +131,11 @@ class CoversCache(object):
         self._create_slots()
 
     def _get_slot(self):
+        """Get random slot."""
         return "slot%02d" % randint(0, self.NSLOTS - 1)
 
     def files(self):
+        """List of all paths of files on cache."""
         pths = []
         for root, _, fls in os.walk(self.cachepath):
             for fn in fls:
@@ -156,6 +159,7 @@ class CoversCache(object):
                 os.remove(fp)
 
     def purge(self):
+        """Purge old/low hits elements from cache."""
         try:
             self._index.purge()
             self.sync()
@@ -164,5 +168,6 @@ class CoversCache(object):
             return False
 
     def delete(self):
+        """Delete cache."""
         self._index = None
         return shutil.rmtree(self.cachepath)
