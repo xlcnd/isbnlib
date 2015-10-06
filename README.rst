@@ -296,22 +296,25 @@ Caveats
 
 
 
+Projects using ``isbntlib``
+---------------------------
+
+**isbntools**      https://github.com/xlcnd/isbntools
+
+**Spreads**        https://github.com/DIYBookScanner/spreads
+
+**BiblioManager**  https://github.com/Phyks/BMC/
+
+**Alexandrie**     https://gitlab.com/openlabmatera/alexandrie
+
+
+
 Help
 ____
 
 
 If you need help, please take a look at github_ or post a question on
 stackoverflow_ (with tag **isbnlib**)
-
-
-Projects using ``isbntlib``
-===========================
-
-**isbntools**      https://github.com/xlcnd/isbntools
-**Spreads**        https://github.com/DIYBookScanner/spreads
-**BiblioManager**  https://github.com/Phyks/BMC/
-**Alexandrie**     https://gitlab.com/openlabmatera/alexandrie
-
 
 
 
