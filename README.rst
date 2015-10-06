@@ -294,8 +294,8 @@ Caveats
 
 
 
-Projects using ``isbntlib``
----------------------------
+Projects using isbntlib
+-----------------------
 
 **isbntools**      https://github.com/xlcnd/isbntools
 
