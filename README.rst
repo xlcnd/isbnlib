@@ -172,6 +172,27 @@ or:
     $ easy_install isbnlib
 
 
+If you use linux systems, you can install using your distribution package
+manager:
+
+debian/ubuntu
+
+.. code-block:: bash
+
+    $ sudo apt-get install python-isbnlib
+
+
+arch linux
+
+.. code-block:: bash
+
+    $ pacman -S python-isbnlib
+
+
+
+   For python 3, install package ``python3-isbnlib``.
+
+
 
 For Devs
 ========
@@ -281,6 +302,17 @@ ____
 
 If you need help, please take a look at github_ or post a question on
 stackoverflow_ (with tag **isbnlib**)
+
+
+Projects using ``isbntlib``
+===========================
+
+**isbntools**      https://github.com/xlcnd/isbntools
+**Spreads**        https://github.com/DIYBookScanner/spreads
+**BiblioManager**  https://github.com/Phyks/BMC/
+**Alexandrie**     https://gitlab.com/openlabmatera/alexandrie
+
+
 
 
 ----------------------------------------------------------------------------------------------
