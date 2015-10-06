@@ -181,16 +181,14 @@ debian/ubuntu
 
     $ sudo apt-get install python-isbnlib
 
+    For python 3, install package python3-isbnlib.
+
 
 arch linux
 
 .. code-block:: bash
 
     $ pacman -S python-isbnlib
-
-
-
-   For python 3, install package ``python3-isbnlib``.
 
 
 
