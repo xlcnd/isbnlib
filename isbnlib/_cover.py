@@ -17,7 +17,7 @@ from .dev._exceptions import ISBNLibHTTPError, ISBNLibURLError
 from .dev.webservice import query
 
 COVERZOOM = 2
-NOIMGSIZE = (15666, 16641, 2690, 8983)
+NOIMGSIZE = (15666, 16641, 2690, 8983, 7977)
 UA = "isbnlib (gzip)"
 LOGGER = logging.getLogger(__name__)
 
