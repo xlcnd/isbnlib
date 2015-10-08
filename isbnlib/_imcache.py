@@ -35,3 +35,6 @@ class IMCache(MutableMapping):
 
     def __bool__(self):
         return len(self) != 0
+
+    # For PY2 compatibility
+    __nonzero__ = __bool__
