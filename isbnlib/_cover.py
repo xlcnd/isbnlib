@@ -76,8 +76,7 @@ def _download(url, tofile=None):
         LOGGER.critical('ISBNLibURLError for %s with reason %s', url, e.reason)
         raise ISBNLibURLError(e.reason)
     content = response.read()
-    noimageavailable = len(content) in NOIMGSIZE
-    if noimageavailable:  # pragma: no cover
+    if len(content) in NOIMGSIZE:  # pragma: no cover
         return False
     if tofile:
         try:  # pragma: no cover
