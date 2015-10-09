@@ -3,7 +3,18 @@
 Info
 ====
 
+``isbnlib`` is a (pure) python library that provides several
+useful methods and functions to validate, clean, transform, hyphenate and
+get metadata for ISBN strings. Its origin was as the core of isbntools_.
 
+This short version, is suitable to be include as a dependency in other projects.
+Has a straightforward setup and a very easy programmatic api.
+
+Runs on py26, py27, py33, py34, py35, pypy and pypy3.
+
+
+Usage
+-----
 
 Typical usage (as library):
 
@@ -52,6 +63,23 @@ In my case I get::
 
 Have fun!
 
+
+
+Projects using *isbnlib*
+------------------------
+
+**isbntools**      https://github.com/xlcnd/isbntools
+
+**Spreads**        https://github.com/DIYBookScanner/spreads
+
+**BiblioManager**  https://github.com/Phyks/BMC/
+
+**Alexandrie**     https://gitlab.com/openlabmatera/alexandrie
+
+
+
 .. _here: http://isbndb.com/api/v2/docs
 
 .. _pdfminer: https://pypi.python.org/pypi/pdfminer
+
+.. _isbntools: https://pypi.python.org/pypi/isbntools

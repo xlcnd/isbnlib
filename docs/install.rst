@@ -26,3 +26,25 @@ or:
 (first you have to download the file!)
 
 
+If you use linux systems, you can install using your distribution package
+manager:
+
+debian/ubuntu
+
+.. code-block:: bash
+
+    $ sudo apt-get install python-isbnlib
+
+Note
+    For python 3, install package ``python3-isbnlib``.
+
+
+arch linux
+
+.. code-block:: bash
+
+    $ pacman -S python-isbnlib
+
+
+
+

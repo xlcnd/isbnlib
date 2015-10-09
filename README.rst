@@ -310,7 +310,7 @@ Projects using *isbnlib*
 
 
 Help
-____
+----
 
 
 If you need help, please take a look at github_ or post a question on

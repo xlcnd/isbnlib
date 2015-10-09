@@ -14,21 +14,6 @@ Search/Browse the code at sourcegraph_ or github_
 Status
 ------
 
-.. image:: https://pypip.in/d/isbnlib/badge.png
-    :target: https://pypi.python.org/pypi/isbnlib/
-    :alt: Downloads
-
-.. image:: https://pypip.in/v/isbnlib/badge.png
-    :target: https://pypi.python.org/pypi/isbnlib/
-    :alt: Latest Version
-
-.. image:: https://pypip.in/format/isbnlib/badge.png
-    :target: https://pypi.python.org/pypi/isbnlib/
-    :alt: Download format
-
-.. image:: https://pypip.in/license/isbnlib/badge.png
-    :target: https://pypi.python.org/pypi/isbnlib/
-    :alt: License
 
 .. image:: https://coveralls.io/repos/xlcnd/isbnlib/badge.svg?branch=v3.5.7
     :target: https://coveralls.io/r/xlcnd/isbnlib?branch=v3.5.7
