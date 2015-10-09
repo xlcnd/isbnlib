@@ -6,7 +6,7 @@ os:
 branches:
     only:
     - v3.5.7
-    - none
+    - dev
 matrix:
     include:
     - python: "2.7"
