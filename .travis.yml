@@ -21,17 +21,20 @@ matrix:
       env: TOXENV=pypy
     - python: "2.7"
       env: TOXENV=checkers
+    - python: "3.5"
+      env: TOXENV=py35
     - python: "2.7"
       env: DOC=sphinx
     allow_failures:
+    - env: TOXENV=py35
     - env: TOXENV=pypy
     - env: TOXENV=checkers
 install:
 - if [[ $TRAVIS_PULL_REQUEST != 'false' ]]; then pip install yapf; fi
-- if [[ ! -z $TOXENV ]]; then pip install tox; fi 
-- if [[ ! -z $TOXENV ]]; then pip install flake8; fi 
-- if [[ ! -z $TOXENV ]]; then pip install pep8-naming; fi 
-- if [[ $TOXENV == 'py27' ]]; then pip install coveralls; fi 
+- if [[ ! -z $TOXENV ]]; then pip install tox; fi
+- if [[ ! -z $TOXENV ]]; then pip install flake8; fi
+- if [[ ! -z $TOXENV ]]; then pip install pep8-naming; fi
+- if [[ $TOXENV == 'py27' ]]; then pip install coveralls; fi
 - if [[ $DOC == 'sphinx' ]]; then pip install sphinx; fi
 script:
 - if [[ $TRAVIS_PULL_REQUEST != 'false' ]] && [[ ! -z $TOXENV ]]; then yapf -i isbnlib; fi
