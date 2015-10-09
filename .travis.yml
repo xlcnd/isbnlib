@@ -19,6 +19,8 @@ matrix:
       env: TOXENV=py26
     - python: "pypy"
       env: TOXENV=pypy
+    - python: "pypy3"
+      env: TOXENV=pypy3
     - python: "2.7"
       env: TOXENV=checkers
     - python: "3.5"
@@ -28,6 +30,7 @@ matrix:
     allow_failures:
     - env: TOXENV=py35
     - env: TOXENV=pypy
+    - env: TOXENV=pypy3
     - env: TOXENV=checkers
 install:
 - if [[ $TRAVIS_PULL_REQUEST != 'false' ]]; then pip install yapf; fi
