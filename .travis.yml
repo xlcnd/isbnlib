@@ -1,8 +1,5 @@
 sudo: false
 language: python
-os:
-- linux
-- osx
 branches:
     only:
     - v3.5.7
@@ -17,14 +14,14 @@ matrix:
       env: TOXENV=py33
     - python: "2.6"
       env: TOXENV=py26
+    - python: "3.5"
+      env: TOXENV=py35
     - python: "pypy"
       env: TOXENV=pypy
     - python: "pypy3"
       env: TOXENV=pypy3
     - python: "2.7"
       env: TOXENV=checkers
-    - python: "3.5"
-      env: TOXENV=py35
     - python: "2.7"
       env: DOC=sphinx
     allow_failures:
