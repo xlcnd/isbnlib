@@ -43,7 +43,8 @@ class ShelveCache(object):
         except:
             s = self._sh.open(self.filepath, 'n')
             self._keys = []
-        s.close()
+        finally:
+            s.close()
 
     def __getitem__(self, key):
         """Read cache."""
