@@ -102,6 +102,10 @@ class CoversCache(object):
         """Return the number of keys in cache."""
         return len(self._index.keys()) if self._index.keys() else 0
 
+    def __call__(self, key):
+        """Allow an alternative way to access items."""
+        return self.__getitem__(key)
+
     def keys(self):
         """Return the number of keys in cache."""
         return self._index.keys()

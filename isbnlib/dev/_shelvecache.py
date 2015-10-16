@@ -98,6 +98,10 @@ class ShelveCache(object):
         """Return the number of keys in cache."""
         return len(self.keys()) if self.keys() else 0
 
+    def __call__(self, key):
+        """Allow an alternative way to access items."""
+        return self.__getitem__(key)
+
     def keys(self):
         """Return list of keys in Cache."""
         if self._keys:

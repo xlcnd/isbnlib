@@ -38,3 +38,9 @@ class IMCache(MutableMapping):
 
     # For PY2 compatibility
     __nonzero__ = __bool__
+
+    def __call__(self, k):
+        try:
+            return self.__getitem__(k)
+        except KeyError:
+            return None
