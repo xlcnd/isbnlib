@@ -13,12 +13,12 @@ def query(isbn, service='default', cache='default'):
     if not ean:
         raise NotValidISBNError(isbn)
     isbn = ean
-    if cache == 'default':
-        cache = metadata_cache
     if service != 'default' and service not in services:  # pragma: no cover
         raise NotRecognizedServiceError(service)
     if cache is None:  # pragma: no cover
         return services[service](isbn)
+    if cache == 'default':
+        cache = metadata_cache
     key = isbn + service
     try:
         if cache[key]:
