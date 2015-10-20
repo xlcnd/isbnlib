@@ -146,7 +146,6 @@ class ShelveCache(object):
 
     def new(self):
         """Make new cache."""
-        self._new()
         s = self._sh.open(self.filepath, 'n')
         self._keys = []
         s.close()
