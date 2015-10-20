@@ -57,8 +57,6 @@ class ShelveCache(object):
                 return s[key]['value']
             else:
                 return None
-        except KeyError:
-            return None
         except ValueError:
             self.new()
             return None
@@ -86,8 +84,6 @@ class ShelveCache(object):
             s = self._sh.open(self.filepath)
             del s[key]
             self._keys.remove(key)
-        except KeyError:
-            return
         except ValueError:
             self.new()
             return
@@ -124,8 +120,6 @@ class ShelveCache(object):
                 return
             fmt = '%Y-%m-%d %H:%M:%S'
             return datetime.datetime.fromtimestamp(ts).strftime(fmt)
-        except KeyError:
-            return
         except ValueError:
             self.new()
             return
@@ -140,8 +134,6 @@ class ShelveCache(object):
             s = self._sh.open(self.filepath)
             hts = s[key]['hits'] if s[key] else None
             return hts
-        except KeyError:
-            return
         except ValueError:
             self.new()
             return
@@ -150,9 +142,10 @@ class ShelveCache(object):
 
     def new(self):
         """Make new cache."""
+        self._new()
         s = self._sh.open(self.filepath, 'n')
-        s.close()
         self._keys = []
+        s.close()
 
     def purge(self):
         """Purge the cache."""
