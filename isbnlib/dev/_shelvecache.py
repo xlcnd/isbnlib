@@ -58,7 +58,8 @@ class ShelveCache(object):
             else:
                 return None
         except ValueError:
-            self.new()
+            s = self._sh.open(self.filepath, 'n')
+            self._keys = []
             return None
         finally:
             s.close()
@@ -85,7 +86,8 @@ class ShelveCache(object):
             del s[key]
             self._keys.remove(key)
         except ValueError:
-            self.new()
+            s = self._sh.open(self.filepath, 'n')
+            self._keys = []
             return
         finally:
             s.close()
@@ -121,7 +123,8 @@ class ShelveCache(object):
             fmt = '%Y-%m-%d %H:%M:%S'
             return datetime.datetime.fromtimestamp(ts).strftime(fmt)
         except ValueError:
-            self.new()
+            s = self._sh.open(self.filepath, 'n')
+            self._keys = []
             return
         finally:
             s.close()
@@ -135,7 +138,8 @@ class ShelveCache(object):
             hts = s[key]['hits'] if s[key] else None
             return hts
         except ValueError:
-            self.new()
+            s = self._sh.open(self.filepath, 'n')
+            self._keys = []
             return
         finally:
             s.close()
@@ -149,9 +153,9 @@ class ShelveCache(object):
 
     def purge(self):
         """Purge the cache."""
+        if len(self.keys()) < self.MAXLEN:
+            return
         try:
-            if len(self.keys()) < self.MAXLEN:
-                return
             s = self._sh.open(self.filepath)
             data = [(k, s[k]['timestamp'], s[k]['hits']) for k in s.keys()]
             data.sort(key=lambda tup: (-tup[2], -tup[1]))
