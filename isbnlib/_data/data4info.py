@@ -2,8 +2,8 @@
 # -*- coding: utf-8 -*-
 # GeneratedWith: mk_data4info.py (isbntools)
 # MessageSource: http://www.isbn-international.org/agency?rmxml=1
-# MessageDate: Thu, 3 Sep 2015 12:56:52 CEST
-# MessageSerialNumber: e055fb55-2661-4102-a6dc-6885d2dab806
+# MessageDate: Tue, 10 Nov 2015 12:00:18 CET
+# MessageSerialNumber: b2e3aa1c-6907-432b-833b-1695dc15d1bb
 d = {
     '978-99970': 'Haiti',
     '978-7': "China, People's Republic",
@@ -276,4 +276,4 @@ identifiers = (
      '978-99967', '978-99968', '978-99969', '978-99970', '978-99971',
      '978-99972', '978-99973', '978-99974', '978-99975', '978-99976',
      '978-99977'))
-RDDATE = '2015090311:56:52WEST'
+RDDATE = '2015111011:00:18WET'
