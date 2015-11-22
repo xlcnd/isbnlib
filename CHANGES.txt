@@ -21,3 +21,4 @@ v3.5.4, 2015-04-10 -- Issue #20, fix bugs #21 and #22 and data range 20150401.
 v3.5.5, 2015-04-22 -- Add logging to vias, fix bug #23, and data range 20150422.
 v3.5.6, 2015-06-03 -- Deprecated 'bouth23' and data range 20150603.
 v3.5.7, 2015-11-22 -- Support for py35 and pypy3 and data range 20151118.
+v3.5.8, 2015-12-22 -- TENTATIVE
