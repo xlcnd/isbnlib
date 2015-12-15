@@ -2,8 +2,8 @@ sudo: false
 language: python
 branches:
     only:
-    - v3.5.8
     - dev
+    - v3.5.8
 matrix:
     include:
     - python: "2.7"
