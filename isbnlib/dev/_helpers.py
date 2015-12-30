@@ -44,7 +44,7 @@ def titlecase(st):
         st.encode('ascii')
         return re.sub(r"[A-Za-z]+('[A-Za-z]+)?",
                       lambda m: m.group(0)[0].upper() + m.group(0)[1:], st)
-    except UnicodeDecodeError:  # pragma: no cover
+    except (UnicodeEncodeError, UnicodeDecodeError):  # pragma: no cover
         return st
 
 
