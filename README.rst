@@ -123,8 +123,8 @@ Main Functions
 
 ``editions(isbn, service='wcat')``
     Returns the list of ISBNs of editions related with this ISBN. By default
-    uses 'wcat', but other providers are available: 'thingl' (uses the
-    service ThingISBN from **LibraryThing**), 'merge' (merges 'wcat' with 'thingl')
+    uses 'openl', but other providers are available: 'thingl' (uses the
+    service ThingISBN from **LibraryThing**), 'merge' (merges 'openl' with 'thingl')
     and 'any' (first tries 'wcat', if no data, tries 'thingl').
 
 ``isbn_from_words(words)``
@@ -275,7 +275,8 @@ If you need high quality metadata in your app, the only solution is to use
 for fields like ``Authors`` and ``Publisher``.
 
 A *merge* provider is now the default in ``meta``.
-It gives priority to ``wcat`` but overwrites the ``Authors`` field with the value from ``goob``.
+It gives priority to ``wcat`` but overwrites the ``Authors`` and ``Publisher`` 
+fields with values from ``goob``.
 Uses the ``merge`` method of ``Metadata`` and *serial* calls to services
 by default (faster for one-call to services through fast internet connections).
 You can change that by using ``vias``'s other methods
