@@ -75,6 +75,9 @@ def load_plugins():  # pragma: no cover
     except:
         pass
 
+# load plugins on import
+load_plugins()
+
 # CACHE
 # if you want a persistant cache you could use
 # .dev.helpers ShelveCache(pathtofile)
