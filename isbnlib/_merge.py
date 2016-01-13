@@ -31,8 +31,8 @@ def query(isbn, processor=None):
     md = Metadata(rw) if rw else None
 
     if md and rg:
-        # Overwrite with Authors and Language from Google
-        md.merge(rg, overwrite=('Authors'))
+        # Overwrite with Authors and Publisher from Google
+        md.merge(rg, overwrite=('Authors', 'Publisher'))
         return md.value
     if not md and rg:  # pragma: no cover
         md = Metadata(rg)

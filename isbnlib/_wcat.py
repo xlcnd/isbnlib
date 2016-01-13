@@ -1,32 +1,50 @@
 # -*- coding: utf-8 -*-
-"""Query the worldcat.org xID service for metadata."""
+"""Query the worldcat.org 'classify.oclc.org' service for metadata."""
 
 import logging
+import re
+import xml.etree.ElementTree as ET
 
 from .dev import stdmeta
 from .dev._bouth23 import u
-from .dev._exceptions import (DataWrongShapeError, ISBNNotConsistentError,
-                              NoDataForSelectorError, RecordMappingError)
+from .dev._exceptions import (NoDataForSelectorError, RecordMappingError)
 from .dev.webquery import query as wquery
 
 UA = 'isbnlib (gzip)'
-SERVICE_URL = 'http://xisbn.worldcat.org/webservices/xid/isbn/{isbn}?'\
-    'method=getMetadata&format=json&fl=title,author,year,publisher,lang'
+SERVICE_URL = 'http://classify.oclc.org/classify2/Classify?isbn={isbn}'\
+              '&maxRecs=1&summary=true'
 LOGGER = logging.getLogger(__name__)
+
+
+def _clean(txt):
+    """Util function to clean Author strings."""
+    # delete annotations
+    txt = re.sub(r'\[.*\]', '', txt)
+    txt = re.sub(r'\(.*\)', '', txt)
+    txt = re.sub(r'[0-9]{4}\s*\-*[0-9]{0,4}', '', txt)
+    # delete abbreviations
+    txt.strip('. ')
+    # std name
+    txt.strip(', ')
+    if ',' in txt:
+        txt = ' '.join(x.strip() for x in txt.split(',')[::-1])
+    return txt.strip()
 
 
 def _mapper(isbn, records):
     """Mapp: canonical <- records."""
     # canonical: ISBN-13, Title, Authors, Publisher, Year, Language
+    # FIXME records NOT unicode !!!
     try:
         canonical = {}
         canonical['ISBN-13'] = u(isbn)
-        canonical['Title'] = records.get('title', u('')).replace(' :', ':')
-        buf = records.get('author', u(''))
-        canonical['Authors'] = [x.strip('. ') for x in buf.split(';')]
-        canonical['Publisher'] = records.get('publisher', u(''))
-        canonical['Year'] = records.get('year', u(''))
-        canonical['Language'] = records.get('lang', u(''))
+        canonical['Title'] = u(records.get('title', '').replace(' :', ':'))
+        buf = records.get('author', '')
+        canonical['Authors'] = [u(_clean(x)) for x in buf.split('|')]
+        canonical['Publisher'] = u(records.get('publisher', ''))
+        canonical['Year'] = u(records.get('hyr', '')) or u(records.get('lyr',
+                                                                       ''))
+        canonical['Language'] = u(records.get('lang', ''))
     except:  # pragma: no cover
         LOGGER.debug("RecordMappingError for %s with data %s", isbn, records)
         raise RecordMappingError(isbn)
@@ -36,31 +54,35 @@ def _mapper(isbn, records):
 
 def _records(isbn, data):
     """Classify (canonically) the parsed data."""
-    # check status
-    try:
-        status = data['stat']
-        if status != 'ok':
-            raise
-    except:
-        LOGGER.debug('DataWrongShapeError for %s with status %s', isbn, status)
-        raise DataWrongShapeError("status: '%s' for isbn %s" % (status, isbn))
-    # put the selected data in records
-    try:
-        recs = data['list'][0]
-    except:  # pragma: no cover
+    # check data
+    if not data:
         LOGGER.debug('NoDataForSelectorError for %s', isbn)
         raise NoDataForSelectorError(isbn)
-    # consistency check (isbn request = isbn response)
-    if recs:
-        ids = recs.get('isbn', '')
-        if isbn not in repr(ids):  # pragma: no cover
-            LOGGER.debug('ISBNNotConsistentError for %s (%s)', isbn, repr(ids))
-            raise ISBNNotConsistentError("%s not in %s" % (isbn, repr(ids)))
     # map canonical <- records
-    return _mapper(isbn, recs)
+    return _mapper(isbn, data)
+
+
+def xmlparser(xmlthing):
+    """XML parser for classify.oclc service."""
+    # TODO fix the encoding problems...
+    root = ET.fromstring(xmlthing)
+    try:
+        # FIXME
+        code = root[0].attrib['code']
+        if code in ('0', '2', '4'):
+            # work = root.find('{http://classify.oclc.org}work')
+            # if work:
+            #    return work.attrib
+            for work in root.iter('{http://classify.oclc.org}work'):
+                return work.attrib  # <-- NOT unicode !!!
+    except IndexError:
+        return
 
 
 def query(isbn):
     """Query the worldcat.org service for metadata."""
-    data = wquery(SERVICE_URL.format(isbn=isbn), user_agent=UA)
+    data = wquery(SERVICE_URL.format(isbn=isbn),
+                  user_agent=UA,
+                  data_checker=None,
+                  parser=xmlparser)
     return _records(isbn, data)
