@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 """Registry for metadata services, formatters and cache."""
 
+from pkg_resources import iter_entry_points
+
 from . import _goob as goob
 from . import _isbndb as isbndb
 from . import _merge as merge
@@ -56,6 +58,22 @@ def add_bibformatter(name, formatter):  # pragma: no cover
     """Add a new formatter to formatters."""
     global bibformatters
     bibformatters[name] = formatter
+
+
+def load_plugins():  # pragma: no cover
+    """Load plugins with groups: isbnlib.metadata & isbnlib.formatters"""
+    # get metadata plugins from entry_points
+    try:
+        for entry in iter_entry_points(group='isbnlib.metadata'):
+            add_service(entry.name, entry.load())
+    except:
+        pass
+    # get formatters from entry_points
+    try:
+        for entry in iter_entry_points(group='isbnlib.formatters'):
+            add_bibformatter(entry.name, entry.load())
+    except:
+        pass
 
 # CACHE
 # if you want a persistant cache you could use
