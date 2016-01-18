@@ -71,8 +71,8 @@ def teardown_module():
 def test_ren():
     """Test 'high level' ren function."""
     ren(F1)
-    assert_equals('Knuth2008_The Art Of Computer Programming_9780321534965.pdf'
+    assert_equals('Knuth2014_The Art Of Computer Programming_9780321534965.pdf'
                   in cwdfiles("*.pdf"), True)
-    # create_files([F5])
-    # ren(F5)
-    # assert_equals('Campos2011_Emergências obstétricas_9789727576807.pdf' in cwdfiles("*.pdf"), True)
+    #create_files([F5])
+    #ren(F5)
+    #assert_equals('Campos2011_Emergências obstétricas_9789727576807.pdf' in cwdfiles("*.pdf"), True)
