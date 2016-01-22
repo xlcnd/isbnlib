@@ -15,6 +15,10 @@ SERVICE_URL = 'http://classify.oclc.org/classify2/Classify?isbn={isbn}'\
               '&maxRecs=1&summary=true'
 LOGGER = logging.getLogger(__name__)
 
+RE_FLDS = re.compile(r'\s([a-z]+)="', re.I | re.M | re.S)
+RE_VALS = re.compile(r'="(.*?)" ', re.I | re.M | re.S)
+RE_WORK = re.compile(r'<work .*/>', re.I | re.M | re.S)
+
 
 def _clean(txt):
     """Util function to clean Author strings."""
@@ -79,10 +83,27 @@ def xmlparser(xmlthing):
         return
 
 
+def reparser(xmlthing):
+    """RE parser for classify.oclc service."""
+    #print(xmlthing)
+    match = RE_WORK.search(xmlthing)
+    if match:
+        try:
+            buf = match.group()
+            #print(buf)
+            flds = RE_FLDS.findall(buf)
+            vals = RE_VALS.findall(buf)
+            return dict(zip(flds, vals))
+        except:
+            # FIXME
+            pass
+    return
+
+
 def query(isbn):
     """Query the worldcat.org service for metadata."""
     data = wquery(SERVICE_URL.format(isbn=isbn),
                   user_agent=UA,
                   data_checker=None,
-                  parser=xmlparser)
+                  parser=reparser)
     return _records(isbn, data)
