@@ -46,7 +46,7 @@ Note
 
    The official form of an ISBN is something like ``ISBN 979-10-90636-07-1``. However for most
    applications only the numbers are important, you can always 'masked' them if you need (see below).
-   This library works mainly with 'striped' ISBNs  (only numbers and X) like '0826497527'. You can
+   This library works mainly with 'striped' ISBNs  (only digits and X) like '0826497527'. You can
    strip an ISBN-like string by using ``canonical(isbnlike)``. You can
    'mask' the ISBN by using ``mask(isbn)``. So in the examples below, when you see 'isbn'
    in the argument, it is a 'striped' ISBN, when the argument is an 'isbnlike' it is a string
@@ -83,7 +83,7 @@ Main Functions
 	Transforms isbn-10 to isbn-13.
 
 ``canonical(isbnlike)``
-	Keeps only numbers and X. You will get strings like `9780321534965` and `954430603X`.
+	Keeps only digits and X. You will get strings like `9780321534965` and `954430603X`.
 
 ``clean(isbnlike)``
 	Cleans ISBN (only legal characters).
