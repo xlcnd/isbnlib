@@ -6,7 +6,7 @@ import re
 import xml.etree.ElementTree as ET
 
 from .dev import stdmeta
-from .dev._bouth23 import u
+from .dev._bouth23 import b2u3, u
 from .dev._exceptions import (NoDataForSelectorError, RecordMappingError)
 from .dev.webquery import query as wquery
 
@@ -16,7 +16,7 @@ SERVICE_URL = 'http://classify.oclc.org/classify2/Classify?isbn={isbn}'\
 LOGGER = logging.getLogger(__name__)
 
 RE_FLDS = re.compile(r'\s([a-z]+)="', re.I | re.M | re.S)
-RE_VALS = re.compile(r'="(.*?)" ', re.I | re.M | re.S)
+RE_VALS = re.compile(r'="(.*?)"', re.I | re.M | re.S)
 RE_WORK = re.compile(r'<work .*/>', re.I | re.M | re.S)
 
 
@@ -35,7 +35,7 @@ def _clean(txt):
     return txt.strip()
 
 
-def _mapper(isbn, records):
+def _mapper0(isbn, records):
     """Mapp: canonical <- records."""
     # canonical: ISBN-13, Title, Authors, Publisher, Year, Language
     # FIXME records NOT unicode !!!
@@ -49,6 +49,27 @@ def _mapper(isbn, records):
         canonical['Year'] = u(records.get('hyr', '')) or u(records.get('lyr',
                                                                        ''))
         canonical['Language'] = u(records.get('lang', ''))
+    except:  # pragma: no cover
+        LOGGER.debug("RecordMappingError for %s with data %s", isbn, records)
+        raise RecordMappingError(isbn)
+    # call stdmeta for extra cleanning and validation
+    return stdmeta(canonical)
+
+
+def _mapper(isbn, records):
+    """Mapp: canonical <- records."""
+    # canonical: ISBN-13, Title, Authors, Publisher, Year, Language
+    # FIXME records NOT unicode !!!
+    try:
+        canonical = {}
+        canonical['ISBN-13'] = u(isbn)
+        canonical['Title'] = records.get('title', u('')).replace(' :', ':')
+        buf = records.get('author', u(''))
+        canonical['Authors'] = [_clean(x) for x in buf.split('|')]
+        canonical['Publisher'] = records.get('publisher', u(''))
+        canonical['Year'] = records.get('hyr', u('')) or records.get('lyr',
+                                                                     u(''))
+        canonical['Language'] = records.get('lang', u(''))
     except:  # pragma: no cover
         LOGGER.debug("RecordMappingError for %s with data %s", isbn, records)
         raise RecordMappingError(isbn)
@@ -86,7 +107,7 @@ def xmlparser(xmlthing):
 def reparser(xmlthing):
     """RE parser for classify.oclc service."""
     #print(xmlthing)
-    match = RE_WORK.search(xmlthing)
+    match = RE_WORK.search(u(xmlthing))
     if match:
         try:
             buf = match.group()
