@@ -6,7 +6,7 @@ import re
 import xml.etree.ElementTree as ET
 
 from .dev import stdmeta
-from .dev._bouth23 import b2u3, u
+from .dev._bouth23 import u
 from .dev._exceptions import (NoDataForSelectorError, RecordMappingError)
 from .dev.webquery import query as wquery
 
