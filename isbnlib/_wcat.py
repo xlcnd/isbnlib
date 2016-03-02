@@ -106,12 +106,12 @@ def xmlparser(xmlthing):
 
 def reparser(xmlthing):
     """RE parser for classify.oclc service."""
-    #print(xmlthing)
+    # print(xmlthing)
     match = RE_WORK.search(u(xmlthing))
     if match:
         try:
             buf = match.group()
-            #print(buf)
+            # print(buf)
             flds = RE_FLDS.findall(buf)
             vals = RE_VALS.findall(buf)
             return dict(zip(flds, vals))

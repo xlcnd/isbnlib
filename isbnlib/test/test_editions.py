@@ -9,22 +9,30 @@ from .._ext import editions
 
 # nose tests
 
+def test_editions_openl():
+    """Test the 'openl editions' service."""
+    assert_equals(len(editions('9780099536017', service='openl')) > 4, True)
 
-def test_editions1():
-    """Test the 'editions' service."""
-    assert_equals(len(editions('9780156001311', service='wcat')) > 19, True)
+def test_editions_thingl():
+    """Test the 'thingl editions' service."""
     assert_equals(len(editions('9780151446476', service='thingl')) > 19, True)
+
+def test_editions_any():
+    """Test the 'any editions' service."""
     assert_equals(len(editions('9780151446476', service='any')) > 19, True)
+
+def test_editions_merge():
+    """Test the 'merge editions' service."""
     assert_equals(len(editions('9780151446476', service='merge')) > 19, True)
 
 
 @raises(NotValidISBNError)
-def test_editions2():
+def test_editions_NotValidISBNError():
     """Test the 'editions' service error detection (NotValidISBNError)."""
     editions('978')
 
 
 @raises(NotRecognizedServiceError)
-def test_editions3():
+def test_editions_NotRecognizedServiceError():
     """Test the 'editions' service error detection (NotRecognizedServiceError)."""
     editions('9780156001311', service='xxx')
