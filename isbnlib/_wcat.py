@@ -38,7 +38,6 @@ def _clean(txt):
 def _mapper0(isbn, records):
     """Mapp: canonical <- records."""
     # canonical: ISBN-13, Title, Authors, Publisher, Year, Language
-    # FIXME records NOT unicode !!!
     try:
         canonical = {}
         canonical['ISBN-13'] = u(isbn)
@@ -106,12 +105,10 @@ def xmlparser(xmlthing):
 
 def reparser(xmlthing):
     """RE parser for classify.oclc service."""
-    # print(xmlthing)
     match = RE_WORK.search(u(xmlthing))
     if match:
         try:
             buf = match.group()
-            # print(buf)
             flds = RE_FLDS.findall(buf)
             vals = RE_VALS.findall(buf)
             return dict(zip(flds, vals))
@@ -123,8 +120,9 @@ def reparser(xmlthing):
 
 def query(isbn):
     """Query the worldcat.org service for metadata."""
-    data = wquery(SERVICE_URL.format(isbn=isbn),
-                  user_agent=UA,
-                  data_checker=None,
-                  parser=reparser)
+    data = wquery(
+        SERVICE_URL.format(isbn=isbn),
+        user_agent=UA,
+        data_checker=None,
+        parser=reparser)
     return _records(isbn, data)
