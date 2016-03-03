@@ -3,7 +3,6 @@
 
 import logging
 import re
-import xml.etree.ElementTree as ET
 
 from .dev import stdmeta
 from .dev._bouth23 import u
@@ -35,30 +34,9 @@ def _clean(txt):
     return txt.strip()
 
 
-def _mapper0(isbn, records):
-    """Mapp: canonical <- records."""
-    # canonical: ISBN-13, Title, Authors, Publisher, Year, Language
-    try:
-        canonical = {}
-        canonical['ISBN-13'] = u(isbn)
-        canonical['Title'] = u(records.get('title', '').replace(' :', ':'))
-        buf = records.get('author', '')
-        canonical['Authors'] = [u(_clean(x)) for x in buf.split('|')]
-        canonical['Publisher'] = u(records.get('publisher', ''))
-        canonical['Year'] = u(records.get('hyr', '')) or u(records.get('lyr',
-                                                                       ''))
-        canonical['Language'] = u(records.get('lang', ''))
-    except:  # pragma: no cover
-        LOGGER.debug("RecordMappingError for %s with data %s", isbn, records)
-        raise RecordMappingError(isbn)
-    # call stdmeta for extra cleanning and validation
-    return stdmeta(canonical)
-
-
 def _mapper(isbn, records):
     """Mapp: canonical <- records."""
     # canonical: ISBN-13, Title, Authors, Publisher, Year, Language
-    # FIXME records NOT unicode !!!
     try:
         canonical = {}
         canonical['ISBN-13'] = u(isbn)
@@ -84,23 +62,6 @@ def _records(isbn, data):
         raise NoDataForSelectorError(isbn)
     # map canonical <- records
     return _mapper(isbn, data)
-
-
-def xmlparser(xmlthing):
-    """XML parser for classify.oclc service."""
-    # TODO fix the encoding problems...
-    root = ET.fromstring(xmlthing)
-    try:
-        # FIXME
-        code = root[0].attrib['code']
-        if code in ('0', '2', '4'):
-            # work = root.find('{http://classify.oclc.org}work')
-            # if work:
-            #    return work.attrib
-            for work in root.iter('{http://classify.oclc.org}work'):
-                return work.attrib  # <-- NOT unicode !!!
-    except IndexError:
-        return
 
 
 def reparser(xmlthing):
