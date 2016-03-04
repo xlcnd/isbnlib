@@ -40,8 +40,15 @@ Typical usage (as library):
     ...
 
 
+Warning
+-------
 
-Note
+   The retiring of the xISBN service implied **a huge drop in data quality** in ``metadata`` and ``editions``.
+   For non-US books, the situation is really bad, many of them have no 'Publisher' information available! 
+   (See issue #28_).**
+
+
+ISBN
 ----
 
    The official form of an ISBN is something like ``ISBN 979-10-90636-07-1``. However for most
@@ -61,7 +68,8 @@ Note
    (because '9786610326266' follows the rules of an ISBN). But the situation is even murkier,
    try ``meta('9786610326266')`` and you will see that this ISBN was already used!
 
-   If possible, work with ISBNs in the isbn-13 format (since 2007, only are issued ISBNs in the isbn-13
+   If possible, work with ISBNs in the isbn-13 format (since 2007, only are issued ISBNs 
+   https://github.com/xlcnd/isbnlib/issues/28n the isbn-13
    format). You can always convert isbn-10 to isbn-13, but **not** the reverse.
    Read more about ISBN at isbn-international.org_ or wikipedia_.
 
@@ -121,11 +129,11 @@ Main Functions
     ``cache`` only allows two values: 'default' or None. You can change the kind of cache by using
     ``isbnlib.registry.set_cache`` (see below).
 
-``editions(isbn, service='wcat')``
+``editions(isbn, service='openl')``
     Returns the list of ISBNs of editions related with this ISBN. By default
     uses 'openl', but other providers are available: 'thingl' (uses the
     service ThingISBN from **LibraryThing**), 'merge' (merges 'openl' with 'thingl')
-    and 'any' (first tries 'wcat', if no data, tries 'thingl').
+    and 'any' (first tries 'openl', if no data, tries 'thingl').
 
 ``isbn_from_words(words)``
 	Returns the most probable ISBN from a list of words (for your geographic area).
@@ -143,11 +151,11 @@ Main Functions
 	Renames a file using metadata from an ISBN in his filename.
 
 ``desc(isbn)``
-    **BETA** Returns a small description of the book.
+    **RC** Returns a small description of the book.
     *Almost all data available are for US books!*
 
 ``cover(isbn)``
-    **BETA** Downloads an image of the cover of the book or, with
+    **RC** Downloads an image of the cover of the book or, with
     `cover(isbn, mode='url')`, returns an url of the image.
     *Almost all data available are for US books!*
 
@@ -351,3 +359,5 @@ Read ``isbnlib`` code in a very sctructured way at sourcegraph_ or 'the docs' at
 .. _wikipedia: http://en.wikipedia.org/wiki/International_Standard_Book_Number
 
 .. _python-future.org: http://python-future.org/compatible_idioms.html
+
+.. _#28: https://github.com/xlcnd/isbnlib/issues/28
