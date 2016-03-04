@@ -44,8 +44,8 @@ Warning
 -------
 
    The retiring of the xISBN service implied **a huge drop in data quality** in ``metadata`` and ``editions``.
-   For non-US books, the situation is really bad, many of them have no 'Publisher' information available! 
-   (See issue #28_).**
+   For non-US books, the situation is really bad, many of them have no *Publisher* information available! 
+   (See issue_ #28).
 
 
 ISBN
@@ -360,4 +360,4 @@ Read ``isbnlib`` code in a very sctructured way at sourcegraph_ or 'the docs' at
 
 .. _python-future.org: http://python-future.org/compatible_idioms.html
 
-.. _#28: https://github.com/xlcnd/isbnlib/issues/28
+.. _issue: https://github.com/xlcnd/isbnlib/issues/28
