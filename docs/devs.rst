@@ -85,11 +85,11 @@ In the namespace ``isbnlib`` you have access to the core methods:
     ``cache`` only allows two values: 'default' or None. You can change the kind of cache by using 
     ``isbnlib.registry.set_cache`` (see below).
 
-``editions(isbn, service='wcat')``
+``editions(isbn, service='openl')``
     Returns the list of ISBNs of editions related with this ISBN. By default
-    uses 'wcat', but other providers are avilable: 'thingl' (uses the
-    service ThingISBN from **LibraryThing**), 'merge' (merges 'wcat' with 'thingl')
-    and 'any' (first tries 'wcat', if no data, tries 'thingl').
+    uses 'openl', but other providers are available: 'thingl' (uses the
+    service ThingISBN from **LibraryThing**), 'merge' (merges 'openl' with 'thingl')
+    and 'any' (first tries 'openl', if no data, tries 'thingl').
 
 ``isbn_from_words(words)``
 	Returns the most probable ISBN from a list of words (for your geographic area).
