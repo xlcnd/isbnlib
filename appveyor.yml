@@ -34,7 +34,7 @@ init:
   - "ECHO %TOXPYTHON% %PYTHON_VERSION% %PYTHON_ARCH%"
 
 install:
-  - ps: (new-object net.webclient).DownloadFile('https://raw.github.com/pypa/pip/master/contrib/get-pip.py', 'C:/get-pip.py')
+  - ps: (new-object net.webclient).DownloadFile('https://bootstrap.pypa.io/get-pip.py', 'C:/get-pip.py')
   - "%TOXPYTHON% C:/get-pip.py"
   - "%PYTHON_HOME%/Scripts/pip.exe install -r requirements-appveyor.txt"
 
