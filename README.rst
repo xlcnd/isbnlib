@@ -129,10 +129,10 @@ Main Functions
     ``cache`` only allows two values: 'default' or None. You can change the kind of cache by using
     ``isbnlib.registry.set_cache`` (see below).
 
-``editions(isbn, service='openl')``
+``editions(isbn, service='merge')``
     Returns the list of ISBNs of editions related with this ISBN. By default
-    uses 'openl', but other providers are available: 'thingl' (uses the
-    service ThingISBN from **LibraryThing**), 'merge' (merges 'openl' with 'thingl')
+    uses 'merge' (merges 'openl' with 'thingl'), but other providers are available: 
+    'openl' users **Open Library**, 'thingl' (uses the service ThingISBN from **LibraryThing**)
     and 'any' (first tries 'openl', if no data, tries 'thingl').
 
 ``isbn_from_words(words)``

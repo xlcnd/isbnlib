@@ -43,7 +43,7 @@ def fake_provider_merge(isbn):
         return data
 
 
-def editions(isbn, service='openl'):
+def editions(isbn, service='merge'):
     """Return the list of ISBNs of editions related with this ISBN."""
     isbn = EAN13(isbn)
     if not isbn:
