@@ -1,7 +1,6 @@
 version: '3.5.8.{build}'
 branches:
   only:
-    - /dev/
     - /v3.5.8/
 environment:
   matrix:
