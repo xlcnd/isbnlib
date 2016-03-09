@@ -43,8 +43,8 @@ Typical usage (as library):
 Warning
 -------
 
-   The retiring of the xISBN service implied **a huge drop in data quality** in ``metadata`` and ``editions``.
-   For non-US books, the situation is really bad, many of them have no *Publisher* information available! 
+   The retiring of the xISBN service implied **a huge drop in data quality** for ``metadata`` and ``editions``.
+   For non-US books, the situation is really bad, many of them have no *Publisher* information available!
    (See issue_ #28).
 
 
@@ -68,7 +68,7 @@ ISBN
    (because '9786610326266' follows the rules of an ISBN). But the situation is even murkier,
    try ``meta('9786610326266')`` and you will see that this ISBN was already used!
 
-   If possible, work with ISBNs in the isbn-13 format (since 2007, only are issued ISBNs 
+   If possible, work with ISBNs in the isbn-13 format (since 2007, only are issued ISBNs
    https://github.com/xlcnd/isbnlib/issues/28n the isbn-13
    format). You can always convert isbn-10 to isbn-13, but **not** the reverse.
    Read more about ISBN at isbn-international.org_ or wikipedia_.
@@ -79,40 +79,40 @@ Main Functions
 --------------
 
 ``is_isbn10(isbn10like)``
-	Validates as ISBN-10.
+    Validates as ISBN-10.
 
 ``is_isbn13(isbn13like)``
-	Validates as ISBN-13.
+    Validates as ISBN-13.
 
 ``to_isbn10(isbn13)``
-	Transforms isbn-13 to isbn-10.
+    Transforms isbn-13 to isbn-10.
 
 ``to_isbn13(isbn10)``
-	Transforms isbn-10 to isbn-13.
+    Transforms isbn-10 to isbn-13.
 
 ``canonical(isbnlike)``
-	Keeps only digits and X. You will get strings like `9780321534965` and `954430603X`.
+    Keeps only digits and X. You will get strings like `9780321534965` and `954430603X`.
 
 ``clean(isbnlike)``
-	Cleans ISBN (only legal characters).
+    Cleans ISBN (only legal characters).
 
 ``notisbn(isbnlike, level='strict')``
-	Check with the goal to invalidate isbn-like.
+    Check with the goal to invalidate isbn-like.
 
 ``get_isbnlike(text, level='normal')``
-	Extracts all substrings that seem like ISBNs (very useful for scraping).
+    Extracts all substrings that seem like ISBNs (very useful for scraping).
 
 ``get_canonical_isbn(isbnlike, output='bouth')``
-	Extracts ISBNs and transform them to the canonical form.
+    Extracts ISBNs and transform them to the canonical form.
 
 ``EAN13(isbnlike)``
-	Transforms an `isbnlike` string into an EAN13 number (validated canonical ISBN-13).
+    Transforms an `isbnlike` string into an EAN13 number (validated canonical ISBN-13).
 
 ``info(isbn)``
-	Gets the language or country assigned to this ISBN.
+    Gets the language or country assigned to this ISBN.
 
 ``mask(isbn, separator='-')``
-	`Mask` (hyphenate) a canonical ISBN.
+    `Mask` (hyphenate) a canonical ISBN.
 
 ``meta(isbn, service='default', cache='default')``
     Gives you the main metadata associated with the ISBN. As `service` parameter you can use:
@@ -131,24 +131,24 @@ Main Functions
 
 ``editions(isbn, service='merge')``
     Returns the list of ISBNs of editions related with this ISBN. By default
-    uses 'merge' (merges 'openl' with 'thingl'), but other providers are available: 
+    uses 'merge' (merges 'openl' with 'thingl'), but other providers are available:
     'openl' users **Open Library**, 'thingl' (uses the service ThingISBN from **LibraryThing**)
     and 'any' (first tries 'openl', if no data, tries 'thingl').
 
 ``isbn_from_words(words)``
-	Returns the most probable ISBN from a list of words (for your geographic area).
+    Returns the most probable ISBN from a list of words (for your geographic area).
 
 ``goom(words)``
-	Returns a list of references from **Google Books multiple references**.
+    Returns a list of references from **Google Books multiple references**.
 
 ``doi(isbn)``
-	Returns a DOI's ISBN-A from a ISBN-13.
+    Returns a DOI's ISBN-A from a ISBN-13.
 
 ``doi2tex(DOI)``
-	Returns metadata formated as BibTeX for a given DOI.
+    Returns metadata formated as BibTeX for a given DOI.
 
 ``ren(filename)``
-	Renames a file using metadata from an ISBN in his filename.
+    Renames a file using metadata from an ISBN in his filename.
 
 ``desc(isbn)``
     **RC** Returns a small description of the book.
@@ -241,13 +241,13 @@ namespace ``isbnlib.dev``, namely:
 
 * ``vias`` exposes several functions to put calls to services, just by passing the name and
   a pointer to the service's ``query`` function.
-  ``vias.parallel`` allows to put threaded calls. 
+  ``vias.parallel`` allows to put threaded calls.
   You can use ``vias.serial`` to make serial calls and
   ``vias.multi`` to use several cores. The default is ``vias.serial``.
 
 * ``bouth23`` (**DEPRECATED**) a small module to make it possible the code to run
   in **bouth** python 2 and python 3. **It will disappear in the next major version!**.
-  See python-future.org_ for a built-in alternative to ``bouth23``. 
+  See python-future.org_ for a built-in alternative to ``bouth23``.
 
 The exceptions raised by these methods can all be catched using ``ISBNLibDevException``.
 You **should't raise** this exception in your code, only raise the specific exceptions
@@ -283,7 +283,7 @@ If you need high quality metadata in your app, the only solution is to use
 for fields like ``Authors`` and ``Publisher``.
 
 A *merge* provider is now the default in ``meta``.
-It gives priority to ``wcat`` but overwrites the ``Authors`` and ``Publisher`` 
+It gives priority to ``wcat`` but overwrites the ``Authors`` and ``Publisher``
 fields with values from ``goob``.
 Uses the ``merge`` method of ``Metadata`` and *serial* calls to services
 by default (faster for one-call to services through fast internet connections).
