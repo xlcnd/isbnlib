@@ -69,8 +69,7 @@ ISBN
    try ``meta('9786610326266')`` and you will see that this ISBN was already used!
 
    If possible, work with ISBNs in the isbn-13 format (since 2007, only are issued ISBNs
-   https://github.com/xlcnd/isbnlib/issues/28n the isbn-13
-   format). You can always convert isbn-10 to isbn-13, but **not** the reverse.
+   in the isbn-13 format). You can always convert isbn-10 to isbn-13, but **not** the reverse.
    Read more about ISBN at isbn-international.org_ or wikipedia_.
 
 
