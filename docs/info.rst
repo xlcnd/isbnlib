@@ -74,7 +74,7 @@ Projects using *isbnlib*
 
 **BiblioManager**  https://github.com/Phyks/BMC/
 
-**Alexandrie**     https://gitlab.com/openlabmatera/alexandrie
+**Alessandria**     https://gitlab.com/openlabmatera/alessandria
 
 
 
