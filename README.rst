@@ -315,6 +315,9 @@ Projects using *isbnlib*
 
 **Alessandria**     https://gitlab.com/openlabmatera/alessandria
 
+**Comic Collector**  https://github.com/wengole/comiccollector
+
+**Abelujo**    http://www.abelujo.cc/
 
 
 Help
