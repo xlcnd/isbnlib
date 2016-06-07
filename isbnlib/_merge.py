@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""Provide metadata by merging metadata from other providers."""
+"""Provide metadata by merging metadata from several providers."""
 
 from . import config
 from ._goob import query as qgoob
