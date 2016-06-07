@@ -49,7 +49,8 @@ def _records(isbn, data):
     # consistency check (isbn request = isbn response)
     if recs:
         ids = recs.get('industryIdentifiers', '')
-        if isbn not in repr(ids):  # pragma: no cover
+        if u('ISBN_13') in repr(ids) and isbn not in repr(
+                ids):  # pragma: no cover
             LOGGER.debug('ISBNNotConsistentError for %s (%s)', isbn, repr(ids))
             raise ISBNNotConsistentError("%s not in %s" % (isbn, repr(ids)))
     # map canonical <- records
