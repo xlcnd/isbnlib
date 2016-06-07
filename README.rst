@@ -319,6 +319,10 @@ Projects using *isbnlib*
 
 **Abelujo**    http://www.abelujo.cc/
 
+**BibLib**    https://pypi.python.org/pypi/biblib
+
+
+
 
 Help
 ----
