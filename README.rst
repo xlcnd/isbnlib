@@ -282,8 +282,8 @@ If you need high quality metadata in your app, the only solution is to use
 for fields like ``Authors`` and ``Publisher``.
 
 A *merge* provider is now the default in ``meta``.
-It gives priority to ``wcat`` but overwrites the ``Authors`` and ``Publisher``
-fields with values from ``goob``.
+It gives priority to ``wcat`` but overwrites the ``Authors``, ``Publisher`` and ``Year``
+fields with values from ``goob`` (if available).
 Uses the ``merge`` method of ``Metadata`` and *serial* calls to services
 by default (faster for one-call to services through fast internet connections).
 You can change that by using ``vias``'s other methods
@@ -367,3 +367,5 @@ Read ``isbnlib`` code in a very sctructured way at sourcegraph_ or 'the docs' at
 .. _python-future.org: http://python-future.org/compatible_idioms.html
 
 .. _issue: https://github.com/xlcnd/isbnlib/issues/28
+
+

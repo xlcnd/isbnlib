@@ -190,7 +190,8 @@ If you need high quality metadata in your app, the only solution is to use
 *polling & merge* of several providers **and** a **lot** of cleaning and standardization
 for fields like ``Authors`` and ``Publisher``.
 A *simple merge* provider is now the default in ``isbnlib.meta``.
-It gives priority to ``wcat`` but overwrites the ``Authors`` field with the value from ``goob``.
+It gives priority to ``wcat`` but overwrites the ``Authors``, ``Publisher`` and ``Year``
+fields with values from ``goob`` (if available).
 Uses the ``merge`` method of ``Metadata`` and *serial* calls to services
 by default (faster for fast Internet connections).
  
