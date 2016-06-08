@@ -271,6 +271,30 @@ access api keys with ``apikeys`` and add new one with ``add_apikey`` and
 access and set generic and user-defined options with ``options`` and ``set_option``.
 
 
+Let us concretize the last point with a small example.
+
+Suppose you want a small script to get metadata using ``isbndb.org`` formated in BibTeX.
+
+To use this service you need an api-key (get it here_). A minimal script would be:
+
+
+.. code-block:: python
+
+    from isbnlib import meta 
+    from isbnlib.config import add_apikey
+    from isbnlib.dev.helpers import fmtbib
+
+    SERVICE = 'isbndb'
+    APIKEY = 'THiSIsfAKe'  # <-- replace with YOUR key
+
+    # register your key
+    add_apikey(SERVICE, APIKEY)
+
+    # now you can use the service
+    isbn = '9780446310789'
+    fmt = 'bibtex'
+    print(fmtbib(fmt, meta(isbn, SERVICE)))
+
 
 
 Merge Metadata
