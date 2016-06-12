@@ -337,6 +337,8 @@ Projects using *isbnlib*
 
 **BiblioManager**  https://github.com/Phyks/BMC/
 
+**libBMC**    https://github.com/Phyks/libbmc/
+
 **Alessandria**     https://gitlab.com/openlabmatera/alessandria
 
 **Comic Collector**  https://github.com/wengole/comiccollector
