@@ -84,6 +84,8 @@ In the namespace ``isbnlib`` you have access to the core methods:
     ``opf`` or ``json`` (BibJSON) bibliographic formats with ``isbnlib.registry.bibformatters``.
     ``cache`` only allows two values: 'default' or None. You can change the kind of cache by using 
     ``isbnlib.registry.set_cache`` (see below).
+    Now, you can extend the functionality of this function by adding pluggins, more metadata 
+    providers or new bibliographic formatters (check_ for available pluggins). 
 
 ``editions(isbn, service='merge')``
     Returns the list of ISBNs of editions related with this ISBN. By default
@@ -204,6 +206,17 @@ All these classes follow a simple design pattern and, if you follow it, will be
 very easy to integrate your classes with the rest of the lib.
 
 
+Plugins
+-------
+
+You can extend the functionality of the library by adding pluggins (for now, just
+new metadata providers or new bibliographic formatters).
+
+Start with this template_ and follow the instructions there. For inspiration take a look
+at wcat_, goob_ or merge_.
+
+After install, your pluggin will blend transparently in `isbnlib`.
+
 
 
 Merge Metadata
@@ -257,3 +270,13 @@ framework to further developement, take a look at isbntools_.
 .. _isbn-international.org: https://www.isbn-international.org/content/what-isbn
 
 .. _python-future.org: http://python-future.org/compatible_idioms.html
+
+.. _check: https://pypi.python.org/pypi?%3Aaction=search&term=isbnlib_&submit=search
+
+.. _template: https://github.com/xlcnd/isbnlib/blob/dev/PLUGIN.zip
+
+.. _wcat: https://github.com/xlcnd/isbnlib/blob/dev/isbnlib/_wcat.py
+
+.. _goob: https://github.com/xlcnd/isbnlib/blob/dev/isbnlib/_goob.py
+
+.. _merge: https://github.com/xlcnd/isbnlib/blob/dev/isbnlib/_merge.py

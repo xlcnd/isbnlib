@@ -122,11 +122,13 @@ Main Functions
     a merged record of ``wcat`` and ``goob`` records (**no key is needed**) and
     **is the default option**.
     You can get an API key for the *isbndb.com service* here_.  You can enter API keys
-    with ``config.add_apikey(service, apikey)``.
+    with ``config.add_apikey(service, apikey)`` (see example below).
     The output can be formatted as ``bibtex``, ``msword``, ``endnote``, ``refworks``,
     ``opf`` or ``json`` (BibJSON) bibliographic formats with ``isbnlib.registry.bibformatters``.
     ``cache`` only allows two values: 'default' or None. You can change the kind of cache by using
-    ``isbnlib.registry.set_cache`` (see below).
+    ``isbnlib.registry.set_cache`` (see below). 
+    Now, you can extend the functionality of this function by adding pluggins, more metadata 
+    providers or new bibliographic formatters (check_ for available pluggins). 
 
 ``editions(isbn, service='merge')``
     Returns the list of ISBNs of editions related with this ISBN. By default
@@ -297,6 +299,19 @@ To use this service you need an api-key (get it here_). A minimal script would b
 
 
 
+Plugins
+-------
+
+You can extend the functionality of the library by adding pluggins (for now, just
+new metadata providers or new bibliographic formatters).
+
+Start with this template_ and follow the instructions there. For inspiration take a look
+at wcat_, goob_ or merge_.
+
+After install, your pluggin will blend transparently in `isbnlib`.
+
+
+
 Merge Metadata
 --------------
 
@@ -393,5 +408,15 @@ Read ``isbnlib`` code in a very sctructured way at sourcegraph_ or 'the docs' at
 .. _python-future.org: http://python-future.org/compatible_idioms.html
 
 .. _issue: https://github.com/xlcnd/isbnlib/issues/28
+
+.. _check: https://pypi.python.org/pypi?%3Aaction=search&term=isbnlib_&submit=search
+
+.. _template: https://github.com/xlcnd/isbnlib/blob/dev/PLUGIN.zip
+
+.. _wcat: https://github.com/xlcnd/isbnlib/blob/dev/isbnlib/_wcat.py
+
+.. _goob: https://github.com/xlcnd/isbnlib/blob/dev/isbnlib/_goob.py
+
+.. _merge: https://github.com/xlcnd/isbnlib/blob/dev/isbnlib/_merge.py
 
 
