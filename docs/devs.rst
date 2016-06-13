@@ -215,7 +215,7 @@ new metadata providers or new bibliographic formatters).
 Start with this template_ and follow the instructions there. For inspiration take a look
 at wcat_, goob_ or merge_.
 
-After install, your pluggin will blend transparently in `isbnlib`.
+After install, your pluggin will blend transparently in ``isbnlib``.
 
 
 
