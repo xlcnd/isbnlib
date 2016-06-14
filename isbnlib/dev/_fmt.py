@@ -84,7 +84,7 @@ templates = {
     'opf': opf
 }
 
-fmts = list(templates.keys())
+_fmts = list(templates.keys())
 
 
 def _gen_proc(name, canonical):
@@ -96,7 +96,7 @@ def _gen_proc(name, canonical):
 
 def _spec_proc(name, fmtrec, authors):
     """Fix the Authors records."""
-    if name not in fmts:
+    if name not in _fmts:
         return
     if name == 'labels':
         AUTHORS = '\nAuthor:    '.join(authors)
@@ -110,8 +110,8 @@ def _spec_proc(name, fmtrec, authors):
         fmtrec = fmtrec.replace('$uid', str(uuid.uuid4()))
         person = r"<b:Person><b:Last>$last</b:Last>"\
                  r"<b:First>$first</b:First></b:Person>"
-        AUTHORS = '\n'.join(
-            Template(person).safe_substitute(last_first(a)) for a in authors)
+        AUTHORS = '\n'.join(Template(person).safe_substitute(last_first(a))
+                            for a in authors)
     elif name == 'json':
         AUTHORS = ', '.join('{"name": "$"}'.replace("$", a) for a in authors)
     elif name == 'opf':
@@ -124,7 +124,7 @@ def _spec_proc(name, fmtrec, authors):
     return re.sub(r'\$AUTHORS', AUTHORS, fmtrec)
 
 
-def fmtbib(fmtname, canonical):
+def _fmtbib(fmtname, canonical):
     """Return a canonical record in the selected format."""
     return _spec_proc(fmtname, _gen_proc(fmtname, canonical),
                       canonical['Authors'])

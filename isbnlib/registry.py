@@ -9,7 +9,7 @@ from . import _merge as merge
 from . import _openl as openl
 from . import _wcat as wcat
 from ._imcache import IMCache
-from .dev._fmt import fmtbib
+from .dev._fmt import _fmtbib
 
 # SERVICES
 
@@ -37,14 +37,14 @@ def add_service(name, query):  # pragma: no cover
 # FORMATTERS
 
 bibformatters = {
-    'default': lambda x: fmtbib('labels', x),
-    'labels': lambda x: fmtbib('labels', x),
-    'bibtex': lambda x: fmtbib('bibtex', x),
-    'endnote': lambda x: fmtbib('endnote', x),
-    'refworks': lambda x: fmtbib('refworks', x),
-    'msword': lambda x: fmtbib('msword', x),
-    'json': lambda x: fmtbib('json', x),
-    'opf': lambda x: fmtbib('opf', x)
+    'default': lambda x: _fmtbib('labels', x),
+    'labels': lambda x: _fmtbib('labels', x),
+    'bibtex': lambda x: _fmtbib('bibtex', x),
+    'endnote': lambda x: _fmtbib('endnote', x),
+    'refworks': lambda x: _fmtbib('refworks', x),
+    'msword': lambda x: _fmtbib('msword', x),
+    'json': lambda x: _fmtbib('json', x),
+    'opf': lambda x: _fmtbib('opf', x)
 }  # pragma: no cover
 
 
@@ -77,6 +77,10 @@ def load_plugins():  # pragma: no cover
 
 # load plugins on import
 load_plugins()
+
+# usefull lists
+BIB_FORMATS = list(bibformatters.keys())
+MD_SERVICES = list(services.keys())
 
 # CACHE
 # if you want a persistant cache you could use

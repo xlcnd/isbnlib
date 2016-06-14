@@ -7,7 +7,7 @@ nose tests
 
 from nose.tools import assert_equals
 from ..dev._bouth23 import u
-from ..dev._fmt import fmtbib
+from ..dev._fmt import _fmtbib
 
 canonical = {
     'ISBN-13': u('9780123456789'),
@@ -21,10 +21,10 @@ canonical = {
 
 def test_fmtbib():
     """Test the formating into several bibliographic formats."""
-    assert_equals(len(fmtbib("bibtex", canonical)), 182)
-    assert_equals(len(fmtbib("labels", canonical)), 158)
-    assert_equals(len(fmtbib("endnote", canonical)), 103)
-    assert_equals(len(fmtbib("msword", canonical)), 485)
-    assert_equals(len(fmtbib("json", canonical)), 229)
-    assert_equals(len(fmtbib("refworks", canonical)), 130)
-    assert_equals(len(fmtbib("opf", canonical)), 861)
+    assert_equals(len(_fmtbib("bibtex", canonical)), 182)
+    assert_equals(len(_fmtbib("labels", canonical)), 158)
+    assert_equals(len(_fmtbib("endnote", canonical)), 103)
+    assert_equals(len(_fmtbib("msword", canonical)), 485)
+    assert_equals(len(_fmtbib("json", canonical)), 229)
+    assert_equals(len(_fmtbib("refworks", canonical)), 130)
+    assert_equals(len(_fmtbib("opf", canonical)), 861)
