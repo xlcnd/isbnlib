@@ -187,7 +187,7 @@ To use this service you need an api-key (get it here_). A minimal script would b
 
     from isbnlib import meta 
     from isbnlib.config import add_apikey
-    from isbnlib.dev.helpers import fmtbib
+    from isbnlib.registry import bibformatters
 
     SERVICE = 'isbndb'
     APIKEY = 'THiSIsfAKe'  # <-- replace with YOUR key
@@ -197,8 +197,8 @@ To use this service you need an api-key (get it here_). A minimal script would b
 
     # now you can use the service
     isbn = '9780446310789'
-    fmt = 'bibtex'
-    print(fmtbib(fmt, meta(isbn, SERVICE)))
+    bibtex = bibformatters['bibtex']
+    print(bibtex(meta(isbn, SERVICE)))
 
 
 
