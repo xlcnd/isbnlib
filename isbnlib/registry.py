@@ -78,10 +78,6 @@ def load_plugins():  # pragma: no cover
 # load plugins on import
 load_plugins()
 
-# usefull lists
-BIB_FORMATS = list(bibformatters.keys())
-MD_SERVICES = list(services.keys())
-
 # CACHE
 # if you want a persistant cache you could use
 # .dev.helpers ShelveCache(pathtofile)
