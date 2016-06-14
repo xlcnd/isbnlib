@@ -80,10 +80,10 @@ def ren(fp):
     return cfp.baserename(b2u3(new_name + cfp.ext))
 
 
-def cover(isbn, size=2, mode='prt'):
-    """Download the cover of the ISBN."""
+def cover(isbn):
+    """Get the img urls of the cover of the ISBN."""
     isbn = EAN13(isbn)
-    return gcover(isbn, size=size, mode=mode) if isbn else None
+    return gcover(isbn) if isbn else None
 
 
 def desc(isbn):
