@@ -15,6 +15,7 @@ SERVICE_URL = "https://www.googleapis.com/books/v1/volumes?q=isbn+{isbn}"\
               "&fields=items/volumeInfo(description)"\
               "&maxResults=1"
 
+
 def goo_desc(isbn):
     """Get description from Google Books api."""
     from .registry import metadata_cache  # <-- dynamic
