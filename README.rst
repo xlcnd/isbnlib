@@ -156,8 +156,7 @@ Main Functions
     *Almost all data available are for US books!*
 
 ``cover(isbn)``
-    **RC** Downloads an image of the cover of the book or, with
-    `cover(isbn, mode='url')`, returns an url of the image.
+    **RC** Returns a dictionary with the url for cover.
     *Almost all data available are for US books!*
 
 

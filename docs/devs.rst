@@ -113,8 +113,7 @@ In the namespace ``isbnlib`` you have access to the core methods:
         *Almost all data available are for US books!*
 
 ``cover(isbn)``
-	Downloads an image of the cover of the book or, with
-        `cover(isbn, mode='url')`, returns an url of the image.
+        Returns a dictionary with the url for cover.
         *Almost all data available are for US books!*
 
 See files test_core_ and test_ext_ for **a lot of examples**.
