@@ -3,7 +3,7 @@ language: python
 branches:
     only:
     - dev
-    - v3.5.9
+    - v3.6.1
 matrix:
     include:
     - python: "2.7"
