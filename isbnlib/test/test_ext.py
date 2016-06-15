@@ -60,5 +60,5 @@ def test_cover():
     assert_equals(cover('9780000000000'), None)  # <-- invalid ISBN
     assert_equals(len(repr(cover('9781408835029'))) > 50, True)
     assert_equals(
-        len(repr(cover('9781783553730'))) < 50,
+        len(repr(cover('9789727576807'))) < 50,
         True)  # <-- no image of any size

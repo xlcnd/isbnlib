@@ -4,7 +4,6 @@
 """Expose usefull features."""
 
 from .._imcache import IMCache
-from ._coverscache import CoversCache
 from ._files import File, cwdfiles
 from ._fmt import _fmtbib, _fmts
 from ._helpers import unicode_to_utf8tex as to_utf8tex
@@ -17,6 +16,6 @@ from ._shelvecache import ShelveCache
 fmtbib = _fmtbib
 fmts = _fmts
 
-__all__ = ['CoversCache', 'File', 'IMCache', 'ShelveCache', 'cutoff_tokens',
+__all__ = ['File', 'IMCache', 'ShelveCache', 'cutoff_tokens',
            'cwdfiles', 'fmtbib', 'fmts', 'in_virtual', 'last_first',
            'normalize_space', 'parse_placeholders', 'to_utf8tex', 'fake_isbn']
