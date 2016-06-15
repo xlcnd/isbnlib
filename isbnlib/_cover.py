@@ -3,7 +3,6 @@
 
 import logging
 
-from .dev._exceptions import NoDataForSelectorError
 from .dev.webquery import query as wquery
 
 LOGGER = logging.getLogger(__name__)
@@ -11,16 +10,6 @@ LOGGER = logging.getLogger(__name__)
 UA = "isbnlib (gzip)"
 SERVICE_URL = 'https://www.googleapis.com/books/v1/volumes?q=isbn+{isbn}'\
               '&fields=items/volumeInfo(imageLinks)&maxResults=1'
-
-
-def _get_img_lnks(isbn, data):
-    """Get the image links."""
-    try:
-        select = data['items'][0]['volumeInfo']
-    except:  # pragma: no cover
-        LOGGER.debug('NoDataForSelectorError for %s', isbn)
-        raise NoDataForSelectorError(isbn)
-    return select.get('imageLinks', {}) if select else {}
 
 
 def cover(isbn):
@@ -39,7 +28,12 @@ def cover(isbn):
             pass
     # request to the web service
     data = wquery(SERVICE_URL.format(isbn=isbn), user_agent=UA)
-    lnks = _get_img_lnks(isbn, data) if data else {}
-    if cache and lnks:  # pragma: no cover
-        cache[key] = lnks
-    return lnks
+    try:
+        lnks = data['items'][0]['volumeInfo']['imageLinks']
+        # put in cache
+        if cache and lnks:  # pragma: no cover
+            cache[key] = lnks
+        return lnks
+    except:  # pragma: no cover
+        LOGGER.debug('No cover img data for %s', isbn)
+    return

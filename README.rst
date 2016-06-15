@@ -152,11 +152,11 @@ Main Functions
     Renames a file using metadata from an ISBN in his filename.
 
 ``desc(isbn)``
-    **RC** Returns a small description of the book.
+    Returns a small description of the book.
     *Almost all data available are for US books!*
 
 ``cover(isbn)``
-    **RC** Returns a dictionary with the url for cover.
+    Returns a dictionary with the url for cover.
     *Almost all data available are for US books!*
 
 

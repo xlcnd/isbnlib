@@ -1,20 +1,26 @@
 # -*- coding: utf-8 -*-
 """Return a small description of the book."""
 
+import logging
+
 from json import loads
 from textwrap import fill
 
 from .dev.webservice import query as wsquery
 
-UA = "isbnlib (gzip)"
+LOGGER = logging.getLogger(__name__)
 
+UA = "isbnlib (gzip)"
+SERVICE_URL = "https://www.googleapis.com/books/v1/volumes?q=isbn+{isbn}"\
+              "&fields=items/volumeInfo(description)"\
+              "&maxResults=1"
 
 def goo_desc(isbn):
     """Get description from Google Books api."""
     from .registry import metadata_cache  # <-- dynamic
     cache = metadata_cache
     if cache is not None:  # pragma: no cover
-        key = 'gdesc' + isbn
+        key = 'desc-go-' + isbn
         try:
             if cache[key]:
                 return cache[key]
@@ -22,9 +28,7 @@ def goo_desc(isbn):
                 raise  # <-- IMPORTANT: usually the caches don't return error!
         except:
             pass
-    url = "https://www.googleapis.com/books/v1/volumes?q=isbn+{isbn}"\
-          "&fields=items/volumeInfo(description)"\
-          "&maxResults=1".format(isbn=isbn)
+    url = SERVICE_URL.format(isbn=isbn)
     content = wsquery(url, user_agent=UA)
     try:
         content = loads(content)
@@ -33,5 +37,6 @@ def goo_desc(isbn):
         if content and cache is not None:  # pragma: no cover
             cache[key] = content
         return content
-    except KeyError:  # pragma: no cover
-        return
+    except:  # pragma: no cover
+        LOGGER.debug('No description for %s', isbn)
+    return
