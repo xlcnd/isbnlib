@@ -4,9 +4,9 @@
 import gzip
 import logging
 
-from .. import config
 from ._bouth23 import bstream, s
 from ._exceptions import ISBNLibHTTPError, ISBNLibURLError
+from .. import config
 
 try:  # pragma: no cover
     from urllib.parse import urlencode
