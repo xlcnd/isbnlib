@@ -18,7 +18,7 @@ def cover(isbn):
     # check the cache first
     cache = metadata_cache
     if cache:  # pragma: no cover
-        key = 'img-urls-' + isbn
+        key = 'img-url-go-' + isbn
         try:  # pragma: no cover
             if cache[key]:
                 return cache[key]
