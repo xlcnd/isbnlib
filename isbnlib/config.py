@@ -3,7 +3,7 @@
 
 # --> Import only external modules! <--
 
-#import socket
+# import socket
 
 # Timeouts
 SOCKETS_TIMEOUT = 12  # seconds
@@ -19,7 +19,8 @@ def setsocketstimeout(seconds):
 # socket timeout is not exposed at urllib2 level so I had to import the
 # module and set a default value for all the sockets (timeout in seconds)
 # however this should be done at top level due to strong side effects...
-#setsocketstimeout(SOCKETS_TIMEOUT)
+# TODO delete setsocketstimeout on version 3.7.1
+# setsocketstimeout(SOCKETS_TIMEOUT)
 
 
 # THREADS_TIMEOUT is a parameter used downstream by Thread calls (see vias.py)
