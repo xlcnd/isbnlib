@@ -3,6 +3,7 @@
 
 # --> Import only external modules! <--
 
+# TODO delete following line (version 3.7.1 see issue #43)
 import socket
 
 # Timeouts
@@ -14,9 +15,10 @@ def setsocketstimeout(seconds):
     """Set the value of SOCKETS_TIMEOUT (in seconds)."""
     global SOCKETS_TIMEOUT
     SOCKETS_TIMEOUT = seconds
+    # TODO delete following line (version 3.7.1 see issue #43)
     return socket.setdefaulttimeout(SOCKETS_TIMEOUT)
 
-# TODO delete setsocketstimeout on version 3.7.1 (see issue #43)
+# TODO delete following line (version 3.7.1 see issue #43)
 setsocketstimeout(SOCKETS_TIMEOUT)
 
 
