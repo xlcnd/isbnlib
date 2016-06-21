@@ -23,6 +23,7 @@ _build/
 *.log
 *.sh
 .coverage
+.bandit
 .metacache
 *tasks
 LAB/
