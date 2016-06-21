@@ -250,7 +250,6 @@ framework to further developement, take a look at isbntools_.
 **You can browse the code, in a very structured way, at** sourcegraph_ or GitHub_.
 
 
-.. _wcat: https://github.com/xlcnd/isbnlib/blob/master/isbnlib/_wcat.py
 
 .. _isbndb: https://github.com/xlcnd/isbnlib/blob/master/isbnlib/_isbndb.py
 
