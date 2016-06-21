@@ -32,8 +32,8 @@ def setdefaultservice(name):  # pragma: no cover
 def add_service(name, query):  # pragma: no cover
     """Add a new service to services."""
     global services
-    if name not in list(services.keys()):
-        services[name] = query
+    #    if name not in list(services.keys()):
+    services[name] = query
 
 # FORMATTERS
 
@@ -58,8 +58,8 @@ def setdefaultbibformatter(name):  # pragma: no cover
 def add_bibformatter(name, formatter):  # pragma: no cover
     """Add a new formatter to formatters."""
     global bibformatters
-    if name not in list(bibformatters.keys()):
-        bibformatters[name] = formatter
+    #    if name not in list(bibformatters.keys()):
+    bibformatters[name] = formatter
 
 
 def load_plugins():  # pragma: no cover
