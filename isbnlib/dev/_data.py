@@ -83,10 +83,10 @@ class Metadata(object):
         """Validate value."""
         # 'minimal' check
         for k in self._content:
-            if not type(self._content[k]) is type3str():
+            if type(self._content[k]) is not type3str():
                 if k != 'Authors':
                     return False
-        if not type(self._content['Authors']) is list:
+        if type(self._content['Authors']) is not list:
             return False
         return True
 
@@ -98,5 +98,5 @@ class Metadata(object):
 
 def stdmeta(records):
     """Function API to the class."""
-    dt = Metadata(records)
-    return dt.value
+    data = Metadata(records)
+    return data.value
