@@ -34,6 +34,7 @@ def goo_desc(isbn):
     try:
         content = loads(content)
         content = content['items'][0]['volumeInfo']['description']
+        # TODO don't format content here!
         content = fill(content, width=75) if content else None
         if content and cache is not None:  # pragma: no cover
             cache[key] = content
