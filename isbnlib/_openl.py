@@ -46,7 +46,7 @@ def _records(isbn, data):
     """Classify (canonically) the parsed data."""
     try:
         # put the selected data in records
-        records = data['ISBN:%s' % isbn]
+        records = data['ISBN:{0!s}'.format(isbn)]
     except:  # pragma: no cover
         LOGGER.debug('NoDataForSelectorError for %s', isbn)
         raise NoDataForSelectorError(isbn)

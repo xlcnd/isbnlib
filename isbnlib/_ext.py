@@ -46,8 +46,8 @@ def isbn_from_words(words):
 
 def doi(isbn):
     """Return a DOI's ISBN-A from a ISBN-13."""
-    return "10.%s.%s%s/%s%s" % \
-           tuple(msk(EAN13(isbn), '-').split('-'))
+    return "10.{0!s}.{1!s}{2!s}/{3!s}{4!s}".format(* \
+           tuple(msk(EAN13(isbn), '-').split('-')))
 
 
 def ren(fp):
@@ -76,7 +76,7 @@ def ren(fp):
         stitle = cutoff_tokens(tokens, maxlen)
         title = ' '.join(stitle)
     isbn13 = data.get('ISBN-13', u('UNKNOWN'))
-    new_name = "%s%s_%s_%s" % (author, year, title, isbn13)
+    new_name = "{0!s}{1!s}_{2!s}_{3!s}".format(author, year, title, isbn13)
     return cfp.baserename(b2u3(new_name + cfp.ext))
 
 

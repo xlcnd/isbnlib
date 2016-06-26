@@ -10,7 +10,7 @@ from ._bouth23 import b, s
 
 def fake_isbn(title, author='unkown', publisher='unkown', sid=1):
     """Produce a fake ISBN from the (title, author, publisher) of the book."""
-    key = "%s %s %s" % (title, author, publisher)
+    key = "{0!s} {1!s} {2!s}".format(title, author, publisher)
     # normalize
     regex1 = re.compile(r'\?|,|\.|!|\:|;', re.I | re.M | re.S)
     regex2 = re.compile(r'\s\s+', re.I | re.M | re.S)
