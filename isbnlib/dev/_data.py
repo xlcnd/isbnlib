@@ -83,9 +83,8 @@ class Metadata(object):
         """Validate value."""
         # 'minimal' check
         for k in self._content:
-            if type(self._content[k]) is not type3str():
-                if k != 'Authors':
-                    return False
+            if type(self._content[k]) is not type3str() and k != 'Authors':
+                return False
         if type(self._content['Authors']) is not list:
             return False
         return True
