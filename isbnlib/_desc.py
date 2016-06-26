@@ -26,8 +26,8 @@ def goo_desc(isbn):
             if cache[key]:
                 return cache[key]
             else:
-                raise  # <-- IMPORTANT: usually the caches don't return error!
-        except:
+                raise KeyError  # <-- IMPORTANT: caches don't return error!
+        except KeyError:
             pass
     url = SERVICE_URL.format(isbn=isbn)
     content = wsquery(url, user_agent=UA)
