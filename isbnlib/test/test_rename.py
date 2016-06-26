@@ -15,8 +15,7 @@ nose tests
 WINDOWS = os.name == 'nt'
 ENCODING = locale.getpreferredencoding()
 if ENCODING != 'UTF-8':
-    print("Your default locale encoding (%s) doesn't allow unicode filenames!"
-          % ENCODING)
+    print("Your default locale encoding ({0!s}) doesn't allow unicode filenames!".format(ENCODING))
     print("=> Some tests could fail.")
 
 TESTFILE_1 = './ç-deleteme.pdf' if WINDOWS else '/tmp/ç-deleteme.pdf'
@@ -48,8 +47,7 @@ def create_files(files):
             with open(fn, 'w') as f:
                 f.write(b2u3('ooo') + b2u3(fn))
         except UnicodeEncodeError:
-            print("Your default locale (%s) doesn't allow non-ascii filenames!"
-                  % locale.CODESET)
+            print("Your default locale ({0!s}) doesn't allow non-ascii filenames!".format(locale.CODESET))
 
 
 def delete_files(fnpatt):

@@ -10,7 +10,7 @@ def quiet_errors(exc_type, exc_value, traceback):
               from isbnlib import quiet_errors
               sys.excepthook = quiet_errors
     """
-    sys.stderr.write('Error: %s\n' % exc_value)  # pragma: no cover
+    sys.stderr.write('Error: {0!s}\n'.format(exc_value))  # pragma: no cover
 
 
 class ISBNLibException(Exception):
@@ -28,14 +28,14 @@ class NotRecognizedServiceError(ISBNLibException):
     """Exception raised when the service is not in config.py."""
 
     def __init__(self, service):
-        self.message = "(%s) is not a recognized service" % service
+        self.message = "({0!s}) is not a recognized service".format(service)
 
 
 class NotValidISBNError(ISBNLibException):
     """Exception raised when the ISBN is not valid."""
 
     def __init__(self, isbnlike):
-        self.message = "(%s) is not a valid ISBN" % isbnlike
+        self.message = "({0!s}) is not a valid ISBN".format(isbnlike)
 
 
 class PluginNotLoadedError(ISBNLibException):  # pragma: no cover
@@ -45,4 +45,4 @@ class PluginNotLoadedError(ISBNLibException):  # pragma: no cover
     """
 
     def __init__(self, path):
-        self.message = "plugin (%s) wasn't loaded" % path
+        self.message = "plugin ({0!s}) wasn't loaded".format(path)
