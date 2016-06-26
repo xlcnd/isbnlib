@@ -93,15 +93,6 @@ def set_cache(cache):  # pragma: no cover
     metadata_cache = cache
 
 
-covers_cache = None  # should be an instance
-
-
-def set_covers_cache(cache):  # pragma: no cover
-    """Set cache for covers."""
-    global covers_cache
-    covers_cache = cache
-
-
 custom_cache = None  # should be an instance
 
 
