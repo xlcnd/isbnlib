@@ -41,7 +41,7 @@ class NotValidISBNError(ISBNLibException):
 class PluginNotLoadedError(ISBNLibException):  # pragma: no cover
     """Exception raised when the plugin's loader doesn't load the plugin.
 
-        TODO: Delete this in version 4
+    TODO: Delete this in version 4?
     """
 
     def __init__(self, path):
