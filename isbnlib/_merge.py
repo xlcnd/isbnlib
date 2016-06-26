@@ -22,8 +22,8 @@ def query(isbn, processor=None):
     elif processor == 'multi':
         results = vias.multi(named_tasks, isbn)
 
-    rw = results.get('wcat', None)
-    rg = results.get('goob', None)
+    rw = results.get('wcat')
+    rg = results.get('goob')
 
     if not rw and not rg:  # pragma: no cover
         return None
