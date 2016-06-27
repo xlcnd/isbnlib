@@ -8,6 +8,9 @@ from ._bouth23 import bstream, s
 from ._exceptions import ISBNLibHTTPError, ISBNLibURLError
 from .. import config
 
+# pylint: disable=import-error
+# pylint: disable=wrong-import-order
+# pylint: disable=no-name-in-module
 try:  # pragma: no cover
     from urllib.parse import urlencode
     from urllib.request import Request, urlopen
@@ -20,6 +23,7 @@ UA = 'isbnlib (gzip)'
 LOGGER = logging.getLogger(__name__)
 
 
+# pylint: disable=too-few-public-methods
 class WEBService(object):
     """Class to query web services."""
 

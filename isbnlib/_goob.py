@@ -52,7 +52,8 @@ def _records(isbn, data):
         if u('ISBN_13') in repr(ids) and \
            isbn not in repr(ids):  # pragma: no cover
             LOGGER.debug('ISBNNotConsistentError for %s (%s)', isbn, repr(ids))
-            raise ISBNNotConsistentError("%s not in %s" % (isbn, repr(ids)))
+            raise ISBNNotConsistentError("{0} not in {1}".format(isbn, repr(
+                ids)))
     # map canonical <- records
     return _mapper(isbn, recs)
 
