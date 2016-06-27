@@ -23,8 +23,8 @@ def cover(isbn):
             if cache[key]:
                 return cache[key]
             else:
-                raise  # <-- IMPORTANT: usually the caches don't return error!
-        except:  # pragma: no cover
+                raise KeyError  # <-- IMPORTANT: caches don't return error!
+        except KeyError:  # pragma: no cover
             pass
     # request to the web service
     data = wquery(SERVICE_URL.format(isbn=isbn), user_agent=UA)
@@ -34,6 +34,6 @@ def cover(isbn):
         if cache and lnks:  # pragma: no cover
             cache[key] = lnks
         return lnks
-    except:  # pragma: no cover
+    except (KeyError, IndexError):  # pragma: no cover
         LOGGER.debug('No cover img data for %s', isbn)
     return
