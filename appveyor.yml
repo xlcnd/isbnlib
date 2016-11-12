@@ -1,7 +1,7 @@
-version: '3.6.4.{build}'
+version: '3.6.5.{build}'
 branches:
   only:
-    - /v3.6.4/
+    - /v3.6.5/
 environment:
   matrix:
     - TOXENV: "py27"

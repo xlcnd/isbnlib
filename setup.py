@@ -27,7 +27,7 @@ setup(
     author='xlcnd',
     author_email='xlcnd@outlook.com',
     url='https://github.com/xlcnd/isbnlib',
-    download_url='https://github.com/xlcnd/isbnlib/archive/v3.6.4.zip',
+    download_url='https://github.com/xlcnd/isbnlib/archive/v3.6.5.zip',
     packages=['isbnlib',
               'isbnlib/dev',
               'isbnlib/_data',
