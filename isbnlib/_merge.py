@@ -4,6 +4,7 @@
 from . import config
 from ._goob import query as qgoob
 from ._wcat import query as qwcat
+from ._openl import query as qopen
 from .dev import Metadata, vias
 
 
@@ -14,7 +15,7 @@ def query(isbn, processor=None):
         if not processor:  # pragma: no cover
             processor = 'serial'
 
-    named_tasks = (('wcat', qwcat), ('goob', qgoob))
+    named_tasks = (('wcat', qwcat), ('goob', qgoob), ('open', qopen))
     if processor == 'parallel':
         results = vias.parallel(named_tasks, isbn)
     elif processor == 'serial':
@@ -23,7 +24,8 @@ def query(isbn, processor=None):
         results = vias.multi(named_tasks, isbn)
 
     rw = results.get('wcat')
-    rg = results.get('goob')
+    rg = results.get('goob') or results.get('open')
+    print(rg)
 
     if not rw and not rg:  # pragma: no cover
         return None
