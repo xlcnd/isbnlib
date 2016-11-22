@@ -40,7 +40,7 @@ def add_apikey(service, apikey):  # pragma: no cover
     apikeys[service] = apikey
 
 # Generic Options
-options = {'VIAS_MERGE': 'serial'}
+options = {'VIAS_MERGE': 'parallel'}
 
 
 def set_option(option, value):  # pragma: no cover

@@ -3,8 +3,8 @@
 
 from . import config
 from ._goob import query as qgoob
-from ._wcat import query as qwcat
 from ._openl import query as qopen
+from ._wcat import query as qwcat
 from .dev import Metadata, vias
 
 
@@ -13,7 +13,7 @@ def query(isbn, processor=None):
     if not processor:
         processor = config.options.get('VIAS_MERGE', processor).lower()
         if not processor:  # pragma: no cover
-            processor = 'serial'
+            processor = 'parallel'
 
     named_tasks = (('wcat', qwcat), ('goob', qgoob), ('open', qopen))
     if processor == 'parallel':
