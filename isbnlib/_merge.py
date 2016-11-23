@@ -15,7 +15,7 @@ def query(isbn, processor=None):
         if not processor:  # pragma: no cover
             processor = 'parallel'
 
-    named_tasks = (('wcat', qwcat), ('goob', qgoob), ('open', qopen))
+    named_tasks = (('wcat', qwcat), ('goob', qgoob), ('openl', qopen))
     if processor == 'parallel':
         results = vias.parallel(named_tasks, isbn)
     elif processor == 'serial':
@@ -24,8 +24,7 @@ def query(isbn, processor=None):
         results = vias.multi(named_tasks, isbn)
 
     rw = results.get('wcat')
-    rg = results.get('goob') or results.get('open')
-    print(rg)
+    rg = results.get('goob') or results.get('openl')
 
     if not rw and not rg:  # pragma: no cover
         return None
