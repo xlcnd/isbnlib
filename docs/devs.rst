@@ -76,7 +76,7 @@ In the namespace ``isbnlib`` you have access to the core methods:
     (**no key is needed**), ``'goob'`` uses the **Google Books service** (**no key is needed**),
     ``'isbndb'`` uses the **isbndb.com** service (**an api key is needed**),
     ``'openl'`` uses the **OpenLibrary.org** api (**no key is needed**), ``merge`` uses
-    a merged record of ``wcat`` and ``goob`` records (**no key is needed**) and
+    a merged record of ``wcat``, ``goob`` and ``openl`` records (**no key is needed**) and
     **is the default option**.
     You can get an API key for the *isbndb.com service* here_.  You can enter API keys
     with ``isbnlib.config.add_apikey(service, apikey)``.
@@ -227,16 +227,15 @@ If you need high quality metadata in your app, the only solution is to use
 for fields like ``Authors`` and ``Publisher``.
 A *simple merge* provider is now the default in ``isbnlib.meta``.
 It gives priority to ``wcat`` but overwrites the ``Authors``, ``Publisher`` and ``Year``
-fields with values from ``goob`` (if available).
-Uses the ``merge`` method of ``Metadata`` and *serial* calls to services
-by default (faster for fast Internet connections).
+fields with values from ``goob`` (if available) or ``openl``.
+Uses the ``merge`` method of ``Metadata`` and *parallel* calls to services.
  
 You can change that by using ``vias``'s other methods 
 (e.g. ``isbnlib.config.set_option('VIAS_MERGE', 'multi')``.
 
 You can write your own *merging scheme* by creating a new provider (see_ ``merge`` for an example).
 
-    **Take Note**: These classes are optimized for one-calls to services and not for batch calls.
+.. note:: These classes are optimized for one-calls to services and not for batch calls.
 
 
 A full featured app!
