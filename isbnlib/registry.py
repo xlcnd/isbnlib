@@ -35,6 +35,7 @@ def add_service(name, query):  # pragma: no cover
     #    if name not in list(services.keys()):
     services[name] = query
 
+
 # FORMATTERS
 
 bibformatters = {
@@ -76,6 +77,7 @@ def load_plugins():  # pragma: no cover
             add_bibformatter(entry.name, entry.load())
     except:
         pass
+
 
 # load plugins on import
 load_plugins()

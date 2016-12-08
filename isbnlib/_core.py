@@ -33,8 +33,8 @@ RE_STRICT = re.compile(r'^(?:ISBN(?:-1[03])?:? )?(?=[0-9X]{10}$|'
                        r'[- 0-9X]{13}$|97[89][0-9]{10}$|'
                        r'(?=(?:[0-9]+[- ]){4})'
                        r'[- 0-9]{17}$)(?:97[89][- ]?)?[0-9]{1,5}'
-                       r'[- ]?[0-9]+[- ]?[0-9]+[- ]?[0-9X]$',
-                       re.I | re.M | re.S)
+                       r'[- ]?[0-9]+[- ]?[0-9]+[- ]?[0-9X]$', re.I | re.M |
+                       re.S)
 RE_NORMAL = re.compile(r'97[89]{1}(?:-?\d){10}|\d{9}[0-9X]{1}|'
                        r'[-0-9X]{10,16}', re.I | re.M | re.S)
 RE_LOOSE = re.compile(r'[- 0-9X]{10,19}', re.I | re.M | re.S)
@@ -243,6 +243,7 @@ def ean13(isbnlike):
         return ib if is_isbn13(ib) else None
     elif len(ib) == 10:
         return to_isbn13(ib) if is_isbn10(ib) else None
+
 
 # Alias
 EAN13 = ean13

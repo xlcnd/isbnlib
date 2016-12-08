@@ -18,6 +18,7 @@ def setsocketstimeout(seconds):
     # TODO delete following line (version 3.7.1 see issue #43)
     return socket.setdefaulttimeout(SOCKETS_TIMEOUT)
 
+
 # TODO delete following line (version 3.7.1 see issue #43)
 setsocketstimeout(SOCKETS_TIMEOUT)
 
@@ -27,6 +28,7 @@ def setthreadstimeout(seconds):  # pragma: no cover
     """Set the value of THREADS_TIMEOUT (in seconds)."""
     global THREADS_TIMEOUT
     THREADS_TIMEOUT = seconds
+
 
 # API keys
 apikeys = {}
@@ -38,6 +40,7 @@ def add_apikey(service, apikey):  # pragma: no cover
     add_apikey('isbndb', 'JuHytr6') [is fake!]
     """
     apikeys[service] = apikey
+
 
 # Generic Options
 options = {'VIAS_MERGE': 'parallel'}
