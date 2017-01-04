@@ -28,4 +28,4 @@ v3.6.2, 2016-09-06 -- Updated data.
 v3.6.3, 2016-11-09 -- Updated data.
 v3.6.4, 2016-11-12 -- Fix bug #46.
 v3.6.5, 2016-12-08 -- Updated data.
-v3.6.6, 2016-12-08 -- TENTATIVE
+v3.6.6, 2016-12-08 -- Fix bug #47.
