@@ -36,7 +36,7 @@ class WEBService(object):
         if appheaders:  # pragma: no cover
             headers.update(appheaders)
         # if 'data' it does a PUT request (data must be urlencoded)
-        data = urlencode(values) if values else None
+        data = urlencode(values).encode('utf8') if values else None
         self._request = Request(url, data, headers=headers)
         self.response = None
 
