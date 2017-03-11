@@ -2,7 +2,6 @@ sudo: false
 language: python
 branches:
     only:
-    - dev
     - v3.6.7
 matrix:
     include:
