@@ -27,23 +27,8 @@ or:
 
 
 If you use linux systems, you can install using your distribution package
-manager:
-
-debian/ubuntu
-
-.. code-block:: bash
-
-    $ sudo apt-get install python-isbnlib
-
-
-.. note:: For python 3, install package ``python3-isbnlib``.
-
-
-arch linux
-
-.. code-block:: bash
-
-    $ pacman -S python-isbnlib
+manager (all major distributions have packages ``python-isbnlib`` 
+and ``python3-isbnlib``), however (usually) are **very old and don't work well anymore**! 
 
 
 
