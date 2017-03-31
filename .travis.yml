@@ -16,6 +16,10 @@ matrix:
       env: TOXENV=py26
     - python: "3.5"
       env: TOXENV=py35
+    - python: "3.6"
+      env: TOXENV=py36
+    - python: "nightly"
+      env: TOXENV=nightly
     - python: "pypy"
       env: TOXENV=pypy
     - python: "pypy3"
@@ -25,6 +29,7 @@ matrix:
     - python: "2.7"
       env: DOC=sphinx
     allow_failures:
+    - env: TOXENV=py36
     - env: TOXENV=py35
     - env: TOXENV=pypy
     - env: TOXENV=pypy3
