@@ -42,7 +42,7 @@ ISBN13_PREFIX = '978'
 LEGAL = '0123456789xXisbnISBN- '
 
 
-def _check_digit10(firstninedigits):
+def check_digit10(firstninedigits):
     """Check sum ISBN-10."""
     # minimum checks
     if len(firstninedigits) != 9:
@@ -64,7 +64,7 @@ def _check_digit10(firstninedigits):
     return str(tenthdigit)
 
 
-def _check_digit13(firsttwelvedigits):
+def check_digit13(firsttwelvedigits):
     """Check sum ISBN-13."""
     # minimum checks
     if len(firsttwelvedigits) != 12:
@@ -98,7 +98,7 @@ def is_isbn10(isbn10):
     if len(isbn10) != 10:
         return False  # pragma: no cover
     else:
-        return False if _check_digit10(isbn10[:-1]) != isbn10[-1] else True
+        return False if check_digit10(isbn10[:-1]) != isbn10[-1] else True
 
 
 def is_isbn13(isbn13):
@@ -109,7 +109,7 @@ def is_isbn13(isbn13):
     else:
         if isbn13[0:3] not in ('978', '979'):
             return False
-        return False if _check_digit13(isbn13[:-1]) != isbn13[-1] else True
+        return False if check_digit13(isbn13[:-1]) != isbn13[-1] else True
 
 
 def to_isbn10(isbn13):
@@ -121,7 +121,7 @@ def to_isbn10(isbn13):
     if not is_isbn13(isbn13):
         return None
     isbn10 = isbn13[3:]
-    check = _check_digit10(isbn10[:-1])
+    check = check_digit10(isbn10[:-1])
     # Change check digit
     return isbn10[:-1] + check if check else None
 
@@ -134,7 +134,7 @@ def to_isbn13(isbn10):
     if not is_isbn10(isbn10):
         return None
     isbn13 = ISBN13_PREFIX + isbn10[:-1]
-    check = _check_digit13(isbn13)
+    check = check_digit13(isbn13)
     return isbn13 + check if check else None
 
 
@@ -222,10 +222,10 @@ def get_canonical_isbn(isbnlike, output='bouth'):
 
         if len(chars) == 9:
             # Compute the ISBN-10 checksum digit
-            check = _check_digit10(buf)
+            check = check_digit10(buf)
         else:
             # Compute the ISBN-13 checksum digit
-            check = _check_digit13(buf)
+            check = check_digit13(buf)
 
         # If checksum OK return a `canonical` ISBN
         if str(check) == last:
