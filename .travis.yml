@@ -2,7 +2,6 @@ sudo: false
 language: python
 branches:
     only:
-    - dev
     - v3.6.8
 matrix:
     include:
@@ -24,8 +23,6 @@ matrix:
       env: TOXENV=pypy
     - python: "pypy3"
       env: TOXENV=pypy3
-    - python: "pypy-5.3.1"
-      env: TOXENV=pypy-5.3.1
     - python: "2.7"
       env: TOXENV=checkers
     - python: "2.7"
@@ -36,7 +33,6 @@ matrix:
     - env: TOXENV=py35
     - env: TOXENV=pypy
     - env: TOXENV=pypy3
-    - env: TOXENV=pypy-5.3.1
     - env: TOXENV=checkers
 install:
 - if [[ $TRAVIS_PULL_REQUEST != 'false' ]]; then pip install yapf; fi
