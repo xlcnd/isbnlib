@@ -3,7 +3,7 @@
 # pylint: skip-file
 
 from nose.tools import assert_equals
-from .._core import (_check_digit10, _check_digit13, _check_structure10,
+from .._core import (check_digit10, check_digit13, _check_structure10,
                      _check_structure13, is_isbn10, is_isbn13, to_isbn10,
                      to_isbn13, canonical, clean, notisbn, get_isbnlike,
                      get_canonical_isbn, EAN13)
@@ -12,19 +12,19 @@ from .data4tests import ISBNs
 # nose tests
 
 
-def test__check_digit10():
+def test_check_digit10():
     """Test check digit algo for ISBN-10."""
-    assert_equals(_check_digit10('082649752'), '7')
-    assert_equals(_check_digit10('585270001'), '0')
-    assert_equals(_check_digit10('08264975X'), None)
-    assert_equals(_check_digit10('08264975'), None)
+    assert_equals(check_digit10('082649752'), '7')
+    assert_equals(check_digit10('585270001'), '0')
+    assert_equals(check_digit10('08264975X'), None)
+    assert_equals(check_digit10('08264975'), None)
 
 
-def test__check_digit13():
+def test_check_digit13():
     """Test check digit algo for ISBN-13."""
-    assert_equals(_check_digit13('978082649752'), '9')
-    assert_equals(_check_digit13('97808264975'), None)
-    assert_equals(_check_digit13('97808264975X'), None)
+    assert_equals(check_digit13('978082649752'), '9')
+    assert_equals(check_digit13('97808264975'), None)
+    assert_equals(check_digit13('97808264975X'), None)
 
 
 def test__check_structure10():
@@ -81,8 +81,8 @@ def test_to_isbn13():
     assert_equals(to_isbn13('08X6497527'), None)
     assert_equals(to_isbn13('91-43-01019-9'), '9789143010190')  # (bug #14)
     assert_equals(to_isbn13('isbn 91-43-01019-9'), '9789143010190')
-    assert_equals(to_isbn13('asd isbn 979-10-90636-07-1 blabla'),
-                  '9791090636071')
+    assert_equals(
+        to_isbn13('asd isbn 979-10-90636-07-1 blabla'), '9791090636071')
 
 
 def test_clean():
@@ -120,22 +120,23 @@ def test_get_isbnlike():
 
 def test_get_canonical_isbn():
     """Test the extraction of canonical ISBN from ISBN-like string."""
-    assert_equals(get_canonical_isbn('0826497527',
-                                     output='bouth'),
-                  '0826497527')
+    assert_equals(
+        get_canonical_isbn(
+            '0826497527', output='bouth'), '0826497527')
     assert_equals(get_canonical_isbn('0826497527'), '0826497527')
-    assert_equals(get_canonical_isbn('0826497527',
-                                     output='isbn10'),
-                  '0826497527')
-    assert_equals(get_canonical_isbn('0826497527',
-                                     output='isbn13'),
-                  '9780826497529')
-    assert_equals(get_canonical_isbn('ISBN 0826497527',
-                                     output='isbn13'),
-                  '9780826497529')
-    assert_equals(get_canonical_isbn('ISBN 0826497527',
-                                     output='NOOPTION'),
-                  None)
+    assert_equals(
+        get_canonical_isbn(
+            '0826497527', output='isbn10'), '0826497527')
+    assert_equals(
+        get_canonical_isbn(
+            '0826497527', output='isbn13'), '9780826497529')
+    assert_equals(
+        get_canonical_isbn(
+            'ISBN 0826497527', output='isbn13'),
+        '9780826497529')
+    assert_equals(
+        get_canonical_isbn(
+            'ISBN 0826497527', output='NOOPTION'), None)
     assert_equals(get_canonical_isbn('0826497520'), None)
     assert_equals(get_canonical_isbn('9780826497529'), '9780826497529')
     assert_equals(get_canonical_isbn('9780826497520'), None)
