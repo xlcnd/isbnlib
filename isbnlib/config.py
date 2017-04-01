@@ -3,24 +3,18 @@
 
 # --> Import only external modules! <--
 
-# TODO delete following line (version 3.7.1 see issue #43)
-import socket
-
 # Timeouts
-SOCKETS_TIMEOUT = 12  # seconds
-THREADS_TIMEOUT = 11  # seconds
+URLOPEN_TIMEOUT = 10  # seconds
+THREADS_TIMEOUT = 12  # seconds
 
 
-def setsocketstimeout(seconds):
-    """Set the value of SOCKETS_TIMEOUT (in seconds)."""
-    global SOCKETS_TIMEOUT
-    SOCKETS_TIMEOUT = seconds
-    # TODO delete following line (version 3.7.1 see issue #43)
-    return socket.setdefaulttimeout(SOCKETS_TIMEOUT)
+def seturlopentimeout(seconds):
+    """Set the value of URLOPEN_TIMEOUT (in seconds)."""
+    global URLOPEN_TIMEOUT
+    URLOPEN_TIMEOUT = seconds
 
 
-# TODO delete following line (version 3.7.1 see issue #43)
-setsocketstimeout(SOCKETS_TIMEOUT)
+seturlopentimeout(URLOPEN_TIMEOUT)
 
 
 # THREADS_TIMEOUT is a parameter used downstream by Thread calls (see vias.py)

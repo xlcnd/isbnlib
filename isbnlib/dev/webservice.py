@@ -44,7 +44,7 @@ class WEBService(object):
         """Check errors on response."""
         try:
             self.response = urlopen(self._request,
-                                    timeout=config.SOCKETS_TIMEOUT)
+                                    timeout=config.URLOPEN_TIMEOUT)
             LOGGER.debug('Request headers:\n%s', self._request.header_items())
         except HTTPError as e:  # pragma: no cover
             LOGGER.critical('ISBNLibHTTPError for %s with code %s [%s]',
