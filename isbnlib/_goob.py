@@ -8,6 +8,7 @@ from .dev._bouth23 import u
 from .dev._exceptions import (ISBNNotConsistentError, NoDataForSelectorError,
                               RecordMappingError)
 from .dev.webquery import query as wquery
+from ._msk import msk
 
 UA = 'isbnlib (gzip)'
 SERVICE_URL = 'https://www.googleapis.com/books/v1/volumes?q=isbn:{isbn}'\
@@ -60,5 +61,5 @@ def _records(isbn, data):
 
 def query(isbn):
     """Query the Google Books (JSON API v1) service for metadata."""
-    data = wquery(SERVICE_URL.format(isbn=isbn), user_agent=UA)
+    data = wquery(SERVICE_URL.format(isbn=msk(isbn, '-')), user_agent=UA)
     return _records(isbn, data)
