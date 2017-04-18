@@ -4,7 +4,7 @@
     :alt: Graph
 
 .. image:: https://readthedocs.org/projects/isbnlib/badge/?version=latest
-    :target: http://isbnlib.readthedocs.org/en/latest/
+    :target: https://isbnlib.readthedocs.org/en/latest/
     :alt: Documentation Status
 
 .. image:: https://coveralls.io/repos/xlcnd/isbnlib/badge.svg?branch=v3.7.1
