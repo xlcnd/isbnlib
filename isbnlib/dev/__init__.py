@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from . import bouth23, helpers, vias
+from . import helpers, vias
 from ._data import Metadata, stdmeta
 from ._exceptions import (
     DataNotFoundAtServiceError, DataWrongShapeError, ISBNLibDevException,
