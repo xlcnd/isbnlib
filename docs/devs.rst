@@ -148,10 +148,6 @@ namespace ``isbnlib.dev``, namely:
   ``vias.multi`` to use several cores. The default is ``vias.serial``, but
   you can change that in the conf file.
 
-* ``bouth23`` (**DEPRECATED**) a small module to make it possible the code to run
-  in **bouth** python 2 and python 3. **It will disappear in the next major version!**.
-  See python-future.org_ for a built-in alternative to ``bouth23``.
-
 
 The exceptions raised by these methods can all be catched using ``ISBNLibDevException``. 
 You **should't raise** this exception in your code, only raise the specific exceptions 
@@ -215,6 +211,8 @@ Start with this template_ and follow the instructions there. For inspiration tak
 at wcat_, goob_ or merge_.
 
 After install, your pluggin will blend transparently in ``isbnlib``.
+
+Remember that plugins **must** support python 2.6+ and python 3.3+ (see python-future.org_).
 
 
 
