@@ -22,7 +22,12 @@ def fake_isbn(title, author='unkown', publisher='unkown', sid=1):
 
 def in_virtual():  # pragma: no cover
     """Detect if program is running inside a python virtual environment."""
-    return True if hasattr(sys, 'real_prefix') else False
+    py3 = sys.version[0] == '3'
+    virtual = True if hasattr(sys, 'real_prefix') else False
+    venv = True if hasattr(sys, 'sys.base_prefix') else False
+    if not virtual and venv and py3:  # pragma: no cover
+        virtual = sys.prefix != sys.base_prefix  # inside pyvenv environement?
+    return virtual
 
 
 def normalize_space(item):
