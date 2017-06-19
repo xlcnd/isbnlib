@@ -40,13 +40,6 @@ Typical usage (as library):
     ...
 
 
-Warning
--------
-
-   The retiring of the xISBN service implied **a huge drop in data quality** for ``metadata`` and ``editions``.
-   For non-US books, the situation is really bad, many of them have no *Publisher* information available!
-   (See issue_ #28).
-
 
 ISBN
 ----
@@ -303,8 +296,8 @@ If you need high quality metadata in your app, the only solution is to use
 for fields like ``Authors`` and ``Publisher``.
 
 A *merge* provider is now the default in ``meta``.
-It gives priority to ``wcat`` but overwrites the ``Authors``, ``Publisher`` and ``Year``
-fields with values from ``goob`` (if available).
+It gives priority to ``wcat`` but overwrites the ``Authors``
+field with values from ``goob`` (if available).
 Uses the ``merge`` method of ``Metadata`` and *serial* calls to services
 by default (faster for one-call to services through fast internet connections).
 You can change that by using ``vias``'s other methods
