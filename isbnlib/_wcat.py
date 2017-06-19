@@ -1,37 +1,18 @@
 # -*- coding: utf-8 -*-
-"""Query the worldcat.org 'classify.oclc.org' service for metadata."""
+"""Query the worldcat.org xID service for metadata."""
 
 import logging
-import re
 
 from .dev import stdmeta
 from .dev._bouth23 import u
-from .dev._exceptions import (NoDataForSelectorError, RecordMappingError)
+from .dev._exceptions import (DataWrongShapeError, ISBNNotConsistentError,
+                              NoDataForSelectorError, RecordMappingError)
 from .dev.webquery import query as wquery
 
 UA = 'isbnlib (gzip)'
-SERVICE_URL = 'http://classify.oclc.org/classify2/Classify?isbn={isbn}'\
-              '&maxRecs=1&summary=true'
+SERVICE_URL = 'http://xisbn.worldcat.org/webservices/xid/isbn/{isbn}?'\
+    'method=getMetadata&format=json&fl=title,author,year,publisher,lang'
 LOGGER = logging.getLogger(__name__)
-
-RE_FLDS = re.compile(r'\s([a-z]+)="', re.I | re.M | re.S)
-RE_VALS = re.compile(r'="(.*?)"', re.I | re.M | re.S)
-RE_WORK = re.compile(r'<work .*/>', re.I | re.M | re.S)
-
-
-def _clean(txt):
-    """Util function to clean Author strings."""
-    # delete annotations
-    txt = re.sub(r'\[.*\]', '', txt)
-    txt = re.sub(r'\(.*\)', '', txt)
-    txt = re.sub(r'[0-9]{4}\s*\-*[0-9]{0,4}', '', txt)
-    # delete abbreviations
-    txt.strip('. ')
-    # std name
-    txt.strip(', ')
-    if ',' in txt:
-        txt = ' '.join(x.strip() for x in txt.split(',')[::-1])
-    return txt.strip()
 
 
 def _mapper(isbn, records):
@@ -42,10 +23,9 @@ def _mapper(isbn, records):
         canonical['ISBN-13'] = u(isbn)
         canonical['Title'] = records.get('title', u('')).replace(' :', ':')
         buf = records.get('author', u(''))
-        canonical['Authors'] = [_clean(x) for x in buf.split('|')]
+        canonical['Authors'] = [x.strip('. ') for x in buf.split(';')]
         canonical['Publisher'] = records.get('publisher', u(''))
-        canonical['Year'] = records.get('hyr', u('')) or records.get('lyr',
-                                                                     u(''))
+        canonical['Year'] = records.get('year', u(''))
         canonical['Language'] = records.get('lang', u(''))
     except:  # pragma: no cover
         LOGGER.debug("RecordMappingError for %s with data %s", isbn, records)
@@ -56,34 +36,31 @@ def _mapper(isbn, records):
 
 def _records(isbn, data):
     """Classify (canonically) the parsed data."""
-    # check data
-    if not data:
+    # check status
+    try:
+        status = data['stat']
+        if status != 'ok':
+            raise
+    except:
+        LOGGER.debug('DataWrongShapeError for %s with status %s', isbn, status)
+        raise DataWrongShapeError("status: '%s' for isbn %s" % (status, isbn))
+    # put the selected data in records
+    try:
+        recs = data['list'][0]
+    except:  # pragma: no cover
         LOGGER.debug('NoDataForSelectorError for %s', isbn)
         raise NoDataForSelectorError(isbn)
+    # consistency check (isbn request = isbn response)
+    if recs:
+        ids = recs.get('isbn', '')
+        if isbn not in repr(ids):  # pragma: no cover
+            LOGGER.debug('ISBNNotConsistentError for %s (%s)', isbn, repr(ids))
+            raise ISBNNotConsistentError("%s not in %s" % (isbn, repr(ids)))
     # map canonical <- records
-    return _mapper(isbn, data)
-
-
-def reparser(xmlthing):
-    """RE parser for classify.oclc service."""
-    match = RE_WORK.search(u(xmlthing))
-    if match:
-        try:
-            buf = match.group()
-            flds = RE_FLDS.findall(buf)
-            vals = RE_VALS.findall(buf)
-            return dict(zip(flds, vals))
-        except:
-            # FIXME
-            pass
-    return
+    return _mapper(isbn, recs)
 
 
 def query(isbn):
     """Query the worldcat.org service for metadata."""
-    data = wquery(
-        SERVICE_URL.format(isbn=isbn),
-        user_agent=UA,
-        data_checker=None,
-        parser=reparser)
+    data = wquery(SERVICE_URL.format(isbn=isbn), user_agent=UA)
     return _records(isbn, data)
