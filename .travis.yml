@@ -30,8 +30,8 @@ matrix:
       env: DOC=sphinx
     allow_failures:
     - env: TOXENV=nightly
-    - env: TOXENV=py36
-    - env: TOXENV=py35
+    - env: TOXENV=py26
+    - env: TOXENV=py33
     - env: TOXENV=pypy
     - env: TOXENV=pypy3
     - env: TOXENV=checkers
