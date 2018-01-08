@@ -34,3 +34,4 @@ v3.6.8, 2017-03-31 -- New functions: check_digit10 and check_digit13.
 v3.7.1, 2017-05-24 -- Fix #43 (bump middle version).
 v3.7.2, 2017-06-19 -- Restore xID (improved data quality close #28).
 v3.7.3, 2018-01-08 -- Updated data.
+v3.7.4, 2018-01-08 -- TENTATIVE
