@@ -5,18 +5,21 @@ branches:
     - v3.7.4
 matrix:
     include:
+    - os: osx
+      language: generic
+      env: TOXENV=py36
     - python: "2.7"
       env: TOXENV=py27
+    - python: "3.5"
+      env: TOXENV=py35
+    - python: "3.6"
+      env: TOXENV=py36
     - python: "3.4"
       env: TOXENV=py34
     - python: "3.3"
       env: TOXENV=py33
     - python: "2.6"
       env: TOXENV=py26
-    - python: "3.5"
-      env: TOXENV=py35
-    - python: "3.6"
-      env: TOXENV=py36
     - python: "nightly"
       env: TOXENV=nightly
     - python: "pypy"
@@ -35,12 +38,14 @@ matrix:
     - env: TOXENV=pypy3
     - env: TOXENV=checkers
 install:
-- if [[ $TRAVIS_PULL_REQUEST != 'false' ]]; then pip install yapf; fi
-- if [[ ! -z $TOXENV ]]; then pip install tox; fi
-- if [[ ! -z $TOXENV ]]; then pip install flake8; fi
-- if [[ ! -z $TOXENV ]]; then pip install pep8-naming; fi
+- if [[ $TRAVIS_OS_NAME == 'osx' ]]; then brew install python3; fi
+- if [[ $TRAVIS_OS_NAME == 'osx' ]]; then pip3 install tox; fi
+- if [[ $TRAVIS_OS_NAME == 'linux' ]]; then pip install tox; fi
+- if [[ $TOXENV == 'checkers' ]]; then pip install flake8; fi
+- if [[ $TOXENV == 'checkers' ]]; then pip install pep8-naming; fi
 - if [[ $TOXENV == 'py27' ]]; then pip install coveralls; fi
 - if [[ $DOC == 'sphinx' ]]; then pip install sphinx; fi
+- if [[ $TRAVIS_PULL_REQUEST != 'false' ]]; then pip install yapf; fi
 script:
 - if [[ $TRAVIS_PULL_REQUEST != 'false' ]] && [[ $TOXENV == 'checkers' ]]; then yapf -i isbnlib; fi
 - if [[ ! -z $TOXENV ]]; then tox -e $TOXENV; fi
@@ -48,4 +53,4 @@ script:
 after_success:
 - if [[ $TOXENV == 'py27' ]]; then coveralls; fi
 notifications:
-    email: false
+  email: false
