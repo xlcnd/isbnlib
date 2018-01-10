@@ -35,6 +35,7 @@ matrix:
     - env: TOXENV=nightly
     - env: TOXENV=py26
     - env: TOXENV=py33
+    - env: TOXENV=py34
     - env: TOXENV=pypy
     - env: TOXENV=pypy3
     - env: TOXENV=checkers
