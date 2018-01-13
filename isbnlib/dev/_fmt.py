@@ -57,7 +57,7 @@ csl = r'''{"type":"book",
         "id":"$ISBN",
      "title":"$Title",
     "author": [$AUTHORS],
-    "issued": {"date_parts": [["$Year"]]},
+    "issued": {"date_parts": [[$Year]]},
       "ISBN":"$ISBN",
  "publisher":"$Publisher"}'''
 
