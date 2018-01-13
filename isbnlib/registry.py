@@ -46,7 +46,8 @@ bibformatters = {
     'refworks': lambda x: _fmtbib('refworks', x),
     'msword': lambda x: _fmtbib('msword', x),
     'json': lambda x: _fmtbib('json', x),
-    'opf': lambda x: _fmtbib('opf', x)
+    'opf': lambda x: _fmtbib('opf', x),
+    'csl': lambda x: _fmtbib('csl', x)
 }  # pragma: no cover
 
 

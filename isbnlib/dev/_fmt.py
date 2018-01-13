@@ -53,6 +53,14 @@ json = r'''{"type": "book",
 "identifier": [{"type": "ISBN", "id": "$ISBN"}],
  "publisher": "$Publisher"}'''
 
+csl = r'''{"type":"book",
+        "id":"$ISBN",
+     "title":"$Title",
+    "author": [$AUTHORS],
+    "issued": {"date_parts": [["$Year"]]},
+      "ISBN":"$ISBN",
+ "publisher":"$Publisher"}'''
+
 opf = r"""<?xml version='1.0' encoding='utf-8'?>
 <package version="2.0" xmlns="http://www.idpf.org/2007/opf" unique-identifier="uuid_id">
   <metadata xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:opf="http://www.idpf.org/2007/opf">
@@ -81,6 +89,7 @@ templates = {
     'refworks': refworks,
     'msword': msword,
     'json': json,
+    'csl': csl,
     'opf': opf
 }
 
@@ -110,10 +119,13 @@ def _spec_proc(name, fmtrec, authors):
         fmtrec = fmtrec.replace('$uid', str(uuid.uuid4()))
         person = r"<b:Person><b:Last>$last</b:Last>"\
                  r"<b:First>$first</b:First></b:Person>"
-        AUTHORS = '\n'.join(Template(person).safe_substitute(last_first(a))
-                            for a in authors)
+        AUTHORS = '\n'.join(
+            Template(person).safe_substitute(last_first(a)) for a in authors)
     elif name == 'json':
         AUTHORS = ', '.join('{"name": "$"}'.replace("$", a) for a in authors)
+    elif name == 'csl':
+        AUTHORS = ', '.join(
+            '{"literal": "$"}'.replace("$", a) for a in authors)
     elif name == 'opf':
         fmtrec = fmtrec.replace('$uid', str(uuid.uuid4()))
         creator = r'<dc:creator opf:file-as="$last, $first"'\
