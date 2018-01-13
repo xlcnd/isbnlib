@@ -80,7 +80,7 @@ In the namespace ``isbnlib`` you have access to the core methods:
     **is the default option**.
     You can get an API key for the *isbndb.com service* here_.  You can enter API keys
     with ``isbnlib.config.add_apikey(service, apikey)``.
-    The output can be formatted as ``bibtex``, ``msword``, ``endnote``, ``refworks``,
+    The output can be formatted as ``bibtex``, ``csl`` (CSL-JSON), ``msword``, ``endnote``, ``refworks``,
     ``opf`` or ``json`` (BibJSON) bibliographic formats with ``isbnlib.registry.bibformatters``.
     ``cache`` only allows two values: 'default' or None. You can change the kind of cache by using 
     ``isbnlib.registry.set_cache`` (see below).
