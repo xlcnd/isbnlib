@@ -318,10 +318,10 @@ Caveats
 
 
 
-isbnlib.contrib
----------------
+Extra Functionality
+-------------------
 
-To get extra functionality, search_ pypi for packages starting with ``isbnlib.contrib``
+To get extra functionality, search_ pypi for packages starting with ``isbnlib``
 **or** type at a terminal:
 
 .. code-block:: console
