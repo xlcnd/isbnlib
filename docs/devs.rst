@@ -216,6 +216,21 @@ Remember that plugins **must** support python 2.6+ and python 3.3+ (see python-f
 
 
 
+isbnlib.contrib
+---------------
+
+To get extra functionality, search_ pypi for packages starting with ``isbnlib.contrib``
+**or** type at a terminal:
+
+.. code-block:: console
+
+    $ pip search isbnlib
+
+
+for a nice formated report!
+
+
+
 Merge Metadata
 --------------
 
@@ -275,3 +290,5 @@ framework to further developement, take a look at isbntools_.
 .. _goob: https://github.com/xlcnd/isbnlib/blob/dev/isbnlib/_goob.py
 
 .. _merge: https://github.com/xlcnd/isbnlib/blob/dev/isbnlib/_merge.py
+
+.. _search: https://pypi.python.org/pypi?%3Aaction=search&term=isbnlib.contrib&submit=search
