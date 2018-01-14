@@ -291,4 +291,4 @@ framework to further developement, take a look at isbntools_.
 
 .. _merge: https://github.com/xlcnd/isbnlib/blob/dev/isbnlib/_merge.py
 
-.. _search: https://pypi.python.org/pypi?%3Aaction=search&term=isbnlib.contrib&submit=search
+.. _search: https://pypi.python.org/pypi?%3Aaction=search&term=isbnlib&submit=search

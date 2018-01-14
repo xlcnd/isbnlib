@@ -409,6 +409,6 @@ Read ``isbnlib`` code in a very sctructured way at sourcegraph_ or 'the docs' at
 
 .. _merge: https://github.com/xlcnd/isbnlib/blob/dev/isbnlib/_merge.py
 
-.. _search: https://pypi.python.org/pypi?%3Aaction=search&term=isbnlib.contrib&submit=search
+.. _search: https://pypi.python.org/pypi?%3Aaction=search&term=isbnlib&submit=search
 
 
