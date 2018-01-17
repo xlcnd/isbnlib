@@ -73,7 +73,6 @@ def query(isbn):
     """Query the isbndb.org service for metadata."""
     if not apikeys.get('isbndb'):
         raise NoAPIKeyError
-    data = wquery(SERVICE_URL.format(apikey=apikeys['isbndb'],
-                                     isbn=isbn),
-                  user_agent=UA)
+    data = wquery(
+        SERVICE_URL.format(apikey=apikeys['isbndb'], isbn=isbn), user_agent=UA)
     return _records(isbn, data)

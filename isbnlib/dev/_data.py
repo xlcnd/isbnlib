@@ -38,8 +38,9 @@ class Metadata(object):
                              for k, v in list(self._content.items())
                              if k != 'Authors' and k not in exclude)
         if 'Authors' not in exclude:
-            self._content['Authors'] = [broom(i)
-                                        for i in self._content['Authors']]
+            self._content['Authors'] = [
+                broom(i) for i in self._content['Authors']
+            ]
         self._content['Title'] = self._content['Title'].strip(',.:;-_ ')
         if self._content['Language'].lower() in ('en', 'eng', 'english'):
             self._content['Title'] = titlecase(self._content['Title'])

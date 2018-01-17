@@ -33,8 +33,8 @@ RE_STRICT = re.compile(r'^(?:ISBN(?:-1[03])?:? )?(?=[0-9X]{10}$|'
                        r'[- 0-9X]{13}$|97[89][0-9]{10}$|'
                        r'(?=(?:[0-9]+[- ]){4})'
                        r'[- 0-9]{17}$)(?:97[89][- ]?)?[0-9]{1,5}'
-                       r'[- ]?[0-9]+[- ]?[0-9]+[- ]?[0-9X]$', re.I | re.M |
-                       re.S)
+                       r'[- ]?[0-9]+[- ]?[0-9]+[- ]?[0-9X]$',
+                       re.I | re.M | re.S)
 RE_NORMAL = re.compile(r'97[89]{1}(?:-?\d){10}|\d{9}[0-9X]{1}|'
                        r'[-0-9X]{10,16}', re.I | re.M | re.S)
 RE_LOOSE = re.compile(r'[- 0-9X]{10,19}', re.I | re.M | re.S)
@@ -52,8 +52,8 @@ def check_digit10(firstninedigits):
     except:  # pragma: no cover
         return None
     # checksum
-    val = sum((i + 2) * int(x)
-              for i, x in enumerate(reversed(firstninedigits)))
+    val = sum(
+        (i + 2) * int(x) for i, x in enumerate(reversed(firstninedigits)))
     remainder = int(val % 11)
     if remainder == 0:
         tenthdigit = 0
@@ -74,8 +74,8 @@ def check_digit13(firsttwelvedigits):
     except:  # pragma: no cover
         return None
     # checksum
-    val = sum((i % 2 * 2 + 1) * int(x)
-              for i, x in enumerate(firsttwelvedigits))
+    val = sum(
+        (i % 2 * 2 + 1) * int(x) for i, x in enumerate(firsttwelvedigits))
     thirteenthdigit = 10 - int(val % 10)
     if thirteenthdigit == 10:
         thirteenthdigit = '0'

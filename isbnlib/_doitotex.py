@@ -13,9 +13,12 @@ UA = 'isbnlib (gzip)'
 
 def doi2tex(doi):
     """Get the bibtex ref for doi."""
-    data = query(URL.format(DOI=doi),
-                 user_agent=UA,
-                 appheaders={'Accept': 'application/x-bibtex; charset=utf-8'})
+    data = query(
+        URL.format(DOI=doi),
+        user_agent=UA,
+        appheaders={
+            'Accept': 'application/x-bibtex; charset=utf-8'
+        })
     if not data:  # pragma: no cover
         LOGGER.warning('no data return for doi: %s', doi)
         return
