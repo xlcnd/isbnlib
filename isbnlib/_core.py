@@ -163,7 +163,7 @@ def notisbn(isbnlike, level='strict'):
     """
     if level not in ('strict', 'loose'):  # pragma: no cover
         LOGGER.error('level as no option %s', level)
-        return
+        return None
     isbnlike = canonical(isbnlike)
     if len(isbnlike) not in (10, 13):
         return True
@@ -192,7 +192,7 @@ def get_isbnlike(text, level='normal'):
         isbnlike = RE_LOOSE
     else:
         LOGGER.error('level as no option %s', level)
-        return
+        return None
     return isbnlike.findall(text)
 
 
@@ -207,7 +207,7 @@ def get_canonical_isbn(isbnlike, output='bouth'):
     """
     if output not in ('bouth', 'isbn10', 'isbn13'):  # pragma: no cover
         LOGGER.error('output as no option %s', output)
-        return
+        return None
 
     regex = RE_NORMAL
 
