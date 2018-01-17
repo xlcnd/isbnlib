@@ -2,7 +2,6 @@
 """Return a small description of the book."""
 
 import logging
-
 from json import loads
 from textwrap import fill
 
@@ -41,4 +40,3 @@ def goo_desc(isbn):
         return content
     except:  # pragma: no cover
         LOGGER.debug('No description for %s', isbn)
-    return
