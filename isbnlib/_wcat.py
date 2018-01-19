@@ -16,7 +16,7 @@ LOGGER = logging.getLogger(__name__)
 
 
 def _mapper(isbn, records):
-    """Mapp: canonical <- records."""
+    """Map: canonical <- records."""
     # canonical: ISBN-13, Title, Authors, Publisher, Year, Language
     try:
         canonical = {}
