@@ -30,7 +30,7 @@ get metadata for ISBN strings. Its origin was as the core of isbntools_.
 This short version, is suitable to be include as a dependency in other projects.
 Has a straightforward setup and a very easy programmatic api.
 
-Runs on py26, py27, py33, py34, py35, py36, pypy and pypy3.
+Runs on py27, py34, py35 and py36.
 
 Typical usage (as library):
 

@@ -5,23 +5,23 @@ branches:
     - /v3.7.4/
 environment:
   matrix:
-    - TOXENV: "py27"
-      TOXPYTHON: "C:\\Python27\\python.exe"
-      PYTHON_HOME: "C:\\Python27"
-      PYTHON_VERSION: "2.7"
-      PYTHON_ARCH: "32"
-
     - TOXENV: "py36"
       TOXPYTHON: "C:\\Python36-x64\\python.exe"
       PYTHON_HOME: "C:\\Python36-x64"
       PYTHON_VERSION: "3.6"
       PYTHON_ARCH: "64"
 
+    - TOXENV: "py35"
+      TOXPYTHON: "C:\\Python35\\python.exe"
+      PYTHON_HOME: "C:\\Python35"
+      PYTHON_VERSION: "3.5"
+      PYTHON_ARCH: "64"
+
     - TOXENV: "py34"
       TOXPYTHON: "C:\\Python34-x64\\python.exe"
       PYTHON_HOME: "C:\\Python34-x64"
       PYTHON_VERSION: "3.4"
-      PYTHON_ARCH: "64"
+      PYTHON_ARCH: "32"
 
     - TOXENV: "py27"
       TOXPYTHON: "C:\\Python27-x64\\python.exe"
@@ -29,10 +29,10 @@ environment:
       PYTHON_VERSION: "2.7"
       PYTHON_ARCH: "64"
 
-    - TOXENV: "py33"
-      TOXPYTHON: "C:\\Python33\\python.exe"
-      PYTHON_HOME: "C:\\Python33"
-      PYTHON_VERSION: "3.3"
+    - TOXENV: "py27"
+      TOXPYTHON: "C:\\Python27\\python.exe"
+      PYTHON_HOME: "C:\\Python27"
+      PYTHON_VERSION: "2.7"
       PYTHON_ARCH: "32"
 
 init:
