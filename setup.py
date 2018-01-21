@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# isbnlib - tools for extracting, cleaning and transforming ISBNs
+# isbnlib -- tools for extracting, cleaning and transforming ISBNs
 # Copyright (C) 2018  Alexandre Lima Conde
 
 # This program is free software: you can redistribute it and/or modify
@@ -36,25 +36,7 @@ setup(
     license='LGPL v3',
     description='Extract, clean, transform, hyphenate and metadata for ISBNs (International Standard Book Number).',
     long_description=open('README.rst').read(),
-    keywords=['ISBN',
-              'validate',
-              'transform',
-              'hyphenate',
-              'metadata',
-              'World Catalogue',
-              'Google Books',
-              'Open Library',
-              'isbndb.com',
-              'BibTeX',
-              'EndNote',
-              'RefWorks',
-              'MSWord',
-              'opf',
-              'BibJSON',
-              'ISBN-A',
-              'doi',
-              'EAN13'
-             ],
+    keywords='ISBN metadata World_Catalogue Google_Books Open_Library isbndb.com BibTeX EndNote RefWorks MSWord opf BibJSON',
     classifiers=[
         'Programming Language :: Python',
         'Programming Language :: Python :: 2',
