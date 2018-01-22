@@ -27,10 +27,7 @@ apikeys = {}
 
 
 def add_apikey(service, apikey):  # pragma: no cover
-    """Add API keys.
-
-    add_apikey('isbndb', 'JuHytr6') [is fake!]
-    """
+    """Add API keys."""
     apikeys[service] = apikey
 
 
