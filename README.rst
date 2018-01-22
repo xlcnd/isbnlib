@@ -247,22 +247,17 @@ access and set generic and user-defined options with ``options`` and ``set_optio
 
 Let us concretize the last point with a small example.
 
-Suppose you want a small script to get metadata using ``isbndb.org`` formated in BibTeX.
+Suppose you want a small script to get metadata using ``Open Library`` formated in BibTeX.
 
-To use this service you need an api-key (get it here_). A minimal script would be:
+A minimal script would be:
 
 
 .. code-block:: python
 
     from isbnlib import meta 
-    from isbnlib.config import add_apikey
     from isbnlib.registry import bibformatters
 
-    SERVICE = 'isbndb'
-    APIKEY = 'THiSIsfAKe'  # <-- replace with YOUR key
-
-    # register your key
-    add_apikey(SERVICE, APIKEY)
+    SERVICE = 'openl'
 
     # now you can use the service
     isbn = '9780446310789'
@@ -282,7 +277,7 @@ at wcat_, goob_ or merge_.
 
 After install, your pluggin will blend transparently in ``isbnlib``.
 
-Remember that plugins **must** support python 2.6+ and python 3.3+ (see python-future.org_).
+Remember that plugins **must** support python 2.7 and python 3.4+ (see python-future.org_).
 
 
 
