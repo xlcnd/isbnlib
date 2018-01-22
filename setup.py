@@ -1,4 +1,6 @@
 # -*- coding: utf-8 -*-
+# flake8: noqa
+# isort:skip_file
 
 # isbnlib -- tools for extracting, cleaning and transforming ISBNs
 # Copyright (C) 2018  Alexandre Lima Conde
