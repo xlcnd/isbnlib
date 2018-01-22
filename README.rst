@@ -110,11 +110,10 @@ Main Functions
     Gives you the main metadata associated with the ISBN. As `service` parameter you can use:
     ``'wcat'`` uses **worldcat.org**
     (**no key is needed**), ``'goob'`` uses the **Google Books service** (**no key is needed**),
-    ``'isbndb'`` uses the **isbndb.com** service (**an api key is needed**),
     ``'openl'`` uses the **OpenLibrary.org** api (**no key is needed**), ``merge`` uses
     a merged record of ``wcat`` and ``goob`` records (**no key is needed**) and
     **is the default option**.
-    You can get an API key for the *isbndb.com service* here_.  You can enter API keys
+    You can enter API keys
     with ``config.add_apikey(service, apikey)`` (see example below).
     The output can be formatted as ``bibtex``, ``csl`` (CSL-JSON), ``msword``, ``endnote``, ``refworks``,
     ``opf`` or ``json`` (BibJSON) bibliographic formats with ``isbnlib.registry.bibformatters``.
@@ -376,8 +375,6 @@ Read ``isbnlib`` code in a very sctructured way at sourcegraph_ or 'the docs' at
 .. _github: https://github.com/xlcnd/isbnlib/issues
 
 .. _range: https://www.isbn-international.org/range_file_generation
-
-.. _here: http://isbndb.com/api/v2/docs
 
 .. _isbntools: https://pypi.python.org/pypi/isbntools
 

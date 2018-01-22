@@ -86,7 +86,6 @@ Projects using *isbnlib*
 
 
 
-.. _here: http://isbndb.com/api/v2/docs
 
 .. _pdfminer: https://pypi.python.org/pypi/pdfminer
 

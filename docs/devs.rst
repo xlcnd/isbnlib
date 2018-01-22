@@ -74,11 +74,10 @@ In the namespace ``isbnlib`` you have access to the core methods:
     Gives you the main metadata associated with the ISBN. As `service` parameter you can use:
     ``'wcat'`` uses **worldcat.org**
     (**no key is needed**), ``'goob'`` uses the **Google Books service** (**no key is needed**),
-    ``'isbndb'`` uses the **isbndb.com** service (**an api key is needed**),
     ``'openl'`` uses the **OpenLibrary.org** api (**no key is needed**), ``merge`` uses
     a merged record of ``wcat``, ``goob`` and ``openl`` records (**no key is needed**) and
     **is the default option**.
-    You can get an API key for the *isbndb.com service* here_.  You can enter API keys
+    You can enter API keys
     with ``isbnlib.config.add_apikey(service, apikey)``.
     The output can be formatted as ``bibtex``, ``csl`` (CSL-JSON), ``msword``, ``endnote``, ``refworks``,
     ``opf`` or ``json`` (BibJSON) bibliographic formats with ``isbnlib.registry.bibformatters``.
@@ -173,7 +172,7 @@ access and set generic and user-defined options with ``options`` and ``set_optio
 
 Let us concretize the last point with a small example.
 
-Suppose you want a small script to get metadata using ``isbndb.org`` formated in BibTeX.
+Suppose you want a small script to get metadata using ``Open Library`` formated in BibTeX.
 
 To use this service you need an api-key (get it here_). A minimal script would be:
 
@@ -181,14 +180,9 @@ To use this service you need an api-key (get it here_). A minimal script would b
 .. code-block:: python
 
     from isbnlib import meta 
-    from isbnlib.config import add_apikey
     from isbnlib.registry import bibformatters
 
-    SERVICE = 'isbndb'
-    APIKEY = 'THiSIsfAKe'  # <-- replace with YOUR key
-
-    # register your key
-    add_apikey(SERVICE, APIKEY)
+    SERVICE = 'openl'
 
     # now you can use the service
     isbn = '9780446310789'
@@ -263,7 +257,7 @@ framework to further developement, take a look at isbntools_.
 
 
 
-.. _isbndb: https://github.com/xlcnd/isbnlib/blob/master/isbnlib/_isbndb.py
+
 
 .. _see: https://github.com/xlcnd/isbnlib/blob/master/isbnlib/_merge.py
 

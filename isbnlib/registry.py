@@ -4,7 +4,6 @@
 from pkg_resources import iter_entry_points
 
 from . import _goob as goob
-from . import _isbndb as isbndb
 from . import _merge as merge
 from . import _openl as openl
 from . import _wcat as wcat
@@ -18,8 +17,7 @@ services = {
     'wcat': wcat.query,
     'goob': goob.query,
     'merge': merge.query,
-    'openl': openl.query,
-    'isbndb': isbndb.query
+    'openl': openl.query
 }
 
 

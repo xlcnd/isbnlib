@@ -36,7 +36,7 @@ setup(
     license='LGPL v3',
     description='Extract, clean, transform, hyphenate and metadata for ISBNs (International Standard Book Number).',
     long_description=open('README.rst').read(),
-    keywords='ISBN metadata World_Catalogue Google_Books Open_Library isbndb.com BibTeX EndNote RefWorks MSWord opf BibJSON',
+    keywords='ISBN metadata World_Catalogue Google_Books Open_Library BibTeX EndNote RefWorks MSWord opf BibJSON',
     classifiers=[
         'Programming Language :: Python',
         'Programming Language :: Python :: 2',
