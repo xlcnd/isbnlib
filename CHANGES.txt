@@ -35,4 +35,4 @@ v3.7.1, 2017-05-24 -- Fix #43 (bump middle version).
 v3.7.2, 2017-06-19 -- Restore xID (improved data quality close #28).
 v3.7.3, 2018-01-08 -- Updated data.
 v3.7.4, 2018-01-08 -- Add support for CSL-JSON format (close #48).
-v3.8.1, 2018-01-08 -- TENTATIVE
+v3.8.1, 2018-01-08 -- BREAK: stop support for py26, py33 and isbndb.
