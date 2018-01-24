@@ -19,4 +19,4 @@ __all__ = ('ISBNToolsDevException', 'ISBNLibDevException',
            'ServiceIsDownError', 'DataWrongShapeError',
            'NotValidMetadataError', 'NoDataForSelectorError',
            'RecordMappingError', 'NoAPIKeyError', 'Metadata', 'stdmeta',
-           'WEBService', 'WEBQuery', 'vias', 'bouth23', 'helpers')
+           'WEBService', 'WEBQuery', 'vias', 'helpers')
