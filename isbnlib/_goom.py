@@ -22,7 +22,7 @@ def _mapper(record):
     try:
         # mapping: canonical <- records
         if 'industryIdentifiers' not in record:  # pragma: no cover
-            return
+            return None
         canonical = {}
         isbn = None
         for ident in record['industryIdentifiers']:
@@ -30,7 +30,7 @@ def _mapper(record):
                 isbn = ident['identifier']
                 break
         if not isbn:  # pragma: no cover
-            return
+            return None
         canonical['ISBN-13'] = isbn
         canonical['Title'] = record.get('title', u('')).replace(' :', ':')
         canonical['Authors'] = record.get('authors', [])
