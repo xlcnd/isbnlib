@@ -83,11 +83,10 @@ class File(object):
             self.basename = new_basename
             self.name = name
             self.ext = ext
-            return True
         else:
             LOGGER.info("The file (%s) already exist in the directory!",
                         new_basename)
-            return True
+        return True
 
     @staticmethod
     def uxchmod(fp, mode=MODE666):
