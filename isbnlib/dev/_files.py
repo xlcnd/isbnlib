@@ -78,7 +78,7 @@ class File(object):
             try:
                 os.rename(self.basename, new_basename)
             except OSError as err:
-                LOGGER.critical("%s", err.message)
+                LOGGER.critical("%s", err)
                 return False
             self.basename = new_basename
             self.name = name
