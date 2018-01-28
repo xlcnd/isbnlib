@@ -7,15 +7,16 @@ from ._core import EAN13
 from ._exceptions import NotRecognizedServiceError, NotValidISBNError
 from ._openled import query as oed
 from ._thinged import query as ted
+from ._wcated import query as wed
 
-PROVIDERS = ('any', 'merge', 'openl', 'thingl')
-TRUEPROVIDERS = ('openl', 'thingl')  # <-- by priority
+PROVIDERS = ('any', 'merge', 'openl', 'thingl', 'wcat')
+TRUEPROVIDERS = ('wcat', 'openl', 'thingl')  # <-- by priority
 LOGGER = logging.getLogger(__name__)
 
 
 def fake_provider_any(isbn):
     """Fake provider 'any' service."""
-    providers = {'openl': oed, 'thingl': ted}
+    providers = {'wcat': wed, 'openl': oed, 'thingl': ted}
     for provider in TRUEPROVIDERS:
         data = []
         try:
@@ -59,4 +60,10 @@ def editions(isbn, service='merge'):
     if service not in PROVIDERS:
         LOGGER.critical('%s is not a recognized editions provider', service)
         raise NotRecognizedServiceError(service)
-    return oed(isbn) if service == 'openl' else ted(isbn)
+
+    if service == 'wcat':
+        return wed(isbn)
+    if service == 'openl':
+        return oed(isbn)
+    if service == 'thingl':
+        return ted(isbn)
