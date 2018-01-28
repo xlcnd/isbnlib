@@ -26,12 +26,12 @@ def _mapper(isbn, records):
         canonical['Title'] = records.get('title', u('')).replace(' :', ':')
         canonical['Authors'] = [
             a['name'] for a in records.get('authors', ({
-                'name': u('')
+                'name': u(''),
             }, ))
         ]
         canonical['Publisher'] = records.get('publishers', [
             {
-                'name': u('')
+                'name': u(''),
             },
         ])[0]['name']
         canonical['Year'] = u('')
