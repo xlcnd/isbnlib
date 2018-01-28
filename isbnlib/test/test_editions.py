@@ -9,17 +9,26 @@ from .._ext import editions
 
 # nose tests
 
+
+def test_editions_openl():
+    """Test the 'wcat editions' service."""
+    assert_equals(len(editions('9780099536017', service='wcat')) > 4, True)
+
+
 def test_editions_openl():
     """Test the 'openl editions' service."""
     assert_equals(len(editions('9780099536017', service='openl')) > 4, True)
+
 
 def test_editions_thingl():
     """Test the 'thingl editions' service."""
     assert_equals(len(editions('9780151446476', service='thingl')) > 19, True)
 
+
 def test_editions_any():
     """Test the 'any editions' service."""
     assert_equals(len(editions('9780151446476', service='any')) > 19, True)
+
 
 def test_editions_merge():
     """Test the 'merge editions' service."""
