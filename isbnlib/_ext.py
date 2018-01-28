@@ -35,7 +35,7 @@ def editions(isbn, service='merge'):
     """Return the list of ISBNs of editions related with this ISBN.
 
     'service' can have the values:
-    'any', 'merge' (default), 'wcat', 'openl' and 'thingl' 
+    'any', 'merge' (default), 'wcat', 'openl' and 'thingl'
     """
     return eds(isbn, service)
 
@@ -56,7 +56,7 @@ def ren(fp):
     cfp = File(fp)
     isbn = EAN13(cfp.name)
     if not isbn:  # pragma: no cover
-        return
+        return None
     data = meta(isbn)
     author = data.get('Authors', u('UNKNOWN'))
     if author != u('UNKNOWN'):  # pragma: no cover
@@ -66,12 +66,12 @@ def ren(fp):
     title = data.get('Title', u('UNKNOWN'))
     if title != u('UNKNOWN'):
         regex1 = re.compile(r'[.,_!?/\\]')
-        regex2 = re.compile('\s\s+')
+        regex2 = re.compile(r'\s\s+')
         title = regex1.sub(' ', title)
         title = regex2.sub(' ', title)
         title = title.strip()
     if title == u('UNKNOWN') or not title:  # pragma: no cover
-        return
+        return None
     if ' ' in title:  # pragma: no cover
         tokens = title.split(' ')
         stitle = cutoff_tokens(tokens, maxlen)
