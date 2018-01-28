@@ -31,10 +31,11 @@ def info(isbn):
     return infogroup(isbn)
 
 
-def editions(isbn, service='wcat'):
+def editions(isbn, service='merge'):
     """Return the list of ISBNs of editions related with this ISBN.
 
-    'service' can have the values 'any', 'merge', 'thingl' and 'wcat' (default)
+    'service' can have the values:
+    'any', 'merge' (default), 'wcat', 'openl' and 'thingl' 
     """
     return eds(isbn, service)
 

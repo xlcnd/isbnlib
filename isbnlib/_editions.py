@@ -55,15 +55,14 @@ def editions(isbn, service='merge'):
         LOGGER.critical('%s is not a valid ISBN', isbn)
         raise NotValidISBNError(isbn)
 
-    if service == 'any':
-        return fake_provider_any(isbn)
-
-    if service == 'merge':
-        return fake_provider_merge(isbn)
-
     if service not in PROVIDERS:
         LOGGER.critical('%s is not a recognized editions provider', service)
         raise NotRecognizedServiceError(service)
+
+    if service == 'merge':
+        return fake_provider_merge(isbn)
+    if service == 'any':
+        return fake_provider_any(isbn)
 
     if service == 'wcat':
         return wed(isbn)
