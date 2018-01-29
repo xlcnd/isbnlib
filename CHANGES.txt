@@ -38,3 +38,4 @@ v3.7.4, 2018-01-08 -- Add support for CSL-JSON format (close #48).
 v3.8.1, 2018-01-24 -- BREAK: stop support for py26, py33 and isbndb.
 v3.8.2, 2018-01-24 -- Fix bug 'in_virtual'.
 v3.8.3, 2018-01-29 -- Add 'wcat' to editions.
+v3.8.4, 2018-01-29 -- TENTATIVE
