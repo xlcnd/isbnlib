@@ -34,7 +34,7 @@ def fake_provider_merge(isbn):
     """Fake provider 'merge' service."""
     try:  # pragma: no cover
         named_tasks = (('wcat', wed), ('openl', oed), ('thingl', ted))
-        results = vias.multi(named_tasks, isbn)
+        results = vias.parallel(named_tasks, isbn)
         wdata = results.get('wed', [])
         odata = results.get('openl', [])
         tdata = results.get('thingl', [])
