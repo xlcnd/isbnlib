@@ -14,9 +14,9 @@ from .dev._fmt import _fmtbib
 
 services = {
     'default': merge.query,
+    'merge': merge.query,
     'wcat': wcat.query,
     'goob': goob.query,
-    'merge': merge.query,
     'openl': openl.query,
 }
 
@@ -39,12 +39,12 @@ bibformatters = {
     'default': lambda x: _fmtbib('labels', x),
     'labels': lambda x: _fmtbib('labels', x),
     'bibtex': lambda x: _fmtbib('bibtex', x),
+    'csl': lambda x: _fmtbib('csl', x),
+    'json': lambda x: _fmtbib('json', x),
+    'opf': lambda x: _fmtbib('opf', x),
     'endnote': lambda x: _fmtbib('endnote', x),
     'refworks': lambda x: _fmtbib('refworks', x),
     'msword': lambda x: _fmtbib('msword', x),
-    'json': lambda x: _fmtbib('json', x),
-    'opf': lambda x: _fmtbib('opf', x),
-    'csl': lambda x: _fmtbib('csl', x),
 }  # pragma: no cover
 
 
