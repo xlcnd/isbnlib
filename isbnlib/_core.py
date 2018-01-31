@@ -49,7 +49,7 @@ def check_digit10(firstninedigits):
         return None
     try:
         int(firstninedigits)
-    except:  # pragma: no cover
+    except Exception:  # pragma: no cover
         return None
     # checksum
     val = sum(
@@ -71,7 +71,7 @@ def check_digit13(firsttwelvedigits):
         return None
     try:
         int(firsttwelvedigits)
-    except:  # pragma: no cover
+    except Exception:  # pragma: no cover
         return None
     # checksum
     val = sum(
@@ -234,6 +234,7 @@ def get_canonical_isbn(isbnlike, output='bouth'):
             if output == 'isbn10':
                 return cisbn if len(cisbn) == 10 else to_isbn10(cisbn)
             return to_isbn13(cisbn) if len(cisbn) == 10 else cisbn
+    return None
 
 
 def ean13(isbnlike):
@@ -243,6 +244,7 @@ def ean13(isbnlike):
         return ib if is_isbn13(ib) else None
     elif len(ib) == 10:
         return to_isbn13(ib) if is_isbn10(ib) else None
+    return None
 
 
 # Alias
