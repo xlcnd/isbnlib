@@ -25,7 +25,7 @@ def fake_provider_any(isbn):
             if len(data) > 1:
                 return data
             continue  # pragma: no cover
-        except:  # pragma: no cover
+        except Exception:  # pragma: no cover
             continue
     return data  # pragma: no cover
 
@@ -40,7 +40,7 @@ def fake_provider_merge(isbn):
         tdata = results.get('thingl', [])
         data = list(set(wdata + odata + tdata))
         return data
-    except:  # pragma: no cover
+    except Exception:  # pragma: no cover
         return []
 
 
@@ -50,12 +50,10 @@ def editions(isbn, service='merge'):
     if not isbn:
         LOGGER.critical('%s is not a valid ISBN', isbn)
         raise NotValidISBNError(isbn)
-        return []
 
     if service not in PROVIDERS:
         LOGGER.critical('%s is not a recognized editions provider', service)
         raise NotRecognizedServiceError(service)
-        return []
 
     if service == 'merge':
         return fake_provider_merge(isbn)
