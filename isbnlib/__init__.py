@@ -11,18 +11,6 @@ from ._exceptions import (quiet_errors, ISBNLibException,
                           NotRecognizedServiceError, NotValidISBNError,
                           PluginNotLoadedError)
 
-# config _logging for lib (NullHandler not available for py26)
-try:
-    _nh = _logging.NullHandler()
-except:  # pragma: no cover
-
-    class NullHandler(_logging.Handler):
-        def emit(self, record):
-            pass
-
-    _nh = NullHandler()
-_logging.getLogger('isbnlib').addHandler(_nh)
-
 # configuration
 from . import config  # <-- first import
 
@@ -38,6 +26,10 @@ from ._doitotex import doi2tex
 
 # Ranges Database date
 from ._data.data4mask import RDDATE
+
+# config _logging for lib
+_nh = _logging.NullHandler()
+_logging.getLogger('isbnlib').addHandler(_nh)
 
 # alias
 ISBN13 = EAN13
