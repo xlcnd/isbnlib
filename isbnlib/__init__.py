@@ -47,4 +47,4 @@ __all__ = ('is_isbn10', 'is_isbn13', 'clean', 'check_digit10', 'check_digit13',
            'RDDATE')
 
 __version__ = '3.8.4'  # <-- literal IDs
-__support__ = 'py26, py27, py33, py34, py35, pypy, pypy3'  # <-- literal IDs
+__support__ = 'py27, py34, py35, py36, pypy, pypy3'  # <-- literal IDs
