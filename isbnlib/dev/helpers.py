@@ -16,7 +16,7 @@ fmtbib = _fmtbib
 fmts = _fmts
 
 __all__ = [
-    'File', 'IMCache', 'ShelveCache', 'cutoff_tokens', 'cwdfiles', 'fmtbib',
+    'File', 'IMCache', 'cutoff_tokens', 'cwdfiles', 'fmtbib',
     'fmts', 'in_virtual', 'last_first', 'normalize_space',
     'parse_placeholders', 'to_utf8tex', 'fake_isbn'
 ]

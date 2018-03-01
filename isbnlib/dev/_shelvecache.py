@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""Read and write shelve cache.
+"""DEPRECATED Read and write shelve cache.
 
 NOTES
 1. shelve has different incompatible formats in py2 and py3.
@@ -15,7 +15,7 @@ NOTES
 
 """
 
-# TODO rewrite using context managers!
+# DEPRECATED (delete on 3.9.0)
 
 import datetime
 import shelve
