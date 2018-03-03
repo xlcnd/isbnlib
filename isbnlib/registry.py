@@ -61,7 +61,7 @@ def add_bibformatter(name, formatter):  # pragma: no cover
 
 
 def load_plugins():  # pragma: no cover
-    """Load plugins with groups: isbnlib.metadata & isbnlib.formatters"""
+    """Load plugins with groups: isbnlib.metadata & isbnlib.formatters."""
     # get metadata plugins from entry_points
     try:
         for entry in iter_entry_points(group='isbnlib.metadata'):
@@ -80,9 +80,6 @@ def load_plugins():  # pragma: no cover
 load_plugins()
 
 # CACHE
-# if you want a persistant cache you could use
-# .dev.helpers ShelveCache(pathtofile)
-
 metadata_cache = IMCache()  # should be an instance
 
 
