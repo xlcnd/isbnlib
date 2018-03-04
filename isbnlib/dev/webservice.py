@@ -35,7 +35,7 @@ class WEBService(object):
         # add more user provided headers
         if appheaders:  # pragma: no cover
             headers.update(appheaders)
-        # if 'data' it does a PUT request (data must be urlencoded)
+        # if 'data' it does a POST request (data must be urlencoded)
         data = urlencode(values).encode('utf8') if values else None
         self._request = Request(url, data, headers=headers)
         self.response = None
