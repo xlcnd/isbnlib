@@ -28,7 +28,7 @@ matrix:
     - env: TOXENV=py34
     - env: TOXENV=checkers
 install:
-- if [[ $TRAVIS_OS_NAME == 'osx' ]]; then brew install python3; fi
+- if [[ $TRAVIS_OS_NAME == 'osx' ]]; then brew upgrade python; fi
 - if [[ $TRAVIS_OS_NAME == 'osx' ]]; then pip3 install tox; fi
 - if [[ $TRAVIS_OS_NAME == 'linux' ]]; then pip install tox; fi
 - if [[ $TOXENV == 'checkers' ]]; then pip install flake8; fi
