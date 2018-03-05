@@ -72,7 +72,8 @@ class WEBService(object):
         else:  # pragma: no cover
             data = self.response.read()
             # data = self.response.read().decode(
-            #     self.response.headers.get_content_charset()).encode('UTF-8')
+            #     self.response.headers.get_content_charset() or 'UTF-8')
+            # data = data.encode('UTF-8')
         return s(data)
 
 
