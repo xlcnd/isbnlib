@@ -13,9 +13,15 @@ def goos(words):
     """Use Google to get an ISBN from words from title and author's name."""
     service_url = "http://www.google.com/search?q={words}+ISBN"
     search_url = service_url.format(words=words.replace(' ', '+'))
-    user_agent = 'w3m/0.5.2'
+    user_agent = 'w3m/0.5.3'
 
-    content = webservice.query(search_url, user_agent)
+    content = webservice.query(
+        search_url,
+        user_agent=user_agent,
+        appheaders={
+            'Content-Type': 'text/plain; charset="UTF-8"',
+            'Content-Transfer-Encoding': 'Quoted-Printable',
+        })
     isbns = get_isbnlike(content)
 
     for item in isbns:
@@ -24,5 +30,5 @@ def goos(words):
             break
     if not isbns or not isbn:  # pragma: no cover
         LOGGER.debug('No ISBN found for %s', words)
-        return
+        return None
     return isbn
