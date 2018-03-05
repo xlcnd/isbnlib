@@ -3,6 +3,7 @@
 
 import gzip
 import logging
+import sys
 
 from ._bouth23 import bstream, s
 from ._exceptions import ISBNLibHTTPError, ISBNLibURLError
@@ -71,9 +72,8 @@ class WEBService(object):
             data = f.read()
         else:  # pragma: no cover
             data = self.response.read()
-            # data = self.response.read().decode(
-            #     self.response.headers.get_content_charset() or 'UTF-8')
-            # data = data.encode('UTF-8')
+            # if sys.version > '3':
+            #     data = data.decode(self.response.headers.get_content_charset() or 'UTF-8')
         return s(data)
 
 
