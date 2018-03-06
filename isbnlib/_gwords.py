@@ -6,9 +6,9 @@ import logging
 from ._core import get_canonical_isbn, get_isbnlike
 from .dev import webservice
 
-try:
+try:  # pragma: no cover
     from urllib.parse import quote
-except ImportError:
+except ImportError:  # pragma: no cover
     pass
 
 LOGGER = logging.getLogger(__name__)
@@ -17,9 +17,9 @@ LOGGER = logging.getLogger(__name__)
 def goos(words):
     """Use Google to get an ISBN from words from title and author's name."""
     service_url = "http://www.google.com/search?q=ISBN+"
-    try:
+    try:  # pragma: no cover
         search_url = service_url + quote(words.replace(' ', '+'))
-    except NameError:
+    except NameError:  # pragma: no cover
         search_url = service_url + words.replace(' ', '+')
 
     user_agent = 'w3m/0.5.3'
