@@ -15,10 +15,6 @@ Status
 ------
 
 
-.. image:: https://coveralls.io/repos/xlcnd/isbnlib/badge.svg?branch=v3.8.5
-    :target: https://coveralls.io/r/xlcnd/isbnlib?branch=v3.8.5
-    :alt: Coverage
-
 .. image:: https://img.shields.io/badge/Sourcegraph-Status-blue.svg
     :target: https://sourcegraph.com/github.com/xlcnd/isbnlib
     :alt: Graph
