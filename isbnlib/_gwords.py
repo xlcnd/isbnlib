@@ -2,13 +2,14 @@
 """Use Google to get an ISBN from words from title and author's name."""
 
 import logging
-import sys
 
 from ._core import get_canonical_isbn, get_isbnlike
 from .dev import webservice
 
-if sys.version > '3':
+try:
     from urllib.parse import quote
+except ImportError:
+    pass
 
 LOGGER = logging.getLogger(__name__)
 
@@ -16,9 +17,9 @@ LOGGER = logging.getLogger(__name__)
 def goos(words):
     """Use Google to get an ISBN from words from title and author's name."""
     service_url = "http://www.google.com/search?q=ISBN+"
-    if sys.version > '3':
+    try:
         search_url = service_url + quote(words.replace(' ', '+'))
-    else:
+    except NameError:
         search_url = service_url + words.replace(' ', '+')
 
     user_agent = 'w3m/0.5.3'
