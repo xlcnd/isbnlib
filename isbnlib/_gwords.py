@@ -9,7 +9,11 @@ from .dev import webservice
 try:  # pragma: no cover
     from urllib.parse import quote
 except ImportError:  # pragma: no cover
-    pass
+
+    def quote(x):
+        """Do nothing if PY2."""
+        return x
+
 
 LOGGER = logging.getLogger(__name__)
 
@@ -17,10 +21,7 @@ LOGGER = logging.getLogger(__name__)
 def goos(words):
     """Use Google to get an ISBN from words from title and author's name."""
     service_url = "http://www.google.com/search?q=ISBN+"
-    try:  # pragma: no cover
-        search_url = service_url + quote(words.replace(' ', '+'))
-    except NameError:  # pragma: no cover
-        search_url = service_url + words.replace(' ', '+')
+    search_url = service_url + quote(words.replace(' ', '+'))
 
     user_agent = 'w3m/0.5.3'
 
