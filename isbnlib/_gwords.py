@@ -10,7 +10,7 @@ try:  # pragma: no cover
     from urllib.parse import quote
 except ImportError:  # pragma: no cover
 
-    def quote(x):
+    def quote(x):  # pragma: no cover
         """Do nothing if PY2."""
         return x
 

@@ -9,7 +9,7 @@ THREADS_TIMEOUT = 12  # seconds
 
 
 # URLOPEN_TIMEOUT is used by webservice
-def seturlopentimeout(seconds):
+def seturlopentimeout(seconds):  # pragma: no cover
     """Set the value of URLOPEN_TIMEOUT (in seconds)."""
     global URLOPEN_TIMEOUT
     URLOPEN_TIMEOUT = seconds
