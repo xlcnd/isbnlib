@@ -32,6 +32,7 @@ install:
 - if [[ $TRAVIS_OS_NAME == 'linux' ]]; then pip install tox; fi
 - if [[ $TOXENV == 'checkers' ]]; then pip install flake8; fi
 - if [[ $TOXENV == 'checkers' ]]; then pip install pep8-naming; fi
+- if [[ $TOXENV == 'py27' ]]; then pip install coveralls; fi
 - if [[ $DOC == 'sphinx' ]]; then pip install sphinx; fi
 - if [[ $TRAVIS_PULL_REQUEST != 'false' ]]; then pip install yapf; fi
 script:
@@ -39,6 +40,6 @@ script:
 - if [[ ! -z $TOXENV ]]; then tox -e $TOXENV; fi
 - if [[ $DOC == 'sphinx' ]]; then cd docs; sphinx-build -n -b html -d _build/.doctrees . _build/html; fi
 after_success:
-#- if [[ $TOXENV == 'py27' ]]; then coveralls; fi
+- if [[ $TOXENV == 'py27' ]]; then coveralls; fi
 notifications:
   email: false
