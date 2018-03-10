@@ -118,14 +118,14 @@ Main Functions
     The output can be formatted as ``bibtex``, ``csl`` (CSL-JSON), ``msword``, ``endnote``, ``refworks``,
     ``opf`` or ``json`` (BibJSON) bibliographic formats with ``isbnlib.registry.bibformatters``.
     ``cache`` only allows two values: 'default' or None. You can change the kind of cache by using
-    ``isbnlib.registry.set_cache`` (see below). 
-    Now, you can extend the functionality of this function by adding pluggins, more metadata 
-    providers or new bibliographic formatters (check_ for available pluggins). 
+    ``isbnlib.registry.set_cache`` (see below).
+    Now, you can extend the functionality of this function by adding pluggins, more metadata
+    providers or new bibliographic formatters (check_ for available pluggins).
 
 ``editions(isbn, service='merge')``
     Returns the list of ISBNs of editions related with this ISBN. By default
     uses 'merge' (merges 'wcat', 'openl' and 'thingl'), but other providers are available:
-    'wcat' uses **worldcat.org**, 
+    'wcat' uses **worldcat.org**,
     'openl' users **Open Library**, 'thingl' (uses the service ThingISBN from **LibraryThing**)
     and 'any' (first tries 'wcat', if no data, then 'openl' then 'thingl').
 
@@ -175,8 +175,8 @@ or:
 
 
 If you use linux systems, you can install using your distribution package
-manager (all major distributions have packages ``python-isbnlib`` 
-and ``python3-isbnlib``), however (usually) are **very old and don't work well anymore**! 
+manager (all major distributions have packages ``python-isbnlib``
+and ``python3-isbnlib``), however (usually) are **very old and don't work well anymore**!
 
 
 
@@ -255,7 +255,7 @@ A minimal script would be:
 
 .. code-block:: python
 
-    from isbnlib import meta 
+    from isbnlib import meta
     from isbnlib.registry import bibformatters
 
     SERVICE = 'openl'
