@@ -39,7 +39,7 @@ How to Contribute
 -----------------
 
 ``isbnlib`` has a very small code base, so it is a good project to begin your
-adventure in open-source... 
+adventure in open-source...
 
 
 Main Steps
@@ -67,7 +67,7 @@ Important
 If you don't have experience in these issues, don't be put off by these requirements,
 see them as a learning opportunity. Thanks!
 
-     For full instructions read the CONTRIBUTING_ doc.
+    For full instructions read the CONTRIBUTING_ doc.
 
 
 .. _sourcegraph: https://sourcegraph.com/github.com/xlcnd/isbnlib

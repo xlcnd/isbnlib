@@ -27,8 +27,8 @@ or:
 
 
 If you use linux systems, you can install using your distribution package
-manager (all major distributions have packages ``python-isbnlib`` 
-and ``python3-isbnlib``), however (usually) are **very old and don't work well anymore**! 
+manager (all major distributions have packages ``python-isbnlib``
+and ``python3-isbnlib``), however (usually) are **very old and don't work well anymore**!
 
 
 

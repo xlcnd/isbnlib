@@ -10,7 +10,7 @@ Note
    This library works mainly with 'striped' ISBNs  (only numbers and X) like '0826497527'. You can
    strip an ISBN's like string by using ``canonical(isbnlike)``. You can
    'mask' the ISBN by using ``mask(isbn)``. So in the examples below, when you see 'isbn'
-   in the argument, it is a 'striped' ISBN, when the argument is an 'isbnlike' it is a string 
+   in the argument, it is a 'striped' ISBN, when the argument is an 'isbnlike' it is a string
    like ``ISBN 979-10-90636-07-1`` or even something dirty like ``asdf 979-10-90636-07-1 bla bla``.
 
    Two important concepts: **valid ISBN** should be an ISBN that was built according with the rules,
@@ -25,7 +25,7 @@ Note
 
    If possible, work with ISBNs in the isbn-13 format (since 2007, only are issued ISBNs in the isbn-13
    format). You can always convert isbn-10 to isbn-13, but **not** the reverse.
-   Read more about ISBN at isbn-international.org_. 
+   Read more about ISBN at isbn-international.org_.
 
 
 
@@ -35,86 +35,86 @@ API's Main Namespaces
 In the namespace ``isbnlib`` you have access to the core methods:
 
 ``is_isbn10(isbn10like)``
-	Validates as ISBN-10.
+  Validates as ISBN-10.
 
 ``is_isbn13(isbn13like)``
-	Validates as ISBN-13.
+  Validates as ISBN-13.
 
 ``to_isbn10(isbn13)``
-	Transforms an isbn-13 to isbn-10.
+  Transforms an isbn-13 to isbn-10.
 
 ``to_isbn13(isbn10)``
-	Transforms an isbn-10 to isbn-13.
+  Transforms an isbn-10 to isbn-13.
 
 ``canonical(isbnlike)``
-	Keeps only numbers and X. You will get strings like `9780321534965`.
+  Keeps only numbers and X. You will get strings like `9780321534965`.
 
 ``clean(isbnlike)``
-	Cleans ISBN (only legal characters).
+  Cleans ISBN (only legal characters).
 
 ``notisbn(isbnlike, level='strict')``
-	Check with the goal to invalidate isbn-like.
+  Check with the goal to invalidate isbn-like.
 
 ``get_isbnlike(text, level='normal')``
-	Extracts all substrings that seem like ISBNs (very useful for scraping).
+  Extracts all substrings that seem like ISBNs (very useful for scraping).
 
 ``get_canonical_isbn(isbnlike, output='bouth')``
-	Extracts ISBNs and transform them to the canonical form.
+  Extracts ISBNs and transform them to the canonical form.
 
 ``EAN13(isbnlike)``
-	Transforms an `isbnlike` string into an EAN13 number (validated canonical ISBN-13).
+  Transforms an `isbnlike` string into an EAN13 number (validated canonical ISBN-13).
 
 ``info(isbn)``
-	Gets the language or country assigned to this ISBN.
+  Gets the language or country assigned to this ISBN.
 
 ``mask(isbn, separator='-')``
-	`Mask` (hyphenate) a canonical ISBN.
+  `Mask` (hyphenate) a canonical ISBN.
 
 ``meta(isbn, service='default', cache='default')``
-    Gives you the main metadata associated with the ISBN. As `service` parameter you can use:
-    ``'wcat'`` uses **worldcat.org**
-    (**no key is needed**), ``'goob'`` uses the **Google Books service** (**no key is needed**),
-    ``'openl'`` uses the **OpenLibrary.org** api (**no key is needed**), ``merge`` uses
-    a merged record of ``wcat``, ``goob`` and ``openl`` records (**no key is needed**) and
-    **is the default option**.
-    You can enter API keys
-    with ``isbnlib.config.add_apikey(service, apikey)``.
-    The output can be formatted as ``bibtex``, ``csl`` (CSL-JSON), ``msword``, ``endnote``, ``refworks``,
-    ``opf`` or ``json`` (BibJSON) bibliographic formats with ``isbnlib.registry.bibformatters``.
-    ``cache`` only allows two values: 'default' or None. You can change the kind of cache by using 
-    ``isbnlib.registry.set_cache`` (see below).
-    Now, you can extend the functionality of this function by adding pluggins, more metadata 
-    providers or new bibliographic formatters (check_ for available pluggins). 
+  Gives you the main metadata associated with the ISBN. As `service` parameter you can use:
+  ``'wcat'`` uses **worldcat.org**
+  (**no key is needed**), ``'goob'`` uses the **Google Books service** (**no key is needed**),
+  ``'openl'`` uses the **OpenLibrary.org** api (**no key is needed**), ``merge`` uses
+  a merged record of ``wcat``, ``goob`` and ``openl`` records (**no key is needed**) and
+  **is the default option**.
+  You can enter API keys
+  with ``isbnlib.config.add_apikey(service, apikey)``.
+  The output can be formatted as ``bibtex``, ``csl`` (CSL-JSON), ``msword``, ``endnote``, ``refworks``,
+  ``opf`` or ``json`` (BibJSON) bibliographic formats with ``isbnlib.registry.bibformatters``.
+  ``cache`` only allows two values: 'default' or None. You can change the kind of cache by using
+  ``isbnlib.registry.set_cache`` (see below).
+  Now, you can extend the functionality of this function by adding pluggins, more metadata
+  providers or new bibliographic formatters (check_ for available pluggins).
 
 ``editions(isbn, service='merge')``
-    Returns the list of ISBNs of editions related with this ISBN. By default
-    uses 'merge' (merges 'wcat', 'openl' and 'thingl'), but other providers are available:
-    'wcat' uses **worldcat.org**, 
-    'openl' users **Open Library**, 'thingl' (uses the service ThingISBN from **LibraryThing**)
-    and 'any' (first tries 'wcat', if no data, then 'openl' then 'thingl').
+  Returns the list of ISBNs of editions related with this ISBN. By default
+  uses 'merge' (merges 'wcat', 'openl' and 'thingl'), but other providers are available:
+  'wcat' uses **worldcat.org**,
+  'openl' users **Open Library**, 'thingl' (uses the service ThingISBN from **LibraryThing**)
+  and 'any' (first tries 'wcat', if no data, then 'openl' then 'thingl').
 
 ``isbn_from_words(words)``
-	Returns the most probable ISBN from a list of words (for your geographic area).
+  Returns the most probable ISBN from a list of words (for your geographic area).
 
 ``goom(words)``
-	Returns a list of references from **Google Books multiple references**.
+  Returns a list of references from **Google Books multiple references**.
 
 ``doi(isbn)``
-	Returns a DOI's ISBN-A from a ISBN-13.
+  Returns a DOI's ISBN-A from a ISBN-13.
 
 ``doi2tex(DOI)``
-	Returns metadata formated as BibTeX for a given DOI.
+  Returns metadata formated as BibTeX for a given DOI.
 
 ``ren(filename)``
-	Renames a file using metadata from an ISBN in his filename.
+  Renames a file using metadata from an ISBN in his filename.
 
 ``desc(isbn)``
-	Returns a small description of the book. 
-        *Almost all data available are for US books!*
+  Returns a small description of the book.
+  *Almost all data available are for US books!*
 
 ``cover(isbn)``
-        Returns a dictionary with the url for cover.
-        *Almost all data available are for US books!*
+  Returns a dictionary with the url for cover.
+  *Almost all data available are for US books!*
 
 See files test_core_ and test_ext_ for **a lot of examples**.
 
@@ -143,14 +143,14 @@ namespace ``isbnlib.dev``, namely:
 
 * ``vias`` exposes several functions to put calls to services, just by passing the name and
   a pointer to the service's ``query`` function.
-  ``vias.parallel`` allows to put threaded calls. You can use ``vias.serial`` 
+  ``vias.parallel`` allows to put threaded calls. You can use ``vias.serial``
   to make serial calls and
   ``vias.multi`` to use several cores. The default is ``vias.serial``, but
   you can change that in the conf file.
 
 
-The exceptions raised by these methods can all be catched using ``ISBNLibDevException``. 
-You **should't raise** this exception in your code, only raise the specific exceptions 
+The exceptions raised by these methods can all be catched using ``ISBNLibDevException``.
+You **should't raise** this exception in your code, only raise the specific exceptions
 exposed in ``isbnlib.dev`` whose name end in Error.
 
 
@@ -158,16 +158,16 @@ In ``isbnlib.dev.helpers`` you can find several methods, that we found very usef
 are only used in ``isbntools`` (*an app and framework* that uses ``isbnlib``).
 
 
-With ``isbnlib.registry`` you can change the metadata service to be used by default (``setdefaultservice``), 
+With ``isbnlib.registry`` you can change the metadata service to be used by default (``setdefaultservice``),
 add a new service (``add_service``), access bibliographic formatters for metadata (``bibformatters``),
-set the default formatter (``setdefaultbibformatter``), add new formatters (``add_bibformatter``) and 
+set the default formatter (``setdefaultbibformatter``), add new formatters (``add_bibformatter``) and
 set a new cache (``set_cache``) (e.g. to switch off the chache ``set_cache(None)``).
 The cache only works for calls through ``isbnlib.meta``. These changes only work for the 'current session',
 so should be done always before calling other methods.
 
 
-Finally, from ``isbnlib.config`` you can read and set configuration options: 
-change timeouts with ``seturlopentimeout`` and ``setthreadstimeout``, 
+Finally, from ``isbnlib.config`` you can read and set configuration options:
+change timeouts with ``seturlopentimeout`` and ``setthreadstimeout``,
 access api keys with ``apikeys`` and add new one with ``add_apikey`` and
 access and set generic and user-defined options with ``options`` and ``set_option``.
 
@@ -175,12 +175,12 @@ Let us concretize the last point with a small example.
 
 Suppose you want a small script to get metadata using ``Open Library`` formated in BibTeX.
 
-To use this service you need an api-key (get it here_). A minimal script would be:
+A minimal script would be:
 
 
 .. code-block:: python
 
-    from isbnlib import meta 
+    from isbnlib import meta
     from isbnlib.registry import bibformatters
 
     SERVICE = 'openl'
@@ -237,8 +237,8 @@ A *simple merge* provider is now the default in ``isbnlib.meta``.
 It gives priority to ``wcat`` but overwrites the ``Authors``, ``Publisher`` and ``Year``
 fields with values from ``goob`` (if available) or ``openl``.
 Uses the ``merge`` method of ``Metadata`` and *parallel* calls to services.
- 
-You can change that by using ``vias``'s other methods 
+
+You can change that by using ``vias``'s other methods
 (e.g. ``isbnlib.config.set_option('VIAS_MERGE', 'multi')``.
 
 You can write your own *merging scheme* by creating a new provider (see_ ``merge`` for an example).
