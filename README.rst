@@ -280,6 +280,8 @@ After install, your pluggin will blend transparently in ``isbnlib``.
 
 Remember that plugins **must** support python 2.7 and python 3.4+ (see python-future.org_).
 
+For available pluggins check_ here.
+
 
 
 Merge Metadata
