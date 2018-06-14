@@ -267,17 +267,19 @@ A minimal script would be:
 Plugins
 -------
 
-You can extend the functionality of the library by adding pluggins (for now, just
+You can extend the functionality of the library by adding plugins (for now, just
 new metadata providers or new bibliographic formatters).
 
-Start with this template_ and follow the instructions there. For inspiration take a look
+For available plugins check_ here.
+
+After install, your plugin will blend transparently in ``isbnlib`` (ou will have more options in ``meta`` and ``bibformatters``).
+
+If you want to develop a plugin, start with this template_ and follow the instructions there. For inspiration take a look
 at goob_.
 
-After install, your pluggin will blend transparently in ``isbnlib``.
 
 Remember that plugins **must** support python 2.7 and python 3.4+ (see python-future.org_).
 
-For available pluggins check_ here.
 
 
 
@@ -291,21 +293,6 @@ Caveats
 2. If you inspect the library, you will see that there are a lot of private modules
    (their name starts with '_'). These modules **should not** be accessed directly since,
    with high probability, your program will break with a further version of the library!
-
-
-
-Extra Functionality
--------------------
-
-To get extra functionality, search_ pypi for packages starting with ``isbnlib``
-**or** type at a terminal:
-
-.. code-block:: console
-
-    $ pip search isbnlib
-
-
-for a nice formated report!
 
 
 
