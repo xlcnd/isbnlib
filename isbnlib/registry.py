@@ -4,18 +4,14 @@
 from pkg_resources import iter_entry_points
 
 from . import _goob as goob
-from . import _merge as merge
 from . import _openl as openl
-from . import _wcat as wcat
 from ._imcache import IMCache
 from .dev._fmt import _fmtbib
 
 # SERVICES
 
 services = {
-    'default': merge.query,
-    'merge': merge.query,
-    'wcat': wcat.query,
+    'default': goob.query,
     'goob': goob.query,
     'openl': openl.query,
 }

@@ -8,16 +8,15 @@ from .dev import vias
 from ._exceptions import NotRecognizedServiceError, NotValidISBNError
 from ._openled import query as oed
 from ._thinged import query as ted
-from ._wcated import query as wed
 
-PROVIDERS = ('any', 'merge', 'openl', 'thingl', 'wcat')
-TRUEPROVIDERS = ('wcat', 'openl', 'thingl')  # <-- by priority
+PROVIDERS = ('any', 'merge', 'openl', 'thingl')
+TRUEPROVIDERS = ('openl', 'thingl')  # <-- by priority
 LOGGER = logging.getLogger(__name__)
 
 
 def fake_provider_any(isbn):
     """Fake provider 'any' service."""
-    providers = {'wcat': wed, 'openl': oed, 'thingl': ted}
+    providers = {'openl': oed, 'thingl': ted}
     for provider in TRUEPROVIDERS:
         data = []
         try:
@@ -33,9 +32,8 @@ def fake_provider_any(isbn):
 def fake_provider_merge(isbn):
     """Fake provider 'merge' service."""
     try:  # pragma: no cover
-        named_tasks = (('wcat', wed), ('openl', oed), ('thingl', ted))
+        named_tasks = (('openl', oed), ('thingl', ted))
         results = vias.parallel(named_tasks, isbn)
-        wdata = results.get('wed', [])
         odata = results.get('openl', [])
         tdata = results.get('thingl', [])
         data = list(set(wdata + odata + tdata))
@@ -60,8 +58,6 @@ def editions(isbn, service='merge'):
     if service == 'any':
         return fake_provider_any(isbn)
 
-    if service == 'wcat':
-        return wed(isbn)
     if service == 'openl':
         return oed(isbn)
     if service == 'thingl':
