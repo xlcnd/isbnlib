@@ -30,7 +30,7 @@ get metadata for ISBN strings. Its origin was as the core of isbntools_.
 This short version, is suitable to be include as a dependency in other projects.
 Has a straightforward setup and a very easy programmatic api.
 
-Runs on py27, py34, py35 and py36.
+Runs on py27, py34, py35, py36 and py37.
 
 Typical usage (as library):
 
@@ -108,11 +108,9 @@ Main Functions
 
 ``meta(isbn, service='default', cache='default')``
     Gives you the main metadata associated with the ISBN. As `service` parameter you can use:
-    ``'wcat'`` uses **worldcat.org**
-    (**no key is needed**), ``'goob'`` uses the **Google Books service** (**no key is needed**),
-    ``'openl'`` uses the **OpenLibrary.org** api (**no key is needed**), ``merge`` uses
-    a merged record of ``wcat`` and ``goob`` records (**no key is needed**) and
-    **is the default option**.
+    ``'goob'`` uses the **Google Books service** (**no key is needed**)  and
+    **is the default option**,
+    ``'openl'`` uses the **OpenLibrary.org** api (**no key is needed**).
     You can enter API keys
     with ``config.add_apikey(service, apikey)`` (see example below).
     The output can be formatted as ``bibtex``, ``csl`` (CSL-JSON), ``msword``, ``endnote``, ``refworks``,
@@ -124,10 +122,9 @@ Main Functions
 
 ``editions(isbn, service='merge')``
     Returns the list of ISBNs of editions related with this ISBN. By default
-    uses 'merge' (merges 'wcat', 'openl' and 'thingl'), but other providers are available:
-    'wcat' uses **worldcat.org**,
+    uses 'merge' (merges 'openl' and 'thingl'), but other providers are available:
     'openl' users **Open Library**, 'thingl' (uses the service ThingISBN from **LibraryThing**)
-    and 'any' (first tries 'wcat', if no data, then 'openl' then 'thingl').
+    and 'any' (first tries 'openl', if no data, then 'thingl').
 
 ``isbn_from_words(words)``
     Returns the most probable ISBN from a list of words (for your geographic area).
@@ -274,7 +271,7 @@ You can extend the functionality of the library by adding pluggins (for now, jus
 new metadata providers or new bibliographic formatters).
 
 Start with this template_ and follow the instructions there. For inspiration take a look
-at wcat_, goob_ or merge_.
+at goob_.
 
 After install, your pluggin will blend transparently in ``isbnlib``.
 
@@ -284,30 +281,12 @@ For available pluggins check_ here.
 
 
 
-Merge Metadata
---------------
-
-The original quality of metadata, at the several services, is not very good!
-If you need high quality metadata in your app, the only solution is to use
-*polling & merge* of several providers **and** a **lot** of cleaning and standardization
-for fields like ``Authors`` and ``Publisher``.
-
-A *merge* provider is now the default in ``meta``.
-It gives priority to ``wcat`` but overwrites the ``Authors``
-field with values from ``goob`` (if available).
-Uses the ``merge`` method of ``Metadata`` and *serial* calls to services
-by default (faster for one-call to services through fast internet connections).
-You can change that by using ``vias``'s other methods
-(e.g. ``isbnlib.config.set_option('VIAS_MERGE', 'multi')``.
-
 
 Caveats
 -------
 
 
-1. These classes are optimized for one-call to services and not for batch calls. However,
-   is very easy to produce an high volume processing system using these classes
-   (use ``vias.multi``) and Redis.
+1. These classes are optimized for one-call to services and not for batch calls.
 
 2. If you inspect the library, you will see that there are a lot of private modules
    (their name starts with '_'). These modules **should not** be accessed directly since,
@@ -398,11 +377,9 @@ Read ``isbnlib`` code in a very sctructured way at sourcegraph_ or 'the docs' at
 
 .. _template: https://github.com/xlcnd/isbnlib/blob/dev/PLUGIN.zip
 
-.. _wcat: https://github.com/xlcnd/isbnlib/blob/dev/isbnlib/_wcat.py
 
 .. _goob: https://github.com/xlcnd/isbnlib/blob/dev/isbnlib/_goob.py
 
-.. _merge: https://github.com/xlcnd/isbnlib/blob/dev/isbnlib/_merge.py
 
 .. _search: https://pypi.python.org/pypi?%3Aaction=search&term=isbnlib&submit=search
 
