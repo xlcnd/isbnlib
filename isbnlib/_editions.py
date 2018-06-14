@@ -36,7 +36,7 @@ def fake_provider_merge(isbn):
         results = vias.parallel(named_tasks, isbn)
         odata = results.get('openl', [])
         tdata = results.get('thingl', [])
-        data = list(set(wdata + odata + tdata))
+        data = list(set(odata + tdata))
         return data
     except Exception:  # pragma: no cover
         return []
