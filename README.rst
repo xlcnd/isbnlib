@@ -272,7 +272,7 @@ new metadata providers or new bibliographic formatters).
 
 For available plugins check_ here.
 
-After install, your plugin will blend transparently in ``isbnlib`` (ou will have more options in ``meta`` and ``bibformatters``).
+After install, your plugin will blend transparently in ``isbnlib`` (you will have more options in ``meta`` and ``bibformatters``).
 
 If you want to develop a plugin, start with this template_ and follow the instructions there. For inspiration take a look
 at goob_.
