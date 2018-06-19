@@ -229,7 +229,7 @@ namespace ``isbnlib.dev``, namely:
 
 The exceptions raised by these methods can all be catched using ``ISBNLibDevException``.
 You **should't raise** this exception in your code, only raise the specific exceptions
-exposed in ``isbnlib.dev`` whose name end in Error.
+exposed in ``isbnlib.dev`` whose name ends in Error.
 
 
 In ``isbnlib.dev.helpers`` you can find several methods, that we found very useful, some of then
