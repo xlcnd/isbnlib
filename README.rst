@@ -20,6 +20,13 @@
     :alt: Windows Built Status
 
 
+Warning
+=======
+
+    The service xISBN was decommissioned (see issue 51_)!
+
+
+
 Info
 ====
 
@@ -369,5 +376,7 @@ Read ``isbnlib`` code in a very sctructured way at sourcegraph_ or 'the docs' at
 
 
 .. _search: https://pypi.python.org/pypi?%3Aaction=search&term=isbnlib&submit=search
+
+.. _51: https://github.com/xlcnd/isbnlib/issues/51
 
 
