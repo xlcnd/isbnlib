@@ -40,4 +40,4 @@ v3.8.2, 2018-01-24 -- Fix bug 'in_virtual'.
 v3.8.3, 2018-01-29 -- Add 'wcat' to editions.
 v3.8.4, 2018-03-06 -- Solve issues with non-ASCII searchs in 'from_words'.
 v3.8.5, 2018-06-14 -- NOT RELEASED.
-v3.9.1, 2018-06-14 -- Issue #51 (closing down of xISBN service).
+v3.9.1, 2018-07-02 -- Issue #51 (closing down of xISBN service).
