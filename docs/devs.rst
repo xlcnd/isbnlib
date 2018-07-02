@@ -71,27 +71,24 @@ In the namespace ``isbnlib`` you have access to the core methods:
   `Mask` (hyphenate) a canonical ISBN.
 
 ``meta(isbn, service='default', cache='default')``
-  Gives you the main metadata associated with the ISBN. As `service` parameter you can use:
-  ``'wcat'`` uses **worldcat.org**
-  (**no key is needed**), ``'goob'`` uses the **Google Books service** (**no key is needed**),
-  ``'openl'`` uses the **OpenLibrary.org** api (**no key is needed**), ``merge`` uses
-  a merged record of ``wcat``, ``goob`` and ``openl`` records (**no key is needed**) and
-  **is the default option**.
-  You can enter API keys
-  with ``isbnlib.config.add_apikey(service, apikey)``.
-  The output can be formatted as ``bibtex``, ``csl`` (CSL-JSON), ``msword``, ``endnote``, ``refworks``,
-  ``opf`` or ``json`` (BibJSON) bibliographic formats with ``isbnlib.registry.bibformatters``.
-  ``cache`` only allows two values: 'default' or None. You can change the kind of cache by using
-  ``isbnlib.registry.set_cache`` (see below).
-  Now, you can extend the functionality of this function by adding pluggins, more metadata
-  providers or new bibliographic formatters (check_ for available pluggins).
+    Gives you the main metadata associated with the ISBN. As `service` parameter you can use:
+    ``'goob'`` uses the **Google Books service** (**no key is needed**)  and
+    **is the default option**,
+    ``'openl'`` uses the **OpenLibrary.org** api (**no key is needed**).
+    You can enter API keys
+    with ``config.add_apikey(service, apikey)`` (see example below).
+    The output can be formatted as ``bibtex``, ``csl`` (CSL-JSON), ``msword``, ``endnote``, ``refworks``,
+    ``opf`` or ``json`` (BibJSON) bibliographic formats with ``isbnlib.registry.bibformatters``.
+    ``cache`` only allows two values: 'default' or None. You can change the kind of cache by using
+    ``isbnlib.registry.set_cache`` (see below).
+    Now, you can extend the functionality of this function by adding pluggins, more metadata
+    providers or new bibliographic formatters (check_ for available pluggins).
 
 ``editions(isbn, service='merge')``
-  Returns the list of ISBNs of editions related with this ISBN. By default
-  uses 'merge' (merges 'wcat', 'openl' and 'thingl'), but other providers are available:
-  'wcat' uses **worldcat.org**,
-  'openl' users **Open Library**, 'thingl' (uses the service ThingISBN from **LibraryThing**)
-  and 'any' (first tries 'wcat', if no data, then 'openl' then 'thingl').
+    Returns the list of ISBNs of editions related with this ISBN. By default
+    uses 'merge' (merges 'openl' and 'thingl'), but other providers are available:
+    'openl' users **Open Library**, 'thingl' (uses the service ThingISBN from **LibraryThing**)
+    and 'any' (first tries 'openl', if no data, then 'thingl').
 
 ``isbn_from_words(words)``
   Returns the most probable ISBN from a list of words (for your geographic area).
@@ -203,7 +200,7 @@ You can extend the functionality of the library by adding pluggins (for now, jus
 new metadata providers or new bibliographic formatters).
 
 Start with this template_ and follow the instructions there. For inspiration take a look
-at wcat_, goob_ or merge_.
+at goob_.
 
 After install, your pluggin will blend transparently in ``isbnlib``.
 
@@ -282,10 +279,6 @@ framework to further developement, take a look at isbntools_.
 
 .. _template: https://github.com/xlcnd/isbnlib/blob/dev/PLUGIN.zip
 
-.. _wcat: https://github.com/xlcnd/isbnlib/blob/dev/isbnlib/_wcat.py
-
 .. _goob: https://github.com/xlcnd/isbnlib/blob/dev/isbnlib/_goob.py
-
-.. _merge: https://github.com/xlcnd/isbnlib/blob/dev/isbnlib/_merge.py
 
 .. _search: https://pypi.python.org/pypi?%3Aaction=search&term=isbnlib&submit=search
