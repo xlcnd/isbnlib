@@ -1,6 +1,7 @@
 version: '3.9.2.{build}'
 branches:
   only:
+    - dev
     - /v3.9.2/
 environment:
   matrix:
