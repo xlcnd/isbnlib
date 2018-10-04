@@ -38,13 +38,11 @@ class WEBService(object):
         # if 'data' it does a POST request (data must be urlencoded)
         data = urlencode(values).encode('utf8') if values else None
         self._request = Request(url, data, headers=headers)
-        self.response = None
 
-    def _response(self):
+    def response(self):
         """Check errors on response."""
         try:
-            self.response = urlopen(
-                self._request, timeout=config.URLOPEN_TIMEOUT)
+            response = urlopen(self._request, timeout=config.URLOPEN_TIMEOUT)
             LOGGER.debug('Request headers:\n%s', self._request.header_items())
         except HTTPError as e:  # pragma: no cover
             LOGGER.critical('ISBNLibHTTPError for %s with code %s [%s]',
@@ -60,11 +58,11 @@ class WEBService(object):
             LOGGER.critical('ISBNLibURLError for %s with reason %s', self._url,
                             e.reason)
             raise ISBNLibURLError(e.reason)
-        return self.response
+        return response if response else None
 
     def data(self):
         """Return the uncompressed data."""
-        res = self._response()
+        res = self.response()
         LOGGER.debug('Response headers:\n%s', res.info())
         if res.info().get('Content-Encoding') == 'gzip':
             buf = bstream(res.read())
