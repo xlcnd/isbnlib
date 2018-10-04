@@ -60,17 +60,18 @@ class WEBService(object):
             LOGGER.critical('ISBNLibURLError for %s with reason %s', self._url,
                             e.reason)
             raise ISBNLibURLError(e.reason)
+        return self.response
 
     def data(self):
         """Return the uncompressed data."""
-        self._response()
-        LOGGER.debug('Response headers:\n%s', self.response.info())
-        if self.response.info().get('Content-Encoding') == 'gzip':
-            buf = bstream(self.response.read())
+        res = self._response()
+        LOGGER.debug('Response headers:\n%s', res.info())
+        if res.info().get('Content-Encoding') == 'gzip':
+            buf = bstream(res.read())
             f = gzip.GzipFile(fileobj=buf)
             data = f.read()
         else:  # pragma: no cover
-            data = self.response.read()
+            data = res.read()
         return s(data)
 
 
