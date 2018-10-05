@@ -21,7 +21,7 @@ or:
 
 .. code-block:: bash
 
-    $ pip install isbnlib-3.9.3.tar.gz
+    $ pip install isbnlib-3.9.4.tar.gz
 
 (first you have to download the file!)
 
