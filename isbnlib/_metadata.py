@@ -7,7 +7,7 @@ from .registry import services
 
 
 def query(isbn, service='default', cache='default'):
-    """Query worldcat.org, Google Books (JSON API), ... for metadata."""
+    """Query services like Google Books (JSON API), ... for metadata."""
     # validate inputs
     ean = EAN13(isbn)
     if not ean:
