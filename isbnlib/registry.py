@@ -95,7 +95,12 @@ def set_custom_cache(cache):  # pragma: no cover
 
 
 # PROVIDERS
-PROVIDERS = list(services.keys()).remove('default')
+_buf = list(services.keys())
+_buf.remove('default')
+PROVIDERS = _buf
 
 # BIBFORMATS
-BIBFORMATS = list(bibformatters.keys()).remove('labels').remove('default')
+_buf = list(bibformatters.keys())
+_buf.remove('labels')
+_buf.remove('default')
+BIBFORMATS = _buf
