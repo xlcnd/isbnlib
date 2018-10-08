@@ -92,3 +92,15 @@ def set_custom_cache(cache):  # pragma: no cover
     """Set a 'spare' cache."""
     global custom_cache
     custom_cache = cache
+
+
+# PROVIDERS
+_providers = list(services.keys())
+_providers.remove('default')
+PROVIDERS = _providers
+
+# BIBFORMATS
+_fmts = list(bibformatters.keys())
+_fmts.remove('labels')
+_fmts.remove('default')
+BIBFORMATS = _fmts
