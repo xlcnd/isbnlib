@@ -21,7 +21,7 @@ def mask(isbn, separator='-'):
 
 
 def meta(isbn, service='default', cache='default'):
-    """Get metadata from worldcat.org ('wcat'), Google Books ('goob') , ..."""
+    """Get metadata from Google Books ('goob'), Open Library ('openl'), ..."""
     service = service if service else 'default'
     return query(isbn, service, cache) if isbn else None
 
@@ -35,7 +35,7 @@ def editions(isbn, service='merge'):
     """Return the list of ISBNs of editions related with this ISBN.
 
     'service' can have the values:
-    'any', 'merge' (default), 'wcat', 'openl' and 'thingl'
+    'any', 'merge' (default), 'openl' and 'thingl'
     """
     return eds(isbn, service)
 
