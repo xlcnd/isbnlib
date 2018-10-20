@@ -36,7 +36,6 @@ ISBN13 = EAN13
 ean13 = EAN13
 
 # dunders
-
 __all__ = ('is_isbn10', 'is_isbn13', 'clean', 'check_digit10', 'check_digit13',
            'mask', 'info', 'meta', 'to_isbn10', 'to_isbn13', 'get_isbnlike',
            'notisbn', 'ean13', 'EAN13', 'cover', 'desc', 'canonical',
