@@ -19,23 +19,49 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 
+from datetime import datetime as dt
 from setuptools import setup
 from isbnlib import __version__
 
 
+PROJECT_NAME = 'isbnlib'
+PROJECT_PACKAGE_NAME = 'isbnlib'
+PROJECT_LICENSE = 'LGPL v3'
+PROJECT_LICENSE_URL = 'https://github.com/xlcnd/isbnlib/blob/dev/LICENSE'
+PROJECT_AUTHOR = 'Alexandre Lima Conde'
+PROJECT_COPYRIGHT = ' 2014-{}, {}'.format(dt.now().year, PROJECT_AUTHOR)
+PROJECT_URL = 'https://github.com/xlcnd/isbnlib'
+PROJECT_EMAIL = 'xlcnd@outlook.com'
+
+PROJECT_GITHUB_USERNAME = 'xlcnd'
+PROJECT_GITHUB_REPOSITORY = 'isbnlib'
+
+PYPI_URL = 'https://pypi.org/project/{}/'.format(PROJECT_PACKAGE_NAME)
+GITHUB_PATH = '{}/{}'.format(
+    PROJECT_GITHUB_USERNAME, PROJECT_GITHUB_REPOSITORY)
+GITHUB_URL = 'https://github.com/{}'.format(GITHUB_PATH)
+
+DOWNLOAD_URL = '{}/archive/{}.zip'.format(GITHUB_URL, "v" + __version__)
+PROJECT_URLS = {
+    'Bug Reports': '{}/issues'.format(GITHUB_URL),
+    'Dev Docs': 'https://isbnlib.readthedocs.io/en/latest/devs.html',
+    'Forum': 'https://stackoverflow.com/questions/tagged/isbnlib',
+    'License': PROJECT_LICENSE_URL,
+}
+
+PACKAGES = ['isbnlib', 'isbnlib/dev', 'isbnlib/_data', 'isbnlib/test', ]
+
+
 setup(
-    name='isbnlib',
+    name=PROJECT_PACKAGE_NAME,
     version=__version__,
-    author='xlcnd',
-    author_email='xlcnd@outlook.com',
-    url='https://github.com/xlcnd/isbnlib',
-    download_url='https://github.com/xlcnd/isbnlib/archive/v3.9.4.zip',
-    packages=['isbnlib',
-              'isbnlib/dev',
-              'isbnlib/_data',
-              'isbnlib/test',
-              ],
-    license='LGPL v3',
+    url=PROJECT_URL,
+    download_url=DOWNLOAD_URL,
+    project_urls=PROJECT_URLS,
+    author=PROJECT_AUTHOR,
+    author_email=PROJECT_EMAIL,
+    packages=PACKAGES,
+    license=PROJECT_LICENSE,
     description='Extract, clean, transform, hyphenate and metadata for ISBNs (International Standard Book Number).',
     long_description=open('README.rst').read(),
     keywords='ISBN metadata World_Catalogue Google_Books Open_Library BibTeX EndNote RefWorks MSWord opf BibJSON',
