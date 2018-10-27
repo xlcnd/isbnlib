@@ -30,6 +30,7 @@ F5 = '9789727576807.pdf'
 
 F6 = 'Campos2011_Emergências obstétricas_9789727576807.pdf'
 F7 = 'Knuth2008_The Art Of Computer Programming_9780321534965.pdf'
+F7a = 'Knuth2008_Introduction To Combinatorial Algorithms And Boolean Functions_9780321534965.pdf'
 F8 = 'Man2001_Genetic Algorithms Concepts And Designs_9781852330729.pdf'
 F9 = "O'Connor2012_Violent Python A Cookbook for Hackers, Forensic Analysts, Penetra_9781597499644.pdf"
 F10 = '海明威2007_Lao ren yu hai_9787500117018.pdf'
@@ -72,8 +73,7 @@ def teardown_module():
 def test_ren():
     """Test 'high level' ren function."""
     ren(F1)
-    #assert_equals('Knuth2008_The Art Of Computer Programming_9780321534965.pdf'
-    #             in cwdfiles("*.pdf"), True)
+    assert_equals(F7 in cwdfiles("*.pdf") or F7a in cwdfiles("*.pdf"), True)
     # create_files([F5])
     # ren(F5)
     # assert_equals('Campos2011_Emergências obstétricas_9789727576807.pdf' in cwdfiles("*.pdf"), True)
