@@ -35,6 +35,17 @@ extensions = []
 templates_path = ['_templates']
 
 # The suffix of source filenames.
+
+#   For MARKDOWN see 'https://markdown-publishing-guide.readthedocs.io':
+#   1. Uncomment the following snipet.
+#   2. Keep conf.py and index.rst, but all other .rst files can
+#      be written in markdown and the extension renamed to .md
+
+#from recommonmark.parser import CommonMarkParser
+#source_parsers = {
+#    '.md': CommonMarkParser,
+#}
+#source_suffix = ['.rst', '.md']
 source_suffix = '.rst'
 
 # The encoding of source files.
@@ -52,7 +63,7 @@ copyright = u'2014-2018, Alexandre Conde'
 # built documents.
 #
 # The short X.Y version.
-version = '3.5'
+version = '3.9'
 # The full version, including alpha/beta/rc tags.
 release = '3.9.4'
 
