@@ -245,7 +245,8 @@ man_pages = [('index', 'isbnlib', u'isbnlib Documentation',
 #  dir menu entry, description, category)
 texinfo_documents = [
     ('index', 'isbnlib', u'isbnlib Documentation', u'Alexandre Conde',
-     'isbnlib', 'One line description of project.', 'Miscellaneous'),
+     'isbnlib', 'Tools for extracting, cleaning and transforming ISBNs.',
+     'Miscellaneous'),
 ]
 
 # Documents to append as an appendix to all manuals.
