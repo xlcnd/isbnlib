@@ -1,0 +1,12 @@
+coverage
+flake8
+flake8-bugbear
+flake8-commas
+flake8-docstrings
+flake8-import-order
+isort
+nose
+pep8-naming
+tox
+wheel
+yapf
