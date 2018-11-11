@@ -14,6 +14,8 @@ Nicolas Cisco (@NickCis) <ncis20@gmail.com>
 
 Deirdre Connolly (@dconnolly) <durumcrustulum@gmail.com>
 
+Daniel Himmelstein (@dhimmel) <daniel.himmelstein@gmail.com>
+
 
 
 
