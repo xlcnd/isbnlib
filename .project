@@ -1,4 +1,4 @@
 PRJNAME=isbnlib
 CIFILES=".travis.yml .appveyor.yml"
-MASTERVERSIONFILE="$PRJNAME/__init__.py"
+MASTERVERSIONFILE=$(echo "$PRJNAME/__init__.py")
 VERSIONFILES="$MASTERVERSIONFILE README.rst .appveyor.yml docs/install.rst  docs/code.rst .travis.yml"
