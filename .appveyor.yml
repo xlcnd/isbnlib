@@ -48,7 +48,11 @@ build: false  # First tests then build (is python not C)
 
 test_script:
 # - "%PYTHON_HOME%\\Scripts\\tox -e %TOXENV%"
-  - tox -e %TOXENV%"
+  - '%WITH_COMPILER% %PYTHON_HOME%\Scripts\tox -e %TOXENV%'
+
+on_failure:
+  - ps: dir "env:"
+  - ps: get-content .tox\*\log\*
 
 # clone_folder: 'c:\\projects\\isbnlib'
 
