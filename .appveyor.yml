@@ -51,6 +51,7 @@ test_script:
   - '%WITH_COMPILER% %PYTHON_HOME%\Scripts\tox -e %TOXENV%'
 
 on_failure:
+  - ps: dir "%PYTHON_HOME%/Scripts/"
   - ps: dir "env:"
   - ps: get-content .tox\*\log\*
 
