@@ -1,6 +1,7 @@
 version: '3.9.4.{build}'
 branches:
   only:
+    - dev
     - /v3.9.4/
 environment:
   matrix:
@@ -46,7 +47,8 @@ install:
 build: false  # First tests then build (is python not C)
 
 test_script:
-  - "%PYTHON_HOME%\\Scripts\\tox -e %TOXENV%"
+# - "%PYTHON_HOME%\\Scripts\\tox -e %TOXENV%"
+  - tox -e %TOXENV%"
 
 # clone_folder: 'c:\\projects\\isbnlib'
 
