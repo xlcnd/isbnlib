@@ -1,7 +1,6 @@
 version: '3.9.4.{build}'
 branches:
   only:
-    - dev
     - /v3.9.4/
 environment:
   matrix:
@@ -51,7 +50,7 @@ test_script:
   - '%WITH_COMPILER% %PYTHON_HOME%\Scripts\tox -e %TOXENV%'
 
 on_failure:
-  - ps: dir "%PYTHON_HOME%/Scripts/"
+  - ps: dir "%PYTHON_HOME%/Scripts"
   - ps: dir "env:"
   - ps: get-content .tox\*\log\*
 
