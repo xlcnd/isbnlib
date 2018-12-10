@@ -6,32 +6,32 @@ branches:
 environment:
   matrix:
     - TOXENV: "py36"
-      TOXPYTHON: "c:\\Python36-x64\\python.exe"
-      PYTHON_HOME: "c:\\Python36-x64"
+      TOXPYTHON: "C:\\Python36-x64\\python.exe"
+      PYTHON_HOME: "C:\\Python36-x64"
       PYTHON_VERSION: "3.6"
       PYTHON_ARCH: "64"
 
     - TOXENV: "py35"
-      TOXPYTHON: "c:\\Python35\\python.exe"
-      PYTHON_HOME: "c:\\Python35"
+      TOXPYTHON: "C:\\Python35\\python.exe"
+      PYTHON_HOME: "C:\\Python35"
       PYTHON_VERSION: "3.5"
       PYTHON_ARCH: "64"
 
     - TOXENV: "py34"
-      TOXPYTHON: "c:\\Python34-x64\\python.exe"
-      PYTHON_HOME: "c:\\Python34-x64"
+      TOXPYTHON: "C:\\Python34-x64\\python.exe"
+      PYTHON_HOME: "C:\\Python34-x64"
       PYTHON_VERSION: "3.4"
       PYTHON_ARCH: "32"
 
     - TOXENV: "py27"
-      TOXPYTHON: "c:\\Python27-x64\\python.exe"
-      PYTHON_HOME: "c:\\Python27-x64"
+      TOXPYTHON: "C:\\Python27-x64\\python.exe"
+      PYTHON_HOME: "C:\\Python27-x64"
       PYTHON_VERSION: "2.7"
       PYTHON_ARCH: "64"
 
     - TOXENV: "py27"
-      TOXPYTHON: "c:\\Python27\\python.exe"
-      PYTHON_HOME: "c:\\Python27"
+      TOXPYTHON: "C:\\Python27\\python.exe"
+      PYTHON_HOME: "C:\\Python27"
       PYTHON_VERSION: "2.7"
       PYTHON_ARCH: "32"
 
@@ -41,6 +41,7 @@ init:
 
 install:
   - ps: (new-object net.webclient).DownloadFile('https://bootstrap.pypa.io/get-pip.py', 'C:/get-pip.py')
+  - set PATH=%PYTHON%;%PYTHON%\\Scripts;%PATH%
   - "%TOXPYTHON% C:/get-pip.py"
   - "%PYTHON_HOME%/Scripts/pip.exe install -r requirements-appveyor.txt"
 
@@ -54,7 +55,7 @@ on_failure:
   - ps: dir "env:"
 # - ps: get-content .tox\*\log\*
 
-# clone_folder: 'c:\\projects\\isbnlib'
+# clone_folder: 'C:\\projects\\isbnlib'
 
 # after_test:
 #   - "%TOXPYTHON% setup.py bdist_wheel"
