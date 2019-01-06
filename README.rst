@@ -319,7 +319,7 @@ Projects using *isbnlib*
 
 **BibLib**    https://pypi.python.org/pypi/biblib
 
-
+**Papis**    https://github.com/papis/papis
 
 
 Help
