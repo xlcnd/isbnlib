@@ -2,7 +2,7 @@ version: '3.9.4.{build}'
 branches:
   only:
     - dev
-    - /v3.9.4-fixme/
+    - /v3.9.4/
 cache:
     - '%LOCALAPPDATA%\pip\Cache'
 environment:
@@ -56,13 +56,13 @@ install:
 build: false  # First tests then build (is python not C)
 
 test_script:
+  - "%TOXPYTHON% -m tox -e %TOXENV%"
 # - "%WITH_COMPILER% %PYTHON_HOME%/Scripts/tox -e %TOXENV%"
 # - "%PYTHON_HOME%\\Scripts\\tox -e %TOXENV%"
-  - "%TOXPYTHON% -m tox -e %TOXENV%"
 
 on_failure:
-# - ps: dir "%TOXPYTHON%/Scripts"
   - ps: dir "env:"
+# - ps: dir "%TOXPYTHON%/Scripts"
 # - ps: get-content .tox\*\log\*
 
 # clone_folder: 'C:\\projects\\isbnlib'
