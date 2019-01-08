@@ -1,10 +1,10 @@
 version: '3.9.4.{build}'
-cache:
-    - '%LOCALAPPDATA%\pip\Cache'
 branches:
   only:
     - dev
     - /v3.9.4-fixme/
+cache:
+    - '%LOCALAPPDATA%\pip\Cache'
 environment:
   global:
     WITH_COMPILER: 'cmd /E:ON /V:ON /C .\ci\appveyor-with-compiler.cmd'
@@ -45,7 +45,7 @@ init:
 
 install:
   - ps: (new-object net.webclient).DownloadFile('https://bootstrap.pypa.io/get-pip.py', 'C:/get-pip.py')
-  - set PATH=%PYTHON%;%PYTHON%\\Scripts;%PATH%
+  - set PATH=%PYTHON_HOME%;%PYTHON_HOME%\\Scripts;%PATH%
   - "%TOXPYTHON% C:/get-pip.py"
   - "%PYTHON_HOME%/Scripts/pip.exe install -r requirements-appveyor.txt"
 
