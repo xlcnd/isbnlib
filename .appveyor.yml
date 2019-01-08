@@ -46,7 +46,7 @@ init:
 
 install:
   - ps: (new-object net.webclient).DownloadFile('https://bootstrap.pypa.io/get-pip.py', 'C:/get-pip.py')
-  - set PATH=%PYTHON_HOME%;%PYTHON_HOME%\\Scripts;%PATH%
+  - set PATH=%PYTHON_HOME%;%PYTHON_HOME%\Scripts;%PATH%
   - "ECHO %PATH%"
   - "%TOXPYTHON% C:/get-pip.py"
   - "%PYTHON_HOME%/Scripts/pip.exe install -r requirements-appveyor.txt"
@@ -54,7 +54,7 @@ install:
 build: false  # First tests then build (is python not C)
 
 test_script:
-  - "%WITH_COMPILER% %PYTHON_HOME%\\Scripts\\tox -e %TOXENV%"
+  - "%WITH_COMPILER% %PYTHON_HOME%\Scripts\tox -e %TOXENV%"
 
 on_failure:
   - ps: dir "%PYTHON_HOME%/Scripts"
