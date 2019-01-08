@@ -54,10 +54,11 @@ install:
 build: false  # First tests then build (is python not C)
 
 test_script:
-  - "%WITH_COMPILER% %TOXPYTHON%/Scripts/tox -e %TOXENV%"
+# - "%WITH_COMPILER% %TOXPYTHON%/Scripts/tox -e %TOXENV%"
+  - "%WITH_COMPILER% tox -e %TOXENV%"
 
 on_failure:
-  - ps: dir "%TOXPYTHON%/Scripts"
+# - ps: dir "%TOXPYTHON%/Scripts"
   - ps: dir "env:"
 # - ps: get-content .tox\*\log\*
 
