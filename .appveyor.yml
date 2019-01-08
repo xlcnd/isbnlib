@@ -50,12 +50,15 @@ install:
   - "ECHO %PATH%"
   - "%TOXPYTHON% C:/get-pip.py"
   - "%PYTHON_HOME%/Scripts/pip.exe install -r requirements-appveyor.txt"
+  - "%TOXPYTHON% -m pip install tox"
+
 
 build: false  # First tests then build (is python not C)
 
 test_script:
 # - "%WITH_COMPILER% %PYTHON_HOME%/Scripts/tox -e %TOXENV%"
-  - "%PYTHON_HOME%\\Scripts\\tox -e %TOXENV%"
+# - "%PYTHON_HOME%\\Scripts\\tox -e %TOXENV%"
+  - "%TOXPYTHON% -m tox -e %TOXENV%"
 
 on_failure:
 # - ps: dir "%TOXPYTHON%/Scripts"
