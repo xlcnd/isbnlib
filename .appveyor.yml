@@ -55,7 +55,7 @@ build: false  # First tests then build (is python not C)
 
 test_script:
 # - "%WITH_COMPILER% %PYTHON_HOME%/Scripts/tox -e %TOXENV%"
-  - "%PYTHON_HOME%/Scripts/tox -e %TOXENV%"
+  - "%PYTHON_HOME%\\Scripts\\tox -e %TOXENV%"
 
 on_failure:
 # - ps: dir "%TOXPYTHON%/Scripts"
