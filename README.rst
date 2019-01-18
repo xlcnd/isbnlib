@@ -309,6 +309,8 @@ Projects using *isbnlib*
 
 **isbntools**      https://github.com/xlcnd/isbntools
 
+**Open Library**   https://github.com/internetarchive/openlibrary
+
 **Spreads**        https://github.com/DIYBookScanner/spreads
 
 **BiblioManager**  https://github.com/Phyks/BMC/
