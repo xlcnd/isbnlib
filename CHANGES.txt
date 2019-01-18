@@ -44,3 +44,4 @@ v3.9.1, 2018-07-02 -- Issue #51 (closing down of xISBN service).
 v3.9.2, 2018-09-28 -- Updated data.
 v3.9.3, 2018-10-05 -- Make it easier to override 'WEBService.data'.
 v3.9.4, 2019-01-18 -- Fix bibjson and updated data.
+v3.9.5, 2019-01-18 -- TENTATIVE
