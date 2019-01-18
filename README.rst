@@ -313,7 +313,7 @@ Projects using *isbnlib*
 
 **Spreads**        https://github.com/DIYBookScanner/spreads
 
-**BiblioManager**  https://github.com/Phyks/BMC/
+**Papis**    https://github.com/papis/papis
 
 **libBMC**    https://github.com/Phyks/libbmc/
 
@@ -325,7 +325,6 @@ Projects using *isbnlib*
 
 **BibLib**    https://pypi.python.org/pypi/biblib
 
-**Papis**    https://github.com/papis/papis
 
 
 Help

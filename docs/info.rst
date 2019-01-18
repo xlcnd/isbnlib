@@ -74,7 +74,7 @@ Projects using *isbnlib*
 
 **Spreads**        https://github.com/DIYBookScanner/spreads
 
-**BiblioManager**  https://github.com/Phyks/BMC/
+**Papis**    https://github.com/papis/papis
 
 **libBMC**    https://github.com/Phyks/libbmc/
 
