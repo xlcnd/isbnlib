@@ -42,5 +42,5 @@ v3.8.4, 2018-03-06 -- Solve issues with non-ASCII searchs in 'from_words'.
 v3.8.5, 2018-06-14 -- NOT RELEASED.
 v3.9.1, 2018-07-02 -- Issue #51 (closing down of xISBN service).
 v3.9.2, 2018-09-28 -- Updated data.
-v3.9.3, 2018-10-05 -- make it easier to override 'WEBService.data'.
-v3.9.4, 2018-10-05 -- TENTATIVE
+v3.9.3, 2018-10-05 -- Make it easier to override 'WEBService.data'.
+v3.9.4, 2018-10-05 -- Fix bibjson and updated data.
