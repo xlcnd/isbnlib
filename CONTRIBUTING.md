@@ -69,12 +69,6 @@ for possible enhancements to the code.
 If you have some idea that is not there enter your own.
 Select some focused issue and enter some comments on how you plan to tackle it.
 
-Take a look at the project [isbntools](https://github.com/xlcnd/isbntools)
-and see if your code can be written as a *pluggin* (a new metadata provider) or as
-a *user script* [they are easier!]. For contributions to the core, you cannot use external
-libraries (except standard lib), and must be pure python. There is a package prefix
-`isbntools.contrib` where these requirements are not applied
-(download a [template package](https://github.com/xlcnd/isbntools/raw/dev/PLUGIN.zip)).
 
 ## Important
 
