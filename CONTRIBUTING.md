@@ -10,7 +10,7 @@ adventure in open-source.
 ## Main Steps
 
 1. Make sure you have a [GitHub account](https://github.com/signup/free)
-2. Submit a ticket for your issue or idea
+2. Submit a ticket for your issue or idea (**ONE ticket for each issue or idea**)
    ([help](https://www.youtube.com/watch?v=TJlYiMp8FuY)),
    on https://github.com/xlcnd/isbnlib/issues,
    (if possible wait for some feedback before any serious commitment... :)
@@ -29,6 +29,8 @@ adventure in open-source.
 9. **Push** your local changes to GitHub and make there a **pull request**
    ([help](https://help.github.com/articles/using-pull-requests/))
    **using `dev` as base branch** (by the way, we follow the *fork & pull* model with this small change).
+   **VERY IMPORTANT:** Don't put in the same pull request unrelated changes in the code, 
+   make one pull request for each set of related changes!
 
 > **NOTE**: *Travis*, *coverage*, *flake8* and  *pylint*, have already
 configuration files adapted to the project.
