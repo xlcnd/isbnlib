@@ -56,7 +56,7 @@ suggestions on the code at the
 
 **No** doc tests! Remember point 6 above.
 
-**Don't** submit pull requests without checking point 8!
+**Don't** submit pull requests without checking points 8 and 9!
 
 
 
