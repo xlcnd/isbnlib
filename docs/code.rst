@@ -59,7 +59,7 @@ Main Steps
    (if possible wait for some feedback before any serious commitment... :)
 3. Fork the repository on GitHub
 4. ``pip install -r requirements-dev.txt``
-5. Do your code... (**remember the code must run on python 2.6, 2.7, 3.3, 3.4, pypy
+5. Do your code... (**remember the code must run on python 2.7, 3.4+
    and be OS independent**) (you will find ``travis-ci.org`` very handy for this!)
 6. Write tests for your code using ``nose`` and put then in the directory ``isbnlib/test``
 7. Pass **all tests** and with **coverage > 90%**.
