@@ -19,6 +19,10 @@
     :target: https://ci.appveyor.com/project/xlcnd/isbnlib
     :alt: Windows Built Status
 
+.. image:: https://img.shields.io/github/issues/xlcnd/isbnlib/bug.svg?label=bugs&style=flat
+    :target: https://github.com/xlcnd/isbnlib/labels/bug
+    :alt: Bugs
+
 .. image:: https://img.shields.io/pypi/dm/isbnlib.svg?style=flat
     :target: https://pypi.org/project/isbnlib/
     :alt: PYPI Downloads
