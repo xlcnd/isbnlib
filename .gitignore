@@ -40,4 +40,4 @@ Makefile
 CONTRIB
 LIB
 .vscode/
-env/
+env
