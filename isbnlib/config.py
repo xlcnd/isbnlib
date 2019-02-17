@@ -28,6 +28,7 @@ apikeys = {}
 
 def add_apikey(service, apikey):  # pragma: no cover
     """Add API keys."""
+    global apikeys
     apikeys[service] = apikey
 
 
@@ -41,4 +42,5 @@ options = {
 
 def set_option(option, value):  # pragma: no cover
     """Set the value for option."""
+    global options
     options[option] = value
