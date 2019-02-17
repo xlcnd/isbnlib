@@ -17,6 +17,7 @@ services = {
     'openl': openl.query,
 }
 
+PROVIDERS = []
 
 def setdefaultservice(name):  # pragma: no cover
     """Set the default service."""
@@ -44,6 +45,8 @@ bibformatters = {
     'msword': lambda x: _fmtbib('msword', x),
 }  # pragma: no cover
 
+BIBFORMATS = []
+
 
 def setdefaultbibformatter(name):  # pragma: no cover
     """Set the default formatter."""
@@ -66,6 +69,10 @@ def load_plugins():  # pragma: no cover
                 add_service(entry.name, entry.load())
         except:
             pass
+    global PROVIDERS
+    _buf = list(services.keys())
+    _buf.remove('default')
+    PROVIDERS = sorted(_buf)
     # get formatters from entry_points
     if options['LOAD_FORMATTER_PLUGGINS']:
         try:
@@ -73,6 +80,11 @@ def load_plugins():  # pragma: no cover
                 add_bibformatter(entry.name, entry.load())
         except:
             pass
+    global BIBFORMATS
+    _buf = list(bibformatters.keys())
+    _buf.remove('labels')
+    _buf.remove('default')
+    BIBFORMATS = sorted(_buf)
 
 
 # load plugins on import
@@ -80,7 +92,6 @@ load_plugins()
 
 # CACHE
 metadata_cache = IMCache()  # should be an instance
-
 
 def set_cache(cache):  # pragma: no cover
     """Set cache for metadata."""
@@ -90,22 +101,7 @@ def set_cache(cache):  # pragma: no cover
 
 custom_cache = None  # should be an instance
 
-
 def set_custom_cache(cache):  # pragma: no cover
     """Set a 'spare' cache."""
     global custom_cache
     custom_cache = cache
-
-
-# TODO put PROVIDERS and BIBFORMATS inside load_plugins
-
-# PROVIDERS
-_buf = list(services.keys())
-_buf.remove('default')
-PROVIDERS = sorted(_buf)
-
-# BIBFORMATS
-_buf = list(bibformatters.keys())
-_buf.remove('labels')
-_buf.remove('default')
-BIBFORMATS = sorted(_buf)
