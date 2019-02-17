@@ -2,6 +2,7 @@ sudo: false
 language: python
 branches:
     only:
+    - /lazy-import/
     - v3.9.6
 matrix:
     include:
