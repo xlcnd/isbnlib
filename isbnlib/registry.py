@@ -21,13 +21,13 @@ services = {
 def setdefaultservice(name):  # pragma: no cover
     """Set the default service."""
     global services
-    services['default'] = services[name]
+    services['default'] = services[name.lower()]
 
 
 def add_service(name, query):  # pragma: no cover
     """Add a new service to services."""
     global services
-    services[name] = query
+    services[name.lower()] = query
 
 
 # FORMATTERS
@@ -48,13 +48,13 @@ bibformatters = {
 def setdefaultbibformatter(name):  # pragma: no cover
     """Set the default formatter."""
     global bibformatters
-    bibformatters['default'] = bibformatters[name]
+    bibformatters['default'] = bibformatters[name.lower()]
 
 
 def add_bibformatter(name, formatter):  # pragma: no cover
     """Add a new formatter to formatters."""
     global bibformatters
-    bibformatters[name] = formatter
+    bibformatters[name] = formatter.lower()
 
 
 def load_plugins():  # pragma: no cover
