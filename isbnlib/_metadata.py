@@ -3,11 +3,11 @@
 
 from ._core import EAN13
 from ._exceptions import NotRecognizedServiceError, NotValidISBNError
-from .registry import services
 
 
 def query(isbn, service='default', cache='default'):
     """Query services like Google Books (JSON API), ... for metadata."""
+    from .registry import services
     # validate inputs
     ean = EAN13(isbn)
     if not ean:
