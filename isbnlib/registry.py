@@ -97,6 +97,8 @@ def set_custom_cache(cache):  # pragma: no cover
     custom_cache = cache
 
 
+# TODO put PROVIDERS and BIBFORMATS inside load_plugins
+
 # PROVIDERS
 _buf = list(services.keys())
 _buf.remove('default')
