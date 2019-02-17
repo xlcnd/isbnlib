@@ -6,6 +6,7 @@ from pkg_resources import iter_entry_points
 from . import _goob as goob
 from . import _openl as openl
 from ._imcache import IMCache
+from .config import options
 from .dev._fmt import _fmtbib
 
 # SERVICES
@@ -59,17 +60,19 @@ def add_bibformatter(name, formatter):  # pragma: no cover
 def load_plugins():  # pragma: no cover
     """Load plugins with groups: isbnlib.metadata & isbnlib.formatters."""
     # get metadata plugins from entry_points
-    try:
-        for entry in iter_entry_points(group='isbnlib.metadata'):
-            add_service(entry.name, entry.load())
-    except:
-        pass
+    if options['LOAD_METADATA_PLUGGINS']:
+        try:
+            for entry in iter_entry_points(group='isbnlib.metadata'):
+                add_service(entry.name, entry.load())
+        except:
+            pass
     # get formatters from entry_points
-    try:
-        for entry in iter_entry_points(group='isbnlib.formatters'):
-            add_bibformatter(entry.name, entry.load())
-    except:
-        pass
+    if options['LOAD_FORMATTER_PLUGGINS']:
+        try:
+            for entry in iter_entry_points(group='isbnlib.formatters'):
+                add_bibformatter(entry.name, entry.load())
+        except:
+            pass
 
 
 # load plugins on import

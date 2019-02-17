@@ -31,10 +31,12 @@ def add_apikey(service, apikey):  # pragma: no cover
     apikeys[service] = apikey
 
 
-# TODO add options to load metadata and formatter pluggins
-
 # Generic Options
-options = {'VIAS_MERGE': 'parallel'}
+options = {
+    'VIAS_MERGE': 'parallel',
+    'LOAD_METADATA_PLUGGINS': True,
+    'LOAD_FORMATTER_PLUGGINS': True,
+}
 
 
 def set_option(option, value):  # pragma: no cover
