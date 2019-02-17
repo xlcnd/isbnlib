@@ -33,9 +33,9 @@ def add_apikey(service, apikey):  # pragma: no cover
 
 # Generic Options
 options = {
-    'VIAS_MERGE': 'parallel',
-    'LOAD_METADATA_PLUGGINS': True,
     'LOAD_FORMATTER_PLUGGINS': True,
+    'LOAD_METADATA_PLUGGINS': True,
+    'VIAS_MERGE': 'parallel',
 }
 
 
