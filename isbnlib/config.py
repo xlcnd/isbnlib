@@ -30,6 +30,7 @@ def set_option(option, value):  # pragma: no cover
     options[option.upper()] = value
 
 
+# TODO don't expose this directly! BREAKING CHANGE!
 # Timeouts
 URLOPEN_TIMEOUT = options.get('URLOPEN_TIMEOUT', 10)
 THREADS_TIMEOUT = options.get('THREADS_TIMEOUT', 12)
@@ -51,14 +52,8 @@ def setthreadstimeout(seconds):  # pragma: no cover
     THREADS_TIMEOUT = seconds
 
 
-LOAD_METADATA_PLUGINS = options.get('LOAD_METADATA_PLUGINS', True)
-LOAD_FORMATTER_PLUGINS = options.get('LOAD_FORMATTER_PLUGINS', True)
-
-
 def setloadplugins(boolean=True):
     """Set the value for all LOAD_XXX_PLUGINS."""
-    global options, LOAD_METADATA_PLUGINS, LOAD_FORMATTER_PLUGINS
+    global options
     set_option('LOAD_METADATA_PLUGINS', boolean)
     set_option('LOAD_FORMATTER_PLUGINS', boolean)
-    LOAD_METADATA_PLUGINS = boolean
-    LOAD_FORMATTER_PLUGINS = boolean
