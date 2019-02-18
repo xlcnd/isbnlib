@@ -34,8 +34,8 @@ def add_apikey(service, apikey):  # pragma: no cover
 
 # Generic Options
 options = {
-    'LOAD_FORMATTER_PLUGGINS': True,
-    'LOAD_METADATA_PLUGGINS': True,
+    'LOAD_FORMATTER_PLUGINS': True,
+    'LOAD_METADATA_PLUGINS': True,
     'VIAS_MERGE': 'parallel',
 }
 
@@ -44,3 +44,14 @@ def set_option(option, value):  # pragma: no cover
     """Set the value for option."""
     global options
     options[option.upper()] = value
+
+
+LOAD_METADATA_PLUGINS = options.get('LOAD_METADATA_PLUGINS', True)
+LOAD_FORMATTER_PLUGINS = options.get('LOAD_FORMATTER_PLUGINS', True)
+
+
+def setloadplugins(boolean=True):
+    """Set the value for LOAD_XXX_PLUGINS."""
+    global LOAD_METADATA_PLUGINS, LOAD_FORMATTER_PLUGINS
+    LOAD_METADATA_PLUGINS = boolean
+    LOAD_FORMATTER_PLUGINS = boolean
