@@ -130,9 +130,9 @@ Main Functions
     You can enter API keys
     with ``config.add_apikey(service, apikey)`` (see example below).
     The output can be formatted as ``bibtex``, ``csl`` (CSL-JSON), ``msword``, ``endnote``, ``refworks``,
-    ``opf`` or ``json`` (BibJSON) bibliographic formats with ``isbnlib.registry.bibformatters``.
+    ``opf`` or ``json`` (BibJSON) bibliographic formats with ``registry.bibformatters``.
     ``cache`` only allows two values: 'default' or None. You can change the kind of cache by using
-    ``isbnlib.registry.set_cache`` (see below).
+    ``registry.set_cache`` (see below).
     Now, you can extend the functionality of this function by adding pluggins, more metadata
     providers or new bibliographic formatters (check_ for available pluggins).
 
@@ -245,7 +245,14 @@ In ``isbnlib.dev.helpers`` you can find several methods, that we found very usef
 are only used in ``isbntools`` (*an app and framework* that uses ``isbnlib``).
 
 
-With ``isbnlib.registry`` you can change the metadata service to be used by default (``setdefaultservice``),
+With ``isbnlib.config`` you can read and set configuration options:
+change timeouts with ``seturlopentimeout`` and ``setthreadstimeout``,
+access api keys with ``apikeys`` and add new one with ``add_apikey``,
+access and set generic and user-defined options with ``options.get('OPTION1')`` and ``set_option``.
+
+
+Finally, from ``isbnlib.registry`` you can change the metadata service to be used by default
+(``setdefaultservice``),
 add a new service (``add_service``), access bibliographic formatters for metadata (``bibformatters``),
 set the default formatter (``setdefaultbibformatter``), add new formatters (``add_bibformatter``) and
 set a new cache (``set_cache``) (e.g. to switch off the chache ``set_cache(None)``).
@@ -253,13 +260,7 @@ The cache only works for calls through ``isbnlib.meta``. These changes only work
 so should be done always before calling other methods.
 
 
-Finally, from ``isbnlib.config`` you can read and set configuration options:
-change timeouts with ``seturlopentimeout`` and ``setthreadstimeout``,
-access api keys with ``apikeys`` and add new one with ``add_apikey`` and
-access and set generic and user-defined options with ``options`` and ``set_option``.
-
-
-Let us concretize the last point with a small example.
+Let us concretize these points with a small example.
 
 Suppose you want a small script to get metadata using ``Open Library`` formated in BibTeX.
 

@@ -154,8 +154,14 @@ exposed in ``isbnlib.dev`` whose name end in Error.
 In ``isbnlib.dev.helpers`` you can find several methods, that we found very useful, some of then
 are only used in ``isbntools`` (*an app and framework* that uses ``isbnlib``).
 
+With ``isbnlib.config`` you can read and set configuration options:
+change timeouts with ``seturlopentimeout`` and ``setthreadstimeout``,
+access api keys with ``apikeys`` and add new one with ``add_apikey``,
+access and set generic and user-defined options with ``options.get('OPTION1')`` and ``set_option``.
 
-With ``isbnlib.registry`` you can change the metadata service to be used by default (``setdefaultservice``),
+
+Finally, from ``isbnlib.registry`` you can change the metadata service to be used by default
+(``setdefaultservice``),
 add a new service (``add_service``), access bibliographic formatters for metadata (``bibformatters``),
 set the default formatter (``setdefaultbibformatter``), add new formatters (``add_bibformatter``) and
 set a new cache (``set_cache``) (e.g. to switch off the chache ``set_cache(None)``).
@@ -163,12 +169,7 @@ The cache only works for calls through ``isbnlib.meta``. These changes only work
 so should be done always before calling other methods.
 
 
-Finally, from ``isbnlib.config`` you can read and set configuration options:
-change timeouts with ``seturlopentimeout`` and ``setthreadstimeout``,
-access api keys with ``apikeys`` and add new one with ``add_apikey`` and
-access and set generic and user-defined options with ``options`` and ``set_option``.
-
-Let us concretize the last point with a small example.
+Let us concretize these points with a small example.
 
 Suppose you want a small script to get metadata using ``Open Library`` formated in BibTeX.
 
