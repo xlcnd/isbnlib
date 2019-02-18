@@ -99,12 +99,3 @@ def set_cache(cache):  # pragma: no cover
     """Set cache for metadata."""
     global metadata_cache
     metadata_cache = cache
-
-
-custom_cache = None  # should be an instance
-
-
-def set_custom_cache(cache):  # pragma: no cover
-    """Set a 'spare' cache."""
-    global custom_cache
-    custom_cache = cache
