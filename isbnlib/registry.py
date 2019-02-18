@@ -19,6 +19,7 @@ services = {
 
 PROVIDERS = []
 
+
 def setdefaultservice(name):  # pragma: no cover
     """Set the default service."""
     global services
@@ -93,6 +94,7 @@ load_plugins()
 # CACHE
 metadata_cache = IMCache()  # should be an instance
 
+
 def set_cache(cache):  # pragma: no cover
     """Set cache for metadata."""
     global metadata_cache
@@ -100,6 +102,7 @@ def set_cache(cache):  # pragma: no cover
 
 
 custom_cache = None  # should be an instance
+
 
 def set_custom_cache(cache):  # pragma: no cover
     """Set a 'spare' cache."""
