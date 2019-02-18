@@ -1,7 +1,6 @@
 version: '3.9.6.{build}'
 branches:
   only:
-    - /lazy-import/
     - /v3.9.6/
 cache:
     - '%LOCALAPPDATA%\pip\Cache'
