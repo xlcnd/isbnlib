@@ -51,7 +51,7 @@ LOAD_FORMATTER_PLUGINS = options.get('LOAD_FORMATTER_PLUGINS', True)
 
 
 def setloadplugins(boolean=True):
-    """Set the value for LOAD_XXX_PLUGINS."""
+    """Set the value for all LOAD_XXX_PLUGINS."""
     global options, LOAD_METADATA_PLUGINS, LOAD_FORMATTER_PLUGINS
     set_option('LOAD_METADATA_PLUGINS', boolean)
     set_option('LOAD_FORMATTER_PLUGINS', boolean)
