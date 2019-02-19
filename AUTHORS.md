@@ -16,7 +16,7 @@ Deirdre Connolly (@dconnolly) <durumcrustulum@gmail.com>
 
 Daniel Himmelstein (@dhimmel) <daniel.himmelstein@gmail.com>
 
-
+Robert Schütz (@dotlambda) <robert.schuetz@stud.uni-heidelberg.de>
 
 
 
