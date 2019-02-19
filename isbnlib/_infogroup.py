@@ -30,3 +30,6 @@ def infogroup(isbn):
         # stop if identifier is found
         if iid in ident:
             return dtxt[iid]
+    LOGGER.debug('Identifier not found for %s (probably not issued yet!)',
+                 isbn)
+    return None
