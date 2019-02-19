@@ -34,7 +34,7 @@ install:
 - if [[ $TRAVIS_OS_NAME == 'osx' ]]; then python3 --version; fi
 - if [[ $TRAVIS_OS_NAME == 'osx' ]]; then pip3 install tox; fi
 - if [[ $TRAVIS_OS_NAME == 'linux' ]]; then pip install tox; fi
-- if [[ $TOXENV == 'checkers' ]]; then pip install flake8 pep8-naming; fi
+#- if [[ $TOXENV == 'checkers' ]]; then pip install flake8 flake8-commas flake8-import-order pep8-naming; fi
 - if [[ $TOXENV == 'py27' ]]; then pip install coveralls; fi
 - if [[ $DOC == 'sphinx' ]]; then pip install sphinx; fi
 #- if [[ $TRAVIS_PULL_REQUEST != 'false' ]]; then pip install yapf; fi
