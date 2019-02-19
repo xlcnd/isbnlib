@@ -39,6 +39,6 @@ script:
 - if [[ ! -z $TOXENV ]]; then tox -e $TOXENV; fi
 - if [[ $DOC == 'sphinx' ]]; then cd docs; sphinx-build -n -b html -d _build/.doctrees . _build/html; fi
 after_success:
-- if [[ $TOXENV == 'py36' ]] && [[ $TRAVIS_OS_NAME == 'linux' ]]; then pip install coveralls coverage && coveralls; fi
+- if [[ $TOXENV == 'py27' ]] && [[ $TRAVIS_OS_NAME == 'linux' ]]; then pip install coveralls && coveralls; fi
 notifications:
   email: false
