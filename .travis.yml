@@ -1,42 +1,42 @@
 sudo: false
 language: python
 branches:
-    only:
-    - v3.9.6
+  only:
+  - dev
+  - v3.9.6
 matrix:
-    include:
-    - os: osx
-      language: generic
-      env: TOXENV=py37
-    - python: "2.7"
-      env: TOXENV=py27
-    - python: "3.6"
-      env: TOXENV=py36
-    - python: "3.5"
-      env: TOXENV=py35
-    - python: "3.4"
-      env: TOXENV=py34
-    - python: "nightly"
-      env: TOXENV=nightly
-    - python: "2.7"
-      env: TOXENV=checkers
-    - python: "2.7"
-      env: DOC=sphinx
-    allow_failures:
-    - env: TOXENV=nightly
-    - env: TOXENV=py34
-    - env: TOXENV=checkers
+  include:
+  - os: osx
+    language: generic
+    env: TOXENV=py37
+  - python: "2.7"
+    env: TOXENV=py27
+  - python: "3.6"
+    env: TOXENV=py36
+  - python: "3.5"
+    env: TOXENV=py35
+  - python: "3.4"
+    env: TOXENV=py34
+  - python: "nightly"
+    env: TOXENV=nightly
+  - python: "2.7"
+    env: TOXENV=checkers
+  - python: "2.7"
+    env: DOC=sphinx
+  allow_failures:
+  - env: TOXENV=nightly
+  - env: TOXENV=py34
+  - env: TOXENV=checkers
 install:
 - if [[ $TRAVIS_OS_NAME == 'osx' ]]; then brew upgrade python && python --version; fi
 - if [[ $TRAVIS_OS_NAME == 'osx' ]]; then pip3 install tox; fi
 - if [[ $TRAVIS_OS_NAME == 'linux' ]]; then pip install tox; fi
-- if [[ $TOXENV == 'checkers' ]]; then pip install flake8; fi
-- if [[ $TOXENV == 'checkers' ]]; then pip install pep8-naming; fi
+- if [[ $TOXENV == 'checkers' ]]; then pip install flake8 pep8-naming; fi
 - if [[ $TOXENV == 'py27' ]]; then pip install coveralls; fi
 - if [[ $DOC == 'sphinx' ]]; then pip install sphinx; fi
-- if [[ $TRAVIS_PULL_REQUEST != 'false' ]]; then pip install yapf; fi
+#- if [[ $TRAVIS_PULL_REQUEST != 'false' ]]; then pip install yapf; fi
 script:
-- if [[ $TRAVIS_PULL_REQUEST != 'false' ]] && [[ $TOXENV == 'checkers' ]]; then yapf -i --recursive isbnlib/*.py; fi
+#- if [[ $TRAVIS_PULL_REQUEST != 'false' ]] && [[ $TOXENV == 'checkers' ]]; then yapf -i --recursive isbnlib/*.py; fi
 - if [[ ! -z $TOXENV ]]; then tox -e $TOXENV; fi
 - if [[ $DOC == 'sphinx' ]]; then cd docs; sphinx-build -n -b html -d _build/.doctrees . _build/html; fi
 after_success:
