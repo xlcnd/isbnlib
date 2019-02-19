@@ -7,12 +7,12 @@ from ._exceptions import NotRecognizedServiceError, NotValidISBNError
 
 def query(isbn, service='default', cache='default'):
     """Query services like Google Books (JSON API), ... for metadata."""
-    from .registry import services
     # validate inputs
     ean = EAN13(isbn)
     if not ean:
         raise NotValidISBNError(isbn)
     isbn = ean
+    from .registry import services
     if service != 'default' and service not in services:  # pragma: no cover
         raise NotRecognizedServiceError(service)
     # set cache and get metadata
