@@ -30,7 +30,7 @@ def query(isbn):
                 parser=None)
             isbnlikes.extend(get_isbnlike(txt))
         isbns = [get_canonical_isbn(isbnlike) for isbnlike in isbnlikes]
-        isbns = sorted(list(set([u(n) for n in isbns if n])))  # qa: py26
+        isbns = sorted(list((u(n) for n in isbns if n)))
     except Exception:  # pragma: no cover, qa: FIXME
         LOGGER.debug('No data from Open Library for isbn %s', isbn)
     return isbns
