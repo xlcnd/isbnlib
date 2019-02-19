@@ -37,10 +37,7 @@ def normalize_space(item):
 
 
 def titlecase(st):
-    """Format string in title case (for ascii).
-
-    Only changes the first character of each word.
-    """
+    """Format string in 'title case' (for ascii)."""
     try:
         st.encode('ascii')
         return re.sub(r"[A-Za-z]+('[A-Za-z]+)?",

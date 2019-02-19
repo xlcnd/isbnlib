@@ -13,7 +13,7 @@ SERVICE_URL = 'https://www.googleapis.com/books/v1/volumes?q=isbn+{isbn}'\
 
 
 def cover(isbn):
-    """Main entry point for cover."""
+    """Get the urls for covers."""
     from .registry import metadata_cache  # <-- dynamic
     # check the cache first
     cache = metadata_cache

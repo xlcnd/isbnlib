@@ -40,6 +40,7 @@ class IMCache(MutableMapping):
     __nonzero__ = __bool__
 
     def __call__(self, k):
+        """Implement function call operator."""
         try:
             return self.__getitem__(k)
         except KeyError:

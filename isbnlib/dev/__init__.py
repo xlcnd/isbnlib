@@ -1,4 +1,6 @@
 # -*- coding: utf-8 -*-
+"""Interface for namespace 'isbnlib.dev'."""
+
 from . import helpers, vias
 from ._data import Metadata, stdmeta
 from ._exceptions import (

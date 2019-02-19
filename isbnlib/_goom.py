@@ -41,7 +41,7 @@ def _mapper(record):
         else:  # pragma: no cover
             canonical['Year'] = u('')
         canonical['Language'] = record.get('language', u(''))
-    except:  # pragma: no cover
+    except Exception:  # pragma: no cover
         raise RecordMappingError(isbn)
     # call stdmeta for extra cleanning and validation
     return stdmeta(canonical)
@@ -52,7 +52,7 @@ def _records(words, data):
     # put the selected data in records
     try:
         recs = [d['volumeInfo'] for d in data['items']]
-    except:  # pragma: no cover
+    except Exception:  # pragma: no cover
         LOGGER.debug('NoDataForSelectorError for (%s)', words)
         raise NoDataForSelectorError(words)
     # map canonical <- records

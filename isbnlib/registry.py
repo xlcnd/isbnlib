@@ -68,7 +68,7 @@ def load_plugins():  # pragma: no cover
         try:
             for entry in iter_entry_points(group='isbnlib.metadata'):
                 add_service(entry.name, entry.load())
-        except:
+        except Exception:
             pass
     global PROVIDERS
     _buf = list(services.keys())
@@ -79,7 +79,7 @@ def load_plugins():  # pragma: no cover
         try:
             for entry in iter_entry_points(group='isbnlib.formatters'):
                 add_bibformatter(entry.name, entry.load())
-        except:
+        except Exception:
             pass
     global BIBFORMATS
     _buf = list(bibformatters.keys())

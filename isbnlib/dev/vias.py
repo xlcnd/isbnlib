@@ -9,12 +9,12 @@ LOGGER = logging.getLogger(__name__)
 
 
 def serial(named_tasks, arg):
-    """Serial calls."""
+    """Use serial calls."""
     results = {}
     for name, task in named_tasks:
         try:
             results[name] = task(arg)
-        except:  # pragma: no cover
+        except Exception:  # pragma: no cover
             LOGGER.debug("No result in 'serial' for %s[%s](%s)", task, name,
                          arg)
             results[name] = None
@@ -22,14 +22,14 @@ def serial(named_tasks, arg):
 
 
 def parallel(named_tasks, arg):
-    """Threaded calls."""
+    """Use threaded calls."""
     from threading import Thread
     results = {}
 
     def _worker(name, task, arg):
         try:
             results[name] = task(arg)
-        except:  # pragma: no cover
+        except Exception:  # pragma: no cover
             LOGGER.debug("No result in 'parallel' for %s[%s](%s)", task, name,
                          arg)
             results[name] = None
@@ -42,7 +42,7 @@ def parallel(named_tasks, arg):
 
 
 def multi(named_tasks, arg):
-    """Multiprocessing: using several cores (if available)."""
+    """Use several cores (if available)."""
     from multiprocessing import Process, Queue
     results = {}
     q = Queue()
@@ -50,7 +50,7 @@ def multi(named_tasks, arg):
     def _worker(name, task, arg, q):
         try:  # pragma: no cover
             q.put((name, task(arg)))
-        except:  # pragma: no cover
+        except Exception:  # pragma: no cover
             LOGGER.debug("No result in 'multi' for %s[%s](%s)", task, name,
                          arg)
             q.put((name, None))

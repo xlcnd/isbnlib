@@ -38,5 +38,5 @@ def goo_desc(isbn):
         if content and cache is not None:  # pragma: no cover
             cache[key] = content
         return content
-    except:  # pragma: no cover
+    except Exception:  # pragma: no cover
         LOGGER.debug('No description for %s', isbn)

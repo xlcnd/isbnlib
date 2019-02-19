@@ -97,6 +97,6 @@ class Metadata(object):
 
 
 def stdmeta(records):
-    """Function API to the class."""
+    """Transform data using class Metadata."""
     data = Metadata(records)
     return data.value

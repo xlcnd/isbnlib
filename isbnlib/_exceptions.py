@@ -5,11 +5,11 @@ import sys
 
 
 def quiet_errors(exc_type, exc_value, traceback):
-    """An error format suitable for end user scripts.
+    """Define error format suitable for end user scripts.
 
-       Usage: enter the following lines in your script
-              from isbnlib import quiet_errors
-              sys.excepthook = quiet_errors
+    Usage: enter the following lines in your script
+    from isbnlib import quiet_errors
+    sys.excepthook = quiet_errors
     """
     sys.stderr.write('Error: %s\n' % exc_value)  # pragma: no cover
 
@@ -22,6 +22,7 @@ class ISBNLibException(Exception):
     """
 
     def __str__(self):
+        """Print message."""
         return getattr(self, 'message', '')  # pragma: no cover
 
 
@@ -29,6 +30,7 @@ class NotRecognizedServiceError(ISBNLibException):
     """Exception raised when the service is not in config.py."""
 
     def __init__(self, service):
+        """Define message."""
         self.message = "(%s) is not a recognized service" % service
 
 
@@ -36,6 +38,7 @@ class NotValidISBNError(ISBNLibException):
     """Exception raised when the ISBN is not valid."""
 
     def __init__(self, isbnlike):
+        """Define message."""
         self.message = "(%s) is not a valid ISBN" % isbnlike
 
 
@@ -46,4 +49,5 @@ class PluginNotLoadedError(ISBNLibException):  # pragma: no cover
     """
 
     def __init__(self, path):
+        """Define message."""
         self.message = "plugin (%s) wasn't loaded" % path

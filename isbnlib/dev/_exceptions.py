@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-""" Exceptions for isbnlib.dev
+"""Exceptions for 'isbnlib.dev'.
 
 The classes in isbnlib.dev should use the exceptions below.
 """
