@@ -15,12 +15,6 @@ or:
 
 .. code-block:: bash
 
-    $ pip install --user isbnlib
-
-or:
-
-.. code-block:: bash
-
     $ pip install isbnlib-3.9.6.tar.gz
 
 (first you have to download the file!)

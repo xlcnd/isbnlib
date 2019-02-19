@@ -180,12 +180,6 @@ command with ``sudo``):
 
     $ pip install isbnlib
 
-or:
-
-.. code-block:: bash
-
-    $ pip install --user isbnlib
-
 
 If you use linux systems, you can install using your distribution package
 manager (all major distributions have packages ``python-isbnlib``
