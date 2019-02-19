@@ -62,3 +62,4 @@ def editions(isbn, service='merge'):
         return oed(isbn)
     if service == 'thingl':
         return ted(isbn)
+    return None
