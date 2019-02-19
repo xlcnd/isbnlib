@@ -33,7 +33,7 @@ install:
 - if [[ $TRAVIS_OS_NAME == 'osx' ]]; then python3 --version; fi
 - if [[ $TRAVIS_OS_NAME == 'osx' ]]; then pip3 install tox; fi
 - if [[ $TRAVIS_OS_NAME == 'linux' ]]; then pip install tox; fi
-- if [[ $TOXENV == 'py36' ]] and [[ $TRAVIS_OS_NAME == 'linux' ]]; then pip install coveralls; fi
+- if [[ $TOXENV == 'py36' ]] && [[ $TRAVIS_OS_NAME == 'linux' ]]; then pip install coveralls; fi
 - if [[ $DOC == 'sphinx' ]]; then pip install sphinx; fi
 script:
 #- if [[ $TRAVIS_PULL_REQUEST != 'false' ]]; then ...; fi
