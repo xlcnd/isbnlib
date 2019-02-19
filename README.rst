@@ -184,7 +184,7 @@ or:
 
 .. code-block:: bash
 
-    $ easy_install isbnlib
+    $ pip install --user isbnlib
 
 
 If you use linux systems, you can install using your distribution package

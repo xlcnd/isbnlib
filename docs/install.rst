@@ -15,7 +15,7 @@ or:
 
 .. code-block:: bash
 
-    $ easy_install isbnlib
+    $ pip install --user isbnlib
 
 or:
 
