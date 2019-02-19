@@ -26,13 +26,12 @@ matrix:
   - python: "2.7"
     env: DOC=sphinx
   allow_failures:
-  - env: TOXENV=py37
   - env: TOXENV=nightly
+  - env: TOXENV=py37
   - env: TOXENV=py34
-  - env: TOXENV=checkers
 install:
 #- if [[ $TRAVIS_OS_NAME == 'osx' ]]; then brew upgrade python && python --version; fi
-- if [[ $TRAVIS_OS_NAME == 'osx' ]]; then python --version; fi
+- if [[ $TRAVIS_OS_NAME == 'osx' ]]; then python3 --version; fi
 - if [[ $TRAVIS_OS_NAME == 'osx' ]]; then pip3 install tox; fi
 - if [[ $TRAVIS_OS_NAME == 'linux' ]]; then pip install tox; fi
 - if [[ $TOXENV == 'checkers' ]]; then pip install flake8 pep8-naming; fi
