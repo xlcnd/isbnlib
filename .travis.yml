@@ -33,13 +33,12 @@ install:
 - if [[ $TRAVIS_OS_NAME == 'osx' ]]; then python3 --version; fi
 - if [[ $TRAVIS_OS_NAME == 'osx' ]]; then pip3 install tox; fi
 - if [[ $TRAVIS_OS_NAME == 'linux' ]]; then pip install tox; fi
-- if [[ $TOXENV == 'py36' ]] && [[ $TRAVIS_OS_NAME == 'linux' ]]; then pip3 install coveralls; fi
 - if [[ $DOC == 'sphinx' ]]; then pip install sphinx; fi
 script:
 #- if [[ $TRAVIS_PULL_REQUEST != 'false' ]]; then ...; fi
 - if [[ ! -z $TOXENV ]]; then tox -e $TOXENV; fi
 - if [[ $DOC == 'sphinx' ]]; then cd docs; sphinx-build -n -b html -d _build/.doctrees . _build/html; fi
 after_success:
-- if [[ $TOXENV == 'py36' ]] && [[ $TRAVIS_OS_NAME == 'linux' ]]; then coveralls; fi
+- if [[ $TOXENV == 'py36' ]] && [[ $TRAVIS_OS_NAME == 'linux' ]]; then pip install coveralls && coveralls; fi
 notifications:
   email: false
