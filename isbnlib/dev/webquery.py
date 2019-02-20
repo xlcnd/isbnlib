@@ -20,11 +20,11 @@ class WEBQuery(object):
 
     T = {'id': timestamp()}  # noqa
 
-    def __init__(self, service_url, ua=UA):
+    def __init__(self, service_url, ua=UA, throttling=THROTTLING):
         """Initialize & call webservice."""
         srv = service_url[8:20]
         last = WEBQuery.T[srv] if srv in WEBQuery.T else 0.0
-        wait = 0 if timestamp() - last > THROTTLING else THROTTLING
+        wait = 0 if timestamp() - last > throttling else throttling
         sleep(wait)
         self.url = service_url
         self.data = webservice.query(service_url, ua)
@@ -52,8 +52,12 @@ class WEBQuery(object):
         return parser(self.data)  # <-- data is now unicode
 
 
-def query(url, user_agent=UA, data_checker=None, parser=json.loads):
+def query(url,
+          user_agent=UA,
+          data_checker=None,
+          parser=json.loads,
+          throttling=THROTTLING):
     """Put call and return the data from the web service."""
-    wq = WEBQuery(url, user_agent)
+    wq = WEBQuery(url, user_agent, throttling)
     return wq.parse_data(parser) \
         if wq.check_data(data_checker) else None
