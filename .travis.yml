@@ -4,6 +4,7 @@ branches:
   only:
   - dev
   - v3.9.6
+  - master
 matrix:
   include:
   - os: osx
