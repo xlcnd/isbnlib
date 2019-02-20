@@ -25,5 +25,8 @@ If applicable, add screenshots to help explain your problem.
  - Python version [e.g. 3.6.5]
  - isbnlib version [e.g. 3.8.5]
 
+**How did you install isbnlib?**
+[e.g. `pip install isbnlib`]
+
 **Additional context**
 Add any other context about the problem here.
