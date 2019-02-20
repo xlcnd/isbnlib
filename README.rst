@@ -289,7 +289,7 @@ If you want to develop a plugin, start with this template_ and follow the instru
 at goob_.
 
 
-Remember that plugins **must** support python 2.7 and python 3.4+ (see python-future.org_).
+Remember that plugins **must** support python 2.7 and python 3.5+ (see python-future.org_).
 
 
 
