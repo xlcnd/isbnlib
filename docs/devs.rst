@@ -233,15 +233,9 @@ The original quality of metadata, at the several services, is not very good!
 If you need high quality metadata in your app, the only solution is to use
 *polling & merge* of several providers **and** a **lot** of cleaning and standardization
 for fields like ``Authors`` and ``Publisher``.
-A *simple merge* provider is now the default in ``isbnlib.meta``.
-It gives priority to ``wcat`` but overwrites the ``Authors``, ``Publisher`` and ``Year``
-fields with values from ``goob`` (if available) or ``openl``.
-Uses the ``merge`` method of ``Metadata`` and *parallel* calls to services.
 
-You can change that by using ``vias``'s other methods
-(e.g. ``isbnlib.config.set_option('VIAS_MERGE', 'multi')``.
+You can write your own *merging scheme* by creating a new provider.
 
-You can write your own *merging scheme* by creating a new provider (see_ ``merge`` for an example).
 
 .. note:: These classes are optimized for one-calls to services and not for batch calls.
 
@@ -260,7 +254,6 @@ framework to further developement, take a look at isbntools_.
 
 
 
-.. _see: https://github.com/xlcnd/isbnlib/blob/master/isbnlib/_merge.py
 
 .. _GitHub: https://github.com/xlcnd/isbnlib
 
