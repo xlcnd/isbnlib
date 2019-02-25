@@ -11,8 +11,6 @@ A clear and concise description of what the bug is.
 Steps to reproduce the behavior:
 1. Run this code '...'
 2. Use this argument on function '....'
-3. I have the following exception '....'
-4. I see this in the log '....' 
 
 **Expected behavior**
 A clear and concise description of what you expected to happen.
