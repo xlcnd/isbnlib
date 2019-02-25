@@ -25,9 +25,9 @@ matrix:
   - python: "3.6"
     env: DOC=sphinx
   - python: "3.6"
-    env: TOXENV=sphinx
+    env: TOXENV=speed
   allow_failures:
-  - env: TOXENV=speed
+  - env: TOXENV=sphinx
 install:
 #- if [[ $TRAVIS_OS_NAME == 'osx' ]]; then brew upgrade python && python3 --version; fi
 - if [[ $TRAVIS_OS_NAME == 'osx' ]]; then python3 --version; fi
