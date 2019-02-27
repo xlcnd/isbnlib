@@ -32,7 +32,7 @@
 Warning
 =======
 
-    The service xISBN was decommissioned (see issue 51_)!
+    **Breaking Change** The service xISBN was decommissioned (see issue 51_)!
 
 
 
