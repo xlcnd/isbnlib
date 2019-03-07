@@ -14,6 +14,9 @@ Search/Browse the code at sourcegraph_ or github_
 Status
 ------
 
+.. image:: https://img.shields.io/maintenance/yes/2019.svg
+    :target: https://github.com/xlcnd/isbnlib
+    :alt: Maintenance
 
 .. image:: https://img.shields.io/badge/Sourcegraph-Status-blue.svg
     :target: https://sourcegraph.com/github.com/xlcnd/isbnlib
