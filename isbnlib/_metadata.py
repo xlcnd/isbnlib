@@ -12,6 +12,7 @@ def query(isbn, service='default', cache='default'):
     if not ean:
         raise NotValidISBNError(isbn)
     isbn = ean
+    # only import when needed (code splitting)
     from .registry import services
     if service != 'default' and service not in services:  # pragma: no cover
         raise NotRecognizedServiceError(service)
