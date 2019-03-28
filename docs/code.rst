@@ -42,6 +42,10 @@ Status
     :target: https://pypi.org/project/isbnlib/
     :alt: PYPI Downloads
 
+.. image:: https://img.shields.io/github/stars/xlcnd/isbnlib.svg?style=social
+    :target: https://github.com/xlcnd/isbnlib/stargazers
+    :alt: Stars
+
 
 -------------------------------------------------------------------------------------------------------
 
