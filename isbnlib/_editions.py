@@ -55,13 +55,24 @@ def editions(isbn, service='merge'):
         LOGGER.critical('%s is not a recognized editions provider', service)
         raise NotRecognizedServiceError(service)
 
+    from .registry import metadata_cache
+    cache = metadata_cache
+    key = isbn + service
+    cached = cache.get(key)
+    if cached:
+        return cached
+
     if service == 'merge':
-        return fake_provider_merge(isbn)
+        eds = fake_provider_merge(isbn)
     if service == 'any':
-        return fake_provider_any(isbn)
+        eds = fake_provider_any(isbn)
 
     if service == 'openl':
-        return oed(isbn)
+        eds = oed(isbn)
     if service == 'thingl':
-        return ted(isbn)
+        eds = ted(isbn)
+
+    if eds:
+        cache[key] = eds
+        return eds
     return None
