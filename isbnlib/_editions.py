@@ -13,6 +13,8 @@ PROVIDERS = ('any', 'merge', 'openl', 'thingl')
 TRUEPROVIDERS = ('openl', 'thingl')  # <-- by priority
 LOGGER = logging.getLogger(__name__)
 
+# TODO use the cache... the most costly operation is NOT cached!
+
 
 def fake_provider_any(isbn):
     """Fake provider 'any' service."""
