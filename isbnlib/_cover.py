@@ -36,4 +36,4 @@ def cover(isbn):
         return lnks
     except (KeyError, IndexError):  # pragma: no cover
         LOGGER.debug('No cover img data for %s', isbn)
-    return []
+    return {}
