@@ -57,7 +57,7 @@ def editions(isbn, service='merge'):
 
     from .registry import metadata_cache
     cache = metadata_cache
-    key = isbn + service
+    key = 'ed'+ isbn + service
     cached = cache.get(key)
     if cached:
         return cached
