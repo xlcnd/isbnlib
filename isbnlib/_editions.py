@@ -75,4 +75,4 @@ def editions(isbn, service='merge'):
     if eds:
         cache[key] = eds
         return eds
-    return None
+    return []
