@@ -13,8 +13,6 @@ PROVIDERS = ('any', 'merge', 'openl', 'thingl')
 TRUEPROVIDERS = ('openl', 'thingl')  # <-- by priority
 LOGGER = logging.getLogger(__name__)
 
-# TODO use the cache... the most costly operation is NOT cached!
-
 
 def fake_provider_any(isbn):
     """Fake provider 'any' service."""
@@ -57,7 +55,7 @@ def editions(isbn, service='merge'):
 
     from .registry import metadata_cache
     cache = metadata_cache
-    key = 'ed'+ isbn + service
+    key = 'ed' + isbn + service
     cached = cache.get(key)
     if cached:
         return cached
