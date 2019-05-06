@@ -56,21 +56,26 @@ def editions(isbn, service='merge'):
     from .registry import metadata_cache
     cache = metadata_cache
     key = 'ed' + isbn + service
-    cached = cache.get(key)
-    if cached:
-        return cached
+    # some kinds of cache don't implement get!
+    # so don't use cache.get(key)
+    # BUG #58
+    try:
+        if cache[key]:
+            return cache[key]
+        else:  # pragma: no cover
+            raise KeyError  # <-- IMPORTANT: "caches don't return error"!
+    except KeyError:
+        if service == 'merge':
+            eds = fake_provider_merge(isbn)
+        if service == 'any':
+            eds = fake_provider_any(isbn)
 
-    if service == 'merge':
-        eds = fake_provider_merge(isbn)
-    if service == 'any':
-        eds = fake_provider_any(isbn)
+        if service == 'openl':
+            eds = oed(isbn)
+        if service == 'thingl':
+            eds = ted(isbn)
 
-    if service == 'openl':
-        eds = oed(isbn)
-    if service == 'thingl':
-        eds = ted(isbn)
-
-    if eds:
-        cache[key] = eds
-        return eds
+        if eds:
+            cache[key] = eds
+            return eds
     return []
