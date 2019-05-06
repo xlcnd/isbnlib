@@ -47,4 +47,4 @@ v3.9.4, 2019-01-18 -- Fix bibjson and updated data.
 v3.9.5, 2019-02-10 -- PR #53 and updated data.
 v3.9.6, 2019-02-24 -- Performance improvements (close #55).
 v3.9.7, 2019-05-06 -- Editions is now cached and consistent return types.
-v3.9.8, 2019-05-06 -- Fix bug on 'editions'.
+v3.9.8, 2019-05-06 -- Fix bug #58 on 'editions'.
