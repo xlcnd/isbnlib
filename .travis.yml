@@ -2,7 +2,7 @@ sudo: false
 language: python
 branches:
   only:
-    - v3.9.8
+    - v3.9.9
 matrix:
   include:
     - os: osx
