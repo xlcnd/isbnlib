@@ -32,4 +32,4 @@ def query(isbn, service='default', cache='default'):
         meta = services[service](isbn)
         if meta:
             cache[key] = meta
-        return meta if meta else None
+        return meta if meta else {}
