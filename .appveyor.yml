@@ -2,6 +2,7 @@ version: '3.9.8.{build}'
 branches:
   only:
     - /v3.9.8/
+    - dev
 cache:
   - '%LOCALAPPDATA%\pip\Cache'
 environment:
