@@ -35,5 +35,5 @@ def query(isbn):
     if not data:  # pragma: no cover
         LOGGER.debug('No data from ThingISBN for isbn %s', isbn)
         data = []
-    data.append(EAN13)
+    data.append(EAN13(isbn))
     return data
