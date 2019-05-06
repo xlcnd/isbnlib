@@ -7,15 +7,15 @@
     :target: https://isbnlib.readthedocs.org/en/latest/
     :alt: Documentation Status
 
-.. image:: https://coveralls.io/repos/github/xlcnd/isbnlib/badge.svg?branch=v3.9.7
-    :target: https://coveralls.io/github/xlcnd/isbnlib?branch=v3.9.7
+.. image:: https://coveralls.io/repos/github/xlcnd/isbnlib/badge.svg?branch=v3.9.8
+    :target: https://coveralls.io/github/xlcnd/isbnlib?branch=v3.9.8
     :alt: Coverage Status
 
-.. image:: https://travis-ci.org/xlcnd/isbnlib.svg?branch=v3.9.7
+.. image:: https://travis-ci.org/xlcnd/isbnlib.svg?branch=v3.9.8
     :target: https://travis-ci.org/xlcnd/isbnlib
     :alt: Built Status
 
-.. image:: https://ci.appveyor.com/api/projects/status/github/xlcnd/isbnlib?branch=v3.9.7&svg=true
+.. image:: https://ci.appveyor.com/api/projects/status/github/xlcnd/isbnlib?branch=v3.9.8&svg=true
     :target: https://ci.appveyor.com/project/xlcnd/isbnlib
     :alt: Windows Built Status
 
