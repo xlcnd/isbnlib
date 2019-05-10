@@ -90,6 +90,7 @@ def load_plugins():  # pragma: no cover
 
 # load plugins on import
 load_plugins()
+del load_plugins
 
 # CACHE
 metadata_cache = IMCache()  # should be an instance
