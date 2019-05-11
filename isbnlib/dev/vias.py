@@ -8,7 +8,7 @@ from .. import config
 LOGGER = logging.getLogger(__name__)
 
 
-def serial(named_tasks, arg):
+def serial(named_tasks, arg):  # pragma: no cover
     """Use serial calls."""
     results = {}
     for name, task in named_tasks:
