@@ -51,7 +51,7 @@ def setthreadstimeout(seconds):  # pragma: no cover
     THREADS_TIMEOUT = seconds
 
 
-def setloadplugins(boolean=True):
+def setloadplugins(boolean=True):  # pragma: no cover
     """Set the value for all LOAD_XXX_PLUGINS."""
     global options
     set_option('LOAD_METADATA_PLUGINS', boolean)

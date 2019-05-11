@@ -41,7 +41,7 @@ def parallel(named_tasks, arg):
     return results
 
 
-def multi(named_tasks, arg):
+def multi(named_tasks, arg):  # pragma: no cover
     """Use several cores (if available)."""
     from multiprocessing import Process, Queue
     results = {}
