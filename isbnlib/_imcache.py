@@ -30,6 +30,9 @@ class IMCache(MutableMapping):
             self.popitem()
         self.d[k] = v
 
+    def __contains__(self, key):
+        return key in self.d
+
     def __delitem__(self, k):
         del self.d[k]
 
