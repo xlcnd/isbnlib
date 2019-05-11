@@ -28,3 +28,7 @@ def test_ext_info():
     """Test 'info' language/country function."""
     assert_equals(info('9524712946'), 'Finland')
     assert_raises(Exception, info, '')
+
+def test_ext_info():
+    """Test 'info' not issued ISBN."""
+    assert_equals(info('9789999999991'), None)
