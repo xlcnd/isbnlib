@@ -44,7 +44,9 @@ repos:
   - id: radon
     name: 'Caculating Maintainability Index'
     entry: radon
-    args: [mi]
+    args: ["mi -s"]
 #   entry: radon mi isbnlib -s -e "*_data/*"
     language: python
-    additional_dependencies: [radon]
+    'types': [python]
+    require_serial: false
+    additional_dependencies: []
