@@ -12,6 +12,7 @@ FIELDS = ('ISBN-13', 'Title', 'Authors', 'Publisher', 'Year', 'Language')
 LOGGER = logging.getLogger(__name__)
 
 
+# pylint: disable=useless-object-inheritance
 class Metadata(object):
     """Class for metadata objects."""
 
@@ -19,7 +20,7 @@ class Metadata(object):
         """Initialize attributes."""
         self._content = None
         self._set_empty()
-        if record:
+        if record:  # pragma: no cover
             self._content.update((k, v) for k, v in list(record.items()))
             if not self._validate():
                 self._set_empty()

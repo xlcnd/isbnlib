@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 # flake8: noqa
+# pylint: skip-file
 d = {
     '978-0': 'English language',
     '978-1': 'English language',
