@@ -43,7 +43,8 @@ repos:
   hooks:
   - id: radon
     name: 'Caculating Maintainability Index'
-    entry: radon mi -s
+    entry: radon
+    args: [mi]
 #   entry: radon mi isbnlib -s -e "*_data/*"
     language: python
     additional_dependencies: [radon]
