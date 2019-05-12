@@ -31,6 +31,7 @@ repos:
   - id: trailing-whitespace
     args: [--markdown-linebreak-ext=md]
     exclude: '.*\.md'
+  - id: requirements-txt-fixer
   - id: flake8
     name: 'Lint and check style with Flake8'
 - repo: https://github.com/pre-commit/mirrors-pylint
