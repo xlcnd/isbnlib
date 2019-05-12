@@ -13,6 +13,11 @@ repos:
   hooks:
   - id: isort
     exclude: '__init__.py'
+- repo: https://github.com/pre-commit/pygrep-hooks
+  rev: 'v1.4.0'
+  hooks:
+  - id: python-no-log-warn
+  - id: python-no-eval
 - repo: https://github.com/pre-commit/pre-commit-hooks
   rev: 'v2.2.1'
   hooks:

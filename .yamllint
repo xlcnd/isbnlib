@@ -40,7 +40,7 @@ rules:
     present: false
   document-start:
     level: error
-    present: false 
+    present: false
     ignore: |
       known_devices.yaml
   empty-lines:
@@ -54,7 +54,7 @@ rules:
   indentation:
     level: error
     spaces: 2
-    indent-sequences: true 
+    indent-sequences: false
     check-multi-line-strings: false
   key-duplicates:
     level: error
