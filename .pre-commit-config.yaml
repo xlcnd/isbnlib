@@ -55,3 +55,4 @@ repos:
   rev: '1.6.0'
   hooks:
   - id: bandit
+    name: 'Checking vulnerabilities'
