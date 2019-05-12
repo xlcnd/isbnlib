@@ -8,7 +8,8 @@ from .. import config
 LOGGER = logging.getLogger(__name__)
 
 
-def serial(named_tasks, arg):  # pragma: no cover
+# pylint: disable=broad-except
+def serial(named_tasks, arg):
     """Use serial calls."""
     results = {}
     for name, task in named_tasks:
@@ -21,6 +22,7 @@ def serial(named_tasks, arg):  # pragma: no cover
     return results
 
 
+# pylint: disable=broad-except
 def parallel(named_tasks, arg):
     """Use threaded calls."""
     from threading import Thread
@@ -41,7 +43,8 @@ def parallel(named_tasks, arg):
     return results
 
 
-def multi(named_tasks, arg):  # pragma: no cover
+# pylint: disable=broad-except
+def multi(named_tasks, arg):
     """Use several cores (if available)."""
     from multiprocessing import Process, Queue
     results = {}
