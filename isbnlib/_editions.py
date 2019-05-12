@@ -26,6 +26,8 @@ def fake_provider_any(isbn):
                 return data
             continue  # pragma: no cover
         except Exception:  # pragma: no cover
+            LOGGER.error("Some error on editions 'any' service for %s (%s)!",
+                         isbn, provider)
             continue
     return data  # pragma: no cover
 
@@ -41,6 +43,7 @@ def fake_provider_merge(isbn):
         data = list(set(odata + tdata))
         return data
     except Exception:  # pragma: no cover
+        LOGGER.error("Some error on editions 'merge' service for %s!", isbn)
         return []
 
 

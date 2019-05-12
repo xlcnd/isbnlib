@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 """Registry for metadata services, formatters and cache."""
 
+import logging
+
 from pkg_resources import iter_entry_points
 
 from . import _goob as goob
@@ -8,6 +10,8 @@ from . import _openl as openl
 from ._imcache import IMCache
 from .config import options
 from .dev._fmt import _fmtbib
+
+LOGGER = logging.getLogger(__name__)
 
 # SERVICES
 
@@ -70,7 +74,7 @@ def load_plugins():  # pragma: no cover
             for entry in iter_entry_points(group='isbnlib.metadata'):
                 add_service(entry.name, entry.load())
         except Exception:
-            pass
+            LOGGER.critical("Some metadata plugins were not loaded!")
     global PROVIDERS
     _buf = list(services.keys())
     _buf.remove('default')
@@ -81,7 +85,7 @@ def load_plugins():  # pragma: no cover
             for entry in iter_entry_points(group='isbnlib.formatters'):
                 add_bibformatter(entry.name, entry.load())
         except Exception:
-            pass
+            LOGGER.critical("Some formatters plugins were not loaded!")
     global BIBFORMATS
     _buf = list(bibformatters.keys())
     _buf.remove('labels')
