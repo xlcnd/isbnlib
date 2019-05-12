@@ -19,7 +19,7 @@ def query(isbn, service='default', cache='default'):
     # set cache and get metadata
     if cache is None:  # pragma: no cover
         return services[service](isbn)
-    if cache == 'default':
+    if cache == 'default':  # pragma: no cover
         from .registry import metadata_cache
         cache = metadata_cache
     key = isbn + service
@@ -30,6 +30,6 @@ def query(isbn, service='default', cache='default'):
             raise KeyError  # <-- IMPORTANT: "caches don't return error"!
     except KeyError:
         meta = services[service](isbn)
-        if meta:
+        if meta:  # pragma: no cover
             cache[key] = meta
         return meta if meta else {}
