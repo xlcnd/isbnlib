@@ -39,11 +39,11 @@ repos:
   hooks:
   - id: pylint
     name: 'Lint with Pylint'
-# - repo: local
-#   hooks:
-#   - id: radon
-#     name: 'Caculating Maintainability Index'
-#     entry: radon mi isbnlib
-# #   entry: radon mi isbnlib -s -e "*_data/*"
-#     language: python
-#     additional_dependencies: [radon]
+- repo: local
+  hooks:
+  - id: radon
+    name: 'Caculating Maintainability Index'
+    entry: radon mi -s
+#   entry: radon mi isbnlib -s -e "*_data/*"
+    language: python
+    additional_dependencies: [radon]
