@@ -3,8 +3,8 @@
 # pylint: skip-file
 """Tests for the cache."""
 
-
 from nose.tools import assert_equals, assert_raises
+
 from .._imcache import IMCache
 
 cache = IMCache()

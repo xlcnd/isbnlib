@@ -3,10 +3,11 @@
 
 from . import helpers, vias
 from ._data import Metadata, stdmeta
-from ._exceptions import (
-    DataNotFoundAtServiceError, DataWrongShapeError, ISBNLibDevException,
-    ISBNLibHTTPError, ISBNLibURLError, NoAPIKeyError, NoDataForSelectorError,
-    NotValidMetadataError, RecordMappingError, ServiceIsDownError)
+from ._exceptions import (DataNotFoundAtServiceError, DataWrongShapeError,
+                          ISBNLibDevException, ISBNLibHTTPError,
+                          ISBNLibURLError, NoAPIKeyError,
+                          NoDataForSelectorError, NotValidMetadataError,
+                          RecordMappingError, ServiceIsDownError)
 from .webquery import WEBQuery
 from .webservice import WEBService
 

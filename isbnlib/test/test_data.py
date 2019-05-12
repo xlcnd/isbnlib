@@ -4,6 +4,7 @@
 """nose tests"""
 
 from nose.tools import assert_equals, assert_raises
+
 from ..dev import Metadata, stdmeta
 from ..dev._bouth23 import u
 

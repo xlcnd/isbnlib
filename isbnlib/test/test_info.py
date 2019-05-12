@@ -2,9 +2,10 @@
 # flake8: noqa
 # pylint: skip-file
 
-from .._infogroup import infogroup
-from .._ext import info
 from nose.tools import assert_equals, assert_raises
+
+from .._ext import info
+from .._infogroup import infogroup
 
 
 # nose tests
@@ -28,6 +29,7 @@ def test_ext_info():
     """Test 'info' language/country function."""
     assert_equals(info('9524712946'), 'Finland')
     assert_raises(Exception, info, '')
+
 
 def test_ext_info():
     """Test 'info' not issued ISBN."""

@@ -15,19 +15,18 @@ CODES = 'isbn_13={isbn}&books='
 ISBNS = '{code}&isbn_13='
 
 
+# pylint: disable=broad-except
 def query(isbn):
     """Query the Open Library for related ISBNs."""
     try:
-        data = wquery(
-            SERVICE_URL.format(selectors=CODES.format(isbn=isbn)),
-            user_agent=UA)
+        data = wquery(SERVICE_URL.format(selectors=CODES.format(isbn=isbn)),
+                      user_agent=UA)
         codes = [rec['key'] for rec in data]
         isbnlikes = [isbn]
         for code in codes:
-            txt = wquery(
-                SERVICE_URL.format(selectors=ISBNS.format(code=code)),
-                user_agent=UA,
-                parser=None)
+            txt = wquery(SERVICE_URL.format(selectors=ISBNS.format(code=code)),
+                         user_agent=UA,
+                         parser=None)
             isbnlikes.extend(get_isbnlike(txt))
         isbns = [get_canonical_isbn(isbnlike) for isbnlike in isbnlikes]
         isbns = sorted(list((u(n) for n in isbns if n)))

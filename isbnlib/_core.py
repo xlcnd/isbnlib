@@ -43,6 +43,7 @@ ISBN13_PREFIX = '978'
 LEGAL = '0123456789xXisbnISBN- '
 
 
+# pylint: disable=broad-except
 def check_digit10(firstninedigits):
     """Check sum ISBN-10."""
     # minimum checks
@@ -65,6 +66,7 @@ def check_digit10(firstninedigits):
     return str(tenthdigit)
 
 
+# pylint: disable=broad-except
 def check_digit13(firsttwelvedigits):
     """Check sum ISBN-13."""
     # minimum checks
@@ -83,16 +85,19 @@ def check_digit13(firsttwelvedigits):
     return str(thirteenthdigit)
 
 
+# pylint: disable=simplifiable-if-expression
 def _check_structure10(isbn10like):
     """Check structure of an ISBN-10."""
     return True if re.match(RE_ISBN10, isbn10like) else False
 
 
+# pylint: disable=simplifiable-if-expression
 def _check_structure13(isbn13like):
     """Check structure of an ISBN-13."""
     return True if re.match(RE_ISBN13, isbn13like) else False
 
 
+# pylint: disable=simplifiable-if-expression
 def is_isbn10(isbn10):
     """Validate as ISBN-10."""
     isbn10 = canonical(isbn10)

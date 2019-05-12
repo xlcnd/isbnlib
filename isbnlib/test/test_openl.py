@@ -4,8 +4,9 @@
 """ nose tests
 """
 
-from .._metadata import query
 from nose.tools import assert_equals, assert_raises
+
+from .._metadata import query
 
 
 def test_query():

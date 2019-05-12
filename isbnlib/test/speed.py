@@ -5,7 +5,6 @@
 
 import time
 
-
 print("Test 'import speed' of:")
 
 

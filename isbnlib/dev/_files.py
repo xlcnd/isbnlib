@@ -7,6 +7,7 @@ import os
 import re
 from stat import S_IRGRP, S_IROTH, S_IRUSR, S_IWGRP, S_IWOTH, S_IWUSR
 
+# pylint: disable=redefined-builtin
 from ._exceptions import FileNotFoundError
 
 MAXLEN = 120
@@ -15,6 +16,7 @@ LOGGER = logging.getLogger(__name__)
 MODE666 = S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH | S_IWOTH
 
 
+# pylint: disable=useless-object-inheritance
 class File(object):
     """Easy manipulation of files in the SAME directory."""
 

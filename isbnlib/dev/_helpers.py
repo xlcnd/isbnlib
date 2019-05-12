@@ -40,8 +40,8 @@ def titlecase(st):
     """Format string in 'title case' (for ascii)."""
     try:
         st.encode('ascii')
-        return re.sub(r"[A-Za-z]+('[A-Za-z]+)?",
-                      lambda m: m.group(0)[0].upper() + m.group(0)[1:], st)
+        return re.sub(r"[A-Za-z]+('[A-Za-z]+)?", lambda m: m.group(0)[0].upper(
+        ) + m.group(0)[1:], st)
     except (UnicodeEncodeError, UnicodeDecodeError):  # pragma: no cover
         return st
 
@@ -74,9 +74,9 @@ def cutoff_tokens(tokens, cutoff):
     ltokens = [len(t) for t in tokens]
     length = 0
     stokens = []
-    for token, l in zip(tokens, ltokens):
-        if length + l <= cutoff:
-            length = length + l
+    for token, ln in zip(tokens, ltokens):
+        if length + ln <= cutoff:
+            length = length + ln
             stokens.append(token)
         else:
             break

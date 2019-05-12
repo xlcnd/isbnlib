@@ -6,6 +6,7 @@ nose tests
 """
 
 from nose.tools import assert_equals
+
 from ..dev._bouth23 import u
 from ..dev._fmt import _fmtbib
 

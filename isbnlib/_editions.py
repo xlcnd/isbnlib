@@ -4,16 +4,17 @@
 import logging
 
 from ._core import EAN13
-from .dev import vias
 from ._exceptions import NotRecognizedServiceError, NotValidISBNError
 from ._openled import query as oed
 from ._thinged import query as ted
+from .dev import vias
 
 PROVIDERS = ('any', 'merge', 'openl', 'thingl')
 TRUEPROVIDERS = ('openl', 'thingl')  # <-- by priority
 LOGGER = logging.getLogger(__name__)
 
 
+# pylint: disable=broad-except
 def fake_provider_any(isbn):
     """Fake provider 'any' service."""
     providers = {'openl': oed, 'thingl': ted}
@@ -29,6 +30,7 @@ def fake_provider_any(isbn):
     return data  # pragma: no cover
 
 
+# pylint: disable=broad-except
 def fake_provider_merge(isbn):
     """Fake provider 'merge' service."""
     try:  # pragma: no cover

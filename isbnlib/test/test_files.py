@@ -7,8 +7,10 @@
 
 import locale
 import os
-from ..dev._files import File, cwdfiles
+
 from nose.tools import assert_equals, assert_raises
+
+from ..dev._files import File, cwdfiles
 
 WINDOWS = os.name == 'nt'
 ENCODING = locale.getpreferredencoding()
@@ -16,8 +18,9 @@ if ENCODING == 'UTF-8':
     TESTFILE = './ç-deleteme.pdf' if WINDOWS else '/tmp/海明威-deleteme.pdf'
     NEW_BASENAME = 'ç-deleteme-PLEASE.pdf' if WINDOWS else '海明威-deleteme-PLEASE.pdf'
 else:
-    print("Your default locale encoding (%s) doesn't allow unicode filenames!"
-          % ENCODING)
+    print(
+        "Your default locale encoding (%s) doesn't allow unicode filenames!" %
+        ENCODING)
     TESTFILE = './deleteme.pdf'
     NEW_BASENAME = 'deleteme-PLEASE.pdf'
 

@@ -9,6 +9,7 @@ class IMCache(MutableMapping):
 
     MAXLEN = 1000
 
+    # pylint: disable=keyword-arg-before-vararg
     def __init__(self, maxlen=MAXLEN, *a, **k):
         self.filepath = 'IN MEMORY'
         self.maxlen = maxlen

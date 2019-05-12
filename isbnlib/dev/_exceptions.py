@@ -82,6 +82,7 @@ class NoAPIKeyError(ISBNLibDevException):
     message = "this service needs an API key"
 
 
+# pylint: disable=redefined-builtin
 class FileNotFoundError(ISBNLibDevException):
     """Exception raised when a given file doesn't exist."""
 

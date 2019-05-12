@@ -4,9 +4,11 @@
 """nose tests for metadata."""
 
 from random import randrange
-from .._metadata import query
-from .._ext import meta
+
 from nose.tools import assert_equals, assert_raises
+
+from .._ext import meta
+from .._metadata import query
 
 
 def test_query():

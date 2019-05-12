@@ -5,8 +5,9 @@
 nose tests
 """
 
-from .. import _gwords as words
 from nose.tools import assert_equals
+
+from .. import _gwords as words
 
 
 def test_words():

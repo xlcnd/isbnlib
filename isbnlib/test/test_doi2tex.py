@@ -5,8 +5,9 @@
 nose tests
 """
 
-from .. import doi2tex
 from nose.tools import assert_equals
+
+from .. import doi2tex
 
 
 def test_doi2tex():

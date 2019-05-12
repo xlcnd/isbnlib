@@ -71,7 +71,6 @@ PACKAGES = [
     'isbnlib/test',
 ]
 
-
 setup(
     name=PROJECT_PACKAGE_NAME,
     version=PROJECT_VERSION,

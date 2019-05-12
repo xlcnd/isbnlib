@@ -3,7 +3,8 @@
 
 import json
 import logging
-from time import sleep, time as timestamp
+from time import sleep
+from time import time as timestamp
 
 from . import webservice
 from ._exceptions import DataNotFoundAtServiceError, ServiceIsDownError
@@ -15,6 +16,7 @@ LOGGER = logging.getLogger(__name__)
 THROTTLING = 1
 
 
+# pylint: disable=useless-object-inheritance
 class WEBQuery(object):
     """Base class to query a webservice and parse the result to py objects."""
 

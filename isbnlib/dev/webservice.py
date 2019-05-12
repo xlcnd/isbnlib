@@ -48,11 +48,11 @@ class WEBService(object):
             LOGGER.critical('ISBNLibHTTPError for %s with code %s [%s]',
                             self._url, e.code, e.msg)
             if e.code in (401, 403, 429):
-                raise ISBNLibHTTPError(
-                    '%s Are you making many requests?' % e.code)
+                raise ISBNLibHTTPError('%s Are you making many requests?' %
+                                       e.code)
             if e.code in (502, 504):
-                raise ISBNLibHTTPError(
-                    '%s Service temporarily unavailable!' % e.code)
+                raise ISBNLibHTTPError('%s Service temporarily unavailable!' %
+                                       e.code)
             raise ISBNLibHTTPError('(%s) %s' % (e.code, e.msg))
         except URLError as e:  # pragma: no cover
             LOGGER.critical('ISBNLibURLError for %s with reason %s', self._url,
@@ -75,8 +75,10 @@ class WEBService(object):
 
 def query(url, user_agent=UA, values=None, appheaders=None):
     """Query to a web service."""
-    service = WEBService(
-        url, user_agent=user_agent, values=values, appheaders=appheaders)
+    service = WEBService(url,
+                         user_agent=user_agent,
+                         values=values,
+                         appheaders=appheaders)
     data = service.data()
     LOGGER.debug('Raw data from service:\n%s', data)
     return data
