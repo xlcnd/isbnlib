@@ -19,7 +19,9 @@ repos:
   rev: 'v1.4.0'
   hooks:
   - id: python-no-log-warn
+    name: 'Use logger.warning('
   - id: python-no-eval
+    name: 'Check for eval()'
 - repo: https://github.com/pre-commit/pre-commit-hooks
   rev: 'v2.2.1'
   hooks:
@@ -30,7 +32,9 @@ repos:
     args: [--markdown-linebreak-ext=md]
     exclude: '.*\.md'
   - id: flake8
+    name: 'Lint and check style with Flake8'
 - repo: https://github.com/pre-commit/mirrors-pylint
   rev: 'v2.3.1'
   hooks:
   - id: pylint
+    name: 'Lint with Pylint'
