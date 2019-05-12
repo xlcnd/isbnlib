@@ -41,3 +41,4 @@ CONTRIB
 LIB
 .vscode/
 env
+pre-commit-*
