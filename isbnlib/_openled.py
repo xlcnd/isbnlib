@@ -32,4 +32,5 @@ def query(isbn):
         isbns = sorted(list((u(n) for n in isbns if n)))
     except Exception:  # pragma: no cover, qa: FIXME
         LOGGER.debug('No data from Open Library for isbn %s', isbn)
+        return [get_canonical_isbn(isbn)]
     return isbns
