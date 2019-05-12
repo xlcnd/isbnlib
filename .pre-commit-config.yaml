@@ -8,11 +8,13 @@ repos:
   rev: 'v0.27.0'
   hooks:
   - id: yapf
+#   name: 'Google yapf formatting'
 - repo: https://github.com/pre-commit/mirrors-isort
   rev: 'v4.3.18'
   hooks:
   - id: isort
     exclude: '__init__.py'
+#   name: 'Reorder python imports'
 - repo: https://github.com/pre-commit/pygrep-hooks
   rev: 'v1.4.0'
   hooks:
