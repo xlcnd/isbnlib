@@ -47,7 +47,7 @@ repos:
 #   args: ["mi -s"]
 #   entry: radon mi isbnlib -s -e "*_data/*"
     'types': [python]
-    exclude:  _data\/.*$
+    exclude: _data\/.*$
     language: script
     require_serial: true
     additional_dependencies: []
