@@ -7,6 +7,7 @@ The classes in isbnlib.dev should use the exceptions below.
 # TODO merge these exceptions with the top exceptions on version 4.
 
 
+# pylint: disable=super-init-not-called
 class ISBNLibDevException(Exception):
     """Base class for isbnlib.dev exceptions.
 

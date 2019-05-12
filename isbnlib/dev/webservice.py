@@ -24,6 +24,7 @@ LOGGER = logging.getLogger(__name__)
 
 
 # pylint: disable=too-few-public-methods
+# pylint: disable=useless-object-inheritance
 class WEBService(object):
     """Class to query web services."""
 

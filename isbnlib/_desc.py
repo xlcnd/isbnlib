@@ -15,6 +15,7 @@ SERVICE_URL = "https://www.googleapis.com/books/v1/volumes?q=isbn:{isbn}"\
               "&maxResults=1"
 
 
+# pylint: disable=broad-except
 def goo_desc(isbn):
     """Get description from Google Books api."""
     from .registry import metadata_cache  # <-- dynamic

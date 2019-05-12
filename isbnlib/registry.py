@@ -61,6 +61,7 @@ def add_bibformatter(name, formatter):  # pragma: no cover
     bibformatters[name] = formatter.lower()
 
 
+# pylint: disable=broad-except
 def load_plugins():  # pragma: no cover
     """Load plugins with groups: isbnlib.metadata & isbnlib.formatters."""
     # get metadata plugins from entry_points
