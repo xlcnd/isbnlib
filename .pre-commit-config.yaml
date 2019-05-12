@@ -46,7 +46,7 @@ repos:
     entry: pre-commit-radon
 #   args: ["mi -s"]
 #   entry: radon mi isbnlib -s -e "*_data/*"
-    'types': [python]
+    types: [python]
     exclude: _data\/.*$
     language: script
     require_serial: true
@@ -56,3 +56,7 @@ repos:
   hooks:
   - id: bandit
     name: 'Checking vulnerabilities'
+    description: 'Bandit is a tool for finding common security issues in Python code'
+    entry: bandit
+    language: python
+    types: [python]
