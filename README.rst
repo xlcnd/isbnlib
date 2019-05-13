@@ -32,6 +32,7 @@
 Warning
 =======
 
+
     **Breaking Change** The service xISBN was decommissioned (see issue 51_)!
 
 
@@ -171,6 +172,7 @@ See files test_core_ and test_ext_ for **a lot of examples**.
 
 Install
 =======
+
 
 From the command line, enter (in some cases you have to preced the
 command with ``sudo``):
@@ -335,7 +337,7 @@ Help
 
 
 If you need help, please take a look at github_ or post a question on
-stackoverflow_ (with tag **isbnlib**)
+stackoverflow_ .
 
 
 
@@ -358,7 +360,7 @@ Read ``isbnlib`` code in a very sctructured way at sourcegraph_ or 'the docs' at
 
 .. _readthedocs: http://bit.ly/ISBNLib_rtd
 
-.. _stackoverflow: http://stackoverflow.com/questions/tagged/isbnlib
+.. _stackoverflow: http://stackoverflow.com/search?q=isbnlib
 
 .. _test_core: https://github.com/xlcnd/isbnlib/blob/master/isbnlib/test/test_core.py
 
