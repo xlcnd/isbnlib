@@ -1,3 +1,4 @@
+bandit
 coverage
 flake8
 flake8-bugbear
@@ -6,6 +7,7 @@ flake8-docstrings
 flake8-import-order
 isort
 nose
+radon
 pep8-naming
 tox
 wheel
