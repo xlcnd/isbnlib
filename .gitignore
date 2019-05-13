@@ -41,3 +41,4 @@ LIB
 .vscode/
 env
 pre-commit-*
+tasks.py
