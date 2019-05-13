@@ -360,7 +360,7 @@ Read ``isbnlib`` code in a very sctructured way at sourcegraph_ or 'the docs' at
 
 .. _readthedocs: http://bit.ly/ISBNLib_rtd
 
-.. _stackoverflow: http://stackoverflow.com/search?q=isbnlib
+.. _stackoverflow: http://stackoverflow.com/search?tab=newest&q=isbnlib
 
 .. _test_core: https://github.com/xlcnd/isbnlib/blob/master/isbnlib/test/test_core.py
 
