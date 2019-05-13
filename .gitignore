@@ -24,7 +24,6 @@ _build/
 *.sh
 .coverage
 .metacache
-*tasks
 LAB/
 apps/
 spin/
@@ -41,4 +40,6 @@ LIB
 .vscode/
 env
 pre-commit-*
+*tasks/
 tasks.py
+
