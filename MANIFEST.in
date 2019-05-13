@@ -1,4 +1,4 @@
 include *.txt
 include *.rst
 include *.coveragerc
-include LICENSE
+include LICENSE*
