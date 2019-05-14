@@ -30,7 +30,7 @@ repos:
   - id: mixed-line-ending
   - id: trailing-whitespace
     args: [--markdown-linebreak-ext=md]
-    exclude: '.*\.md'
+#   exclude: '.*\.md'
   - id: requirements-txt-fixer
   - id: flake8
     name: 'Lint and check style with Flake8'
