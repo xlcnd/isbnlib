@@ -42,8 +42,7 @@ def test_vias_parallel():
 
 def test_vias_multi():
     """Test 'vias' (multi)."""
-    if os.getenv("APPVEYOR"):
-        print(os.getenv("APPVEYOR"))
+    if os.getenv("APPVEYOR", None) is not None:
         return True
     named_tasks = (('task1', task1), ('task2', task2))
     results = vias.multi(named_tasks, 5)
