@@ -5,6 +5,8 @@
 nose tests
 """
 
+import os
+
 from nose.tools import assert_equals
 
 from ..dev import vias
@@ -40,6 +42,8 @@ def test_vias_parallel():
 
 def test_vias_multi():
     """Test 'vias' (multi)."""
+    if os.getenv("APPVEYOR"):
+        return True
     named_tasks = (('task1', task1), ('task2', task2))
     results = vias.multi(named_tasks, 5)
     data1 = results.get('task1', 0)
