@@ -40,6 +40,7 @@ LIB
 .vscode/
 env
 pre-commit-*
+.project
 *tasks/
 tasks.py
 .bandit
