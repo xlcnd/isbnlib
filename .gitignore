@@ -42,4 +42,7 @@ env
 pre-commit-*
 *tasks/
 tasks.py
+.bandit
+.requirements-local
+.pre-commit-config.yaml
 
