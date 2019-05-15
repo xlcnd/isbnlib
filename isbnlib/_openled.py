@@ -11,7 +11,7 @@ LOGGER = logging.getLogger(__name__)
 UA = 'isbnlib (gzip)'
 SERVICE_URL = 'http://openlibrary.org/query.json?type=/type/edition&'\
               '{selectors}'
-CODES = 'isbn_13={isbn}&books='
+CODES = 'isbn_13={isbn}'
 ISBNS = '{code}&isbn_13='
 
 
