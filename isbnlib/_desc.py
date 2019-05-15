@@ -20,7 +20,7 @@ def goo_desc(isbn):
     """Get description from Google Books api."""
     from .registry import metadata_cache
     cache = metadata_cache
-    if cache is not None:  # pragma: no cover
+    if cache:  # pragma: no cover
         key = 'desc-go-' + isbn
         if key in cache:
             return cache[key]
@@ -31,7 +31,7 @@ def goo_desc(isbn):
         content = content['items'][0]['volumeInfo']['description']
         # TODO don't format content here!
         content = fill(content, width=75) if content else None
-        if content and cache is not None:  # pragma: no cover
+        if content and cache:  # pragma: no cover
             cache[key] = content
         return content
     except Exception:  # pragma: no cover
