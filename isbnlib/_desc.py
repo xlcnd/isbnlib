@@ -18,17 +18,12 @@ SERVICE_URL = "https://www.googleapis.com/books/v1/volumes?q=isbn:{isbn}"\
 # pylint: disable=broad-except
 def goo_desc(isbn):
     """Get description from Google Books api."""
-    from .registry import metadata_cache  # <-- dynamic
+    from .registry import metadata_cache
     cache = metadata_cache
     if cache is not None:  # pragma: no cover
         key = 'desc-go-' + isbn
-        try:
-            if cache[key]:
-                return cache[key]
-            else:
-                raise KeyError  # <-- IMPORTANT: caches don't return error!
-        except KeyError:
-            pass
+        if key in cache:
+            return cache[key]
     url = SERVICE_URL.format(isbn=isbn)
     content = wsquery(url, user_agent=UA)
     try:
@@ -41,3 +36,4 @@ def goo_desc(isbn):
         return content
     except Exception:  # pragma: no cover
         LOGGER.debug('No description for %s', isbn)
+        return None

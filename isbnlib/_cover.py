@@ -19,13 +19,8 @@ def cover(isbn):
     cache = metadata_cache
     if cache:  # pragma: no cover
         key = 'img-url-go-' + isbn
-        try:  # pragma: no cover
-            if cache[key]:
-                return cache[key]
-            else:
-                raise KeyError  # <-- IMPORTANT: caches don't return error!
-        except KeyError:  # pragma: no cover
-            pass
+        if key in cache:
+            return cache[key]
     # request to the web service
     data = wquery(SERVICE_URL.format(isbn=isbn), user_agent=UA)
     try:
