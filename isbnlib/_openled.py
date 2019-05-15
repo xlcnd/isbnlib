@@ -21,7 +21,7 @@ def query(isbn):
     try:
         data = wquery(SERVICE_URL.format(selectors=CODES.format(isbn=isbn)),
                       user_agent=UA)
-        codes = [rec['key'] for rec in data]
+        codes = {rec['key'] for rec in data}
         isbnlikes = [isbn]
         for code in codes:
             txt = wquery(SERVICE_URL.format(selectors=ISBNS.format(code=code)),

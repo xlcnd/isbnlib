@@ -17,16 +17,16 @@ def query(isbn, service='default', cache='default'):
     if service != 'default' and service not in services:  # pragma: no cover
         raise NotRecognizedServiceError(service)
     # set cache and get metadata
-    if not cache:  # pragma: no cover
+    if cache is None:  # pragma: no cover
         return services[service](isbn)
     if cache == 'default':  # pragma: no cover
         from .registry import metadata_cache
         cache = metadata_cache
-    if cache:
+    if cache is not None:
         key = isbn + service
         if key in cache:
             return cache[key]
     meta = services[service](isbn)
-    if meta and cache:  # pragma: no cover
+    if meta and cache is not None:  # pragma: no cover
         cache[key] = meta
     return meta if meta else {}

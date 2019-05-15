@@ -17,7 +17,7 @@ def cover(isbn):
     from .registry import metadata_cache  # <-- dynamic
     # check the cache first
     cache = metadata_cache
-    if cache:  # pragma: no cover
+    if cache is not None:  # pragma: no cover
         key = 'img-url-go-' + isbn
         if key in cache:
             return cache[key]
@@ -26,7 +26,7 @@ def cover(isbn):
     try:
         lnks = data['items'][0]['volumeInfo']['imageLinks']
         # put in cache
-        if cache and lnks:  # pragma: no cover
+        if cache is not None and lnks:  # pragma: no cover
             cache[key] = lnks
         return lnks
     except (KeyError, IndexError):  # pragma: no cover

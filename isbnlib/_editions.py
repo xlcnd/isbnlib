@@ -60,7 +60,7 @@ def editions(isbn, service='merge'):
 
     from .registry import metadata_cache
     cache = metadata_cache
-    if cache:
+    if cache is not None:  # <-- IMPORTANT
         key = 'ed' + isbn + service
         if key in cache:
             return cache[key]
@@ -75,7 +75,7 @@ def editions(isbn, service='merge'):
     if service == 'thingl':
         eds = ted(isbn)
 
-    if eds and cache:
+    if eds and cache is not None:
         cache[key] = eds
         return eds
-    return []
+    return eds if eds else []
