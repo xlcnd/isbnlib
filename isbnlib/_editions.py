@@ -5,8 +5,8 @@ import logging
 
 from ._core import EAN13
 from ._exceptions import NotRecognizedServiceError, NotValidISBNError
-from ._openled import query as oed
-from ._thinged import query as ted
+from ._openled import query as _oed
+from ._thinged import query as _ted
 from .dev import vias
 
 PROVIDERS = ('any', 'merge', 'openl', 'thingl')
@@ -15,9 +15,9 @@ LOGGER = logging.getLogger(__name__)
 
 
 # pylint: disable=broad-except
-def fake_provider_any(isbn):
+def _fake_provider_any(isbn):
     """Fake provider 'any' service."""
-    providers = {'openl': oed, 'thingl': ted}
+    providers = {'openl': _oed, 'thingl': _ted}
     data = set()
     for provider in TRUEPROVIDERS:
         try:
@@ -33,10 +33,10 @@ def fake_provider_any(isbn):
 
 
 # pylint: disable=broad-except
-def fake_provider_merge(isbn):
+def _fake_provider_merge(isbn):
     """Fake provider 'merge' service."""
     try:  # pragma: no cover
-        named_tasks = (('openl', oed), ('thingl', ted))
+        named_tasks = (('openl', _oed), ('thingl', _ted))
         results = vias.parallel(named_tasks, isbn)
         odata = results.get('openl', set())
         tdata = results.get('thingl', set())
@@ -66,14 +66,14 @@ def editions(isbn, service='merge'):
             return cache[key]
 
     if service == 'merge':
-        eds = fake_provider_merge(isbn)
+        eds = _fake_provider_merge(isbn)
     if service == 'any':
-        eds = fake_provider_any(isbn)
+        eds = _fake_provider_any(isbn)
 
     if service == 'openl':
-        eds = list(oed(isbn))
+        eds = list(_oed(isbn))
     if service == 'thingl':
-        eds = list(ted(isbn))
+        eds = list(_ted(isbn))
 
     if eds and cache is not None:
         cache[key] = eds
