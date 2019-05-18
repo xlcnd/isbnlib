@@ -37,4 +37,4 @@ def query(isbn):
         LOGGER.debug('No data from ThingISBN for isbn %s', isbn)
         data = []
     data.append(EAN13(isbn))
-    return list(set(data))
+    return set(data)

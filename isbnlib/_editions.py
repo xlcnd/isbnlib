@@ -18,18 +18,18 @@ LOGGER = logging.getLogger(__name__)
 def fake_provider_any(isbn):
     """Fake provider 'any' service."""
     providers = {'openl': oed, 'thingl': ted}
+    data = set()
     for provider in TRUEPROVIDERS:
-        data = []
         try:
             data = providers[provider](isbn)
             if len(data) > 1:
-                return data
+                return list(data)
             continue  # pragma: no cover
         except Exception:  # pragma: no cover
             LOGGER.error("Some error on editions 'any' service for %s (%s)!",
                          isbn, provider)
             continue
-    return data  # pragma: no cover
+    return list(data)  # pragma: no cover
 
 
 # pylint: disable=broad-except
@@ -38,9 +38,9 @@ def fake_provider_merge(isbn):
     try:  # pragma: no cover
         named_tasks = (('openl', oed), ('thingl', ted))
         results = vias.parallel(named_tasks, isbn)
-        odata = results.get('openl', [])
-        tdata = results.get('thingl', [])
-        data = list(set(odata + tdata))
+        odata = results.get('openl', set())
+        tdata = results.get('thingl', set())
+        data = list(odata | tdata)
         return data
     except Exception:  # pragma: no cover
         LOGGER.error("Some error on editions 'merge' service for %s!", isbn)
@@ -71,9 +71,9 @@ def editions(isbn, service='merge'):
         eds = fake_provider_any(isbn)
 
     if service == 'openl':
-        eds = oed(isbn)
+        eds = list(oed(isbn))
     if service == 'thingl':
-        eds = ted(isbn)
+        eds = list(ted(isbn))
 
     if eds and cache is not None:
         cache[key] = eds
