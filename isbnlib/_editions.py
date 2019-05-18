@@ -10,7 +10,6 @@ from ._thinged import query as _ted
 from .dev import vias
 
 PROVIDERS = ('any', 'merge', 'openl', 'thingl')
-TRUEPROVIDERS = ('openl', 'thingl')  # <-- by priority
 LOGGER = logging.getLogger(__name__)
 
 
@@ -18,18 +17,16 @@ LOGGER = logging.getLogger(__name__)
 def _fake_provider_any(isbn):
     """Fake provider 'any' service."""
     providers = {'openl': _oed, 'thingl': _ted}
-    data = set()
-    for provider in TRUEPROVIDERS:
+    for provider in providers:
         try:
             data = providers[provider](isbn)
             if len(data) > 1:
                 return list(data)
-            continue  # pragma: no cover
         except Exception:  # pragma: no cover
             LOGGER.error("Some error on editions 'any' service for %s (%s)!",
                          isbn, provider)
-            continue
-    return list(data)  # pragma: no cover
+        continue  # pragma: no cover
+    return {isbn}  # pragma: no cover
 
 
 # pylint: disable=broad-except
@@ -40,11 +37,10 @@ def _fake_provider_merge(isbn):
         results = vias.parallel(named_tasks, isbn)
         odata = results.get('openl', set())
         tdata = results.get('thingl', set())
-        data = list(odata | tdata)
-        return data
+        return list(odata | tdata)
     except Exception:  # pragma: no cover
         LOGGER.error("Some error on editions 'merge' service for %s!", isbn)
-        return []
+        return [isbn]
 
 
 def editions(isbn, service='merge'):
