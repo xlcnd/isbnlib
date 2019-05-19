@@ -78,7 +78,7 @@ def load_plugins():  # pragma: no cover
     global PROVIDERS
     _buf = list(services.keys())
     _buf.remove('default')
-    PROVIDERS = sorted(_buf)
+    PROVIDERS = tuple(sorted(_buf))
     # get formatters from entry_points
     if options.get('LOAD_FORMATTER_PLUGINS', True):
         try:
@@ -90,7 +90,7 @@ def load_plugins():  # pragma: no cover
     _buf = list(bibformatters.keys())
     _buf.remove('labels')
     _buf.remove('default')
-    BIBFORMATS = sorted(_buf)
+    BIBFORMATS = tuple(sorted(_buf))
 
 
 # load plugins on import
