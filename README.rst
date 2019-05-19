@@ -316,7 +316,7 @@ Projects using *isbnlib*
 
 **Open Library**   https://github.com/internetarchive/openlibrary
 
-**NYPL Library Simplified**  http://www.librarysimplified.org/
+**NYPL Library Simplified**  https://github.com/NYPL-Simplified
 
 **Spreads**  https://github.com/DIYBookScanner/spreads
 
@@ -328,7 +328,7 @@ Projects using *isbnlib*
 
 **Comic Collector**  https://github.com/wengole/comiccollector
 
-**Abelujo**   http://www.abelujo.cc/
+**Abelujo**   https://github.com/vindarel/abelujo
 
 **BibLib**    https://pypi.org/project/biblib/
 
