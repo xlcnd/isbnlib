@@ -316,6 +316,8 @@ Projects using *isbnlib*
 
 **Open Library**   https://github.com/internetarchive/openlibrary
 
+**NYPL Library Simplified**  http://www.librarysimplified.org/
+
 **Spreads**        https://github.com/DIYBookScanner/spreads
 
 **Papis**    https://github.com/papis/papis
