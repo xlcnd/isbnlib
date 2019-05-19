@@ -318,19 +318,21 @@ Projects using *isbnlib*
 
 **NYPL Library Simplified**  http://www.librarysimplified.org/
 
-**Spreads**        https://github.com/DIYBookScanner/spreads
+**Spreads**  https://github.com/DIYBookScanner/spreads
 
 **Papis**    https://github.com/papis/papis
 
 **libBMC**    https://github.com/Phyks/libbmc/
 
-**Alessandria**     https://gitlab.com/openlabmatera/alessandria
+**Alessandria**      https://gitlab.com/openlabmatera/alessandria
 
 **Comic Collector**  https://github.com/wengole/comiccollector
 
-**Abelujo**    http://www.abelujo.cc/
+**Abelujo**   http://www.abelujo.cc/
 
-**BibLib**    https://pypi.python.org/pypi/biblib
+**BibLib**    https://pypi.org/project/biblib/
+
+**L-Space**   https://pypi.org/project/lspace/
 
 
 
