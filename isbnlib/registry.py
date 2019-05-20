@@ -21,7 +21,7 @@ services = {
     'openl': openl.query,
 }
 
-PROVIDERS = []
+PROVIDERS = tuple()
 
 
 def setdefaultservice(name):  # pragma: no cover
@@ -50,7 +50,7 @@ bibformatters = {
     'msword': lambda x: _fmtbib('msword', x),
 }  # pragma: no cover
 
-BIBFORMATS = []
+BIBFORMATS = tuple()
 
 
 def setdefaultbibformatter(name):  # pragma: no cover
