@@ -24,7 +24,7 @@ from isbnlib import __version__
 
 PROJECT_NAME = 'isbnlib'
 PROJECT_PACKAGE_NAME = 'isbnlib'
-PROJECT_LICENSE = 'LGPL-3.0-only'
+PROJECT_LICENSE = 'LGPL v3'
 PROJECT_LICENSE_URL = 'https://github.com/xlcnd/isbnlib/blob/dev/LICENSE-LGPL-3.0-only.txt'
 PROJECT_AUTHOR = 'Alexandre Lima Conde'
 PROJECT_COPYRIGHT = ' 2014-{}, {}'.format(dt.now().year, PROJECT_AUTHOR)

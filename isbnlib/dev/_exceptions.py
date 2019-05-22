@@ -6,9 +6,11 @@ The classes in isbnlib.dev should use the exceptions below.
 
 # TODO merge these exceptions with the top exceptions on version 4.
 
+from .._exceptions import ISBNLibException
+
 
 # pylint: disable=super-init-not-called
-class ISBNLibDevException(Exception):
+class ISBNLibDevException(ISBNLibException):
     """Base class for isbnlib.dev exceptions.
 
     This exception should not be raised directly,
