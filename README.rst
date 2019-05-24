@@ -320,6 +320,8 @@ Projects using *isbnlib*
 
 **NYPL Library Simplified**  https://github.com/NYPL-Simplified
 
+**Manubot**   https://github.com/manubot
+
 **Spreads**  https://github.com/DIYBookScanner/spreads
 
 **Papis**    https://github.com/papis/papis
