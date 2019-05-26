@@ -21,7 +21,7 @@ services = {
     'openl': openl.query,
 }
 
-PROVIDERS = tuple()
+PROVIDERS = ()
 
 
 def setdefaultservice(name):  # pragma: no cover
@@ -50,7 +50,7 @@ bibformatters = {
     'msword': lambda x: _fmtbib('msword', x),
 }  # pragma: no cover
 
-BIBFORMATS = tuple()
+BIBFORMATS = ()
 
 
 def setdefaultbibformatter(name):  # pragma: no cover
@@ -74,7 +74,7 @@ def load_plugins():  # pragma: no cover
             for entry in iter_entry_points(group='isbnlib.metadata'):
                 add_service(entry.name, entry.load())
         except Exception:
-            LOGGER.critical("Some metadata plugins were not loaded!")
+            LOGGER.critical('Some metadata plugins were not loaded!')
     global PROVIDERS
     _buf = list(services.keys())
     _buf.remove('default')
@@ -85,7 +85,7 @@ def load_plugins():  # pragma: no cover
             for entry in iter_entry_points(group='isbnlib.formatters'):
                 add_bibformatter(entry.name, entry.load())
         except Exception:
-            LOGGER.critical("Some formatters plugins were not loaded!")
+            LOGGER.critical('Some formatters plugins were not loaded!')
     global BIBFORMATS
     _buf = list(bibformatters.keys())
     _buf.remove('labels')

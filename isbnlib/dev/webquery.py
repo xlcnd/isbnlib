@@ -36,7 +36,7 @@ class WEBQuery(object):
         """Check the data & handle errors."""
         if data_checker:
             return data_checker(self.data)
-        if self.data == '{}':
+        if self.data == '{}':  # noqa
             LOGGER.warning('DataNotFoundAtServiceError for %s', self.url)
             raise DataNotFoundAtServiceError(self.url)
         if BOOK_NOT_FOUND in self.data:

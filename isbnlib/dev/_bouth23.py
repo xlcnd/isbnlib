@@ -15,12 +15,12 @@ if sys.version < '3':
 
     def u(x):
         try:
-            return unicode(x, "utf-8")
+            return unicode(x, 'utf-8')
         except TypeError:
             return x
 
     def b2u3(x):
-        return x.encode("utf-8")
+        return x.encode('utf-8')
 
     def type3str():
         return type(u'')
@@ -31,10 +31,10 @@ if sys.version < '3':
 else:
 
     def s(x):
-        return x.decode("utf-8", 'ignore')
+        return x.decode('utf-8', 'ignore')
 
     def b(x):
-        return x.encode("utf-8")
+        return x.encode('utf-8')
 
     def u(x):
         return x

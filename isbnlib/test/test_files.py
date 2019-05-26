@@ -8,7 +8,6 @@
 import locale
 import os
 
-from nose.tools import assert_equals, assert_raises
 
 from ..dev._files import File, cwdfiles
 

@@ -10,7 +10,7 @@ from ._bouth23 import b, s
 
 def fake_isbn(title, author='unkown', publisher='unkown', sid=1):
     """Produce a fake ISBN from the (title, author, publisher) of the book."""
-    key = "%s %s %s" % (title, author, publisher)
+    key = '%s %s %s' % (title, author, publisher)
     # normalize
     regex1 = re.compile(r'\?|,|\.|!|\:|;', re.I | re.M | re.S)
     regex2 = re.compile(r'\s\s+', re.I | re.M | re.S)
@@ -63,8 +63,10 @@ def unicode_to_utf8tex(utex, filtre=()):
     """Replace unicode entities with tex entitites and returns utf8 bytes."""
     from .._data.data4tex import unicode_to_tex
     btex = utex.encode('utf-8')
-    table = dict((k.encode('utf-8'), v) for k, v in unicode_to_tex.items()
-                 if v not in filtre)
+    table = {
+        k.encode('utf-8'): v
+        for k, v in unicode_to_tex.items() if v not in filtre
+    }
     regex = re.compile(b('|'.join(re.escape(s(k)) for k in table)))
     return regex.sub(lambda m: table[m.group(0)], btex)
 

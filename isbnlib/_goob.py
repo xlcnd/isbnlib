@@ -32,7 +32,7 @@ def _mapper(isbn, records):
             canonical['Year'] = u('')
         canonical['Language'] = records.get('language', u(''))
     except Exception:  # pragma: no cover
-        LOGGER.debug("RecordMappingError for %s with data %s", isbn, records)
+        LOGGER.debug('RecordMappingError for %s with data %s', isbn, records)
         raise RecordMappingError(isbn)
     # call stdmeta for extra cleanning and validation
     return stdmeta(canonical)
@@ -52,7 +52,7 @@ def _records(isbn, data):
         if u('ISBN_13') in repr(ids) and \
            isbn not in repr(ids):  # pragma: no cover
             LOGGER.debug('ISBNNotConsistentError for %s (%s)', isbn, repr(ids))
-            raise ISBNNotConsistentError("{0} not in {1}".format(
+            raise ISBNNotConsistentError('{0} not in {1}'.format(
                 isbn, repr(ids)))
     # map canonical <- records
     return _mapper(isbn, recs)

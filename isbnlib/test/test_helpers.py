@@ -13,17 +13,17 @@ from ..dev._helpers import (cutoff_tokens, fake_isbn, last_first,
 
 def test_last_first():
     """Test the parsing of author's name into (Surname, First Name)."""
-    assert_equals(last_first("Surname, First Name"), {
-        "last": "Surname",
-        "first": "First Name"
+    assert_equals(last_first('Surname, First Name'), {
+        'last': 'Surname',
+        'first': 'First Name'
     })
-    assert_equals(last_first("First Name Surname"), {
-        "last": "Surname",
-        "first": "First Name"
+    assert_equals(last_first('First Name Surname'), {
+        'last': 'Surname',
+        'first': 'First Name'
     })
-    assert_equals(last_first("Surname1, First1 and Sur2, First2"), {
-        "last": "Surname1",
-        "first": "First1 and Sur2, First2"
+    assert_equals(last_first('Surname1, First1 and Sur2, First2'), {
+        'last': 'Surname1',
+        'first': 'First1 and Sur2, First2'
     })
 
 

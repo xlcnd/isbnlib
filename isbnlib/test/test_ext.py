@@ -4,7 +4,7 @@
 
 from nose.tools import assert_equals, assert_raises
 
-from .._ext import cover, desc, doi, editions, isbn_from_words, mask
+from .._ext import cover, desc, doi, isbn_from_words, mask
 
 # nose tests
 

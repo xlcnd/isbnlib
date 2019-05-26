@@ -29,7 +29,7 @@ def set_option(option, value):  # pragma: no cover
     options[option.upper()] = value
 
 
-# TODO don't expose this directly! BREAKING CHANGE!
+# TODO(NV) don't expose this directly! BREAKING CHANGE!
 # Timeouts
 URLOPEN_TIMEOUT = options.get('URLOPEN_TIMEOUT', 10)
 THREADS_TIMEOUT = options.get('THREADS_TIMEOUT', 12)

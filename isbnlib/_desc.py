@@ -9,10 +9,10 @@ from .dev.webservice import query as wsquery
 
 LOGGER = logging.getLogger(__name__)
 
-UA = "isbnlib (gzip)"
-SERVICE_URL = "https://www.googleapis.com/books/v1/volumes?q=isbn:{isbn}"\
-              "&fields=items/volumeInfo(description)"\
-              "&maxResults=1"
+UA = 'isbnlib (gzip)'
+SERVICE_URL = 'https://www.googleapis.com/books/v1/volumes?q=isbn:{isbn}'\
+              '&fields=items/volumeInfo(description)'\
+              '&maxResults=1'
 
 
 # pylint: disable=broad-except
@@ -29,7 +29,7 @@ def goo_desc(isbn):
     try:
         content = loads(content)
         content = content['items'][0]['volumeInfo']['description']
-        # TODO don't format content here!
+        # TODO(MV) don't format content here!
         content = fill(content, width=75) if content else None
         if content and cache is not None:  # pragma: no cover
             cache[key] = content

@@ -4,7 +4,7 @@
 The classes in isbnlib.dev should use the exceptions below.
 """
 
-# TODO merge these exceptions with the top exceptions on version 4.
+# TODO(MV) merge these exceptions with the top exceptions on version 4.
 
 from .._exceptions import ISBNLibException
 
@@ -28,25 +28,25 @@ class ISBNLibDevException(ISBNLibException):
 class ISBNLibHTTPError(ISBNLibDevException):
     """Exception raised for HTTP related errors."""
 
-    message = "an HTTP error has ocurred"
+    message = 'an HTTP error has ocurred'
 
 
 class ISBNLibURLError(ISBNLibDevException):
     """Exception raised for URL related errors."""
 
-    message = "an URL error has ocurred"
+    message = 'an URL error has ocurred'
 
 
 class DataNotFoundAtServiceError(ISBNLibDevException):
     """Exception raised when there is no target data from the service."""
 
-    message = "the target data was not found at this service"
+    message = 'the target data was not found at this service'
 
 
 class ServiceIsDownError(ISBNLibDevException):
     """Exception raised when the service is not available."""
 
-    message = "the service is down (try later)"
+    message = 'the service is down (try later)'
 
 
 class DataWrongShapeError(ISBNLibDevException):
@@ -58,7 +58,7 @@ class DataWrongShapeError(ISBNLibDevException):
 class NoDataForSelectorError(ISBNLibDevException):
     """Exception raised when there is no data for the selector."""
 
-    message = "no data for this selector"
+    message = 'no data for this selector'
 
 
 class NotValidMetadataError(ISBNLibDevException):
@@ -70,7 +70,7 @@ class NotValidMetadataError(ISBNLibDevException):
 class ISBNNotConsistentError(ISBNLibDevException):
     """Exception raised when the isbn request != isbn response."""
 
-    message = "isbn request != isbn response"
+    message = 'isbn request != isbn response'
 
 
 class RecordMappingError(ISBNLibDevException):
@@ -82,7 +82,7 @@ class RecordMappingError(ISBNLibDevException):
 class NoAPIKeyError(ISBNLibDevException):
     """Exception raised when the API Key for a service is not found."""
 
-    message = "this service needs an API key"
+    message = 'this service needs an API key'
 
 
 # pylint: disable=redefined-builtin

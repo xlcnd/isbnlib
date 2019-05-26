@@ -4,7 +4,7 @@
 """ nose tests
 """
 
-from nose.tools import assert_equals, assert_raises
+from nose.tools import assert_equals
 
 from .._metadata import query
 

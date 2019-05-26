@@ -56,14 +56,14 @@ class File(object):
     def validate(basename):
         """Check for a proper basename."""
         if basename != os.path.basename(basename):
-            LOGGER.critical("This (%s) is not a basename!", basename)
+            LOGGER.critical('This (%s) is not a basename!', basename)
             return False
         name, ext = os.path.splitext(basename)
         if not name:
-            LOGGER.critical("Not a valid name (lenght 0)!")
+            LOGGER.critical('Not a valid name (lenght 0)!')
             return False
         if not ext:
-            LOGGER.critical("Not a valid extension (lenght 0)!")
+            LOGGER.critical('Not a valid extension (lenght 0)!')
             return False
         return True
 
@@ -80,13 +80,13 @@ class File(object):
             try:
                 os.rename(self.basename, new_basename)
             except OSError as err:
-                LOGGER.critical("%s", err)
+                LOGGER.critical('%s', err)
                 return False
             self.basename = new_basename
             self.name = name
             self.ext = ext
         else:
-            LOGGER.info("The file (%s) already exist in the directory!",
+            LOGGER.info('The file (%s) already exist in the directory!',
                         new_basename)
         return True
 

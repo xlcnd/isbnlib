@@ -14,7 +14,7 @@ SERVICE_URL = 'http://www.librarything.com/api/thingISBN/{isbn}'
 
 def _get_text(topnode):
     """Get the text values in the child nodes."""
-    text = ""
+    text = ''
     for node in topnode.childNodes:
         if node.nodeType == node.TEXT_NODE:
             text = text + node.data
@@ -24,7 +24,7 @@ def _get_text(topnode):
 def parser_thinged(xml):
     """Parse the response from the ThingISBN service."""
     dom = parseString(xml)
-    nodes = dom.getElementsByTagName("idlist")[0].getElementsByTagName("isbn")
+    nodes = dom.getElementsByTagName('idlist')[0].getElementsByTagName('isbn')
     return [EAN13(_get_text(isbn)) for isbn in nodes]
 
 

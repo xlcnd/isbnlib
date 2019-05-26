@@ -117,14 +117,14 @@ def _spec_proc(name, fmtrec, authors):
         AUTHORS = '\n%A '.join(authors)
     elif name == 'msword':
         fmtrec = fmtrec.replace('$uid', str(uuid.uuid4()))
-        person = r"<b:Person><b:Last>$last</b:Last>"\
-                 r"<b:First>$first</b:First></b:Person>"
+        person = r'<b:Person><b:Last>$last</b:Last>'\
+                 r'<b:First>$first</b:First></b:Person>'
         AUTHORS = '\n'.join(
             Template(person).safe_substitute(last_first(a)) for a in authors)
     elif name == 'json':
-        AUTHORS = ', '.join('{"name": "$"}'.replace("$", a) for a in authors)
+        AUTHORS = ', '.join('{"name": "$"}'.replace('$', a) for a in authors)
     elif name == 'csl':
-        AUTHORS = ', '.join('{"literal": "$"}'.replace("$", a)
+        AUTHORS = ', '.join('{"literal": "$"}'.replace('$', a)
                             for a in authors)
     elif name == 'opf':
         fmtrec = fmtrec.replace('$uid', str(uuid.uuid4()))

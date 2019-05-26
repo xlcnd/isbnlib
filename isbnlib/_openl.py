@@ -41,7 +41,7 @@ def _mapper(isbn, records):
             if match:
                 canonical['Year'] = match.group(0)
     except Exception:  # pragma: no cover
-        LOGGER.debug("RecordMappingError for %s with data %s", isbn, records)
+        LOGGER.debug('RecordMappingError for %s with data %s', isbn, records)
         raise RecordMappingError(isbn)
     # call stdmeta for extra cleanning and validation
     return stdmeta(canonical)

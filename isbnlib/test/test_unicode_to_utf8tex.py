@@ -12,6 +12,6 @@ from ..dev._helpers import unicode_to_utf8tex
 
 def test_unicode_to_utf8tex():
     """Test 'unicode_to_utf8tex' identity transformation."""
-    assert_equals(unicode_to_utf8tex(u"\u00E2 \u00F5"), b"\^{a}\space \~{o}")
-    assert_equals(unicode_to_utf8tex(u"\u00E2 \u00F5", (b"\\space ", )),
-                  b"\^{a} \~{o}")
+    assert_equals(unicode_to_utf8tex(u'\u00E2 \u00F5'), b'\^{a}\space \~{o}')
+    assert_equals(unicode_to_utf8tex(u'\u00E2 \u00F5', (b'\\space ', )),
+                  b'\^{a} \~{o}')

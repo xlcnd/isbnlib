@@ -8,11 +8,11 @@ nose tests
 import locale
 import os
 
-from nose.tools import assert_equals, assert_raises
+from nose.tools import assert_equals
 
 from .._ext import ren
-from ..dev._bouth23 import b2u3, u
-from ..dev.helpers import File, cwdfiles
+from ..dev._bouth23 import b2u3
+from ..dev.helpers import cwdfiles
 
 WINDOWS = os.name == 'nt'
 ENCODING = locale.getpreferredencoding()
@@ -20,7 +20,7 @@ if ENCODING != 'UTF-8':
     print(
         "Your default locale encoding (%s) doesn't allow unicode filenames!" %
         ENCODING)
-    print("=> Some tests could fail.")
+    print('=> Some tests could fail.')
 
 TESTFILE_1 = './ç-deleteme.pdf' if WINDOWS else '/tmp/ç-deleteme.pdf'
 TESTFILE_2 = './ç-deleteme-PLEASE.pdf' if WINDOWS else '/tmp/ç-deleteme-PLEASE.pdf'
@@ -73,13 +73,13 @@ def setup_module():
 
 
 def teardown_module():
-    delete_files("*.pdf")
+    delete_files('*.pdf')
 
 
 def test_ren():
     """Test 'high level' ren function."""
     ren(F1)
-    assert_equals(F7 in cwdfiles("*.pdf"), True)
+    assert_equals(F7 in cwdfiles('*.pdf'), True)
     #assert_equals(F7 in cwdfiles("*.pdf") or F7a in cwdfiles("*.pdf"), True)
     # create_files([F5])
     # ren(F5)

@@ -20,7 +20,7 @@ LOGGER = logging.getLogger(__name__)
 
 def goos(words):
     """Use Google to get an ISBN from words from title and author's name."""
-    service_url = "http://www.google.com/search?q=ISBN+"
+    service_url = 'http://www.google.com/search?q=ISBN+'
     search_url = service_url + quote(words.replace(' ', '+'))
 
     user_agent = 'w3m/0.5.3'

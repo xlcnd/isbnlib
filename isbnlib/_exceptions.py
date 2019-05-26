@@ -33,7 +33,7 @@ class NotRecognizedServiceError(ISBNLibException):
 
     def __init__(self, service):
         """Define message."""
-        self.message = "(%s) is not a recognized service" % service
+        self.message = '(%s) is not a recognized service' % service
 
 
 # pylint: disable=super-init-not-called
@@ -42,7 +42,7 @@ class NotValidISBNError(ISBNLibException):
 
     def __init__(self, isbnlike):
         """Define message."""
-        self.message = "(%s) is not a valid ISBN" % isbnlike
+        self.message = '(%s) is not a valid ISBN' % isbnlike
 
 
 # pylint: disable=super-init-not-called

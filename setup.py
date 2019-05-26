@@ -39,7 +39,7 @@ GITHUB_PATH = '{}/{}'.format(PROJECT_GITHUB_USERNAME,
                              PROJECT_GITHUB_REPOSITORY)
 GITHUB_URL = 'https://github.com/{}'.format(GITHUB_PATH)
 
-DOWNLOAD_URL = '{}/archive/{}.zip'.format(GITHUB_URL, "v" + PROJECT_VERSION)
+DOWNLOAD_URL = '{}/archive/{}.zip'.format(GITHUB_URL, 'v' + PROJECT_VERSION)
 PROJECT_URLS = {
     'Bug Reports': '{}/issues'.format(GITHUB_URL),
     'Dev Docs': 'https://isbnlib.readthedocs.io/en/latest/devs.html',
