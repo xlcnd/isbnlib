@@ -301,15 +301,24 @@ Remember that plugins **must** support python 2.7 and python 3.5+ (see python-fu
 Patterns of Usage
 -----------------
 
+The library implements a very simple API with sensible defaults, but there are cases
+that need you attention (see case 3 below).
+
+
+
 A. You only need **core functions**:
 
 
 .. code-block:: python
 
-    from isbnlib import canonical, is_isbn10, is_isbn13  # import the core functions you need
+    # import the core functions you need
+    from isbnlib import canonical, is_isbn10, is_isbn13
 
     isbn = canonical("978-0446310789")
+    if is_isbn13(isbn):
+        ...
     ...
+
 
 B. You need also **metadata functions**, with **default config**:
 
@@ -323,8 +332,9 @@ B. You need also **metadata functions**, with **default config**:
     ...
 
 C. You need also **metadata functions**, with **special config**:
-   Lets suppose you need to add an api key for a metadata plugin
-   and change the cache too.
+
+   *Lets suppose you need to add an api key for a metadata plugin
+   and change the cache too*.
 
 
 .. code-block:: python
@@ -348,6 +358,9 @@ C. You need also **metadata functions**, with **special config**:
     ...
 
 
+D. You want to build a **plugin** or use **isbnlib.dev** in your code:
+
+   You should study very carefully the **public** methods in ``dir(isbnlib.dev)``.
 
 Caveats
 -------
