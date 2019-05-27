@@ -203,7 +203,7 @@ In the namespace ``isbnlib`` you have access to the **core functions**:
 
 In addition, you have access to **metadata functions**, namely:
 ``meta``, ``editions``, ``ren``, ``desc``, ``cover``,
-``goom`` and ``isbn_from_words``.
+``goom``, ``doi2tex`` and ``isbn_from_words``.
 
 The exceptions raised by these methods can all be catched using ``ISBNLibException``.
 
