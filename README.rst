@@ -302,7 +302,7 @@ Patterns of Usage
 -----------------
 
 The library implements a very simple API with sensible defaults, but there are cases
-that need you attention (see case 3 below).
+that need your attention (see case 3 below).
 
 
 
@@ -361,6 +361,8 @@ C. You need also **metadata functions**, with **special config**:
 D. You want to build a **plugin** or use **isbnlib.dev** in your code:
 
    You should study very carefully the **public** methods in ``dir(isbnlib.dev)``.
+
+
 
 Caveats
 -------

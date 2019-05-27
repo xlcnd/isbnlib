@@ -240,6 +240,76 @@ You can write your own *merging scheme* by creating a new provider.
 .. note:: These classes are optimized for one-calls to services and not for batch calls.
 
 
+
+
+Patterns of Usage
+-----------------
+
+The library implements a very simple API with sensible defaults, but there are cases
+that need your attention (see case 3 below).
+
+
+
+A. You only need **core functions**:
+
+
+.. code-block:: python
+
+    # import the core functions you need
+    from isbnlib import canonical, is_isbn10, is_isbn13
+
+    isbn = canonical("978-0446310789")
+    if is_isbn13(isbn):
+        ...
+    ...
+
+
+B. You need also **metadata functions**, with **default config**:
+
+
+.. code-block:: python
+
+    from isbnlib import canonical, meta, description
+
+    isbn = canonical("978-0446310789")
+    data = meta(isbn)
+    ...
+
+C. You need also **metadata functions**, with **special config**:
+
+   *Lets suppose you need to add an api key for a metadata plugin
+   and change the cache too*.
+
+
+.. code-block:: python
+
+    from myapp.utils import MyCache
+
+    # import the functions you need, plus 'config' and 'registry'
+    from isbnlib import canonical, config, meta, registry
+
+    # you should use 'config' first
+    config.add_apikey('isbndb', 'kjshdfkjahsdflkjh')
+
+    # then 'registry'
+    registry.set_cache(MyCache())
+
+    # Only now you should use metadata functions
+    # (there are no adaptions for core functions,
+    #  so they can be used at any moment)
+    isbn = canonical("978-0446310789")
+    data = meta(isbn, service="isbndb")
+    ...
+
+
+D. You want to build a **plugin** or use **isbnlib.dev** in your code:
+
+   You should study very carefully the **public** methods in ``dir(isbnlib.dev)``.
+
+
+
+
+
 A full featured app!
 --------------------
 
