@@ -196,11 +196,14 @@ For Devs
 API's Main Namespaces
 ---------------------
 
-In the namespace ``isbnlib`` you have access to the core methods:
+In the namespace ``isbnlib`` you have access to the **core functions**:
 ``is_isbn10``, ``is_isbn13``, ``to_isbn10``, ``to_isbn13``, ``canonical``,
 ``clean``, ``notisbn``, ``get_isbnlike``, ``get_canonical_isbn``, ``mask``,
-``meta``, ``info``, ``editions``, ``goom``, ``ren``, ``doi``, ``EAN13``,
-``isbn_from_words``, ``desc`` and ``cover``.
+``info``, ``check_digit10``, ``check_digit13``, ``doi`` and ``EAN13``.
+
+In addition, you have access to **metadata functions**, namely:
+``meta``, ``editions``, ``ren``, ``desc``, ``cover``,
+``goom`` and ``isbn_from_words``.
 
 The exceptions raised by these methods can all be catched using ``ISBNLibException``.
 
@@ -294,6 +297,55 @@ at goob_.
 Remember that plugins **must** support python 2.7 and python 3.5+ (see python-future.org_).
 
 
+
+Patterns of Usage
+-----------------
+
+A. You only need **core functions**:
+
+
+.. code-block:: python
+
+    from isbnlib import canonical, is_isbn10, is_isbn13  # import the core functions you need
+
+    isbn = canonical("978-0446310789")
+    ...
+
+B. You need also **metadata functions**, with **default config**:
+
+
+.. code-block:: python
+
+    from isbnlib import canonical, meta, description
+
+    isbn = canonical("978-0446310789")
+    data = meta(isbn)
+    ...
+
+C. You need also **metadata functions**, with **special config**:
+   Lets suppose you need to add an api key for a metadata plugin
+   and change the cache too.
+
+
+.. code-block:: python
+
+    from myapp.utils import MyCache
+
+    # import the functions you need, plus 'config' and 'registry'
+    from isbnlib import canonical, config, meta, registry
+
+    # you should use 'config' first
+    config.add_apikey('isbndb', 'kjshdfkjahsdflkjh')
+
+    # then 'registry'
+    registry.set_cache(MyCache())
+
+    # Only now you should use metadata functions
+    # (there are no adaptions for core functions,
+    #  so they can be used at any moment)
+    isbn = canonical("978-0446310789")
+    data = meta(isbn, service="isbndb")
+    ...
 
 
 
