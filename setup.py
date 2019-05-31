@@ -68,7 +68,6 @@ PACKAGES = [
     'isbnlib',
     'isbnlib/dev',
     'isbnlib/_data',
-    'isbnlib/test',
 ]
 
 setup(
@@ -87,6 +86,4 @@ setup(
     keywords=
     'ISBN metadata World_Catalogue Google_Books Open_Library BibTeX EndNote RefWorks MSWord opf BibJSON',
     classifiers=PYPI_CLASSIFIERS,
-    tests_require=['nose', 'coverage'],
-    test_suite='nose.collector',
 )
