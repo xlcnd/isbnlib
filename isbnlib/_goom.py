@@ -3,7 +3,7 @@
 
 import logging
 
-from .dev import stdmeta
+from .dev import cache, stdmeta
 from .dev._bouth23 import u
 from .dev._exceptions import NoDataForSelectorError, RecordMappingError
 from .dev.webquery import query as wquery
@@ -59,7 +59,8 @@ def _records(words, data):
     return [_mapper(r) for r in recs if _mapper(r)]
 
 
+@cache
 def query(words):
     """Query the Google Books (JSON API v1) for metadata."""
     data = wquery(SERVICE_URL.format(words=words.replace(' ', '+')), UA)
-    return _records(words, data)
+    return _records(words, data) if data else {}
