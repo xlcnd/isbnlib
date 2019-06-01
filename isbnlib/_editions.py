@@ -7,7 +7,7 @@ from ._core import EAN13
 from ._exceptions import NotRecognizedServiceError, NotValidISBNError
 from ._openled import query as _oed
 from ._thinged import query as _ted
-from .dev import vias
+from .dev import cache, vias
 
 PROVIDERS = ('any', 'merge', 'openl', 'thingl')
 LOGGER = logging.getLogger(__name__)
@@ -43,6 +43,20 @@ def _fake_provider_merge(isbn):
         return [isbn]
 
 
+@cache
+def get_editions(isbn, service):
+    """Select the provider."""
+    if service == 'merge':
+        eds = _fake_provider_merge(isbn)
+    if service == 'any':
+        eds = _fake_provider_any(isbn)
+    if service == 'openl':
+        eds = list(_oed(isbn))
+    if service == 'thingl':
+        eds = list(_ted(isbn))
+    return eds if eds else []
+
+
 def editions(isbn, service='merge'):
     """Return the list of ISBNs of editions related with this ISBN."""
     isbn = EAN13(isbn)
@@ -54,24 +68,4 @@ def editions(isbn, service='merge'):
         LOGGER.critical('%s is not a recognized editions provider', service)
         raise NotRecognizedServiceError(service)
 
-    from .registry import metadata_cache
-    cache = metadata_cache
-    if cache is not None:  # <-- IMPORTANT
-        key = 'ed' + isbn + service
-        if key in cache:
-            return cache[key]
-
-    if service == 'merge':
-        eds = _fake_provider_merge(isbn)
-    if service == 'any':
-        eds = _fake_provider_any(isbn)
-
-    if service == 'openl':
-        eds = list(_oed(isbn))
-    if service == 'thingl':
-        eds = list(_ted(isbn))
-
-    if eds and cache is not None:
-        cache[key] = eds
-        return eds
-    return eds if eds else []
+    return get_editions(isbn, service)
