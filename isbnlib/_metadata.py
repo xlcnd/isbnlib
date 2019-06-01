@@ -4,6 +4,8 @@
 from ._core import EAN13
 from ._exceptions import NotRecognizedServiceError, NotValidISBNError
 
+# TODO(v3.10) use @cache and delete parameter cache= on query
+
 
 def query(isbn, service='default', cache='default'):
     """Query services like Google Books (JSON API), ... for metadata."""
