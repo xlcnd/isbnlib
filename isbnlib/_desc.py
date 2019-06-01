@@ -5,6 +5,7 @@ import logging
 from json import loads
 from textwrap import fill
 
+from .dev import cache
 from .dev.webservice import query as wsquery
 
 LOGGER = logging.getLogger(__name__)
@@ -16,14 +17,9 @@ SERVICE_URL = 'https://www.googleapis.com/books/v1/volumes?q=isbn:{isbn}'\
 
 
 # pylint: disable=broad-except
+@cache
 def goo_desc(isbn):
     """Get description from Google Books api."""
-    from .registry import metadata_cache
-    cache = metadata_cache
-    if cache is not None:  # pragma: no cover
-        key = 'desc-go-' + isbn
-        if key in cache:
-            return cache[key]
     url = SERVICE_URL.format(isbn=isbn)
     content = wsquery(url, user_agent=UA)
     try:
@@ -31,8 +27,6 @@ def goo_desc(isbn):
         content = content['items'][0]['volumeInfo']['description']
         # TODO(MV) don't format content here!
         content = fill(content, width=75) if content else None
-        if content and cache is not None:  # pragma: no cover
-            cache[key] = content
         return content
     except Exception:  # pragma: no cover
         LOGGER.debug('No description for %s', isbn)
