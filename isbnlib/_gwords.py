@@ -4,7 +4,7 @@
 import logging
 
 from ._core import get_canonical_isbn, get_isbnlike
-from .dev import webservice
+from .dev import cache, webservice
 
 try:  # pragma: no cover
     from urllib.parse import quote
@@ -18,6 +18,7 @@ except ImportError:  # pragma: no cover
 LOGGER = logging.getLogger(__name__)
 
 
+@cache
 def goos(words):
     """Use Google to get an ISBN from words from title and author's name."""
     service_url = 'http://www.google.com/search?q=ISBN+'
@@ -41,5 +42,4 @@ def goos(words):
             break
     if not isbns or not isbn:  # pragma: no cover
         LOGGER.debug('No ISBN found for %s', words)
-        return None
-    return isbn
+    return isbn if isbn else None
