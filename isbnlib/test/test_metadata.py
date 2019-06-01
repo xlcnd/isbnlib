@@ -21,7 +21,7 @@ def test_query():
     assert_equals(len(repr(query('9780321534965', 'goob'))) > 100, True)
     #assert_equals(len(repr(query('9789934015960'))) > 100, True)
     assert_equals(len(repr(query(u'9781118241257'))) > 100, True)
-    assert_raises(Exception, query, '9780000000', 'goob', None)
+    assert_raises(Exception, query, '9780000000', 'goob')
     assert_raises(Exception, query, randrange(0, 1000000), 'goob')
 
 
@@ -30,6 +30,6 @@ def test_ext_meta():
     # test meta from core
     assert_equals(len(repr(meta('9780321534965', 'goob'))) > 100, True)
     assert_equals(len(repr(meta('9780321534965'))) > 100, True)
-    assert_raises(Exception, meta, '9780000000', 'goob', None)
+    assert_raises(Exception, meta, '9780000000', 'goob')
     assert_raises(Exception, meta, randrange(0, 1000000), 'goob')
-    assert_raises(Exception, meta, '9781849692343', 'goob', None)
+    assert_raises(Exception, meta, '9781849692343', 'goob')
