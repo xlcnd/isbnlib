@@ -10,7 +10,7 @@ def cache(func):
     def memoized_func(*args, **kwargs):
         from ..registry import metadata_cache
         cch = metadata_cache
-        if cch is None:
+        if cch is None:  # pragma: no cover
             return func(*args, **kwargs)
 
         key = str(func.__name__) + str(args) + str(kwargs)
