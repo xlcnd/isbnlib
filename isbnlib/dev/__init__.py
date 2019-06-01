@@ -3,6 +3,7 @@
 
 from . import helpers, vias
 from ._data import Metadata, stdmeta
+from ._decorators import cache
 from ._exceptions import (DataNotFoundAtServiceError, DataWrongShapeError,
                           ISBNLibDevException, ISBNLibHTTPError,
                           ISBNLibURLError, NoAPIKeyError,
@@ -22,4 +23,4 @@ __all__ = ('ISBNToolsDevException', 'ISBNLibDevException',
            'ServiceIsDownError', 'DataWrongShapeError',
            'NotValidMetadataError', 'NoDataForSelectorError',
            'RecordMappingError', 'NoAPIKeyError', 'Metadata', 'stdmeta',
-           'WEBService', 'WEBQuery', 'vias', 'helpers')
+           'WEBService', 'WEBQuery', 'vias', 'helpers', 'cache')
