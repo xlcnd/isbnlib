@@ -26,7 +26,7 @@ def _fake_provider_any(isbn):
             LOGGER.error("Some error on editions 'any' service for %s (%s)!",
                          isbn, provider)
         continue  # pragma: no cover
-    return {isbn}  # pragma: no cover
+    return [isbn]  # pragma: no cover
 
 
 # pylint: disable=broad-except
