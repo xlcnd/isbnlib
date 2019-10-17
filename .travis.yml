@@ -3,8 +3,6 @@ language: python
 branches:
   only:
     - v3.9.9
-    - dev
-    - master
 matrix:
   include:
     - os: osx
