@@ -11,8 +11,8 @@ from .dev.webquery import query as wquery
 
 UA = 'isbnlib (gzip)'
 SERVICE_URL = 'https://www.googleapis.com/books/v1/volumes?q=isbn:{isbn}'\
-    '&fields=items/volumeInfo(title,authors,publisher,publishedDate,language,'\
-    'industryIdentifiers)&maxResults=1'
+    '&fields=items/volumeInfo(title,subtitle,authors,publisher,publishedDate,'\
+    'language,industryIdentifiers)&maxResults=1'
 LOGGER = logging.getLogger(__name__)
 
 
@@ -22,7 +22,11 @@ def _mapper(isbn, records):
     try:
         canonical = {}
         canonical['ISBN-13'] = u(isbn)
-        canonical['Title'] = records.get('title', u('')).replace(' :', ':')
+        title = records.get('title', u('')).replace(' :', ':')
+        subtitle = records.get('subtitle', u(''))
+        title = title + ' - ' + subtitle if subtitle else title
+        canonical['Title'] = title
+        # canonical['Title'] = records.get('title', u('')).replace(' :', ':')
         canonical['Authors'] = records.get('authors', [u('')])
         canonical['Publisher'] = records.get('publisher', u(''))
         if 'publishedDate' in records \
