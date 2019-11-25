@@ -23,7 +23,11 @@ def _mapper(isbn, records):
         # mapping: canonical <- records
         canonical = {}
         canonical['ISBN-13'] = u(isbn)
-        canonical['Title'] = records.get('title', u('')).replace(' :', ':')
+        title = records.get('title', u('')).replace(' :', ':')
+        subtitle = records.get('subtitle', u(''))
+        title = title + ' - ' + subtitle if subtitle else title
+        canonical['Title'] = title
+        # canonical['Title'] = records.get('title', u('')).replace(' :', ':')
         canonical['Authors'] = [
             a['name'] for a in records.get('authors', ({
                 'name': u(''),
