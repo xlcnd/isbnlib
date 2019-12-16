@@ -14,7 +14,7 @@ except ImportError:  # pragma: no cover
     def quote(x):  # pragma: no cover
         """Change to ASCII if PY2."""
         import unicodedata
-        return unicodedata.normalize('NFKD', u(x)).encode('ascii','ignore')
+        return unicodedata.normalize('NFKD', u(x)).encode('ascii', 'ignore')
 
 
 LOGGER = logging.getLogger(__name__)
