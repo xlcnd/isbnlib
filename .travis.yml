@@ -4,7 +4,7 @@ branches:
   only:
     - v3.9.10
     - master
-    - dev
+    # - dev
 matrix:
   include:
     - os: osx
