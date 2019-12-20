@@ -398,6 +398,9 @@ Projects using *isbnlib*
 **L-Space**   https://pypi.org/project/lspace/
 
 
+See the full list here_.
+
+
 
 Help
 ----
@@ -445,12 +448,12 @@ Read ``isbnlib`` code in a very sctructured way at sourcegraph_ or 'the docs' at
 
 .. _template: https://github.com/xlcnd/isbnlib/blob/dev/PLUGIN.zip
 
-
 .. _goob: https://github.com/xlcnd/isbnlib/blob/dev/isbnlib/_goob.py
-
 
 .. _search: https://pypi.python.org/pypi?%3Aaction=search&term=isbnlib&submit=search
 
 .. _51: https://github.com/xlcnd/isbnlib/issues/51
+
+.. _here: https://github.com/xlcnd/isbnlib/network/dependents?package_id=UGFja2FnZS01MjIyODAxMQ%3D%3D
 
 
