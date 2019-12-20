@@ -29,14 +29,6 @@
 
 
 
-Warning
-=======
-
-
-    **Breaking Change** The service xISBN was decommissioned (see issue 51_)!
-
-
-
 Info
 ====
 
