@@ -383,19 +383,6 @@ Projects using *isbnlib*
 
 **Spreads**  https://github.com/DIYBookScanner/spreads
 
-**Papis**    https://github.com/papis/papis
-
-**libBMC**    https://github.com/Phyks/libbmc/
-
-**Alessandria**      https://gitlab.com/openlabmatera/alessandria
-
-**Comic Collector**  https://github.com/wengole/comiccollector
-
-**Abelujo**   https://github.com/vindarel/abelujo
-
-**BibLib**    https://pypi.org/project/biblib/
-
-**L-Space**   https://pypi.org/project/lspace/
 
 
 See the full list here_.
