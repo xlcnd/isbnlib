@@ -48,6 +48,8 @@ def _records(isbn, data):
     try:
         recs = data['items'][0]['volumeInfo']
     except Exception:  # pragma: no cover
+        # LOGGER.debug('No data for %s', isbn)
+        # return {}
         LOGGER.debug('NoDataForSelectorError for %s', isbn)
         raise NoDataForSelectorError(isbn)
     # consistency check (isbn request = isbn response)

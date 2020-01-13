@@ -57,6 +57,8 @@ def _records(isbn, data):
         # put the selected data in records
         records = data['ISBN:%s' % isbn]
     except Exception:  # pragma: no cover
+        # LOGGER.debug('No data for %s', isbn)
+        # return {}
         LOGGER.debug('NoDataForSelectorError for %s', isbn)
         raise NoDataForSelectorError(isbn)
 
