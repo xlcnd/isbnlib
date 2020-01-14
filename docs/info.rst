@@ -68,23 +68,21 @@ Have fun!
 Projects using *isbnlib*
 ------------------------
 
-**isbntools**      https://github.com/xlcnd/isbntools
-
 **Open Library**   https://github.com/internetarchive/openlibrary
 
-**Spreads**        https://github.com/DIYBookScanner/spreads
+**NYPL Library Simplified**  https://github.com/NYPL-Simplified
 
-**Papis**    https://github.com/papis/papis
+**Manubot**   https://github.com/manubot
 
-**libBMC**    https://github.com/Phyks/libbmc/
+**Spreads**  https://github.com/DIYBookScanner/spreads
 
-**Alessandria**     https://gitlab.com/openlabmatera/alessandria
+**isbntools**      https://github.com/xlcnd/isbntools
 
-**Comic Collector**  https://github.com/wengole/comiccollector
+**isbnsrv**        https://github.com/xlcnd/isbnsrv
 
-**Abelujo**    http://www.abelujo.cc/
 
-**BibLib**    https://pypi.python.org/pypi/biblib
+
+See the full list here_.
 
 
 
@@ -92,3 +90,5 @@ Projects using *isbnlib*
 .. _pdfminer: https://pypi.python.org/pypi/pdfminer
 
 .. _isbntools: https://pypi.python.org/pypi/isbntools
+
+.. _here: https://github.com/xlcnd/isbnlib/network/dependents?package_id=UGFja2FnZS01MjIyODAxMQ%3D%3D
