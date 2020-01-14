@@ -3,11 +3,15 @@
 
 from ._core import EAN13
 from ._exceptions import NotRecognizedServiceError, NotValidISBNError
+from .dev import cache
 
-# TODO(v3.10) use @cache and delete parameter cache= on query
+
+@cache
+def _get_meta(provider, isbn):
+    return provider(isbn)
 
 
-def query(isbn, service='default', cache='default'):
+def query(isbn, service='default'):
     """Query services like Google Books (JSON API), ... for metadata."""
     # validate inputs
     ean = EAN13(isbn)
@@ -18,17 +22,6 @@ def query(isbn, service='default', cache='default'):
     from .registry import services
     if service != 'default' and service not in services:  # pragma: no cover
         raise NotRecognizedServiceError(service)
-    # set cache and get metadata
-    if cache is None:  # pragma: no cover
-        return services[service](isbn)
-    if cache == 'default':  # pragma: no cover
-        from .registry import metadata_cache
-        cache = metadata_cache
-    if cache is not None:
-        key = isbn + service
-        if key in cache:
-            return cache[key]
-    meta = services[service](isbn)
-    if meta and cache is not None:  # pragma: no cover
-        cache[key] = meta
+    provider = services[service]
+    meta = _get_meta(provider, isbn)
     return meta if meta else {}

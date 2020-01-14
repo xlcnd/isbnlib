@@ -20,10 +20,10 @@ def mask(isbn, separator='-'):
     return msk(isbn, separator)
 
 
-def meta(isbn, service='default', cache='default'):
+def meta(isbn, service='default'):
     """Get metadata from Google Books ('goob'), Open Library ('openl'), ..."""
     service = service if service else 'default'
-    return query(isbn, service, cache) if isbn else None
+    return query(isbn, service) if isbn else None
 
 
 def info(isbn):
