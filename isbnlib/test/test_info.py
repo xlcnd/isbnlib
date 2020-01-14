@@ -33,4 +33,4 @@ def test_ext_info():
 
 def test_ext_info():
     """Test 'info' not issued ISBN."""
-    assert_equals(info('9789999999991'), None)
+    assert_equals(info('9789999999991'), '')
