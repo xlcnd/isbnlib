@@ -15,9 +15,6 @@ Known Issues
    if you have a version of ``isbnlib`` that is too old, ``mask`` doesn't work for
    valid (recent) issued ISBNs. The solution? **Update isbnlib often**!
 
-4. Calls to metadata services are cached by default. You can change that by calling
-   ``isbnlib.meta(isbn, service='default', cache=None)``
-
 
 Any issue that you would like to report, please do it at github_ or post a question on
 stackoverflow_ (with tag **isbnlib**).
