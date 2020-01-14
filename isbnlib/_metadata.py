@@ -8,6 +8,7 @@ from .dev import cache
 
 @cache
 def _get_meta(provider, isbn):
+    """Get the metadata from the provider (cached)."""
     return provider(isbn)
 
 
