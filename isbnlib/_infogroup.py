@@ -32,4 +32,4 @@ def infogroup(isbn):
             return dtxt[iid]
     LOGGER.debug('Identifier not found for %s (probably not issued yet!)',
                  isbn)
-    return None
+    return ''
