@@ -22,8 +22,8 @@ def speed_registry():
     t = time.process_time()
     elapsed_time = time.process_time() - t
     millis = int(elapsed_time * 1000)
-    print('(registry) {} milliseconds < 100 milliseconds'.format(millis))
-    assert millis < 100
+    print('(registry) {} milliseconds < 135 milliseconds'.format(millis))
+    assert millis < 135
 
 
 speed_isbnlib()
