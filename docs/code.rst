@@ -18,7 +18,7 @@ Status
     :target: https://github.com/xlcnd/isbnlib
     :alt: Maintenance
 
-.. image:: https://img.shields.io/badge/Sourcegraph-Status-blue.svg
+.. image:: https://img.shields.io/badge/source-analyze-blue.svg&style=flat
     :target: https://sourcegraph.com/github.com/xlcnd/isbnlib
     :alt: Graph
 
