@@ -11,7 +11,7 @@
     :target: https://coveralls.io/github/xlcnd/isbnlib?branch=master
     :alt: Coverage Status
 
-.. image:: https://travis-ci.org/xlcnd/isbnlib.svg?branch=v3.10.0
+.. image:: https://img.shields.io/travis/xlcnd/isbnlib/v3.10.0?label=travis&svg=true&style=flat
     :target: https://travis-ci.org/xlcnd/isbnlib
     :alt: Built Status
 
