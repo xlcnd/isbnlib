@@ -42,6 +42,10 @@ Status
     :target: https://pypi.org/project/isbnlib/
     :alt: PYPI Downloads
 
+.. image:: https://img.shields.io/badge/license-LGPL-brightgreen.svg?style=flat
+    :target: https://github.com/xlcnd/isbnlib/blob/master/LICENSE-LGPL-3.0-only.txt
+    :alt: License
+
 .. image:: https://img.shields.io/github/stars/xlcnd/isbnlib.svg?style=social
     :target: https://github.com/xlcnd/isbnlib/stargazers
     :alt: Stars
