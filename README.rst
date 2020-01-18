@@ -7,8 +7,8 @@
     :target: https://isbnlib.readthedocs.org/en/latest/
     :alt: Documentation Status
 
-.. image:: https://coveralls.io/repos/github/xlcnd/isbnlib/badge.svg?branch=v3.10.0
-    :target: https://coveralls.io/github/xlcnd/isbnlib?branch=v3.10.0
+.. image:: https://coveralls.io/repos/github/xlcnd/isbnlib/badge.svg?branch=master
+    :target: https://coveralls.io/github/xlcnd/isbnlib?branch=master
     :alt: Coverage Status
 
 .. image:: https://travis-ci.org/xlcnd/isbnlib.svg?branch=v3.10.0

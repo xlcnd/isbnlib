@@ -14,7 +14,7 @@ Search/Browse the code at sourcegraph_ or github_
 Status
 ------
 
-.. image:: https://img.shields.io/maintenance/yes/2019.svg
+.. image:: https://img.shields.io/maintenance/yes/2020.svg
     :target: https://github.com/xlcnd/isbnlib
     :alt: Maintenance
 
@@ -22,8 +22,8 @@ Status
     :target: https://sourcegraph.com/github.com/xlcnd/isbnlib
     :alt: Graph
 
-.. image:: https://coveralls.io/repos/github/xlcnd/isbnlib/badge.svg?branch=v3.10.0
-    :target: https://coveralls.io/github/xlcnd/isbnlib?branch=v3.10.0
+.. image:: https://coveralls.io/repos/github/xlcnd/isbnlib/badge.svg?branch=master
+    :target: https://coveralls.io/github/xlcnd/isbnlib?branch=master
     :alt: Coverage Status
 
 .. image:: https://travis-ci.org/xlcnd/isbnlib.svg?branch=v3.10.0
