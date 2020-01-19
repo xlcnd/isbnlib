@@ -115,7 +115,7 @@ Main Functions
 ``mask(isbn, separator='-')``
     `Mask` (hyphenate) a canonical ISBN.
 
-``meta(isbn, service='default', cache='default')``
+``meta(isbn, service='default')``
     Gives you the main metadata associated with the ISBN. As `service` parameter you can use:
     ``'goob'`` uses the **Google Books service** (**no key is needed**)  and
     **is the default option**,
@@ -124,8 +124,6 @@ Main Functions
     with ``config.add_apikey(service, apikey)`` (see example below).
     The output can be formatted as ``bibtex``, ``csl`` (CSL-JSON), ``msword``, ``endnote``, ``refworks``,
     ``opf`` or ``json`` (BibJSON) bibliographic formats with ``registry.bibformatters``.
-    ``cache`` only allows two values: 'default' or None. You can change the kind of cache by using
-    ``registry.set_cache`` (see below).
     Now, you can extend the functionality of this function by adding pluggins, more metadata
     providers or new bibliographic formatters (check_ for available pluggins).
 
@@ -140,6 +138,9 @@ Main Functions
 
 ``goom(words)``
     Returns a list of references from **Google Books multiple references**.
+
+``classify(isbn)``
+    Returns a dictionary of classifiers for a canonical ISBN. For the meaning of these classifiers see OCLC_.
 
 ``doi(isbn)``
     Returns a DOI's ISBN-A from a ISBN-13.
@@ -442,5 +443,7 @@ Read ``isbnlib`` code in a very sctructured way at sourcegraph_ or 'the docs' at
 .. _51: https://github.com/xlcnd/isbnlib/issues/51
 
 .. _here: https://github.com/xlcnd/isbnlib/network/dependents?package_id=UGFja2FnZS01MjIyODAxMQ%3D%3D
+
+.. _OCLC: http://classify.oclc.org/classify2/
 
 
