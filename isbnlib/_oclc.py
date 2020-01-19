@@ -73,7 +73,7 @@ def parser_headings(xmlthing):
             return dict(zip(flds, vals))
         except Exception:  # pragma: no cover
             LOGGER.debug("Bad 'headings' parsing for 'oclc' service!")
-    return {}
+    return {}  # pragma: no cover
 
 
 @cache
