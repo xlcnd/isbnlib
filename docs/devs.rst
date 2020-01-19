@@ -70,7 +70,7 @@ In the namespace ``isbnlib`` you have access to the core methods:
 ``mask(isbn, separator='-')``
   `Mask` (hyphenate) a canonical ISBN.
 
-``meta(isbn, service='default', cache='default')``
+``meta(isbn, service='default')``
     Gives you the main metadata associated with the ISBN. As `service` parameter you can use:
     ``'goob'`` uses the **Google Books service** (**no key is needed**)  and
     **is the default option**,
@@ -79,8 +79,6 @@ In the namespace ``isbnlib`` you have access to the core methods:
     with ``config.add_apikey(service, apikey)`` (see example below).
     The output can be formatted as ``bibtex``, ``csl`` (CSL-JSON), ``msword``, ``endnote``, ``refworks``,
     ``opf`` or ``json`` (BibJSON) bibliographic formats with ``isbnlib.registry.bibformatters``.
-    ``cache`` only allows two values: 'default' or None. You can change the kind of cache by using
-    ``isbnlib.registry.set_cache`` (see below).
     Now, you can extend the functionality of this function by adding pluggins, more metadata
     providers or new bibliographic formatters (check_ for available pluggins).
 
@@ -95,6 +93,9 @@ In the namespace ``isbnlib`` you have access to the core methods:
 
 ``goom(words)``
   Returns a list of references from **Google Books multiple references**.
+
+``classify(isbn)``
+    Returns a dictionary of classifiers for a canonical ISBN. For the meaning of these classifiers see OCLC_.
 
 ``doi(isbn)``
   Returns a DOI's ISBN-A from a ISBN-13.
@@ -346,3 +347,5 @@ framework to further developement, take a look at isbntools_.
 .. _goob: https://github.com/xlcnd/isbnlib/blob/dev/isbnlib/_goob.py
 
 .. _search: https://pypi.python.org/pypi?%3Aaction=search&term=isbnlib&submit=search
+
+.. _OCLC: http://classify.oclc.org/classify2/
