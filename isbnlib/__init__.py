@@ -23,6 +23,7 @@ from ._ext import (cover, desc, mask, meta, info, editions, isbn_from_words,
                    doi, ren)
 from ._goom import query as goom
 from ._doitotex import doi2tex
+from ._oclc import query as classify
 
 # Ranges Database date
 from ._data.data4mask import RDDATE
@@ -43,7 +44,7 @@ __all__ = ('is_isbn10', 'is_isbn13', 'clean', 'check_digit10', 'check_digit13',
            'config', '__version__', '__support__', 'doi', 'ren', 'ISBN13',
            'GTIN13', 'ISBNLibException', 'NotRecognizedServiceError',
            'NotValidISBNError', 'PluginNotLoadedError', 'goom', 'doi2tex',
-           'RDDATE')
+           'RDDATE', 'classify')
 
 __version__ = '3.10.0'
-__support__ = 'py27, py34, py35, py36, py37, pypy, pypy3'
+__support__ = 'py27, py34, py35, py36, py37, py38, pypy, pypy3'
