@@ -80,7 +80,7 @@ def parser_headings(xmlthing):
             vals = RE_VALS.findall(buf)
             return dict(zip(flds, vals))
         except Exception:  # pragma: no cover
-            LOGGER.debug("Bad 'headings' parsing for 'oclc' service!")
+            LOGGER.debug("Bad parsing of 'headings' for 'oclc' service!")
     return {}  # pragma: no cover
 
 
