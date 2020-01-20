@@ -28,6 +28,11 @@
     :alt: PYPI Downloads
 
 
+Warning
+=======
+
+>This is the last version to support python 2.7.*!
+
 
 Info
 ====
