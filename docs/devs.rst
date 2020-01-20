@@ -96,6 +96,7 @@ In the namespace ``isbnlib`` you have access to the core methods:
 
 ``classify(isbn)``
     Returns a dictionary of classifiers for a canonical ISBN. For the meaning of these classifiers see OCLC_.
+    Most of tha data in the underlying service are for books in english.
 
 ``doi(isbn)``
   Returns a DOI's ISBN-A from a ISBN-13.
