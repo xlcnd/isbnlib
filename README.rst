@@ -145,7 +145,7 @@ Main Functions
     Returns a list of references from **Google Books multiple references**.
 
 ``classify(isbn)``
-    Returns a dictionary of **classifiers** for a canonical ISBN. For the meaning of these classifiers see OCLC_.
+    **NEW** Returns a dictionary of **classifiers** for a canonical ISBN. For the meaning of these classifiers see OCLC_.
     Most of the data in the underlying service are for books in english.
 
 ``doi(isbn)``
