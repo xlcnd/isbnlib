@@ -26,10 +26,17 @@ RE_FLDS = re.compile(r' ident="(.*?)"', re.I | re.M | re.S)
 RE_VALS = re.compile(r'fast">(.*?)</heading>', re.I | re.M | re.S)
 
 
-def parser(xml):
-    """Parse the response from the service."""
+def data_checker(xml):
+    """Check the response from the service."""
     if not xml or 'response code="102"' in xml:
         LOGGER.debug("The service 'oclc' is temporarily down!")
+        return False
+    return True
+
+
+def parser(xml):
+    """Parse the response from the service."""
+    if not xml:
         return {}
 
     data = {}
@@ -58,6 +65,7 @@ def parser(xml):
     fast = parser_headings(xml)
     if fast:
         data['fast'] = fast
+
     return data
 
 
@@ -81,5 +89,5 @@ def query(isbn):
     """Query the classify.oclc service for classifiers."""
     return wquery(SERVICE_URL.format(isbn=isbn),
                   user_agent=UA,
-                  data_checker=None,
-                  parser=parser)
+                  data_checker=data_checker,
+                  parser=parser) or {}
