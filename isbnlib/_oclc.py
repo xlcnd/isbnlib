@@ -85,7 +85,7 @@ def parser_headings(xmlthing):
 
 
 @cache
-def query(isbn):
+def query_classify(isbn):
     """Query the classify.oclc service for classifiers."""
     return wquery(SERVICE_URL.format(isbn=isbn),
                   user_agent=UA,

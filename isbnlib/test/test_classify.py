@@ -4,7 +4,7 @@
 """nose tests for classifiers."""
 
 from nose.tools import assert_equals
-from .._oclc import query
+from .._oclc import query_classify as query
 
 
 q1 = query('9781118241257')
