@@ -13,7 +13,10 @@ def cache(func):
         if cch is None:  # pragma: no cover
             return func(*args, **kwargs)
 
+        # Persistent caches will not work
+        # if func has callables in the arguments
         key = str(func.__name__) + str(args) + str(kwargs)
+
         if key in cch:
             return cch[key]
         else:
