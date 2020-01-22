@@ -60,7 +60,7 @@ def _records(isbn, data):
             raise ISBNNotConsistentError('{0} not in {1}'.format(
                 isbn, repr(ids)))
     else:
-        return {}
+        return {}  # pragma: no cover
     # map canonical <- records
     return _mapper(isbn, recs)
 
