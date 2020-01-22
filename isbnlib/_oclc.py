@@ -37,7 +37,7 @@ def data_checker(xml):
 def parser(xml):
     """Parse the response from the service."""
     if not xml:
-        return {}
+        return {}  # pragma: no cover
 
     data = {}
 
