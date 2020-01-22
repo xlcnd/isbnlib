@@ -59,6 +59,8 @@ def _records(isbn, data):
             LOGGER.debug('ISBNNotConsistentError for %s (%s)', isbn, repr(ids))
             raise ISBNNotConsistentError('{0} not in {1}'.format(
                 isbn, repr(ids)))
+    else:
+        return {}
     # map canonical <- records
     return _mapper(isbn, recs)
 
