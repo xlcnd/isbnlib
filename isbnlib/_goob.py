@@ -48,6 +48,7 @@ def _records(isbn, data):
     try:
         recs = data['items'][0]['volumeInfo']
     except Exception:  # pragma: no cover
+        # don't raise exception!
         LOGGER.debug('No data from "goob" for isbn %s', isbn)
         return {}
     # consistency check (isbn request = isbn response)

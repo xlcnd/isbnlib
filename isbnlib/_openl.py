@@ -59,6 +59,7 @@ def _records(isbn, data):
         # put the selected data in records
         records = data['ISBN:%s' % isbn]
     except Exception:  # pragma: no cover
+        # don't raise exception!
         LOGGER.debug('No data from "openl" for isbn %s', isbn)
         return {}
 
