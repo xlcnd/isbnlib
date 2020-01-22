@@ -52,13 +52,13 @@ def test_doi():
 def test_desc():
     """Test 'desc' command."""
     assert_equals(len(desc('9780156001311')) > 10, True)
-    assert_equals(desc('9780000000000'), None)
+    assert_equals(desc('9780000000000'), '')
 
 
 def test_cover():
     """Test 'cover' command."""
     assert_equals(len(repr(cover('9780156001311'))) > 50, True)
-    assert_equals(cover('9780000000000'), None)  # <-- invalid ISBN
+    assert_equals(cover('9780000000000'), {})  # <-- invalid ISBN
     assert_equals(len(repr(cover('9781408835029'))) > 50, True)
     assert_equals(len(repr(cover('9789727576807'))) < 50,
                   True)  # <-- no image of any size
