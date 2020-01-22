@@ -5,7 +5,7 @@ import logging
 
 from .dev import stdmeta
 from .dev._bouth23 import u
-from .dev._exceptions import (ISBNNotConsistentError, RecordMappingError)
+from .dev._exceptions import ISBNNotConsistentError, RecordMappingError
 from .dev.webquery import query as wquery
 
 UA = 'isbnlib (gzip)'
