@@ -5,8 +5,7 @@ import logging
 
 from .dev import stdmeta
 from .dev._bouth23 import u
-from .dev._exceptions import (ISBNNotConsistentError, NoDataForSelectorError,
-                              RecordMappingError)
+from .dev._exceptions import (ISBNNotConsistentError, RecordMappingError)
 from .dev.webquery import query as wquery
 
 UA = 'isbnlib (gzip)'
@@ -16,6 +15,7 @@ SERVICE_URL = 'https://www.googleapis.com/books/v1/volumes?q=isbn:{isbn}'\
 LOGGER = logging.getLogger(__name__)
 
 
+# pylint: disable=broad-except
 def _mapper(isbn, records):
     """Mapp: canonical <- records."""
     # canonical: ISBN-13, Title, Authors, Publisher, Year, Language
@@ -48,10 +48,8 @@ def _records(isbn, data):
     try:
         recs = data['items'][0]['volumeInfo']
     except Exception:  # pragma: no cover
-        # LOGGER.debug('No data for %s', isbn)
-        # return {}
-        LOGGER.debug('NoDataForSelectorError for %s', isbn)
-        raise NoDataForSelectorError(isbn)
+        LOGGER.debug('No data from "goob" for isbn %s', isbn)
+        return {}
     # consistency check (isbn request = isbn response)
     if recs:
         ids = recs.get('industryIdentifiers', '')

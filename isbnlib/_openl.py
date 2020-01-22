@@ -6,7 +6,7 @@ import re
 
 from .dev import stdmeta
 from .dev._bouth23 import u
-from .dev._exceptions import NoDataForSelectorError, RecordMappingError
+from .dev._exceptions import RecordMappingError
 from .dev.webquery import query as wquery
 
 UA = 'isbnlib (gzip)'
@@ -15,6 +15,7 @@ SERVICE_URL = 'http://openlibrary.org/api/books?bibkeys='\
 LOGGER = logging.getLogger(__name__)
 
 
+# pylint: disable=broad-except
 def _mapper(isbn, records):
     """Map canonical <- records."""
     # canonical:
@@ -51,16 +52,15 @@ def _mapper(isbn, records):
     return stdmeta(canonical)
 
 
+# pylint: disable=broad-except
 def _records(isbn, data):
     """Classify (canonically) the parsed data."""
     try:
         # put the selected data in records
         records = data['ISBN:%s' % isbn]
     except Exception:  # pragma: no cover
-        # LOGGER.debug('No data for %s', isbn)
-        # return {}
-        LOGGER.debug('NoDataForSelectorError for %s', isbn)
-        raise NoDataForSelectorError(isbn)
+        LOGGER.debug('No data from "openl" for isbn %s', isbn)
+        return {}
 
     # map canonical <- records
     return _mapper(isbn, records)

@@ -23,11 +23,11 @@ def test_catchall():
 
     def f2():
         try:
-            meta('9789720049612')
+            meta('9789720049612', 'xxx')
         except ISBNLibException as ex:
             return str(ex.message)
 
-    assert_equals(f2(), 'no data for this selector (9789720049612)')
+    assert_equals(f2(), '(xxx) is not a recognized service')
 
 
 # NOTE the tests for other Exceptions are spread in the other tests
