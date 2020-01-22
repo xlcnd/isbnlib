@@ -22,8 +22,7 @@ def mask(isbn, separator='-'):
 
 def meta(isbn, service='default'):
     """Get metadata from Google Books ('goob'), Open Library ('openl'), ..."""
-    service = service if service else 'default'
-    return query(isbn, service) if isbn else None
+    return query(isbn, service) if isbn else {}
 
 
 def info(isbn):
@@ -84,10 +83,10 @@ def ren(fp):
 def cover(isbn):
     """Get the img urls of the cover of the ISBN."""
     isbn = EAN13(isbn)
-    return gcover(isbn) if isbn else None
+    return gcover(isbn) if isbn else {}
 
 
 def desc(isbn):
     """Return a descripion of the ISBN."""
     isbn = EAN13(isbn)
-    return goo_desc(isbn) if isbn else None
+    return goo_desc(isbn) if isbn else ''
