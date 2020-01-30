@@ -38,7 +38,7 @@ THREADS_TIMEOUT = options.get('THREADS_TIMEOUT', 12)
 # URLOPEN_TIMEOUT is used by webservice
 def seturlopentimeout(seconds):  # pragma: no cover
     """Set the value of URLOPEN_TIMEOUT (in seconds)."""
-    global options, URLOPEN_TIMEOUT
+    global URLOPEN_TIMEOUT
     set_option('URLOPEN_TIMEOUT', seconds)
     URLOPEN_TIMEOUT = seconds
 
@@ -46,13 +46,12 @@ def seturlopentimeout(seconds):  # pragma: no cover
 # THREADS_TIMEOUT is a parameter used downstream by Thread calls (see vias.py)
 def setthreadstimeout(seconds):  # pragma: no cover
     """Set the value of THREADS_TIMEOUT (in seconds)."""
-    global options, THREADS_TIMEOUT
+    global THREADS_TIMEOUT
     set_option('THREADS_TIMEOUT', seconds)
     THREADS_TIMEOUT = seconds
 
 
 def setloadplugins(boolean=True):  # pragma: no cover
     """Set the value for all LOAD_XXX_PLUGINS."""
-    global options
     set_option('LOAD_METADATA_PLUGINS', boolean)
     set_option('LOAD_FORMATTER_PLUGINS', boolean)
