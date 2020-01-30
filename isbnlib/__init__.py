@@ -11,9 +11,6 @@ from ._exceptions import (quiet_errors, ISBNLibException,
                           NotRecognizedServiceError, NotValidISBNError,
                           PluginNotLoadedError)
 
-# configuration
-from . import config  # <-- first import
-
 # main modules
 from ._core import (is_isbn10, is_isbn13, to_isbn10, to_isbn13, check_digit10,
                     check_digit13, clean, canonical, notisbn, get_isbnlike,
@@ -41,8 +38,8 @@ __all__ = ('is_isbn10', 'is_isbn13', 'clean', 'check_digit10', 'check_digit13',
            'mask', 'info', 'meta', 'to_isbn10', 'to_isbn13', 'get_isbnlike',
            'notisbn', 'ean13', 'EAN13', 'cover', 'desc', 'canonical',
            'get_canonical_isbn', 'editions', 'isbn_from_words', 'quiet_errors',
-           'config', '__version__', '__support__', 'doi', 'ren', 'ISBN13',
-           'GTIN13', 'ISBNLibException', 'NotRecognizedServiceError',
+           '__version__', '__support__', 'doi', 'ren', 'ISBN13', 'GTIN13',
+           'ISBNLibException', 'NotRecognizedServiceError',
            'NotValidISBNError', 'PluginNotLoadedError', 'goom', 'doi2tex',
            'RDDATE', 'classify')
 

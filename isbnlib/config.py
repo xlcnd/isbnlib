@@ -29,26 +29,16 @@ def set_option(option, value):  # pragma: no cover
     options[option.upper()] = value
 
 
-# TODO(NV) don't expose this directly! BREAKING CHANGE!
-# Timeouts
-URLOPEN_TIMEOUT = options.get('URLOPEN_TIMEOUT', 10)
-THREADS_TIMEOUT = options.get('THREADS_TIMEOUT', 12)
-
-
 # URLOPEN_TIMEOUT is used by webservice
 def seturlopentimeout(seconds):  # pragma: no cover
     """Set the value of URLOPEN_TIMEOUT (in seconds)."""
-    global URLOPEN_TIMEOUT
     set_option('URLOPEN_TIMEOUT', seconds)
-    URLOPEN_TIMEOUT = seconds
 
 
 # THREADS_TIMEOUT is a parameter used downstream by Thread calls (see vias.py)
 def setthreadstimeout(seconds):  # pragma: no cover
     """Set the value of THREADS_TIMEOUT (in seconds)."""
-    global THREADS_TIMEOUT
     set_option('THREADS_TIMEOUT', seconds)
-    THREADS_TIMEOUT = seconds
 
 
 def setloadplugins(boolean=True):  # pragma: no cover
