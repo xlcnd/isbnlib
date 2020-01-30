@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """Interface for namespace 'isbnlib.dev'."""
 
-from . import helpers, vias
+
 from ._data import Metadata, stdmeta
 from ._decorators import cache
 from ._exceptions import (DataNotFoundAtServiceError, DataWrongShapeError,
@@ -16,5 +16,5 @@ __all__ = ('ISBNLibDevException', 'ISBNLibURLError', 'ISBNLibHTTPError',
            'DataNotFoundAtServiceError', 'ServiceIsDownError',
            'DataWrongShapeError', 'NotValidMetadataError',
            'NoDataForSelectorError', 'RecordMappingError', 'NoAPIKeyError',
-           'Metadata', 'stdmeta', 'WEBService', 'WEBQuery', 'vias', 'helpers',
+           'Metadata', 'stdmeta', 'WEBService', 'WEBQuery',
            'cache')
