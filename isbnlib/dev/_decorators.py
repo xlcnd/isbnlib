@@ -2,13 +2,14 @@
 """Decorator for isbnlib."""
 from functools import wraps
 
+from ..registry import metadata_cache
+
 
 def cache(func):
     """Cache decorator."""
     # noqa
     @wraps(func)
     def memoized_func(*args, **kwargs):
-        from ..registry import metadata_cache
         cch = metadata_cache
         if cch is None:  # pragma: no cover
             return func(*args, **kwargs)
