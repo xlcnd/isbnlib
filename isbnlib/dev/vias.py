@@ -3,7 +3,7 @@
 
 import logging
 
-from .. import config
+from ..config import options
 
 LOGGER = logging.getLogger(__name__)
 
@@ -39,7 +39,7 @@ def parallel(named_tasks, arg):
     for name, task in named_tasks:
         t = Thread(target=_worker, args=(name, task, arg))
         t.start()
-        t.join(config.options['THREADS_TIMEOUT'])
+        t.join(options.get('THREADS_TIMEOUT'))
     return results
 
 
@@ -61,7 +61,7 @@ def multi(named_tasks, arg):
     for name, task in named_tasks:
         p = Process(target=_worker, args=(name, task, arg, q))
         p.start()
-        p.join(config.options['THREADS_TIMEOUT'])
+        p.join(options.get('THREADS_TIMEOUT'))
     q.put('STOP')
 
     while True:

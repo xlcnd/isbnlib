@@ -6,7 +6,7 @@ import logging
 
 from ._bouth23 import bstream, s
 from ._exceptions import ISBNLibHTTPError, ISBNLibURLError
-from .. import config
+from ..config import options
 
 # pylint: disable=import-error
 # pylint: disable=wrong-import-order
@@ -44,7 +44,7 @@ class WEBService(object):
         """Check errors on response."""
         try:
             response = urlopen(self._request,
-                               timeout=config.options['URLOPEN_TIMEOUT'])
+                               timeout=options.get('URLOPEN_TIMEOUT'))
             LOGGER.debug('Request headers:\n%s', self._request.header_items())
         except HTTPError as e:  # pragma: no cover
             LOGGER.critical('ISBNLibHTTPError for %s with code %s [%s]',
