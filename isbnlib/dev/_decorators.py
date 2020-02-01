@@ -8,7 +8,7 @@ def cache(func):
     # noqa
     @wraps(func)
     def memoized_func(*args, **kwargs):
-        from ..registry import metadata_cache
+        from ..registry import metadata_cache  # <-- dynamic and lazy
         cch = metadata_cache
         if cch is None:  # pragma: no cover
             return func(*args, **kwargs)
