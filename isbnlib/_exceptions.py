@@ -37,6 +37,24 @@ class NotRecognizedServiceError(ISBNLibException):
 
 
 # pylint: disable=super-init-not-called
+class NotValidDefaultServiceError(ISBNLibException):
+    """Exception raised when the service is not valid for default."""
+
+    def __init__(self, service):
+        """Define message."""
+        self.message = '(%s) is not a valid default service' % service
+
+
+# pylint: disable=super-init-not-called
+class NotValidDefaultFormatterError(ISBNLibException):
+    """Exception raised when the formatter is not valid for default."""
+
+    def __init__(self, formatter):
+        """Define message."""
+        self.message = '(%s) is not a valid default formatter' % formatter
+
+
+# pylint: disable=super-init-not-called
 class NotValidISBNError(ISBNLibException):
     """Exception raised when the ISBN is not valid."""
 

@@ -7,6 +7,8 @@ from pkg_resources import iter_entry_points
 
 from . import _goob as goob
 from . import _openl as openl
+from . import NotValidDefaultServiceError
+from . import NotValidDefaultFormatterError
 from ._imcache import IMCache
 from .config import options
 from .dev._fmt import _fmtbib
@@ -28,6 +30,11 @@ def setdefaultservice(name):  # pragma: no cover
     """Set the default service."""
     global services
     services['default'] = services[name.lower()]
+    if name != 'default' and name in services:
+        services['default'] = services[name.lower()]
+    else:
+        LOGGER.critical('Wrong default service')
+        raise NotValidDefaultServiceError(name)
 
 
 def add_service(name, query):  # pragma: no cover
@@ -56,7 +63,11 @@ BIBFORMATS = ()
 def setdefaultbibformatter(name):  # pragma: no cover
     """Set the default formatter."""
     global bibformatters
-    bibformatters['default'] = bibformatters[name.lower()]
+    if name != 'default' and name in bibformatters:
+        bibformatters['default'] = bibformatters[name.lower()]
+    else:
+        LOGGER.critical('Wrong default bibformatter')
+        raise NotValidDefaultFormatterError(name)
 
 
 def add_bibformatter(name, formatter):  # pragma: no cover

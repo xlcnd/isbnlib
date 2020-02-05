@@ -9,7 +9,8 @@ import logging as _logging
 
 from ._exceptions import (quiet_errors, ISBNLibException,
                           NotRecognizedServiceError, NotValidISBNError,
-                          PluginNotLoadedError)
+                          PluginNotLoadedError, NotValidDefaultServiceError,
+                          NotValidDefaultFormatterError)
 
 # main modules
 from ._core import (is_isbn10, is_isbn13, to_isbn10, to_isbn13, check_digit10,
@@ -41,7 +42,8 @@ __all__ = ('is_isbn10', 'is_isbn13', 'clean', 'check_digit10', 'check_digit13',
            '__version__', '__support__', 'doi', 'ren', 'ISBN13', 'GTIN13',
            'ISBNLibException', 'NotRecognizedServiceError',
            'NotValidISBNError', 'PluginNotLoadedError', 'goom', 'doi2tex',
-           'RDDATE', 'classify')
+           'RDDATE', 'classify', 'NotValidDefaultFormatterError',
+           'NotValidDefaultServiceError')
 
 __version__ = '3.10.0'
 __support__ = 'py27, py35, py36, py37, py38, pypy, pypy3'
