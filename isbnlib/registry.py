@@ -32,7 +32,7 @@ def setdefaultservice(name):  # pragma: no cover
     services['default'] = services[name.lower()]
     if name != 'default' and name in services:
         services['default'] = services[name.lower()]
-    else:
+    else:  # pragma: no cover
         LOGGER.critical('Wrong default service')
         raise NotValidDefaultServiceError(name)
 
@@ -65,7 +65,7 @@ def setdefaultbibformatter(name):  # pragma: no cover
     global bibformatters
     if name != 'default' and name in bibformatters:
         bibformatters['default'] = bibformatters[name.lower()]
-    else:
+    else:  # pragma: no cover
         LOGGER.critical('Wrong default bibformatter')
         raise NotValidDefaultFormatterError(name)
 
