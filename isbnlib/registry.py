@@ -26,13 +26,13 @@ services = {
 PROVIDERS = ()
 
 
-def setdefaultservice(name):  # pragma: no cover
+def setdefaultservice(name):
     """Set the default service."""
     global services
     services['default'] = services[name.lower()]
-    if name != 'default' and name in services:
+    if name and name != 'default' and name in services:
         services['default'] = services[name.lower()]
-    else:  # pragma: no cover
+    else:
         LOGGER.critical('Wrong default service')
         raise NotValidDefaultServiceError(name)
 
@@ -60,12 +60,12 @@ bibformatters = {
 BIBFORMATS = ()
 
 
-def setdefaultbibformatter(name):  # pragma: no cover
+def setdefaultbibformatter(name):
     """Set the default formatter."""
     global bibformatters
-    if name != 'default' and name in bibformatters:
+    if name and name != 'default' and name in bibformatters:
         bibformatters['default'] = bibformatters[name.lower()]
-    else:  # pragma: no cover
+    else:
         LOGGER.critical('Wrong default bibformatter')
         raise NotValidDefaultFormatterError(name)
 
