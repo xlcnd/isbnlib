@@ -30,7 +30,7 @@ def setdefaultservice(name):
     """Set the default service."""
     global services
     services['default'] = services[name.lower()]
-    if name and name != 'default' and name in services:
+    if name != 'default' and name in services:
         services['default'] = services[name.lower()]
     else:
         LOGGER.critical('Wrong default service')
@@ -63,7 +63,7 @@ BIBFORMATS = ()
 def setdefaultbibformatter(name):
     """Set the default formatter."""
     global bibformatters
-    if name and name != 'default' and name in bibformatters:
+    if name != 'default' and name in bibformatters:
         bibformatters['default'] = bibformatters[name.lower()]
     else:
         LOGGER.critical('Wrong default bibformatter')
