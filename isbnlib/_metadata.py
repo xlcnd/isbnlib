@@ -16,6 +16,7 @@ def query(isbn, service='default'):
     # validate inputs
     ean = EAN13(isbn)
     if not ean:
+        LOGGER.critical('%s is not a valid ISBN', isbn)
         raise NotValidISBNError(isbn)
     isbn = ean
     # only import when needed
