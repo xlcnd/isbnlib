@@ -254,7 +254,7 @@ Finally, from ``isbnlib.registry`` you can change the metadata service to be use
 add a new service (``add_service``), access bibliographic formatters for metadata (``bibformatters``),
 set the default formatter (``setdefaultbibformatter``), add new formatters (``add_bibformatter``) and
 set a new cache (``set_cache``) (e.g. to switch off the chache ``set_cache(None)``).
-The cache only works for calls through ``isbnlib.meta``. These changes only work for the 'current session',
+The cache only works for calls through metadata functions. These changes only work for the 'current session',
 so should be done always before calling other methods.
 
 
