@@ -1,6 +1,6 @@
 name: isbnlib (basic tests)
 
-on: [push]
+on: [push, pull_request]
 
 jobs:
   build:
