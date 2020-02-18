@@ -1,4 +1,4 @@
-name: Python package (basic tests)
+name: isbnlib (basic tests)
 
 on: [push]
 
