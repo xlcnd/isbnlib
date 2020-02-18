@@ -31,3 +31,6 @@ jobs:
       run: |
         pip install nose
         nosetests isbnlib
+    - name: Test speed of imports
+      run: |
+        python isbnlib/test/speed.py
