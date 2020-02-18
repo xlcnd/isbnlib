@@ -1,0 +1,14 @@
+repo:
+  - ./*
+
+test:
+  - isbnlib/test/*
+
+docs:
+  - docs/*
+
+core:
+  - isbnlib/*
+
+dev:
+  - isbnlib/dev/*
