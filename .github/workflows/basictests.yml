@@ -30,4 +30,4 @@ jobs:
     - name: Test with nose
       run: |
         pip install nose coverage
-        nosetests isbnlib
+        nosetests -v --with-coverage --cover-package=isbnlib --cover-min-percentage=90
