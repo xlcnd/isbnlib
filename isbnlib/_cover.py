@@ -9,7 +9,7 @@ from .dev.webquery import query as wquery
 LOGGER = logging.getLogger(__name__)
 
 UA = 'isbnlib (gzip)'
-SERVICE_URL = 'https://www.googleapis.com/books/v1/volumes?q=isbn+{isbn}'\
+SERVICE_URL = 'https://www.googleapis.com/books/v1/volumes?q=isbn:{isbn}'\
               '&fields=items/volumeInfo(imageLinks)&maxResults=1'
 
 
