@@ -12,7 +12,7 @@ UA = 'isbnlib (gzip)'
 SERVICE_URL = 'http://openlibrary.org/query.json?type=/type/edition&'\
               '{selectors}'
 CODES = 'isbn_13={isbn}'
-ISBNS = '{code}&isbn_10='  # FIXME(change to isbn_13)
+ISBNS = '{code}&isbn_13=&isbn_10='  # FIXME(delete '&isbn_10=')
 
 
 # pylint: disable=broad-except
