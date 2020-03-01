@@ -15,6 +15,9 @@ Known Issues
    if you have a version of ``isbnlib`` that is too old, ``mask`` doesn't work for
    valid (recent) issued ISBNs. The solution? **Update isbnlib often**!
 
+4. Calls to metadata services are cached by default. You can change that by setting
+   the cache to ``None``, namely ``registry.set_cache(None)``.
+
 
 Any issue that you would like to report, please do it at github_ or post a question on
 stackoverflow_ (with tag **isbnlib**).
@@ -25,4 +28,4 @@ stackoverflow_ (with tag **isbnlib**).
 
 .. _range: https://www.isbn-international.org/range_file_generation
 
-.. _stackoverflow: http://stackoverflow.com/questions/tagged/isbnlib
+.. _stackoverflow: http://stackoverflow.com/search?tab=newest&q=isbnlib
