@@ -5,17 +5,11 @@ import logging
 
 from ._core import get_canonical_isbn, get_isbnlike
 from .dev import cache, webservice
-from .dev._bouth23 import u
 
 try:  # pragma: no cover
     from urllib.parse import quote
 except ImportError:  # pragma: no cover
-
-    def quote(x):  # pragma: no cover
-        """Change to ASCII if PY2."""
-        import unicodedata
-        return unicodedata.normalize('NFKD', u(x)).encode('ascii', 'ignore')
-
+    from urllib import quote
 
 LOGGER = logging.getLogger(__name__)
 
