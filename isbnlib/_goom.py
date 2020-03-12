@@ -3,6 +3,11 @@
 
 import logging
 
+try:
+    from urllib.parse import quote
+except ImportError:
+    from urllib import quote
+
 from .dev import cache, stdmeta
 from .dev._bouth23 import u
 from .dev._exceptions import NoDataForSelectorError, RecordMappingError
@@ -62,5 +67,7 @@ def _records(words, data):
 @cache
 def query(words):
     """Query the Google Books (JSON API v1) for metadata."""
-    data = wquery(SERVICE_URL.format(words=words.replace(' ', '+')), UA)
+    words.replace(' ', '+')
+    words = quote(words)
+    data = wquery(SERVICE_URL.format(words=words), UA)
     return _records(words, data) if data else {}

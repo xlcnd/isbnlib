@@ -30,6 +30,7 @@ class WEBService(object):
 
     def __init__(self, url, user_agent=UA, values=None, appheaders=None):
         """Initialize main properties."""
+        # TODO(use urllib.quote to the non-ascii part?)
         self._url = url
         # headers to accept gzipped content
         headers = {'Accept-Encoding': 'gzip', 'User-Agent': user_agent}
