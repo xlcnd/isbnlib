@@ -31,7 +31,7 @@
 Warning
 =======
 
-   This is the last version to support python 2.7.*!
+   The releases 3.10.* will be the last to support python 2.7.*!
 
 
 Info
