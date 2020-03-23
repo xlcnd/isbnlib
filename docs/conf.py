@@ -60,7 +60,7 @@ copyright = u'2014-2019, Alexandre Conde'
 # built documents.
 #
 # The short X.Y version.
-version = '3.10.0'
+version = '3.10'
 # The full version, including alpha/beta/rc tags.
 release = '3.10.0'
 
