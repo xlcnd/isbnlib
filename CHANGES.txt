@@ -51,4 +51,4 @@ v3.9.8, 2019-05-06 -- Fix bug #58 on 'editions'.
 v3.9.9, 2019-10-17 -- Better caching, improved security, fix 'catch all exception'.
 v3.9.10, 2019-12-20 -- Fix issues: 61 (close #61) and 62 (close #62).
 v3.9.11, 2019-12-20 -- NOT RELEASED.
-v3.10.0, 2020-02-20 -- Add a 'classify' service (oclc.org).
+v3.10.0, 2020-03-23 -- Add a 'classify' service (oclc.org).
