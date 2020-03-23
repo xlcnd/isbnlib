@@ -62,3 +62,26 @@ def test_metaclass():
     }
     dt = Metadata(R)
     assert_equals(dt.value, R)
+
+
+def test_metrge():
+    """Test the merging of records."""
+    R = {
+        'ISBN-13': u('9780123456789'),
+        'Title': u('Bla. Bla /Title'),
+        'Publisher': u(''),
+        'Year': u('2000'),
+        'Language': u('en'),
+        'Authors': [u('author1. mba'), u('author2')]
+    }
+    T = {
+        'ISBN-13': u('9780123456789'),
+        'Title': u('Bla. Bla /Title'),
+        'Publisher': u('Pub House'),
+        'Year': u('2000'),
+        'Language': u('en'),
+        'Authors': [u('author1. mba'), u('author2')]
+    }
+    dt = Metadata(R)
+    dt.merge(T)
+    assert_equals(dt.value, T)
