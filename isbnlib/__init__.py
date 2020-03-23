@@ -45,5 +45,5 @@ __all__ = ('is_isbn10', 'is_isbn13', 'clean', 'check_digit10', 'check_digit13',
            'RDDATE', 'classify', 'NotValidDefaultFormatterError',
            'NotValidDefaultServiceError')
 
-__version__ = '3.10.0'
+__version__ = '3.10.1'
 __support__ = 'py27, py35, py36, py37, py38, pypy, pypy3'
