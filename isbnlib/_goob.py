@@ -9,9 +9,10 @@ from .dev._exceptions import ISBNNotConsistentError, RecordMappingError
 from .dev.webquery import query as wquery
 
 UA = 'isbnlib (gzip)'
-SERVICE_URL = 'https://www.googleapis.com/books/v1/volumes?q=isbn:{isbn}'\
-    '&fields=items/volumeInfo(title,subtitle,authors,publisher,publishedDate,'\
-    'language,industryIdentifiers)&maxResults=1'
+SERVICE_URL = (
+    'https://www.googleapis.com/books/v1/volumes?q=isbn:{isbn}'
+    '&fields=items/volumeInfo(title,subtitle,authors,publisher,publishedDate,'
+    'language,industryIdentifiers)&maxResults=1')
 LOGGER = logging.getLogger(__name__)
 
 
@@ -29,8 +30,7 @@ def _mapper(isbn, records):
         # canonical['Title'] = records.get('title', u('')).replace(' :', ':')
         canonical['Authors'] = records.get('authors', [u('')])
         canonical['Publisher'] = records.get('publisher', u(''))
-        if 'publishedDate' in records \
-           and len(records['publishedDate']) >= 4:
+        if 'publishedDate' in records and len(records['publishedDate']) >= 4:
             canonical['Year'] = records['publishedDate'][0:4]
         else:  # pragma: no cover
             canonical['Year'] = u('')
@@ -54,8 +54,8 @@ def _records(isbn, data):
     # consistency check (isbn request = isbn response)
     if recs:
         ids = recs.get('industryIdentifiers', '')
-        if u('ISBN_13') in repr(ids) and \
-           isbn not in repr(ids):  # pragma: no cover
+        if u('ISBN_13') in repr(ids) and isbn not in repr(
+                ids):  # pragma: no cover
             LOGGER.debug('ISBNNotConsistentError for %s (%s)', isbn, repr(ids))
             raise ISBNNotConsistentError('{0} not in {1}'.format(
                 isbn, repr(ids)))

@@ -27,7 +27,9 @@ if sys.version < '3':
 
     def bstream(x):
         from StringIO import StringIO
+
         return StringIO(x)
+
 else:
 
     def s(x):
@@ -47,4 +49,5 @@ else:
 
     def bstream(x):
         from io import BytesIO
+
         return BytesIO(x)

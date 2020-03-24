@@ -61,5 +61,4 @@ def query(url,
           throttling=THROTTLING):
     """Put call and return the data from the web service."""
     wq = WEBQuery(url, user_agent, throttling)
-    return wq.parse_data(parser) \
-        if wq.check_data(data_checker) else None
+    return wq.parse_data(parser) if wq.check_data(data_checker) else None

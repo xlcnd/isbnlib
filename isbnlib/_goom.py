@@ -14,9 +14,10 @@ from .dev._exceptions import NoDataForSelectorError, RecordMappingError
 from .dev.webquery import query as wquery
 
 UA = 'isbnlib (gzip)'
-SERVICE_URL = 'https://www.googleapis.com/books/v1/volumes?q={words}'\
-    '&fields=items/volumeInfo(title,authors,publisher,publishedDate,'\
-    'language,industryIdentifiers)&maxResults=10'
+SERVICE_URL = (
+    'https://www.googleapis.com/books/v1/volumes?q={words}'
+    '&fields=items/volumeInfo(title,authors,publisher,publishedDate,'
+    'language,industryIdentifiers)&maxResults=10')
 LOGGER = logging.getLogger(__name__)
 
 
@@ -40,8 +41,7 @@ def _mapper(record):
         canonical['Title'] = record.get('title', u('')).replace(' :', ':')
         canonical['Authors'] = record.get('authors', [])
         canonical['Publisher'] = record.get('publisher', u(''))
-        if 'publishedDate' in record \
-           and len(record['publishedDate']) >= 4:
+        if 'publishedDate' in record and len(record['publishedDate']) >= 4:
             canonical['Year'] = record['publishedDate'][0:4]
         else:  # pragma: no cover
             canonical['Year'] = u('')

@@ -46,8 +46,7 @@ def isbn_from_words(words):
 
 def doi(isbn):
     """Return a DOI's ISBN-A from a ISBN-13."""
-    return '10.%s.%s%s/%s%s' % \
-           tuple(msk(EAN13(isbn), '-').split('-'))
+    return '10.%s.%s%s/%s%s' % tuple(msk(EAN13(isbn), '-').split('-'))
 
 
 def ren(fp):

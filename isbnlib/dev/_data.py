@@ -35,13 +35,13 @@ class Metadata(object):
 
     def clean(self, broom=normalize_space, exclude=()):
         """Clean fields of value."""
-        self._content.update((k, broom(v))
-                             for k, v in list(self._content.items())
-                             if k != 'Authors' and k not in exclude)
+        self._content.update(
+            (k, broom(v))
+            for k, v in list(self._content.items())
+            if k != 'Authors' and k not in exclude
+        )
         if 'Authors' not in exclude:
-            self._content['Authors'] = [
-                broom(i) for i in self._content['Authors']
-            ]
+            self._content['Authors'] = [broom(i) for i in self._content['Authors']]
         self._content['Title'] = self._content['Title'].strip(',.:;-_ ')
         if self._content['Language'].lower() in ('en', 'eng', 'english'):
             self._content['Title'] = titlecase(self._content['Title'])
@@ -66,15 +66,14 @@ class Metadata(object):
         """Delete value."""
         self._set_empty()
 
-    def merge(self,
-              record,
-              overwrite=(),
-              overrule=lambda x: x == u('') or x == [u('')]):
+    def merge(self, record, overwrite=(), overrule=lambda x: x == u('') or x == [u('')]):
         """Merge the record with value."""
         # by default do nothing
         self._content.update(
-            (k, v) for k, v in list(record.items())
-            if k in overwrite and not overrule(v) or self._content[k] == u(''))
+            (k, v)
+            for k, v in list(record.items())
+            if k in overwrite and not overrule(v) or self._content[k] == u('')
+        )
         if not self._validate():  # pragma: no cover
             self._set_empty()
             LOGGER.debug(record)

@@ -47,8 +47,8 @@ class File(object):
     def mkwinsafe(name, space=' '):
         """Delete most common characters not allowed in Windows filenames."""
         space = space if space not in ILEGAL else ' '
-        name = ''.join(c for c in name if c not in ILEGAL)\
-               .replace(' ', space).strip()
+        name = ''.join(c for c in name
+                       if c not in ILEGAL).replace(' ', space).strip()
         name = re.sub(r'\s\s+', ' ', name) if space == ' ' else name
         return name[:MAXLEN]
 

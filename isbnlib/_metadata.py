@@ -21,6 +21,7 @@ def query(isbn, service='default'):
     isbn = ean
     # only import when needed
     from .registry import services
+
     if service != 'default' and service not in services:  # pragma: no cover
         LOGGER.critical('%s is not a valid service', service)
         raise NotRecognizedServiceError(service)

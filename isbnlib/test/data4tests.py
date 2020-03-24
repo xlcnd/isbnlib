@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-ISBNs = r'''
+ISBNs = r"""
 ISBN 9781849284677
 qwe iuwer 9780312640583 kjhfds
 bh bh isbn 978-0312640583
@@ -80,6 +80,6 @@ ISBN 978-9933101473
 ISBN 978-9934015960
 ISBN 978-99937-1-056-1
 ISBN 978-99965-2-047-1
-'''
+"""
 
 # flake8: noqa

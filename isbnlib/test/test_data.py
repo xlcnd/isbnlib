@@ -18,7 +18,7 @@ def test_stdmeta():
         'Publisher': u(''),
         'Year': u('2000'),
         'Language': u('en'),
-        'Authors': [u('author1. mba'), u('author2   ')]
+        'Authors': [u('author1. mba'), u('author2   ')],
     }
     R = {
         'ISBN-13': u('9780123456789'),
@@ -26,7 +26,7 @@ def test_stdmeta():
         'Publisher': u(''),
         'Year': u('2000'),
         'Language': u('en'),
-        'Authors': [u('author1. mba'), u('author2')]
+        'Authors': [u('author1. mba'), u('author2')],
     }
     A = {
         'ISBN-13': u('9780123456789 '),
@@ -34,7 +34,7 @@ def test_stdmeta():
         'Publisher': u(''),
         'Year': b'2000',
         'Language': u('en'),
-        'Authors': [u('author1. mba'), u('author2   ')]
+        'Authors': [u('author1. mba'), u('author2   ')],
     }
     B = {
         'ISBN-13': u('9780123456789'),
@@ -42,7 +42,7 @@ def test_stdmeta():
         'Publisher': u(''),
         'Year': u('2000'),
         'Language': u('en'),
-        'Authors': u('author1')
+        'Authors': u('author1'),
     }
     assert_equals(stdmeta(r), R)
     assert_equals(stdmeta(R), R)
@@ -58,7 +58,7 @@ def test_metaclass():
         'Publisher': u(''),
         'Year': u('2000'),
         'Language': u('en'),
-        'Authors': [u('author1. mba'), u('author2')]
+        'Authors': [u('author1. mba'), u('author2')],
     }
     dt = Metadata(R)
     assert_equals(dt.value, R)
@@ -72,7 +72,7 @@ def test_metrge():
         'Publisher': u(''),
         'Year': u('2000'),
         'Language': u('en'),
-        'Authors': [u('author1. mba'), u('author2')]
+        'Authors': [u('author1. mba'), u('author2')],
     }
     T = {
         'ISBN-13': u('9780123456789'),
@@ -80,7 +80,7 @@ def test_metrge():
         'Publisher': u('Pub House'),
         'Year': u('2000'),
         'Language': u('en'),
-        'Authors': [u('author1. mba'), u('author2')]
+        'Authors': [u('author1. mba'), u('author2')],
     }
     dt = Metadata(R)
     dt.merge(T)

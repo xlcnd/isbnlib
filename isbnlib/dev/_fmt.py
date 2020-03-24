@@ -32,8 +32,8 @@ Y1  - $Year
 PB  - $Publisher
 ER  - """
 
-msword = r'''<b:Source xmlns:b="http://schemas.microsoft.com/office/'''\
-         r'''word/2004/10/bibliography">
+msword = (r"""<b:Source xmlns:b="http://schemas.microsoft.com/office/"""
+          r"""word/2004/10/bibliography">
 <b:Tag>$uid</b:Tag>
 <b:SourceType>Book</b:SourceType>
 <b:Author>
@@ -44,22 +44,22 @@ msword = r'''<b:Source xmlns:b="http://schemas.microsoft.com/office/'''\
 <b:Year>$Year</b:Year>
 <b:City></b:City>
 <b:Publisher>$Publisher</b:Publisher>
-</b:Source>'''
+</b:Source>""")
 
-json = r'''{"type": "book",
+json = r"""{"type": "book",
      "title": "$Title",
     "author": [$AUTHORS],
       "year": "$Year",
 "identifier": [{"type": "ISBN", "id": "$ISBN"}],
- "publisher": "$Publisher"}'''
+ "publisher": "$Publisher"}"""
 
-csl = r'''{"type":"book",
+csl = r"""{"type":"book",
         "id":"$ISBN",
      "title":"$Title",
     "author": [$AUTHORS],
     "issued": {"date-parts": [[$Year]]},
       "ISBN":"$ISBN",
- "publisher":"$Publisher"}'''
+ "publisher":"$Publisher"}"""
 
 opf = r"""<?xml version='1.0' encoding='utf-8'?>
 <package version="2.0" xmlns="http://www.idpf.org/2007/opf" unique-identifier="uuid_id">
@@ -90,7 +90,7 @@ templates = {
     'msword': msword,
     'json': json,
     'csl': csl,
-    'opf': opf
+    'opf': opf,
 }
 
 _fmts = list(templates.keys())
@@ -117,8 +117,8 @@ def _spec_proc(name, fmtrec, authors):
         AUTHORS = '\n%A '.join(authors)
     elif name == 'msword':
         fmtrec = fmtrec.replace('$uid', str(uuid.uuid4()))
-        person = r'<b:Person><b:Last>$last</b:Last>'\
-                 r'<b:First>$first</b:First></b:Person>'
+        person = (r'<b:Person><b:Last>$last</b:Last>'
+                  r'<b:First>$first</b:First></b:Person>')
         AUTHORS = '\n'.join(
             Template(person).safe_substitute(last_first(a)) for a in authors)
     elif name == 'json':
@@ -128,8 +128,8 @@ def _spec_proc(name, fmtrec, authors):
                             for a in authors)
     elif name == 'opf':
         fmtrec = fmtrec.replace('$uid', str(uuid.uuid4()))
-        creator = r'<dc:creator opf:file-as="$last, $first"'\
-                  r' opf:role="aut">$first $last</dc:creator>'
+        creator = (r'<dc:creator opf:file-as="$last, $first"'
+                   r' opf:role="aut">$first $last</dc:creator>')
         AUTHORS = '\n    '.join(
             Template(creator).safe_substitute(last_first(author))
             for author in authors)

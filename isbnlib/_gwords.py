@@ -22,14 +22,14 @@ def goos(words):
 
     user_agent = 'w3m/0.5.3'
 
-    content = webservice.query(search_url,
-                               user_agent=user_agent,
-                               appheaders={
-                                   'Content-Type':
-                                   'text/plain; charset="UTF-8"',
-                                   'Content-Transfer-Encoding':
-                                   'Quoted-Printable',
-                               })
+    content = webservice.query(
+        search_url,
+        user_agent=user_agent,
+        appheaders={
+            'Content-Type': 'text/plain; charset="UTF-8"',
+            'Content-Transfer-Encoding': 'Quoted-Printable',
+        },
+    )
     isbns = get_isbnlike(content)
 
     for item in isbns:

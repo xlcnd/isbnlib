@@ -12,6 +12,7 @@ def speed_isbnlib():
     """Test import speed of 'isbnlib'."""
     t = time.process_time()
     import isbnlib
+
     elapsed_time = time.process_time() - t
     millis = int(elapsed_time * 1000)
     print('(isbnlib)  {} milliseconds < 100 milliseconds'.format(millis))
@@ -23,6 +24,7 @@ def speed_registry():
     """Test import speed of 'registry'."""
     t = time.process_time()
     from isbnlib import registry
+
     elapsed_time = time.process_time() - t
     millis = int(elapsed_time * 1000)
     print('(registry) {} milliseconds < 135 milliseconds'.format(millis))

@@ -9,8 +9,7 @@ from .dev.webquery import query as wquery
 
 LOGGER = logging.getLogger(__name__)
 UA = 'isbnlib (gzip)'
-SERVICE_URL = 'http://openlibrary.org/query.json?type=/type/edition&'\
-              '{selectors}'
+SERVICE_URL = 'http://openlibrary.org/query.json?type=/type/edition&' '{selectors}'
 CODES = 'isbn_13={isbn}'
 ISBNS = '{code}&isbn_13=&isbn_10='  # FIXME(delete '&isbn_10=')
 
@@ -24,9 +23,11 @@ def query(isbn):
         codes = {rec['key'] for rec in data}
         isbnlikes = [isbn]
         for code in codes:
-            txt = wquery(SERVICE_URL.format(selectors=ISBNS.format(code=code)),
-                         user_agent=UA,
-                         parser=None)
+            txt = wquery(
+                SERVICE_URL.format(selectors=ISBNS.format(code=code)),
+                user_agent=UA,
+                parser=None,
+            )
             isbnlikes.extend(get_isbnlike(txt))
         isbns = {u(get_canonical_isbn(isbnlike)) for isbnlike in isbnlikes}
     except Exception as ex:  # pragma: no cover

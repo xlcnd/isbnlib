@@ -10,8 +10,8 @@ from .dev._exceptions import RecordMappingError
 from .dev.webquery import query as wquery
 
 UA = 'isbnlib (gzip)'
-SERVICE_URL = 'http://openlibrary.org/api/books?bibkeys='\
-    'ISBN:{isbn}&format=json&jscmd=data'
+SERVICE_URL = ('http://openlibrary.org/api/books?bibkeys='
+               'ISBN:{isbn}&format=json&jscmd=data')
 LOGGER = logging.getLogger(__name__)
 
 

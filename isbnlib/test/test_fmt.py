@@ -16,7 +16,7 @@ canonical = {
     'Publisher': u('No Paper Press'),
     'Year': u('2000'),
     'Language': u('en'),
-    'Authors': [u('John Smith'), u('José Silva')]
+    'Authors': [u('John Smith'), u('José Silva')],
 }
 
 

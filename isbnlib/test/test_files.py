@@ -18,8 +18,8 @@ if ENCODING == 'UTF-8':
     NEW_BASENAME = 'ç-deleteme-PLEASE.pdf' if WINDOWS else '海明威-deleteme-PLEASE.pdf'
 else:
     print(
-        "Your default locale encoding (%s) doesn't allow unicode filenames!" %
-        ENCODING)
+        "Your default locale encoding (%s) doesn't allow unicode filenames!" % ENCODING
+    )
     TESTFILE = './deleteme.pdf'
     NEW_BASENAME = 'deleteme-PLEASE.pdf'
 

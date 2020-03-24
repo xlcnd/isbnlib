@@ -22,13 +22,19 @@ def teardown_module():
 
 def test_cache_meta():
     """Test '@cache' meta."""
-    assert_equals(len(repr(cache.get("query('9780375869020', 'default'){}"))) > 100, True)
-    assert_equals(len(repr(cache.get("query('9780375869020', 'default'){}"))),
-                  len(repr(cache["query('9780375869020', 'default'){}"])))
+    assert_equals(
+        len(repr(cache.get("query('9780375869020', 'default'){}"))) > 100, True
+    )
+    assert_equals(
+        len(repr(cache.get("query('9780375869020', 'default'){}"))),
+        len(repr(cache["query('9780375869020', 'default'){}"])),
+    )
 
 
 def test_cache_classify():
     """Test '@cache' classify."""
     assert_equals(len(repr(cache.get("query_classify('9781118241257',){}"))) > 5, True)
-    assert_equals(len(repr(cache.get("query_classify('9781118241257',){}"))),
-                  len(repr(cache["query_classify('9781118241257',){}"])))
+    assert_equals(
+        len(repr(cache.get("query_classify('9781118241257',){}"))),
+        len(repr(cache["query_classify('9781118241257',){}"])),
+    )

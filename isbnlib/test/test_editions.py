@@ -6,6 +6,7 @@ try:
     from time import process_time as timer
 except:  # for py2
     import timeit
+
     timer = timeit.default_timer
 
 from nose.tools import assert_equals, raises

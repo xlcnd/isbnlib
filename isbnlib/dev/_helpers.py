@@ -40,8 +40,11 @@ def titlecase(st):
     """Format string in 'title case' (for ascii)."""
     try:
         st.encode('ascii')
-        return re.sub(r"[A-Za-z]+('[A-Za-z]+)?", lambda m: m.group(0)[0].upper(
-        ) + m.group(0)[1:], st)
+        return re.sub(
+            r"[A-Za-z]+('[A-Za-z]+)?",
+            lambda m: m.group(0)[0].upper() + m.group(0)[1:],
+            st,
+        )
     except (UnicodeEncodeError, UnicodeDecodeError):  # pragma: no cover
         return st
 
@@ -62,6 +65,7 @@ def last_first(author):
 def unicode_to_utf8tex(utex, filtre=()):
     """Replace unicode entities with tex entitites and returns utf8 bytes."""
     from .._data.data4tex import unicode_to_tex
+
     btex = utex.encode('utf-8')
     table = {
         k.encode('utf-8'): v

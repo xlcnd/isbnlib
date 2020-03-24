@@ -26,6 +26,7 @@ def serial(named_tasks, arg):
 def parallel(named_tasks, arg):
     """Use threaded calls."""
     from threading import Thread
+
     results = {}
 
     def _worker(name, task, arg):
@@ -47,6 +48,7 @@ def parallel(named_tasks, arg):
 def multi(named_tasks, arg):
     """Use several cores (if available)."""
     from multiprocessing import Process, Queue
+
     results = {}
     q = Queue()
 
