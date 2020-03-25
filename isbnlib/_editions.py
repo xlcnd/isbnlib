@@ -3,7 +3,7 @@
 
 import logging
 
-from ._core import EAN13
+from ._core import EAN13, to_isbn13
 from ._exceptions import NotRecognizedServiceError, NotValidISBNError
 from ._openled import query as _oed
 from ._thinged import query as _ted
@@ -54,7 +54,7 @@ def get_editions(isbn, service):
         eds = list(_oed(isbn))
     if service == 'thingl':
         eds = list(_ted(isbn))
-    return eds if eds else []
+    return list(set(map(to_isbn13, eds))) if eds else []
 
 
 def editions(isbn, service='merge'):
