@@ -47,4 +47,6 @@ tasks.py
 .requirements-local
 .pre-commit-config.yaml
 .change*
-requirements*.in
+requirements.in
+requirements-dev.in
+requirements-appveyor.in
