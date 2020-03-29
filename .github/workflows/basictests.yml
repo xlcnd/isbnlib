@@ -41,7 +41,7 @@ jobs:
     runs-on: macos-latest
     strategy:
       matrix:
-        python-version: [3.6, 3.7]
+        python-version: [3.7, 3.8]
     env:
       GITHUB_OS: macos
 
@@ -73,7 +73,7 @@ jobs:
     runs-on: windows-latest
     strategy:
       matrix:
-        python-version: [3.6, 3.7]
+        python-version: [3.7, 3.8]
     env:
       GITHUB_OS: windows
 

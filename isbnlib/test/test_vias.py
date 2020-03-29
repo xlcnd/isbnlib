@@ -43,7 +43,9 @@ def test_vias_parallel():
 def test_vias_multi():
     """Test 'vias' (multi)."""
     # Is NOT allowed in Windows!
-    if os.getenv('APPVEYOR', '') != '':
+    #if os.getenv('APPVEYOR', '') != '':
+    #    return True
+    if os.getenv('APPVEYOR_OS', '') == 'windows':
         return True
     if os.getenv('GITHUB_OS', '') == 'windows':
         return True
