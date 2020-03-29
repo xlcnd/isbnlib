@@ -45,7 +45,7 @@ def test_vias_multi():
     # Is NOT allowed in Windows!
     #if os.getenv('APPVEYOR', '') != '':
     #    return True
-    if os.getenv('APPVEYOR_OS', '') == 'windows':
+    if os.getenv('OS', '') == 'Windows_NT':
         return True
     if os.getenv('GITHUB_OS', '') == 'windows':
         return True
