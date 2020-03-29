@@ -1,4 +1,4 @@
-name: isbnlib (basic tests)
+name: build
 
 on: [push, pull_request]
 
