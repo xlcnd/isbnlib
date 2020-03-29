@@ -43,10 +43,10 @@ def test_vias_parallel():
 def test_vias_multi():
     """Test 'vias' (multi)."""
     # Is NOT allowed in Windows!
-    #if os.getenv('APPVEYOR', '') != '':
-    #    return True
-    if os.getenv('OS', '') == 'Windows_NT':
+    if os.getenv('APPVEYOR', '') != '':
         return True
+    #if os.getenv('GITHUB_OS', '') == 'windows':
+    #    return True
     if os.getenv('GITHUB_OS', '') == 'windows':
         return True
     named_tasks = (('task1', task1), ('task2', task2))

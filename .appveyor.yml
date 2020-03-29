@@ -6,10 +6,12 @@ branches:
 cache:
   - '%LOCALAPPDATA%\pip\Cache'
 environment:
+  APPVEYOR_OS: 'windows'
   global:
     WITH_COMPILER: 'cmd /E:ON /V:ON /C .\ci\appveyor-with-compiler.cmd'
-    APPVEYOR_OS: 'windows'
+
   matrix:
+
     - TOXENV: "py36"
       TOXPYTHON: "C:\\Python36-x64\\python.exe"
       PYTHON_HOME: "C:\\Python36-x64"
