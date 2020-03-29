@@ -42,9 +42,10 @@ def test_vias_parallel():
 
 def test_vias_multi():
     """Test 'vias' (multi)."""
-    # Is NOT allowed in Appveyor!
-    # if os.getenv("APPVEYOR", None) is not None:
+    # Is NOT allowed in Windows!
     if os.getenv('APPVEYOR', '') != '':
+        return True
+    if os.getenv('GITHUB_OS', '') == 'windows':
         return True
     named_tasks = (('task1', task1), ('task2', task2))
     results = vias.multi(named_tasks, 5)
