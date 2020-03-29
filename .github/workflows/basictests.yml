@@ -33,9 +33,9 @@ jobs:
         pip install nose coverage
         nosetests -v --with-coverage --cover-package=isbnlib --cover-min-percentage=90
 
-  basic-tests-osx:
+  basic-tests-macos:
 
-    runs-on: macosx-latest
+    runs-on: macos-latest
     strategy:
       matrix:
         python-version: [3.5, 3.6, 3.7, 3.8]
