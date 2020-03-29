@@ -11,6 +11,10 @@
     :target: https://coveralls.io/github/xlcnd/isbnlib?branch=master
     :alt: Coverage Status
 
+.. image:: https://github.com/xlcnd/isbnlib/workflows/isbnlib%20(basic%20tests)/badge.svg
+    :target: https://github.com/xlcnd/isbnlib/actions
+    :alt: Built Status
+
 .. image:: https://img.shields.io/travis/xlcnd/isbnlib/v3.10.1?label=travis&svg=true&style=flat
     :target: https://travis-ci.org/xlcnd/isbnlib
     :alt: Built Status
@@ -26,6 +30,7 @@
 .. image:: https://img.shields.io/pypi/dm/isbnlib.svg?style=flat
     :target: https://pypi.org/project/isbnlib/
     :alt: PYPI Downloads
+
 
 
 Warning
