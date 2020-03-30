@@ -11,7 +11,7 @@
     :target: https://coveralls.io/github/xlcnd/isbnlib?branch=master
     :alt: Coverage Status
 
-.. image:: https://github.com/xlcnd/isbnlib/workflows/build/badge.svg
+.. image:: https://github.com/xlcnd/isbnlib/workflows/tests/badge.svg
     :target: https://github.com/xlcnd/isbnlib/actions
     :alt: Built Status
 
