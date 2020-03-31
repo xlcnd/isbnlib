@@ -3,11 +3,13 @@
 # pylint: skip-file
 """Crude Timer for 'import isbnlib'."""
 
+import sys
 import time
 
 
 def test_speed_isbnlib():
     """Test import speed of 'isbnlib'."""
+    if sys.version < '3': return True
     t = time.process_time()
     import isbnlib
 
@@ -20,6 +22,7 @@ def test_speed_isbnlib():
 
 def test_speed_registry():
     """Test import speed of 'registry'."""
+    if sys.version < '3': return True
     t = time.process_time()
     from isbnlib import registry
 
