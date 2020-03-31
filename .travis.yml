@@ -28,8 +28,6 @@ matrix:
       env: TOXENV=checkers
     - python: "3.6"
       env: DOC=sphinx
-    - python: "3.6"
-      env: TOXENV=speed
 
   allow_failures:
     - env: DOC=sphinx
