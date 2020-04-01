@@ -44,7 +44,7 @@ from ._doitotex import doi2tex
 from ._oclc import query_classify as classify
 
 # Ranges Database date
-from ._data.data4mask import RDDATE
+from ._data.data4info import RDDATE
 
 # config _logging for lib
 _nh = _logging.NullHandler()

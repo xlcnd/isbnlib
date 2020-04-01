@@ -4,7 +4,7 @@
 import logging
 
 from ._core import EAN13
-from ._data.data4info import d, identifiers
+from ._data.data4info import countries, identifiers
 from ._exceptions import NotValidISBNError
 
 LOGGER = logging.getLogger(__name__)
@@ -21,7 +21,7 @@ def infogroup(isbn):
     # put isbn in the form 978-...
     prefix = isbn[0:3] + '-'
     isbn = prefix + isbn[3:]
-    dtxt = d
+    dtxt = countries
     idents = identifiers
     ixi, ixf = 4, 5
     for ident in idents:
