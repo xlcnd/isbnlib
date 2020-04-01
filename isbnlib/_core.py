@@ -152,7 +152,11 @@ def canonical(isbnlike):
     numb = [c for c in isbnlike if c in '0123456789Xx']
     if numb and numb[-1] == 'x':
         numb[-1] = 'X'
-    return ''.join(numb)
+    isbn = ''.join(numb)
+    # Filter some special cases
+    if isbn in ('0000000000' or '0000000000000'):
+        return None
+    return isbn
 
 
 def clean(isbnlike):
@@ -223,8 +227,9 @@ def get_canonical_isbn(isbnlike, output='bouth'):
 
     match = regex.search(isbnlike)
     if match:
-        # Get only canonical characters and split them into a list
+        # Get only canonical characters
         cisbn = canonical(match.group())
+        # Split into a list
         chars = list(cisbn)
         # Remove the last digit from `chars` and assign it to `last`
         last = chars.pop()
