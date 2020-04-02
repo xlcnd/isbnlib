@@ -9,7 +9,6 @@ from ._fmt import _fmtbib, _fmts
 from ._helpers import (
     cutoff_tokens,
     fake_isbn,
-    in_virtual,
     last_first,
     normalize_space,
     parse_placeholders,
@@ -27,7 +26,6 @@ __all__ = [
     'cwdfiles',
     'fmtbib',
     'fmts',
-    'in_virtual',
     'last_first',
     'normalize_space',
     'parse_placeholders',

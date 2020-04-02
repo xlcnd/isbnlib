@@ -2,7 +2,7 @@
 """Private helper functions."""
 
 import re
-import sys
+
 from hashlib import md5
 
 from ._bouth23 import b, s
@@ -18,12 +18,6 @@ def fake_isbn(title, author='unkown', publisher='unkown', sid=1):
     key = regex2.sub(' ', key).strip().lower()
     # hash
     return (str(sid) + str(int(md5(b(key)).hexdigest()[:10], 16)))[:13]
-
-
-def in_virtual():  # pragma: no cover
-    """Detect if program is running inside a python virtual environment."""
-    return getattr(sys, 'base_prefix', sys.prefix) != sys.prefix or hasattr(
-        sys, 'real_prefix')
 
 
 def normalize_space(item):
