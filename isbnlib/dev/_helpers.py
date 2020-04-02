@@ -2,7 +2,6 @@
 """Private helper functions."""
 
 import re
-
 from hashlib import md5
 
 from ._bouth23 import b, s
