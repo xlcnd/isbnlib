@@ -159,6 +159,7 @@ def test_canonical():
     assert_equals(canonical('000000000X'), '')
     assert_equals(canonical('0000000000000'), '')
     assert_equals(canonical('0000000'), '')
+    assert_equals(canonical(''), '')
 
 
 def test_EAN13():
