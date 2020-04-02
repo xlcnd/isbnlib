@@ -154,7 +154,8 @@ def canonical(isbnlike):
         numb[-1] = 'X'
     isbn = ''.join(numb)
     # Filter some special cases
-    if isbn in ('0000000000' or '0000000000000'):
+    if isbn in ('0000000000', '0000000000000',
+                '000000000X') or isbn.index('X') != 9:
         return None
     return isbn
 
