@@ -154,6 +154,11 @@ def test_canonical():
     assert_equals(canonical('isbn9780826497529'), '9780826497529')
     assert_equals(canonical('isbn 0826497527'), '0826497527')
     assert_equals(canonical('954430603x'), '954430603X')
+    assert_equals(canonical('95443060x3'), '')
+    assert_equals(canonical('0000000000'), '')
+    assert_equals(canonical('000000000X'), '')
+    assert_equals(canonical('0000000000000'), '')
+    assert_equals(canonical('0000000'), '')
 
 
 def test_EAN13():
