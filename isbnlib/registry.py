@@ -7,6 +7,7 @@ from pkg_resources import iter_entry_points
 
 from . import _goob as goob
 from . import _openl as openl
+from . import _wiki as wiki
 from . import NotValidDefaultServiceError
 from . import NotValidDefaultFormatterError
 from ._imcache import IMCache
@@ -21,6 +22,7 @@ services = {
     'default': goob.query,
     'goob': goob.query,
     'openl': openl.query,
+    'wiki': wiki.query,
 }
 
 PROVIDERS = ()
