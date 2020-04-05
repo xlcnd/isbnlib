@@ -12,4 +12,4 @@ def test_query():
     """Test 'wiki' metadata service."""
     # test query from metadata
     assert_equals(len(repr(query('9780195132861', 'wiki'))) > 100, True)
-    assert_equals(len(repr(query('9780156001311', 'wiki'))) > 100, True)
+    assert_equals(len(repr(query('9780375869020', 'wiki'))) > 100, True)
