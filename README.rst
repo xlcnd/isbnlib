@@ -129,6 +129,7 @@ Main Functions
     Gives you the main metadata associated with the ISBN. As `service` parameter you can use:
     ``'goob'`` uses the **Google Books service** (**no key is needed**)  and
     **is the default option**,
+    ``'wiki'`` uses the **wikipedia.org** api (**no key is needed**),
     ``'openl'`` uses the **OpenLibrary.org** api (**no key is needed**).
     You can enter API keys
     with ``config.add_apikey(service, apikey)`` (see example below).
