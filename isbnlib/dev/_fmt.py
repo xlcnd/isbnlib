@@ -24,7 +24,7 @@ endnote = r"""%0 Book
 %D $Year
 %I $Publisher """
 
-refworks = r"""TY  - BOOK
+ris = r"""TY  - BOOK
 T1  - $Title
 A1  - $AUTHORS
 SN  - $ISBN
@@ -86,12 +86,11 @@ templates = {
     'labels': labels,
     'bibtex': bibtex,
     'endnote': endnote,
-    'refworks': refworks,
+    'ris': ris,
     'msword': msword,
     'json': json,
     'csl': csl,
     'opf': opf,
-    'ris': refworks,
 }
 
 _fmts = list(templates.keys())
@@ -108,12 +107,12 @@ def _spec_proc(name, fmtrec, authors):
     """Fix the Authors records."""
     if name not in _fmts:
         return
+    if not authors:
+        return
     if name == 'labels':
         AUTHORS = '\nAuthor:    '.join(authors)
     elif name == 'bibtex':
         AUTHORS = ' and '.join(authors)
-    elif name == 'refworks':
-        AUTHORS = '\nA1  - '.join(authors)
     elif name == 'ris':
         AUTHORS = '\nA1  - '.join(authors)
     elif name == 'endnote':
@@ -142,4 +141,4 @@ def _spec_proc(name, fmtrec, authors):
 def _fmtbib(fmtname, canonical):
     """Return a canonical record in the selected format."""
     return _spec_proc(fmtname, _gen_proc(fmtname, canonical),
-                      canonical['Authors'])
+                      canonical.get('Authors'))
