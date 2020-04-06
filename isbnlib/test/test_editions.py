@@ -34,7 +34,7 @@ def test_editions_wiki():
 
 def test_editions_any():
     """Test the 'any editions' service."""
-    assert_equals(len(editions('9780151446476', service='any')) > 19, True)
+    assert_equals(len(editions('9780151446476', service='any')) > 5, True)
 
 
 def test_editions_merge():
