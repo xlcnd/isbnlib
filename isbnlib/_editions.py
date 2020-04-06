@@ -17,7 +17,7 @@ LOGGER = logging.getLogger(__name__)
 # pylint: disable=broad-except
 def _fake_provider_any(isbn):
     """Fake provider 'any' service."""
-    providers = {'openl': _oed, 'thingl': _ted, 'wiki': _wiki}
+    providers = {'wiki': _wiki, 'openl': _oed, 'thingl': _ted}
     for provider in providers:
         try:
             data = providers[provider](isbn)

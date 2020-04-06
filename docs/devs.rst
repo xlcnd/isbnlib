@@ -85,10 +85,10 @@ In the namespace ``isbnlib`` you have access to the core methods:
 
 ``editions(isbn, service='merge')``
     Returns the list of ISBNs of editions related with this ISBN. By default
-    uses 'merge' (merges 'openl' and 'thingl'), but other providers are available:
+    uses 'merge' (merges 'openl', 'thingl' and 'wiki'), but other providers are available:
     'openl' uses **Open Library**, 'thingl' (uses the service ThingISBN from **LibraryThing**),
     'wiki' (uses the service Citation from **Wikipedia**)
-    and 'any' (first tries 'openl', if no data, then 'thingl' or 'wiki').
+    and 'any' (first tries 'wiki', if no data, then 'openl' or 'thingl').
 
 ``isbn_from_words(words)``
   Returns the most probable ISBN from a list of words (for your geographic area).
