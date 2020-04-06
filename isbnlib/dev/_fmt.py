@@ -91,6 +91,7 @@ templates = {
     'json': json,
     'csl': csl,
     'opf': opf,
+    'ris': refworks,
 }
 
 _fmts = list(templates.keys())
@@ -112,6 +113,8 @@ def _spec_proc(name, fmtrec, authors):
     elif name == 'bibtex':
         AUTHORS = ' and '.join(authors)
     elif name == 'refworks':
+        AUTHORS = '\nA1  - '.join(authors)
+    elif name == 'ris':
         AUTHORS = '\nA1  - '.join(authors)
     elif name == 'endnote':
         AUTHORS = '\n%A '.join(authors)
