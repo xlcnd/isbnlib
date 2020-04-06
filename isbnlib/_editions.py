@@ -7,16 +7,17 @@ from ._core import EAN13, to_isbn13
 from ._exceptions import NotRecognizedServiceError, NotValidISBNError
 from ._openled import query as _oed
 from ._thinged import query as _ted
+from ._wikied import query as _wiki
 from .dev import cache, vias
 
-PROVIDERS = ('any', 'merge', 'openl', 'thingl')
+PROVIDERS = ('any', 'merge', 'openl', 'thingl', 'wiki')
 LOGGER = logging.getLogger(__name__)
 
 
 # pylint: disable=broad-except
 def _fake_provider_any(isbn):
     """Fake provider 'any' service."""
-    providers = {'openl': _oed, 'thingl': _ted}
+    providers = {'openl': _oed, 'thingl': _ted, 'wiki': _wiki}
     for provider in providers:
         try:
             data = providers[provider](isbn)
@@ -33,11 +34,12 @@ def _fake_provider_any(isbn):
 def _fake_provider_merge(isbn):
     """Fake provider 'merge' service."""
     try:  # pragma: no cover
-        named_tasks = (('openl', _oed), ('thingl', _ted))
+        named_tasks = (('openl', _oed), ('thingl', _ted), ('wiki', _wiki))
         results = vias.parallel(named_tasks, isbn)
         odata = results.get('openl', set())
         tdata = results.get('thingl', set())
-        return list(odata | tdata)
+        wdata = results.get('wiki', set())
+        return list(odata | tdata | wdata)
     except Exception:  # pragma: no cover
         LOGGER.error("Some error on editions 'merge' service for %s!", isbn)
         return [isbn]
@@ -54,6 +56,8 @@ def get_editions(isbn, service):
         eds = list(_oed(isbn))
     if service == 'thingl':
         eds = list(_ted(isbn))
+    if service == 'wiki':
+        eds = list(_wiki(isbn))
     return list(set(map(to_isbn13, eds))) if eds else []
 
 
