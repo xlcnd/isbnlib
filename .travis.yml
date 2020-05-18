@@ -4,6 +4,7 @@ branches:
   only:
     - v3.10.2
     - master
+    - dev
 
 matrix:
 
