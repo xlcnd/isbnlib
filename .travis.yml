@@ -3,7 +3,6 @@ language: python
 branches:
   only:
     - v3.10.1
-    - dev
     - master
 
 matrix:
