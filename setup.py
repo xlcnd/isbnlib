@@ -86,6 +86,6 @@ setup(
     'Extract, clean, transform, hyphenate and metadata for ISBNs (International Standard Book Number).',
     long_description=open('README.rst').read(),
     keywords=
-    'ISBN metadata World_Catalogue Google_Books Open_Library BibTeX EndNote RefWorks MSWord opf BibJSON',
+    'ISBN metadata World_Catalogue Google_Books Wikipedia Open_Library BibTeX EndNote RefWorks MSWord opf BibJSON',
     classifiers=PYPI_CLASSIFIERS,
 )
