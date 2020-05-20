@@ -27,9 +27,8 @@ def _mapper(isbn, records):
         subtitle = records.get('subtitle', u(''))
         title = title + ' - ' + subtitle if subtitle else title
         canonical['Title'] = title
-        # canonical['Title'] = records.get('title', u('')).replace(' :', ':')
         canonical['Authors'] = records.get('authors', [u('')])
-        canonical['Publisher'] = records.get('publisher', u(''))
+        canonical['Publisher'] = records.get('publisher', u('')).strip('"')
         if 'publishedDate' in records and len(records['publishedDate']) >= 4:
             canonical['Year'] = records['publishedDate'][0:4]
         else:  # pragma: no cover
