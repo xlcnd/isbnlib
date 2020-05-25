@@ -9,7 +9,7 @@ from .dev._bouth23 import u
 from .dev.webquery import query as wquery
 
 UA = 'isbnlib (gzip)'
-SERVICE_URL = 'http://classify.oclc.org/classify2/Classify?isbn={isbn}' '&maxRecs=1'
+SERVICE_URL = 'http://classify.oclc.org/classify2/Classify?isbn={isbn}&maxRecs=1'
 LOGGER = logging.getLogger(__name__)
 
 RE_OWI = re.compile(r'owi="(.*?)"', re.I | re.M | re.S)
