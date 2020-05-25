@@ -26,4 +26,4 @@ def query(isbn, service='default'):
         LOGGER.critical('%s is not a valid service', service)
         raise NotRecognizedServiceError(service)
     meta = services[service](isbn)
-    return meta if meta else {}
+    return meta or {}
