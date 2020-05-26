@@ -24,10 +24,26 @@ def _mapper(isbn, records):
         canonical = {}
         canonical['ISBN-13'] = u(isbn)
         canonical['Title'] = records.get('title', u('')).replace(' :', ':')
-        canonical['Authors'] = [
-            author.replace('.', '') for author in records.get('author', [])[0]
-            if author
-        ]
+        # try to handle the inconsistent use of fields by Wikipedia (issue #65)!
+        try:
+            authors = [
+                author for sublist in records.get('authors', [])
+                for author in sublist if author
+            ]
+            canonical['Authors'] = [
+                author.replace('.', u('')) for author in authors
+            ]
+        except IndexError:
+            try:
+                authors = [
+                    author for sublist in records.get('contributor', [])
+                    for author in sublist if author
+                ]
+                canonical['Authors'] = [
+                    author.replace('.', u('')) for author in authors
+                ]
+            except IndexError:
+                pass
         canonical['Publisher'] = records.get('publisher', u('')) or ' '.join(
             [pub for pub in records.get('contributor', [])[0] if pub])
         canonical['Year'] = u('')
