@@ -95,5 +95,5 @@ __all__ = (
     'NotValidDefaultServiceError',
 )
 
-__version__ = '3.10.2'
+__version__ = '3.10.3'
 __support__ = 'py27, py35, py36, py37, py38, pypy, pypy3'
