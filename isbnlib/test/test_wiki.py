@@ -13,4 +13,6 @@ def test_query():
     # test query from metadata
     assert_equals(len(repr(query('9780195132861', 'wiki'))) > 100, True)
     assert_equals(len(repr(query('9780375869020', 'wiki'))) > 100, True)
-    assert_equals(len(repr(query('9780596003302', 'wiki')['Authors'])) > 5, True)
+    data = query('9780596003302', 'wiki')
+    assert_equals(len(repr(data['Authors'])) > 5, True)
+    assert_equals(len(repr(data['Publisher'])) > 5, True)
