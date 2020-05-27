@@ -24,7 +24,6 @@ def _mapper(isbn, records):
         canonical = {}
         canonical['ISBN-13'] = u(isbn)
         canonical['Title'] = records.get('title', u('')).replace(' :', ':')
-        print(records)
         # try to handle the inconsistent use of fields by Wikipedia (issue #65)!
         try:
             authors = [
