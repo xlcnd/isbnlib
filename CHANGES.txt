@@ -55,3 +55,4 @@ v3.10.0, 2020-03-23 -- Add a 'classify' service (oclc.org).
 v3.10.1, 2020-05-18 -- Add a 'wiki' (wikipedia) provider for metadata and editions.
 v3.10.2, 2020-05-26 -- Fix 'goob' and 'wiki' quirks (issue #64 and #65).
 v3.10.3, 2020-05-27 -- Delete a (quick debug) print statement.
+v3.10.4, 2020-05-27 -- TENTATIVE
