@@ -7,7 +7,6 @@ import logging as _logging
 
 from ._exceptions import NotValidISBNError
 
-# main modules
 from ._core import (
     to_isbn10,
     EAN13,
