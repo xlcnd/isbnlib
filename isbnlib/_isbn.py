@@ -5,12 +5,8 @@
 
 import logging as _logging
 
+from ._core import to_isbn10, EAN13
 from ._exceptions import NotValidISBNError
-
-from ._core import (
-    to_isbn10,
-    EAN13,
-)
 from ._ext import mask, info, doi
 
 LOGGER = _logging.getLogger(__name__)
@@ -38,9 +34,6 @@ class Isbn(object):
         self.doi = doi(self.ean13)
         self.info = info(self.ean13)
         self.issued = len(mask(self.ean13)) > 0
-
-    def __getattr__(self, attr):
-        return self[attr]
 
     def __str__(self):
         return str(vars(self))
