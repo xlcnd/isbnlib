@@ -3,7 +3,7 @@
 # pylint: skip-file
 """nose tests"""
 
-from nose.tools import assert_equals
+from nose.tools import assert_equals, assert_raises
 
 from .._isbn import Isbn
 
@@ -38,5 +38,12 @@ def test_issued():
 def test_info():
     """Test the 'Isbn class' for 'issued'."""
     assert_equals(isbn.info, 'English language')
+
+def test_errors():
+    """Test the 'Isbn class' for 'bad isbn'."""
+    assert_raises(Exception, Isbn, '781250158062')
+
+
+
 
 
