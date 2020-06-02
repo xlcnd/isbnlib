@@ -25,6 +25,6 @@ def _parser(isbn, data):
 
 
 def query(isbn):
-    """Query the wikipedia.org service for metadata."""
-    data = wquery(SERVICE_URL.format(isbn=isbn), user_agent=UA)
+    """Query the wikipedia.org service for 'editions'."""
+    data = wquery(SERVICE_URL.format(isbn=isbn), user_agent=UA, throttling=0)
     return set(_parser(isbn, data))
