@@ -1,6 +1,4 @@
 # -*- coding: utf-8 -*-
-# flake8: noqa
-# isort:skip_file
 """Isbn class."""
 
 import logging as _logging
@@ -19,7 +17,6 @@ class Isbn(object):
     """Class for isbn objects."""
 
     def __init__(self, isbnlike):
-        """Initialize attributes."""
         try:
             self.ean13 = EAN13(isbnlike)
             if not self.ean13:
