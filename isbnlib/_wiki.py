@@ -78,5 +78,5 @@ def _records(isbn, data):
 
 def query(isbn):
     """Query the wikipedia.org service for metadata."""
-    data = wquery(SERVICE_URL.format(isbn=isbn), user_agent=UA)
+    data = wquery(SERVICE_URL.format(isbn=isbn), user_agent=UA, throttling=0)
     return _records(isbn, data)
