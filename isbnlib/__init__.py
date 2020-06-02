@@ -40,7 +40,7 @@ from ._core import (
 )
 from ._ext import cover, desc, mask, meta, info, editions, isbn_from_words, doi, ren
 from ._goom import query as goom
-from ._isbn import Isbn
+#from ._isbn import Isbn
 from ._doitotex import doi2tex
 from ._oclc import query_classify as classify
 
@@ -57,7 +57,7 @@ ean13 = EAN13
 
 # dunders
 __all__ = (
-    'Isbn',
+    #    'Isbn',
     'is_isbn10',
     'is_isbn13',
     'clean',
