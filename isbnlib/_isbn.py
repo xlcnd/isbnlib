@@ -38,3 +38,12 @@ class Isbn(object):
         self.doi = doi(self.ean13)
         self.info = info(self.ean13)
         self.issued = len(mask(self.ean13)) > 0
+
+    def __getattr__(self, attr):
+        return self[attr]
+
+    def __str__(self):
+        return str(vars(self))
+
+    def __repr__(self):
+        return self.__str__()
