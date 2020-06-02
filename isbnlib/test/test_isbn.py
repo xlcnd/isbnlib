@@ -43,6 +43,14 @@ def test_errors():
     """Test the 'Isbn class' for 'bad isbn'."""
     assert_raises(Exception, Isbn, '781250158062')
 
+def test_str():
+    """Test the 'Isbn class' for 'str'."""
+    assert_equals(len(str(isbn)) > 20,  True)
+
+def test_repr():
+    """Test the 'Isbn class' for 'repr'."""
+    assert_equals(len(repr(isbn)) > 20,  True)
+
 
 
 
