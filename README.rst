@@ -459,5 +459,3 @@ Read ``isbnlib`` code in a very sctructured way at sourcegraph_ or 'the docs' at
 .. _here: https://github.com/xlcnd/isbnlib/network/dependents?package_id=UGFja2FnZS01MjIyODAxMQ%3D%3D
 
 .. _OCLC: http://classify.oclc.org/classify2/
-
-
