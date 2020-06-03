@@ -13,6 +13,7 @@ LOGGER = _logging.getLogger(__name__)
 # pylint: disable=useless-object-inheritance
 # pylint: disable=too-many-instance-attributes
 # pylint: disable=too-few-public-methods
+# pylint: disable=broad-except
 class Isbn(object):
     """Class for isbn objects."""
 
