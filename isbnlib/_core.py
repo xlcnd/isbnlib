@@ -258,6 +258,7 @@ def get_canonical_isbn(isbnlike, output='bouth'):
     return None
 
 
+# TODO(make return type consistent)!
 def ean13(isbnlike):
     """Transform an `isbnlike` string in an EAN number (canonical ISBN-13)."""
     ib = canonical(isbnlike)
