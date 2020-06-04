@@ -30,6 +30,8 @@ def test_doi():
 def test_issued():
     """Test the 'Isbn class' for 'info'."""
     assert_equals(isbn.issued, True)
+    isbn2=Isbn('9786610326266')
+    assert_equals(isbn2.issued, False)
 
 def test_info():
     """Test the 'Isbn class' for 'issued'."""
