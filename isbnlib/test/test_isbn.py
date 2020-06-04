@@ -15,10 +15,6 @@ def test_ean13():
     """Test the 'Isbn class' for ean13."""
     assert_equals(isbn.ean13, '9781250158062')
 
-def test_gtin13():
-    """Test the 'Isbn class' for gtin13."""
-    assert_equals(isbn.gtin13, '9781250158062')
-
 def test_isbn13():
     """Test the 'Isbn class' for isbn13."""
     assert_equals(isbn.isbn13, '978-1-250-15806-2')
