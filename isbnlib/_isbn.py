@@ -3,7 +3,7 @@
 
 import logging as _logging
 
-from ._core import to_isbn10, EAN13
+from ._core import canonical, to_isbn10, EAN13
 from ._exceptions import NotValidISBNError
 from ._ext import mask, info, doi
 
@@ -25,8 +25,7 @@ class Isbn(object):
         except Exception:
             LOGGER.debug('error: %s is not a valid ISBN', isbnlike)
             raise NotValidISBNError(isbnlike)
-        self.canonical = self.ean13
-        self.gtin13 = self.ean13
+        self.canonical = canonical(isbnlike)
         self.isbn13 = mask(self.ean13) or self.ean13
         self.isbn10 = mask(to_isbn10(self.ean13)) or to_isbn10(self.ean13)
         self.doi = doi(self.ean13)
