@@ -46,6 +46,7 @@ ISBN13_PREFIX = '978'
 LEGAL = '0123456789xXisbnISBN- '
 
 
+# TODO(make return type consistent)!
 # pylint: disable=broad-except
 def check_digit10(firstninedigits):
     """Check sum ISBN-10."""
@@ -69,6 +70,7 @@ def check_digit10(firstninedigits):
     return str(tenthdigit)
 
 
+# TODO(make return type consistent)!
 # pylint: disable=broad-except
 def check_digit13(firsttwelvedigits):
     """Check sum ISBN-13."""
@@ -121,6 +123,7 @@ def is_isbn13(isbn13):
         return bool(not check_digit13(isbn13[:-1]) != isbn13[-1])
 
 
+# TODO(make return type consistent)!
 def to_isbn10(isbn13):
     """Transform isbn-13 to isbn-10."""
     isbn13 = canonical(isbn13)
@@ -135,6 +138,7 @@ def to_isbn10(isbn13):
     return isbn10[:-1] + check if check else None
 
 
+# TODO(make return type consistent)!
 def to_isbn13(isbn10):
     """Transform isbn-10 to isbn-13."""
     isbn10 = canonical(isbn10)
