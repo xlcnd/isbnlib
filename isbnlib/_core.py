@@ -46,17 +46,16 @@ ISBN13_PREFIX = '978'
 LEGAL = '0123456789xXisbnISBN- '
 
 
-# TODO(make return type consistent)!
 # pylint: disable=broad-except
 def check_digit10(firstninedigits):
     """Check sum ISBN-10."""
     # minimum checks
     if len(firstninedigits) != 9:
-        return None
+        return ''
     try:
         int(firstninedigits)
     except Exception:  # pragma: no cover
-        return None
+        return ''
     # checksum
     val = sum(
         (i + 2) * int(x) for i, x in enumerate(reversed(firstninedigits)))
@@ -70,17 +69,16 @@ def check_digit10(firstninedigits):
     return str(tenthdigit)
 
 
-# TODO(make return type consistent)!
 # pylint: disable=broad-except
 def check_digit13(firsttwelvedigits):
     """Check sum ISBN-13."""
     # minimum checks
     if len(firsttwelvedigits) != 12:
-        return None
+        return ''
     try:
         int(firsttwelvedigits)
     except Exception:  # pragma: no cover
-        return None
+        return ''
     # checksum
     val = sum(
         (i % 2 * 2 + 1) * int(x) for i, x in enumerate(firsttwelvedigits))
@@ -90,19 +88,16 @@ def check_digit13(firsttwelvedigits):
     return str(thirteenthdigit)
 
 
-# pylint: disable=simplifiable-if-expression
 def _check_structure10(isbn10like):
     """Check structure of an ISBN-10."""
     return bool(re.match(RE_ISBN10, isbn10like))
 
 
-# pylint: disable=simplifiable-if-expression
 def _check_structure13(isbn13like):
     """Check structure of an ISBN-13."""
     return bool(re.match(RE_ISBN13, isbn13like))
 
 
-# pylint: disable=simplifiable-if-expression
 def is_isbn10(isbn10):
     """Validate as ISBN-10."""
     isbn10 = canonical(isbn10)
@@ -123,32 +118,30 @@ def is_isbn13(isbn13):
         return bool(not check_digit13(isbn13[:-1]) != isbn13[-1])
 
 
-# TODO(make return type consistent)!
 def to_isbn10(isbn13):
     """Transform isbn-13 to isbn-10."""
     isbn13 = canonical(isbn13)
     # Check prefix
     if isbn13[:3] != ISBN13_PREFIX:
-        return isbn13 if len(isbn13) == 10 and is_isbn10(isbn13) else None
+        return isbn13 if len(isbn13) == 10 and is_isbn10(isbn13) else ''
     if not is_isbn13(isbn13):
-        return None
+        return ''
     isbn10 = isbn13[3:]
     check = check_digit10(isbn10[:-1])
     # Change check digit
-    return isbn10[:-1] + check if check else None
+    return isbn10[:-1] + check if check else ''
 
 
-# TODO(make return type consistent)!
 def to_isbn13(isbn10):
     """Transform isbn-10 to isbn-13."""
     isbn10 = canonical(isbn10)
     if len(isbn10) == 13 and is_isbn13(isbn10):
         return isbn10
     if not is_isbn10(isbn10):
-        return None
+        return ''
     isbn13 = ISBN13_PREFIX + isbn10[:-1]
     check = check_digit13(isbn13)
-    return isbn13 + check if check else None
+    return isbn13 + check if check else ''
 
 
 def canonical(isbnlike):
@@ -212,7 +205,7 @@ def get_isbnlike(text, level='normal'):
         isbnlike = RE_LOOSE
     else:
         LOGGER.error('level as no option %s', level)
-        return None
+        return []
     return isbnlike.findall(text)
 
 
@@ -227,7 +220,7 @@ def get_canonical_isbn(isbnlike, output='bouth'):
     """
     if output not in ('bouth', 'isbn10', 'isbn13'):  # pragma: no cover
         LOGGER.error('output as no option %s', output)
-        return None
+        return ''
 
     regex = RE_NORMAL
 
@@ -255,7 +248,7 @@ def get_canonical_isbn(isbnlike, output='bouth'):
             if output == 'isbn10':
                 return cisbn if len(cisbn) == 10 else to_isbn10(cisbn)
             return to_isbn13(cisbn) if len(cisbn) == 10 else cisbn
-    return None
+    return ''
 
 
 # TODO(make return type consistent)!
@@ -263,10 +256,10 @@ def ean13(isbnlike):
     """Transform an `isbnlike` string in an EAN number (canonical ISBN-13)."""
     ib = canonical(isbnlike)
     if len(ib) == 13:
-        return ib if is_isbn13(ib) else None
+        return ib if is_isbn13(ib) else ''
     elif len(ib) == 10:
-        return to_isbn13(ib) if is_isbn10(ib) else None
-    return None
+        return to_isbn13(ib) if is_isbn10(ib) else ''
+    return ''
 
 
 # Alias
