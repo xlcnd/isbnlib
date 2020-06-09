@@ -8,13 +8,13 @@
 import logging as _logging
 
 from ._exceptions import (
-    quiet_errors,
     ISBNLibException,
     NotRecognizedServiceError,
-    NotValidISBNError,
-    NotValidDefaultServiceError,
     NotValidDefaultFormatterError,
+    NotValidDefaultServiceError,
+    NotValidISBNError,
     PluginNotLoadedError,
+    quiet_errors,
 )
 
 # main modules
