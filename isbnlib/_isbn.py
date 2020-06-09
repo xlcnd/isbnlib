@@ -30,7 +30,7 @@ class Isbn(object):
         self.isbn10 = mask(to_isbn10(self.ean13)) or to_isbn10(self.ean13)
         self.doi = doi(self.ean13)
         self.info = info(self.ean13)
-        self.issued = len(mask(self.ean13)) > 0
+        self.issued = '-' in self.isbn13
 
     def __str__(self):
         return str(vars(self))
