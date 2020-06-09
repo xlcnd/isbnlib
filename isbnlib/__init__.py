@@ -41,7 +41,7 @@ from ._core import (
 from ._doitotex import doi2tex
 from ._ext import cover, desc, mask, meta, info, editions, isbn_from_words, doi, ren
 from ._goom import query as goom
-#from ._isbn import Isbn
+from ._isbn import Isbn
 from ._oclc import query_classify as classify
 
 # Ranges Database date
@@ -57,7 +57,6 @@ ISBN13 = EAN13
 
 # dunders
 __all__ = (
-    # 'Isbn',
     'is_isbn10',
     'is_isbn13',
     'clean',
@@ -89,6 +88,7 @@ __all__ = (
     '__version__',
     '__support__',
     'RDDATE',
+    'Isbn',
     'ISBNLibException',
     'NotRecognizedServiceError',
     'NotValidISBNError',
