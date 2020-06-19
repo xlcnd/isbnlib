@@ -3,9 +3,10 @@
 
 import gzip
 import logging
+from socket import timeout
 
 from ._bouth23 import bstream, s
-from ._exceptions import ISBNLibHTTPError, ISBNLibURLError
+from ._exceptions import ISBNLibHTTPError, ISBNLibURLError, ServiceIsDownError
 from ..config import options
 
 # pylint: disable=import-error
@@ -61,6 +62,10 @@ class WEBService(object):
             LOGGER.critical('ISBNLibURLError for %s with reason %s', self._url,
                             e.reason)
             raise ISBNLibURLError(e.reason)
+        except timeout:  # pragma: no cover
+            LOGGER.critical('ServiceIsDownError for %s with reason %s',
+                            self._url, 'timeout')
+            raise ServiceIsDownError('service timeout')
         return response if response else None
 
     def data(self):
