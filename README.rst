@@ -137,7 +137,8 @@ Main Functions
     The output can be formatted as ``bibtex``, ``csl`` (CSL-JSON), ``msword``, ``endnote``, ``refworks``,
     ``opf`` or ``json`` (BibJSON) bibliographic formats with ``registry.bibformatters``.
     Now, you can extend the functionality of this function by adding pluggins, more metadata
-    providers or new bibliographic formatters (check_ for available pluggins).
+    providers or new bibliographic formatters (check_ for available pluggins
+    -- **please, be carefull, there are many bogus packages in pypi!**).
 
 ``editions(isbn, service='merge')``
     Returns the list of ISBNs of editions related with this ISBN. By default
@@ -293,7 +294,7 @@ Plugins
 You can extend the functionality of the library by adding plugins (for now, just
 new metadata providers or new bibliographic formatters).
 
-For available plugins check_ here.
+For available plugins check_ here (**please, be carefull, there are many bogus packages in pypi!**).
 
 After install, your plugin will blend transparently in ``isbnlib`` (you will have more options in ``meta`` and ``bibformatters``).
 
