@@ -5,6 +5,7 @@
 from nose.tools import assert_equals
 
 from .._core import (
+    ean13,
     EAN13,
     _check_structure10,
     _check_structure13,
@@ -162,14 +163,14 @@ def test_canonical():
     assert_equals(canonical(''), '')
 
 
-def test_EAN13():
+def test_ean13():
     """Test the extraction and validation of EAN13 from ISBN-like string."""
-    assert_equals(EAN13('ISBN 9789720404427'), '')
-    assert_equals(EAN13('ISBN 9789720404428'), '9789720404428')
+    assert_equals(ean13('ISBN 9789720404427'), '')
+    assert_equals(ean13('ISBN 9789720404428'), '9789720404428')
     assert_equals(EAN13('ISBN-9780826497529'), '9780826497529')
-    assert_equals(EAN13('ISBN9780826497529'), '9780826497529')
+    assert_equals(ean13('ISBN9780826497529'), '9780826497529')
     assert_equals(EAN13('isbn9780826497529'), '9780826497529')
     assert_equals(EAN13('isbn 0826497527'), '9780826497529')
-    assert_equals(EAN13('9700000000000'), '')
+    assert_equals(ean13('9700000000000'), '')
     assert_equals(EAN13('9000000000000'), '')
     assert_equals(EAN13('9710000000000'), '')
