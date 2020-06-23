@@ -273,12 +273,6 @@ C. You need also **metadata functions**, with **special config**:
     ...
 
 
-D. You want to build a **plugin** or use **isbnlib.dev** in your code:
-
-   You should study very carefully the **public** methods in ``dir(isbnlib.dev)``.
-
-
-
 
 
 A full featured app!
