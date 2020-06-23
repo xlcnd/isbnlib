@@ -136,9 +136,6 @@ Main Functions
     with ``config.add_apikey(service, apikey)`` (see example below).
     The output can be formatted as ``bibtex``, ``csl`` (CSL-JSON), ``msword``, ``endnote``, ``refworks``,
     ``opf`` or ``json`` (BibJSON) bibliographic formats with ``registry.bibformatters``.
-    Now, you can extend the functionality of this function by adding pluggins, more metadata
-    providers or new bibliographic formatters (check_ for available pluggins
-    -- **please, be carefull, there are many bogus packages in pypi!**).
 
 ``editions(isbn, service='merge')``
     Returns the list of ISBNs of editions related with this ISBN. By default
@@ -288,23 +285,6 @@ A minimal script would be:
 
 
 
-Plugins
--------
-
-You can extend the functionality of the library by adding plugins (for now, just
-new metadata providers or new bibliographic formatters).
-
-For available plugins check_ here (**please, be carefull, there are many bogus packages in pypi!**).
-
-After install, your plugin will blend transparently in ``isbnlib`` (you will have more options in ``meta`` and ``bibformatters``).
-
-If you want to develop a plugin, start with this template_ and follow the instructions there. For inspiration take a look
-at goob_.
-
-
-Remember that plugins **must** support python 2.7 and python 3.5+ (see python-future.org_).
-
-
 
 Patterns of Usage
 -----------------
@@ -449,11 +429,7 @@ Read ``isbnlib`` code in a very sctructured way at sourcegraph_ or 'the docs' at
 
 .. _check: https://pypi.python.org/pypi?%3Aaction=search&term=isbnlib_&submit=search
 
-.. _template: https://github.com/xlcnd/isbnlib/blob/dev/PLUGIN.zip
-
 .. _goob: https://github.com/xlcnd/isbnlib/blob/dev/isbnlib/_goob.py
-
-.. _search: https://pypi.python.org/pypi?%3Aaction=search&term=isbnlib&submit=search
 
 .. _51: https://github.com/xlcnd/isbnlib/issues/51
 
