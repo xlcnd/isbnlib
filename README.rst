@@ -204,7 +204,7 @@ API's Main Namespaces
 In the namespace ``isbnlib`` you have access to the **core functions**:
 ``is_isbn10``, ``is_isbn13``, ``to_isbn10``, ``to_isbn13``, ``canonical``,
 ``clean``, ``notisbn``, ``get_isbnlike``, ``get_canonical_isbn``, ``mask``,
-``info``, ``check_digit10``, ``check_digit13``, ``doi`` and ``EAN13``.
+``info``, ``check_digit10``, ``check_digit13``, ``doi`` and ``ean13``.
 
 In addition, you have access to **metadata functions**, namely:
 ``meta``, ``editions``, ``ren``, ``desc``, ``cover``,
