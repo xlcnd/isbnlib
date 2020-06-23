@@ -61,7 +61,7 @@ In the namespace ``isbnlib`` you have access to the core methods:
 ``get_canonical_isbn(isbnlike, output='bouth')``
   Extracts ISBNs and transform them to the canonical form.
 
-``EAN13(isbnlike)``
+``ean13(isbnlike)``
   Transforms an `isbnlike` string into an EAN13 number (validated canonical ISBN-13).
 
 ``info(isbn)``
