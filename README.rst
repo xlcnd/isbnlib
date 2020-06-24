@@ -82,7 +82,7 @@ ISBN
    try ``meta('9786610326266')`` and you will see that this ISBN was already used!
 
    If possible, work with ISBNs in the isbn-13 format (since 2007, only are issued ISBNs
-   in the isbn-13 format). You can always convert isbn-10 to isbn-13, but **not** the reverse.
+   in the isbn-13 format). You can always convert isbn-10 to isbn-13, but **not** the reverse (read this_).
    Read more about ISBN at isbn-international.org_ or wikipedia_.
 
 
@@ -370,3 +370,5 @@ Read ``isbnlib`` code in a very sctructured way at sourcegraph_ or 'the docs' at
 .. _here: https://github.com/xlcnd/isbnlib/network/dependents?package_id=UGFja2FnZS01MjIyODAxMQ%3D%3D
 
 .. _OCLC: http://classify.oclc.org/classify2/
+
+.. _this: https://bisg.org/news/479346/New-979-ISBN-Prefixes-Expected-in-2020.htm
