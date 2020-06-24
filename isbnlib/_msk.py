@@ -21,9 +21,11 @@ def msk(isbn, separator='-'):
       O(n) for n (number of keys),
       with data structure 'ranges' (see data4mask.py)
     """
+    if not isbn:
+        return ''
     ib = canonical(isbn)
     ean = EAN13(ib)
-    if len(ib) not in (10, 13) or ean is None:
+    if len(ib) not in (10, 13) or not ean:
         LOGGER.critical('%s is not a valid ISBN', isbn)
         raise NotValidISBNError(isbn)
 
