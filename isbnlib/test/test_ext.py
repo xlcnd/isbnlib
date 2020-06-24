@@ -31,7 +31,7 @@ def test_mask():
     assert_equals(mask('9791090636071'), '979-10-90636-07-1')
     assert_equals(mask('9786131796364'), '978-613-1-79636-4')  # <-- prefix with 1 rule
     assert_equals(mask('isbn 979-10-90636-07-1'), '979-10-90636-07-1')
-    assert_raises(Exception, mask, '')
+    assert_equals(mask(''), '')
     assert_raises(Exception, mask, '9786')
     assert_raises(Exception, mask, '0000000000000')
 
