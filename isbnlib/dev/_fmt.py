@@ -61,6 +61,8 @@ csl = r"""{"type":"book",
       "ISBN":"$ISBN",
  "publisher":"$Publisher"}"""
 
+# csv = r""""book","$ISBN","$Title","$AUTHORS","$Year","$ISBN","$Publisher""""
+
 opf = r"""<?xml version='1.0' encoding='utf-8'?>
 <package version="2.0" xmlns="http://www.idpf.org/2007/opf" unique-identifier="uuid_id">
   <metadata xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:opf="http://www.idpf.org/2007/opf">
