@@ -31,10 +31,10 @@ def test_cache_meta():
     )
 
 
-def test_cache_classify():
-    """Test '@cache' classify."""
-    assert_equals(len(repr(cache.get("query_classify('9781118241257',){}"))) > 5, True)
-    assert_equals(
-        len(repr(cache.get("query_classify('9781118241257',){}"))),
-        len(repr(cache["query_classify('9781118241257',){}"])),
-    )
+#def test_cache_classify():
+#    """Test '@cache' classify."""
+#    assert_equals(len(repr(cache.get("query_classify('9781118241257',){}"))) > 5, True)
+#    assert_equals(
+#        len(repr(cache.get("query_classify('9781118241257',){}"))),
+#        len(repr(cache["query_classify('9781118241257',){}"])),
+#    )
