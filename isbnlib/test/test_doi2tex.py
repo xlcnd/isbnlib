@@ -9,17 +9,17 @@ from nose.tools import assert_equals
 
 from .. import doi2tex
 
-from ..config import options
+from ..config import set_option
 
 
 def setup_module():
     # this is a slow service
-    options.set_option('URLOPEN_TIMEOUT', 25)
+    set_option('URLOPEN_TIMEOUT', 25)
 
 
 def teardown_module():
     # reset URLOPEN_TIMEOUT to default value
-    options.set_option('URLOPEN_TIMEOUT', 10)
+    set_option('URLOPEN_TIMEOUT', 10)
 
 
 def test_doi2tex():

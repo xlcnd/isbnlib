@@ -31,7 +31,7 @@ def test_cache_meta():
     )
 
 
-#def test_cache_classify():
+# def test_cache_classify():
 #    """Test '@cache' classify."""
 #    assert_equals(len(repr(cache.get("query_classify('9781118241257',){}"))) > 5, True)
 #    assert_equals(

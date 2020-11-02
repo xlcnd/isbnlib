@@ -6,26 +6,26 @@
 from nose.tools import assert_equals
 from .._oclc import query_classify as query
 
-from ..config import options
+from ..config import set_option
 
 
-def setup_module():
-    # this is a slow service
-    options.set_option('URLOPEN_TIMEOUT', 25)
-    query('9781118241257')
-    query('9780425284629')
+# def setup_module():
+# this is a slow service
+set_option('URLOPEN_TIMEOUT', 60)
+q1 = query('9781118241257')
+q2 = query('9780425284629')
 
 
 def teardown_module():
     # reset URLOPEN_TIMEOUT to default value
-    options.set_option('URLOPEN_TIMEOUT', 10)
+    set_option('URLOPEN_TIMEOUT', 10)
 
 
 def test_query():
     """Test the query of classifiers (oclc.org) with 'low level' queries."""
-    assert_equals(len(repr(query('9782253112105'))) > 50, True)
-    assert_equals(len(repr(q1)) > 50, True)
-    assert_equals(len(repr(q2)) > 50, True)
+    assert_equals(len(repr(query('9782253112105'))) > 10, True)
+    assert_equals(len(repr(q1)) > 10, True)
+    assert_equals(len(repr(q2)) > 10, True)
 
 
 def test_query_no_data():
