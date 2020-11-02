@@ -28,7 +28,7 @@ RE_VALS = re.compile(r'fast">(.*?)</heading>', re.I | re.M | re.S)
 def data_checker(xml):
     """Check the response from the service."""
     if not xml or 'response code="102"' in xml:
-        LOGGER.debug("The service 'oclc' is temporarily down!")
+        LOGGER.debug("The service 'oclc' is temporarily down or very slow!")
         return False
     return True
 
