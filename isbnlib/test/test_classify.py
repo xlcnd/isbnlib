@@ -6,19 +6,12 @@
 from nose.tools import assert_equals
 from .._oclc import query_classify as query
 
-from ..config import set_option
 
-
-# def setup_module():
 # this is a slow service
-set_option('URLOPEN_TIMEOUT', 60)
-q1 = query('9781118241257')
-q2 = query('9780425284629')
 
+q1 = query('9781118241257') or {}
+q2 = query('9780425284629') or {}
 
-def teardown_module():
-    # reset URLOPEN_TIMEOUT to default value
-    set_option('URLOPEN_TIMEOUT', 10)
 
 
 def test_query():
