@@ -44,10 +44,10 @@ class WEBService(object):
 
     def response(self):
         """Check errors on response."""
+        # TODO(http 102)
         # How to handle "102 http's code"?
         # - urlopen doesn't catch a 102 code!
         #   https://docs.python.org/3/howto/urllib2.html#error-codes
-        # - only by providing a bigger TIMEOUT!
         try:
             response = urlopen(self._request,
                                timeout=options.get('URLOPEN_TIMEOUT'))
