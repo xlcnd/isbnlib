@@ -61,7 +61,7 @@ csl = r"""{"type":"book",
       "ISBN":"$ISBN",
  "publisher":"$Publisher"}"""
 
-# csv = r""""book","$ISBN","$Title","$AUTHORS","$Year","$Publisher""""
+csv = r'''"book","$ISBN","$Title","$AUTHORS","$Year","$Publisher"'''
 
 opf = r"""<?xml version='1.0' encoding='utf-8'?>
 <package version="2.0" xmlns="http://www.idpf.org/2007/opf" unique-identifier="uuid_id">
@@ -92,6 +92,7 @@ templates = {
     'msword': msword,
     'json': json,
     'csl': csl,
+    'csv': csv,
     'opf': opf,
 }
 
@@ -130,6 +131,8 @@ def _spec_proc(name, fmtrec, authors):
     elif name == 'csl':
         AUTHORS = ', '.join('{"literal": "$"}'.replace('$', a)
                             for a in authors)
+    elif name == 'csv':
+        AUTHORS = ', '.join(authors)
     elif name == 'opf':
         fmtrec = fmtrec.replace('$uid', str(uuid.uuid4()))
         creator = (r'<dc:creator opf:file-as="$last, $first"'
