@@ -102,8 +102,7 @@ _fmts = list(templates.keys())
 def _gen_proc(name, canonical):
     if 'ISBN-13' in canonical:
         canonical['ISBN'] = canonical.pop('ISBN-13')
-    canonical['Title'] = canonical.get('Title').replace('"', '\\"').replace(
-        "'", "\\'")
+    canonical['Title'] = canonical.get('Title').replace('"', '\\"')
     tpl = templates[name]
     return Template(tpl).safe_substitute(canonical)
 
