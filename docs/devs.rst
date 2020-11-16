@@ -196,6 +196,37 @@ All these classes follow a simple design pattern and, if you follow it, will be
 very easy to integrate your classes with the rest of the lib.
 
 
+Plugins
+-------
+
+You can extend the functionality of the library by adding pluggins (for now, just
+new metadata providers or new bibliographic formatters).
+
+Start with this template_ and follow the instructions there. For inspiration take a look
+at goob_.
+
+After install, your pluggin will blend transparently in ``isbnlib``.
+
+Remember that plugins **must** support python 2.7 and python 3.5+ (see python-future.org_).
+
+For available pluggins check_ here.
+
+
+
+Extra Functionality
+-------------------
+
+To get extra functionality, search_ pypi for packages starting with ``isbnlib``
+**or** type at a terminal:
+
+.. code-block:: console
+
+    $ pip search isbnlib
+
+
+for a nice formated report!
+
+
 
 Merge Metadata
 --------------
@@ -248,5 +279,7 @@ framework to further developement, take a look at isbntools_.
 .. _template: https://github.com/xlcnd/isbnlib/blob/dev/PLUGIN.zip
 
 .. _goob: https://github.com/xlcnd/isbnlib/blob/dev/isbnlib/_goob.py
+
+.. _search: https://pypi.python.org/pypi?%3Aaction=search&term=isbnlib&submit=search
 
 .. _OCLC: http://classify.oclc.org/classify2/
