@@ -15,11 +15,11 @@
     :target: https://github.com/xlcnd/isbnlib/actions
     :alt: Built Status
 
-.. image:: https://img.shields.io/travis/xlcnd/isbnlib/v3.10.4?label=travis&svg=true&style=flat
+.. image:: https://img.shields.io/travis/xlcnd/isbnlib/v3.10.5?label=travis&svg=true&style=flat
     :target: https://travis-ci.org/xlcnd/isbnlib
     :alt: Built Status
 
-.. image:: https://ci.appveyor.com/api/projects/status/github/xlcnd/isbnlib?branch=v3.10.4&svg=true
+.. image:: https://ci.appveyor.com/api/projects/status/github/xlcnd/isbnlib?branch=v3.10.5&svg=true
     :target: https://ci.appveyor.com/project/xlcnd/isbnlib
     :alt: Windows Built Status
 
