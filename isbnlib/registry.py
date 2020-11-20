@@ -52,6 +52,7 @@ bibformatters = {
     'labels': lambda x: _fmtbib('labels', x),
     'bibtex': lambda x: _fmtbib('bibtex', x),
     'csl': lambda x: _fmtbib('csl', x),
+    'csv': lambda x: _fmtbib('csv', x),
     'json': lambda x: _fmtbib('json', x),
     'opf': lambda x: _fmtbib('opf', x),
     'endnote': lambda x: _fmtbib('endnote', x),
