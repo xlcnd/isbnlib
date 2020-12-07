@@ -50,7 +50,7 @@ get metadata for ISBN strings. Its origin was as the core of isbntools_.
 This short version, is suitable to be include as a dependency in other projects.
 Has a straightforward setup and a very easy programmatic api.
 
-Runs on py27, py35, py36, py37 and py38.
+Runs on py36+.
 
 Typical usage (as library):
 
@@ -301,7 +301,7 @@ After install, your plugin will blend transparently in ``isbnlib`` (you will hav
 If you want to develop a plugin, start with this template_ and follow the instructions there. For inspiration take a look at goob_.
 
 
-Remember that plugins **must** support python 2.7 and python 3.5+ (see python-future.org_).
+Remember that plugins **must** support python 3.6+.
 
 
 
