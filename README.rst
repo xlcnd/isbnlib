@@ -422,7 +422,7 @@ Read ``isbnlib`` code in a very sctructured way at sourcegraph_ or 'the docs' at
 ----------------------------------------------------------------------------------------------
 
 
-.. _github: https://github.com/xlcnd/isbnlib/issues
+.. _github: https://github.com/xlcnd/isbnlib/discussions
 
 .. _range: https://www.isbn-international.org/range_file_generation
 
