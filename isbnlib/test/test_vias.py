@@ -6,6 +6,7 @@ nose tests
 """
 
 import os
+import platform
 
 from nose.tools import assert_equals
 
@@ -47,7 +48,11 @@ def test_vias_multi():
         return True
     if os.getenv('GITHUB_OS', '') == 'windows':
         return True
-    if 'macOS' in os.getenv('GITHUB_OS', ''):
+    if os.getenv('GITHUB_OS', '') == 'macOS':
+        return True
+    if platform.system() == 'Windows':
+        return True
+    if platform.system() == 'Darwin':
         return True
     named_tasks = (('task1', task1), ('task2', task2))
     results = vias.multi(named_tasks, 5)
