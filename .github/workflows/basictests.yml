@@ -6,21 +6,18 @@ on:
   schedule:
   - cron: '15 5 * * *'
 
-
 jobs:
-
   basic-tests-linux:
-
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: [3.6, 3.8]
+        python-version: [3.6, 3.9]
     env:
       GITHUB_OS: linux
     steps:
     - uses: actions/checkout@v2
     - name: Set up Python ${{ matrix.python-version }}
-      uses: actions/setup-python@v1
+      uses: actions/setup-python@v2
       with:
         python-version: ${{ matrix.python-version }}
     - name: Install dependencies
@@ -39,19 +36,17 @@ jobs:
         pip install nose coverage
         nosetests -v --with-coverage --cover-package=isbnlib --cover-min-percentage=90
 
-
   basic-tests-macos:
-
     runs-on: macos-latest
     strategy:
       matrix:
-        python-version: [3.7]
+        python-version: [3.8]
     env:
       GITHUB_OS: macos
     steps:
     - uses: actions/checkout@v2
     - name: Set up Python ${{ matrix.python-version }}
-      uses: actions/setup-python@v1
+      uses: actions/setup-python@v2
       with:
         python-version: ${{ matrix.python-version }}
     - name: Install dependencies
@@ -63,19 +58,17 @@ jobs:
         pip install nose coverage
         nosetests -v --with-coverage --cover-package=isbnlib --cover-min-percentage=90
 
-
   basic-tests-windows:
-
     runs-on: windows-latest
     strategy:
       matrix:
-        python-version: [3.7]
+        python-version: [3.8]
     env:
       GITHUB_OS: windows
     steps:
     - uses: actions/checkout@v2
     - name: Set up Python ${{ matrix.python-version }}
-      uses: actions/setup-python@v1
+      uses: actions/setup-python@v2
       with:
         python-version: ${{ matrix.python-version }}
     - name: Install dependencies
