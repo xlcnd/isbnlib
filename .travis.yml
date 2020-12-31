@@ -2,7 +2,7 @@ sudo: false
 language: python
 branches:
   only:
-    - v3.10.5
+    - v3.10.6
     - master
     - dev
 
