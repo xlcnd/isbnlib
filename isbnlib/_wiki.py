@@ -27,7 +27,7 @@ def _mapper(isbn, records):
         # try to handle the inconsistent use of fields by Wikipedia (issue #65)!
         try:
             authors = [
-                author for sublist in records.get('author', [])
+                author for sublist in records.get('author', [u('')])
                 for author in sublist if author
             ]
             canonical['Authors'] = [
@@ -38,7 +38,7 @@ def _mapper(isbn, records):
         except IndexError:
             try:
                 authors = [
-                    author for sublist in records.get('contributor', [])
+                    author for sublist in records.get('contributor', [u('')])
                     for author in sublist if author
                 ]
                 canonical['Authors'] = [
