@@ -46,8 +46,8 @@ def _mapper(isbn, records):
                 ]
             except IndexError:
                 pass
-        canonical['Publisher'] = records.get('publisher', u('')) or ' '.join(
-            [pub for pub in records.get('contributor', [u('')])[0] if pub])
+        canonical['Publisher'] = records.get('publisher', u('')) or u(' '.join(
+            [pub for pub in records.get('contributor', [u('')])[0] if pub]))
         canonical['Year'] = u('')
         strdate = records.get('date', u(''))
         if strdate:  # pragma: no cover
