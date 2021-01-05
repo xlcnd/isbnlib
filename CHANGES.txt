@@ -57,4 +57,4 @@ v3.10.2, 2020-05-26 -- Fix 'goob' and 'wiki' quirks (issue #64 and #65).
 v3.10.3, 2020-05-27 -- Delete a (quick debug) print statement.
 v3.10.4, 2020-11-17 -- Add 'Isbn' and fix #67.
 v3.10.5, 2020-12-31 -- Fix 'csv' and updated data.
-v3.10.6, 2020-12-31 -- TENTATIVE
+v3.10.6, 2020-12-31 -- TENTATIVE (close #75).
