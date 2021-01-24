@@ -108,4 +108,4 @@ __all__ = (
 )
 
 __version__ = '3.10.6'
-__support__ = 'py27, py35, py36, py37, py38, pypy, pypy3'
+__support__ = 'py27, py35, py36, py37, py38, py39, pypy, pypy3'
