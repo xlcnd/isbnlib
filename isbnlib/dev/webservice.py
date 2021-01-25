@@ -3,7 +3,7 @@
 
 import gzip
 import logging
-from socket import timeout
+from socket import timeout as sockettimeout
 
 from ._bouth23 import bstream, s
 from ._exceptions import ISBNLibHTTPError, ISBNLibURLError, ServiceIsDownError
@@ -32,6 +32,9 @@ class WEBService(object):
     def __init__(self, url, user_agent=UA, values=None, appheaders=None):
         """Initialize main properties."""
         # TODO(use urllib.quote to the non-ascii part?)
+        if not url.lower().startswith('http'):
+            LOGGER.critical('Url (%s) not allowed!', url)
+            raise ISBNLibURLError('Url (%s) not allowed!' % url)
         self._url = url
         # headers to accept gzipped content
         headers = {'Accept-Encoding': 'gzip', 'User-Agent': user_agent}
@@ -66,7 +69,7 @@ class WEBService(object):
             LOGGER.critical('ISBNLibURLError for %s with reason %s', self._url,
                             e.reason)
             raise ISBNLibURLError(e.reason)
-        except timeout:  # pragma: no cover
+        except sockettimeout:  # pragma: no cover
             LOGGER.critical('ServiceIsDownError for %s with reason %s',
                             self._url, 'timeout')
             raise ServiceIsDownError('service timeout')
