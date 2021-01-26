@@ -20,13 +20,13 @@ matrix:
       env: TOXENV=py37
     - python: "3.6"
       env: TOXENV=py36
-    - python: "3.5"
-      env: TOXENV=py35
+    - python: "3.9"
+      env: TOXENV=py39
     - python: "nightly"
       env: TOXENV=nightly
     - python: "3.6"
       env: TOXENV=checkers
-    - python: "3.6"
+    - python: "3.7"
       env: DOC=sphinx
 
   allow_failures:
@@ -47,7 +47,7 @@ script:
   - if [[ $DOC == 'sphinx' ]]; then cd docs; sphinx-build -n -b html -d _build/.doctrees . _build/html; fi
 
 after_success:
-  - if [[ $TOXENV == 'py35' ]] && [[ $TRAVIS_OS_NAME == 'linux' ]]; then pip install coveralls && coveralls; fi
+  - if [[ $TOXENV == 'py37' ]] && [[ $TRAVIS_OS_NAME == 'linux' ]]; then pip install coveralls && coveralls; fi
 
 notifications:
   email:
