@@ -36,8 +36,7 @@
 Warning
 =======
 
-   The releases 3.10.* will be the last to support python 2.7.
-   After December 31, 2020, **all support for python 2 will be dropped**!
+   If you still use python 2.7, please install `isbnlib-3.10.6`!
 
 
 Info
