@@ -36,7 +36,7 @@
 Warning
 =======
 
-   If you still use python 2.7, please install ``isbnlib-3.10.7``!
+   If you still use python 2.7, please install ``isbnlib-3.10.6``!
 
 
 Info
