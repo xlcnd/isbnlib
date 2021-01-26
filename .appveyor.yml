@@ -1,7 +1,7 @@
-version: '3.10.6.{build}'
+version: '3.10.7.{build}'
 branches:
   only:
-    - /v3.10.6/
+    - /v3.10.7/
     - dev
 cache:
   - '%LOCALAPPDATA%\pip\Cache'
