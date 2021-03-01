@@ -44,20 +44,7 @@ Info
 
 ``isbnlib`` is a (pure) python library that provides several
 useful methods and functions to validate, clean, transform, hyphenate and
-get metadata for ISBN strings. Its origin was as the core of isbntools_.
-
-This short version, is suitable to be include as a dependency in other projects.
-Has a straightforward setup and a very easy programmatic api.
-
-Runs on py36+.
-
-Typical usage (as library):
-
-.. code-block:: python
-
-    import isbnlib
-    ...
-
+get metadata for ISBN strings.
 
 
 ISBN
@@ -298,9 +285,6 @@ For available plugins check_ here.
 After install, your plugin will blend transparently in ``isbnlib`` (you will have more options in ``meta`` and ``bibformatters``).
 
 If you want to develop a plugin, start with this template_ and follow the instructions there. For inspiration take a look at goob_.
-
-
-Remember that plugins **must** support python 3.6+.
 
 
 
