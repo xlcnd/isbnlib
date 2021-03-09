@@ -13,4 +13,4 @@ from .. import _goom as goom
 def test_goom():
     """Test the Google's Multiple Books service."""
     assert_equals(len(repr(goom.query('the old man and the sea'))) > 500, True)
-    assert_equals(len(repr(goom.query('emergências obstréticas'))) > 500, True)
+    assert_equals(len(repr(goom.query('lusíadas'))) > 500, True)
