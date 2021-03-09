@@ -166,7 +166,7 @@ See files test_core_ and test_ext_ for **a lot of examples**.
 Install
 =======
 
-<script>if(location.hostname==="www.libraries.io"){alert("This package is bogus!");}</script>
+
 From the command line, enter (in some cases you have to preced the
 command with ``sudo``):
 
