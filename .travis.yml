@@ -39,6 +39,8 @@ install:
   - if [[ $TRAVIS_OS_NAME == 'osx' ]]; then python3 --version; fi
   - if [[ $TRAVIS_OS_NAME == 'osx' ]]; then pip3 install tox; fi
   - if [[ $TRAVIS_OS_NAME == 'linux' ]]; then pip install tox; fi
+  - if [[ $TOXENV == 'checkers' ]]; then pip install flake8; fi
+  - if [[ $TOXENV == 'checkers' ]]; then pip install pep8-naming; fi
   - if [[ $DOC == 'sphinx' ]]; then pip install sphinx; fi
 
 script:
