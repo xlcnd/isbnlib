@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 # flake8:noqa
-# pylint: skip-file
+# pylint:skip-file
+# isort:skip_file
+# fmt:off
 # id:01.20140505
 # original at https://gist.github.com/798546
 unicode_to_tex = {
