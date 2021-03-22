@@ -1,6 +1,0 @@
-# Auto detect text files and perform LF normalization
-# set the default behavior, in case people don't have core.autocrlf set.
-* text=auto
-
-# Python
-*.py  text eol=lf diff=python
