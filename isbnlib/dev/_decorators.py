@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+# isort:skip_file
 """Decorator for isbnlib."""
 from functools import wraps
 

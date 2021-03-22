@@ -3,9 +3,9 @@
 
 import logging as _logging
 
-from ._core import canonical, to_isbn10, EAN13
+from ._core import EAN13, canonical, to_isbn10
 from ._exceptions import NotValidISBNError
-from ._ext import mask, info, doi
+from ._ext import doi, info, mask
 
 LOGGER = _logging.getLogger(__name__)
 
@@ -16,7 +16,6 @@ LOGGER = _logging.getLogger(__name__)
 # pylint: disable=broad-except
 class Isbn(object):
     """Class for ISBN objects."""
-
     def __init__(self, isbnlike):
         try:
             self.ean13 = EAN13(isbnlike)

@@ -5,7 +5,6 @@
 from nose.tools import assert_equals
 
 from .._core import (
-    ean13,
     EAN13,
     _check_structure10,
     _check_structure13,
@@ -13,6 +12,7 @@ from .._core import (
     check_digit10,
     check_digit13,
     clean,
+    ean13,
     get_canonical_isbn,
     get_isbnlike,
     is_isbn10,

@@ -12,8 +12,8 @@ from ._helpers import (
     last_first,
     normalize_space,
     parse_placeholders,
-    unicode_to_utf8tex as to_utf8tex,
 )
+from ._helpers import unicode_to_utf8tex as to_utf8tex
 
 # alias (to keep backwards compatibility)
 fmtbib = _fmtbib

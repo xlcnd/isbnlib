@@ -8,7 +8,6 @@
 import locale
 import os
 
-
 from ..dev._files import File, cwdfiles
 
 WINDOWS = os.name == 'nt'

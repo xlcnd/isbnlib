@@ -5,11 +5,10 @@ import logging
 
 from pkg_resources import iter_entry_points
 
+from . import NotValidDefaultFormatterError, NotValidDefaultServiceError
 from . import _goob as goob
 from . import _openl as openl
 from . import _wiki as wiki
-from . import NotValidDefaultServiceError
-from . import NotValidDefaultFormatterError
 from ._imcache import IMCache
 from .config import options
 from .dev._fmt import _fmtbib

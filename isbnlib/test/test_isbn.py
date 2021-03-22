@@ -7,7 +7,6 @@ from nose.tools import assert_equals, assert_raises
 
 from .._isbn import Isbn
 
-
 isbn=Isbn('9781250158062')
 
 

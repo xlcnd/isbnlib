@@ -19,7 +19,6 @@ MODE666 = S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH | S_IWOTH
 # pylint: disable=useless-object-inheritance
 class File(object):
     """Easy manipulation of files in the SAME directory."""
-
     def __init__(self, fp):
         """Set and validate the basic properties."""
         if not self.isfile(fp):

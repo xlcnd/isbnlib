@@ -5,20 +5,21 @@ import gzip
 import logging
 from socket import timeout as sockettimeout
 
+from ..config import options
 from ._bouth23 import bstream, s
 from ._exceptions import ISBNLibHTTPError, ISBNLibURLError, ServiceIsDownError
-from ..config import options
 
 # pylint: disable=import-error
 # pylint: disable=wrong-import-order
 # pylint: disable=no-name-in-module
 try:  # pragma: no cover
+    from urllib.error import HTTPError, URLError
     from urllib.parse import urlencode
     from urllib.request import Request, urlopen
-    from urllib.error import HTTPError, URLError
 except ImportError:  # pragma: no cover
     from urllib import urlencode
-    from urllib2 import Request, urlopen, HTTPError, URLError
+
+    from urllib2 import HTTPError, Request, URLError, urlopen
 
 UA = 'isbnlib (gzip)'
 LOGGER = logging.getLogger(__name__)
@@ -28,7 +29,6 @@ LOGGER = logging.getLogger(__name__)
 # pylint: disable=useless-object-inheritance
 class WEBService(object):
     """Class to query web services."""
-
     def __init__(self, url, user_agent=UA, values=None, appheaders=None):
         """Initialize main properties."""
         # TODO(use urllib.quote to the non-ascii part?)

@@ -4,8 +4,8 @@
 """nose tests for classifiers."""
 
 from nose.tools import assert_equals
-from .._oclc import query_classify as query
 
+from .._oclc import query_classify as query
 
 # this is a slow service
 

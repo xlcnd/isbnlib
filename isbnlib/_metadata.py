@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+# isort:skip_file
 """Query providers for metadata."""
 
 import logging

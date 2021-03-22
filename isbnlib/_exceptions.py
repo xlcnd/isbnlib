@@ -21,7 +21,6 @@ class ISBNLibException(Exception):
     This exception should not be raised directly,
     only subclasses of this exception should be used!
     """
-
     def __str__(self):
         """Print message."""
         return getattr(self, 'message', '')  # pragma: no cover
@@ -30,7 +29,6 @@ class ISBNLibException(Exception):
 # pylint: disable=super-init-not-called
 class NotRecognizedServiceError(ISBNLibException):
     """Exception raised when the service is not in config.py."""
-
     def __init__(self, service):
         """Define message."""
         self.message = '(%s) is not a recognized service' % service
@@ -39,7 +37,6 @@ class NotRecognizedServiceError(ISBNLibException):
 # pylint: disable=super-init-not-called
 class NotValidDefaultServiceError(ISBNLibException):
     """Exception raised when the service is not valid for default."""
-
     def __init__(self, service):
         """Define message."""
         self.message = '(%s) is not a valid default service' % service
@@ -48,7 +45,6 @@ class NotValidDefaultServiceError(ISBNLibException):
 # pylint: disable=super-init-not-called
 class NotValidDefaultFormatterError(ISBNLibException):
     """Exception raised when the formatter is not valid for default."""
-
     def __init__(self, formatter):
         """Define message."""
         self.message = '(%s) is not a valid default formatter' % formatter
@@ -57,7 +53,6 @@ class NotValidDefaultFormatterError(ISBNLibException):
 # pylint: disable=super-init-not-called
 class NotValidISBNError(ISBNLibException):
     """Exception raised when the ISBN is not valid."""
-
     def __init__(self, isbnlike):
         """Define message."""
         self.message = '(%s) is not a valid ISBN' % isbnlike
@@ -69,7 +64,6 @@ class PluginNotLoadedError(ISBNLibException):  # pragma: no cover
 
     TODO: Delete this in version 4?
     """
-
     def __init__(self, path):
         """Define message."""
         self.message = "plugin (%s) wasn't loaded" % path

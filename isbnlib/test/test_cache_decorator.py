@@ -6,6 +6,7 @@
 # TODO add more tests for other operations
 
 from nose.tools import assert_equals
+
 from .. import classify, meta, registry
 
 cache = registry.metadata_cache
