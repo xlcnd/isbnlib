@@ -102,7 +102,7 @@ In the namespace ``isbnlib`` you have access to the core methods:
   Returns a DOI's ISBN-A from a ISBN-13.
 
 ``doi2tex(DOI)``
-  Returns metadata formated as BibTeX for a given DOI.
+  Returns metadata formatted as BibTeX for a given DOI.
 
 ``ren(filename)``
   Renames a file using metadata from an ISBN in his filename.
@@ -117,7 +117,7 @@ In the namespace ``isbnlib`` you have access to the core methods:
 
 See files test_core_ and test_ext_ for **a lot of examples**.
 
-The exceptions raised by these methods can all be catched using ``ISBNLibException``.
+The exceptions raised by these methods can all be caught using ``ISBNLibException``.
 
 You can extend the lib by using the classes and functions exposed in
 namespace ``isbnlib.dev``, namely:
@@ -148,8 +148,8 @@ namespace ``isbnlib.dev``, namely:
   you can change that in the conf file.
 
 
-The exceptions raised by these methods can all be catched using ``ISBNLibDevException``.
-You **should't raise** this exception in your code, only raise the specific exceptions
+The exceptions raised by these methods can all be caught using ``ISBNLibDevException``.
+You **shouldn't raise** this exception in your code, only raise the specific exceptions
 exposed in ``isbnlib.dev`` whose name end in Error.
 
 
@@ -166,14 +166,14 @@ Finally, from ``isbnlib.registry`` you can change the metadata service to be use
 (``setdefaultservice``),
 add a new service (``add_service``), access bibliographic formatters for metadata (``bibformatters``),
 set the default formatter (``setdefaultbibformatter``), add new formatters (``add_bibformatter``) and
-set a new cache (``set_cache``) (e.g. to switch off the chache ``set_cache(None)``).
+set a new cache (``set_cache``) (e.g. to switch off the cache ``set_cache(None)``).
 The cache only works for calls through metadata functions. These changes only work for the 'current session',
 so should be done always before calling other methods.
 
 
 Let us concretize these points with a small example.
 
-Suppose you want a small script to get metadata using ``Open Library`` formated in BibTeX.
+Suppose you want a small script to get metadata using ``Open Library`` formatted in BibTeX.
 
 A minimal script would be:
 
@@ -224,7 +224,7 @@ To get extra functionality, search_ pypi for packages starting with ``isbnlib``
     $ pip search isbnlib
 
 
-for a nice formated report!
+for a nice formatted report!
 
 
 
@@ -249,7 +249,7 @@ A full featured app!
 --------------------
 
 If you want a full featured app, that uses ``isbnlib``, with end user apps, configuration files and a
-framework to further developement, take a look at isbntools_.
+framework to further development, take a look at isbntools_.
 
 ---------------------------------------------------------------------------------
 

@@ -47,7 +47,7 @@ def _mapper(isbn, records):
     except Exception:  # pragma: no cover
         LOGGER.debug('RecordMappingError for %s with data %s', isbn, records)
         raise RecordMappingError(isbn)
-    # call stdmeta for extra cleanning and validation
+    # call stdmeta for extra cleaning and validation
     return stdmeta(canonical)
 
 

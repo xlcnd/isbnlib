@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 # flake8:noqa
 # pylint: skip-file
-"""Expose usefull features."""
+"""Expose useful features."""
 
 from .._imcache import IMCache
 from ._files import File, cwdfiles

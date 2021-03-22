@@ -3,7 +3,7 @@
 Install
 =======
 
-From the command line enter (in some cases you have to preced the
+From the command line enter (in some cases you have to precede the
 command with ``sudo``):
 
 

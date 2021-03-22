@@ -56,7 +56,7 @@ def last_first(author):
 
 
 def unicode_to_utf8tex(utex, filtre=()):
-    """Replace unicode entities with tex entitites and returns utf8 bytes."""
+    """Replace unicode entities with tex entities and returns utf8 bytes."""
     from .._data.data4tex import unicode_to_tex
 
     btex = utex.encode('utf-8')

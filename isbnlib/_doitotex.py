@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""Return metadata, of a given DOI, formated as BibTeX."""
+"""Return metadata, of a given DOI, formatted as BibTeX."""
 
 import logging
 

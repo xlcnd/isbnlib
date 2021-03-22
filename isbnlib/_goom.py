@@ -48,7 +48,7 @@ def _mapper(record):
         canonical['Language'] = record.get('language', u(''))
     except Exception:  # pragma: no cover
         raise RecordMappingError(isbn)
-    # call stdmeta for extra cleanning and validation
+    # call stdmeta for extra cleaning and validation
     return stdmeta(canonical)
 
 

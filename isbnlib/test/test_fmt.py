@@ -21,7 +21,7 @@ canonical = {
 
 
 def test_fmtbib():
-    """Test the formating into several bibliographic formats."""
+    """Test the formatting into several bibliographic formats."""
     assert_equals(len(_fmtbib('bibtex', canonical)), 182)
     assert_equals(len(_fmtbib('labels', canonical)), 158)
     assert_equals(len(_fmtbib('endnote', canonical)), 103)

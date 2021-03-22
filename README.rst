@@ -146,7 +146,7 @@ Main Functions
     Returns a DOI's ISBN-A from a ISBN-13.
 
 ``doi2tex(DOI)``
-    Returns metadata formated as BibTeX for a given DOI.
+    Returns metadata formatted as BibTeX for a given DOI.
 
 ``ren(filename)``
     Renames a file using metadata from an ISBN in his filename.
@@ -167,7 +167,7 @@ Install
 =======
 
 
-From the command line, enter (in some cases you have to preced the
+From the command line, enter (in some cases you have to precede the
 command with ``sudo``):
 
 
@@ -198,7 +198,7 @@ In addition, you have access to **metadata functions**, namely:
 ``meta``, ``editions``, ``ren``, ``desc``, ``cover``,
 ``goom``, ``classify``, ``doi2tex`` and ``isbn_from_words``.
 
-The exceptions raised by these methods can all be catched using ``ISBNLibException``.
+The exceptions raised by these methods can all be caught using ``ISBNLibException``.
 
 
 You can extend the lib by using the classes and functions exposed in
@@ -228,8 +228,8 @@ namespace ``isbnlib.dev``, namely:
   You can use ``vias.serial`` to make serial calls and
   ``vias.multi`` to use several cores. The default is ``vias.serial``.
 
-The exceptions raised by these methods can all be catched using ``ISBNLibDevException``.
-You **should't raise** this exception in your code, only raise the specific exceptions
+The exceptions raised by these methods can all be caught using ``ISBNLibDevException``.
+You **shouldn't raise** this exception in your code, only raise the specific exceptions
 exposed in ``isbnlib.dev`` whose name ends in Error.
 
 
@@ -247,14 +247,14 @@ Finally, from ``isbnlib.registry`` you can change the metadata service to be use
 (``setdefaultservice``),
 add a new service (``add_service``), access bibliographic formatters for metadata (``bibformatters``),
 set the default formatter (``setdefaultbibformatter``), add new formatters (``add_bibformatter``) and
-set a new cache (``set_cache``) (e.g. to switch off the chache ``set_cache(None)``).
+set a new cache (``set_cache``) (e.g. to switch off the cache ``set_cache(None)``).
 The cache only works for calls through metadata functions. These changes only work for the 'current session',
 so should be done always before calling other methods.
 
 
 Let us concretize these points with a small example.
 
-Suppose you want a small script to get metadata using ``Open Library`` formated in BibTeX.
+Suppose you want a small script to get metadata using ``Open Library`` formatted in BibTeX.
 
 A minimal script would be:
 

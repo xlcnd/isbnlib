@@ -11,7 +11,7 @@ from stat import S_IRGRP, S_IROTH, S_IRUSR, S_IWGRP, S_IWOTH, S_IWUSR
 from ._exceptions import FileNotFoundError
 
 MAXLEN = 120
-ILEGAL = r'<>:"/\|?*'
+ILLEGAL = r'<>:"/\|?*'
 LOGGER = logging.getLogger(__name__)
 MODE666 = S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH | S_IWOTH
 
@@ -46,9 +46,9 @@ class File(object):
     @staticmethod
     def mkwinsafe(name, space=' '):
         """Delete most common characters not allowed in Windows filenames."""
-        space = space if space not in ILEGAL else ' '
+        space = space if space not in ILLEGAL else ' '
         name = ''.join(c for c in name
-                       if c not in ILEGAL).replace(' ', space).strip()
+                       if c not in ILLEGAL).replace(' ', space).strip()
         name = re.sub(r'\s\s+', ' ', name) if space == ' ' else name
         return name[:MAXLEN]
 
@@ -60,10 +60,10 @@ class File(object):
             return False
         name, ext = os.path.splitext(basename)
         if not name:
-            LOGGER.critical('Not a valid name (lenght 0)!')
+            LOGGER.critical('Not a valid name (length 0)!')
             return False
         if not ext:
-            LOGGER.critical('Not a valid extension (lenght 0)!')
+            LOGGER.critical('Not a valid extension (length 0)!')
             return False
         return True
 

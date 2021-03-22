@@ -34,7 +34,7 @@ templates_path = ['_templates']
 # The suffix of source filenames.
 
 #   For MARKDOWN see 'https://markdown-publishing-guide.readthedocs.io':
-#   1. Uncomment the following snipet.
+#   1. Uncomment the following snippet.
 #   2. Keep conf.py and index.rst, but all other .rst files can
 #      be written in markdown and the extension renamed to .md
 

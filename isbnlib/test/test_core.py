@@ -99,7 +99,7 @@ def test_to_isbn13():
 
 
 def test_clean():
-    """Test the cleanning of ISBN-like strings."""
+    """Test the cleaning of ISBN-like strings."""
     assert_equals(clean(' 978.0826.497529'), '9780826497529')
     assert_equals(clean('ISBN: 9791090636071'), 'ISBN 9791090636071')
     assert_equals(clean('978,0826497520'), '9780826497520')

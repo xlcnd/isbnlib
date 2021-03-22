@@ -96,7 +96,7 @@ see them as a learning opportunity. Thanks!
 |                 fork a repo | https://help.github.com/articles/fork-a-repo                            |
 |                pull request | https://help.github.com/articles/using-pull-requests/                   |
 |                     git log | https://www.youtube.com/watch?v=U8GBXvdmHT4                             |
-|       local feature branchs | https://www.youtube.com/watch?v=ImhZj6tpXLE                             |
+|      local feature branches | https://www.youtube.com/watch?v=ImhZj6tpXLE                             |
 |           git & GitHub tips | https://github.com/tiimgreen/github-cheat-sheet                         |
 |                             | http://cbx33.github.io/gitt/intro.html                                  |
 |                             | http://git-scm.com/documentation                                        |
