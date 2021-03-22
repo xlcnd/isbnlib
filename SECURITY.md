@@ -3,7 +3,7 @@
 ## Supported Versions
 
 If a vulnerability is found a new maintenance version will be release
-as soon as possibe. All the previous versions should be considered unsafe.
+as soon as possible. All the previous versions should be considered unsafe.
 
 
 ## Reporting a Vulnerability
