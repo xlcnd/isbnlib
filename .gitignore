@@ -45,6 +45,7 @@ pre-commit-*
 tasks.py
 .requirements-local
 .gitignore
+.gitattributes
 .bandit
 .checkignore
 .codespellrc
