@@ -46,6 +46,7 @@ tasks.py
 .bandit
 .requirements-local
 .pre-commit-config.yaml
+.codespellrc
 .change*
 requirements.in
 requirements-dev.in
