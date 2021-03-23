@@ -1,12 +1,33 @@
 # -*- coding: utf-8 -*-
 # flake8: noqa
-# isort:skip_file
 """Library to validate, clean, transform and get metadata of ISBN strings (for devs)."""
 
 # Define isbnlib API and set lib environment
 
 import logging as _logging
 
+from ._core import (
+    EAN13,
+    GTIN13,
+    RE_ISBN10,
+    RE_ISBN13,
+    RE_LOOSE,
+    RE_NORMAL,
+    RE_STRICT,
+    canonical,
+    check_digit10,
+    check_digit13,
+    clean,
+    get_canonical_isbn,
+    get_isbnlike,
+    is_isbn10,
+    is_isbn13,
+    notisbn,
+    to_isbn10,
+    to_isbn13,
+)
+from ._data.data4info import RDDATE
+from ._doitotex import doi2tex
 from ._exceptions import (
     ISBNLibException,
     NotRecognizedServiceError,
@@ -16,46 +37,10 @@ from ._exceptions import (
     PluginNotLoadedError,
     quiet_errors,
 )
-
-# main modules
-from ._core import (
-    canonical,
-    check_digit10,
-    check_digit13,
-    clean,
-    EAN13,
-    get_canonical_isbn,
-    get_isbnlike,
-    GTIN13,
-    is_isbn10,
-    is_isbn13,
-    notisbn,
-    RE_ISBN10,
-    RE_ISBN13,
-    RE_LOOSE,
-    RE_NORMAL,
-    RE_STRICT,
-    to_isbn10,
-    to_isbn13,
-)
-from ._doitotex import doi2tex
-from ._ext import (
-    cover,
-    desc,
-    doi,
-    editions,
-    info,
-    isbn_from_words,
-    mask,
-    meta,
-    ren,
-)
+from ._ext import cover, desc, doi, editions, info, isbn_from_words, mask, meta, ren
 from ._goom import query as goom
 from ._isbn import Isbn
 from ._oclc import query_classify as classify
-
-# Ranges Database date
-from ._data.data4info import RDDATE
 
 # config _logging for lib
 _nh = _logging.NullHandler()
@@ -106,6 +91,5 @@ __all__ = (
     '__support__',
     '__version__',
 )
-
 __version__ = '3.10.7'
 __support__ = 'py27, py35, py36, py37, py38, py39, pypy, pypy3'
