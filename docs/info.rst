@@ -21,6 +21,7 @@ Typical usage (as library):
 .. code-block:: python
 
     import isbnlib
+
     ...
 
 
@@ -34,7 +35,7 @@ and save it as ``isbn_tmsa_book.py``.
     import sys
     from isbnlib import *
 
-    query = sys.argv[1].replace(' ', '+')
+    query = sys.argv[1].replace(" ", "+")
     isbn = isbn_from_words(query)
 
     print("The ISBN of the most `spoken-about` book with this title is %s" % isbn)

@@ -264,11 +264,11 @@ A minimal script would be:
     from isbnlib import meta
     from isbnlib.registry import bibformatters
 
-    SERVICE = 'openl'
+    SERVICE = "openl"
 
     # now you can use the service
-    isbn = '9780446310789'
-    bibtex = bibformatters['bibtex']
+    isbn = "9780446310789"
+    bibtex = bibformatters["bibtex"]
     print(bibtex(meta(isbn, SERVICE)))
 
 
@@ -335,7 +335,7 @@ C. You need also **metadata functions**, with **special config**:
     from isbnlib import canonical, config, meta, registry
 
     # you should use 'config' first
-    config.add_apikey('isbndb', 'kjshdfkjahsdflkjh')
+    config.add_apikey("isbndb", "kjshdfkjahsdflkjh")
 
     # then 'registry'
     registry.set_cache(MyCache())
