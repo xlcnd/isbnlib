@@ -138,7 +138,7 @@ def test_get_canonical_isbn():
     assert_equals(get_canonical_isbn('0826497527', output='isbn10'), '0826497527')
     assert_equals(get_canonical_isbn('0826497527', output='isbn13'), '9780826497529')
     assert_equals(
-        get_canonical_isbn('ISBN 0826497527', output='isbn13'), '9780826497529'
+        get_canonical_isbn('ISBN 0826497527', output='isbn13'), '9780826497529',
     )
     assert_equals(get_canonical_isbn('ISBN 0826497527', output='NOOPTION'), '')
     assert_equals(get_canonical_isbn('0826497520'), '')

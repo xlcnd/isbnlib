@@ -146,5 +146,8 @@ def _spec_proc(name, fmtrec, authors):
 
 def _fmtbib(fmtname, canonical):
     """Return a canonical record in the selected format."""
-    return _spec_proc(fmtname, _gen_proc(fmtname, canonical),
-                      canonical.get('Authors'))
+    return _spec_proc(
+        fmtname,
+        _gen_proc(fmtname, canonical),
+        canonical.get('Authors'),
+    )

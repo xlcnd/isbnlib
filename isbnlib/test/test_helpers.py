@@ -13,10 +13,10 @@ from ..dev._helpers import cutoff_tokens, fake_isbn, last_first, parse_placehold
 def test_last_first():
     """Test the parsing of author's name into (Surname, First Name)."""
     assert_equals(
-        last_first('Surname, First Name'), {'last': 'Surname', 'first': 'First Name'}
+        last_first('Surname, First Name'), {'last': 'Surname', 'first': 'First Name'},
     )
     assert_equals(
-        last_first('First Name Surname'), {'last': 'Surname', 'first': 'First Name'}
+        last_first('First Name Surname'), {'last': 'Surname', 'first': 'First Name'},
     )
     assert_equals(
         last_first('Surname1, First1 and Sur2, First2'),
@@ -38,10 +38,10 @@ def test_fake_isbn():
     """Test the 'fake_isbn' function."""
     assert_equals(fake_isbn(' Hello?? Wer,  ! ksDf:  asdf. ; '), '1111006407537')
     assert_equals(
-        fake_isbn(' Hello?? Wer,  ! ksDf:  asdf. ; ', author=''), '1108449680873'
+        fake_isbn(' Hello?? Wer,  ! ksDf:  asdf. ; ', author=''), '1108449680873',
     )
     assert_equals(
-        fake_isbn(' Hello?? Wer,  ! ksDf:  asdf. ; ', author=' '), '1108449680873'
+        fake_isbn(' Hello?? Wer,  ! ksDf:  asdf. ; ', author=' '), '1108449680873',
     )
     assert_equals(
         fake_isbn(' Hello?? Wer,  ! ksDf:  asdf. ; ', author='', publisher=''),

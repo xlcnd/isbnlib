@@ -24,8 +24,11 @@ def _fake_provider_any(isbn):
             if len(data) > 1:
                 return list(data)
         except Exception:  # pragma: no cover
-            LOGGER.error("Some error on editions 'any' service for %s (%s)!",
-                         isbn, provider)
+            LOGGER.error(
+                "Some error on editions 'any' service for %s (%s)!",
+                isbn,
+                provider,
+            )
         continue  # pragma: no cover
     return [isbn]  # pragma: no cover
 

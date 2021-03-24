@@ -18,8 +18,10 @@ ISBNS = '{code}&isbn_13=&isbn_10='  # FIXME(delete '&isbn_10=')
 def query(isbn):
     """Query the Open Library for related ISBNs."""
     try:
-        data = wquery(SERVICE_URL.format(selectors=CODES.format(isbn=isbn)),
-                      user_agent=UA)
+        data = wquery(
+            SERVICE_URL.format(selectors=CODES.format(isbn=isbn)),
+            user_agent=UA,
+        )
         codes = {rec['key'] for rec in data}
         isbnlikes = [isbn]
         for code in codes:
@@ -31,7 +33,10 @@ def query(isbn):
             isbnlikes.extend(get_isbnlike(txt))
         isbns = {u(get_canonical_isbn(isbnlike)) for isbnlike in isbnlikes}
     except Exception as ex:  # pragma: no cover
-        LOGGER.debug('No data from Open Library for isbn %s -- %s', isbn,
-                     str(ex))
+        LOGGER.debug(
+            'No data from Open Library for isbn %s -- %s',
+            isbn,
+            str(ex),
+        )
         return {get_canonical_isbn(isbn)}
     return isbns

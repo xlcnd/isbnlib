@@ -85,8 +85,10 @@ class File(object):
             self.name = name
             self.ext = ext
         else:
-            LOGGER.info('The file (%s) already exist in the directory!',
-                        new_basename)
+            LOGGER.info(
+                'The file (%s) already exist in the directory!',
+                new_basename,
+            )
         return True
 
     @staticmethod

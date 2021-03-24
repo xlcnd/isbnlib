@@ -29,15 +29,21 @@ def _mapper(isbn, records):
         title = title + ' - ' + subtitle if subtitle else title
         canonical['Title'] = title
         canonical['Authors'] = [
-            a['name'] for a in records.get('authors', ({
-                'name': u(''),
-            }, ))
+            a['name'] for a in records.get(
+                'authors',
+                ({
+                    'name': u(''),
+                }, ),
+            )
         ]
-        canonical['Publisher'] = records.get('publishers', [
-            {
-                'name': u(''),
-            },
-        ])[0]['name']
+        canonical['Publisher'] = records.get(
+            'publishers',
+            [
+                {
+                    'name': u(''),
+                },
+            ],
+        )[0]['name']
         canonical['Year'] = u('')
         strdate = records.get('publish_date', u(''))
         if strdate:  # pragma: no cover

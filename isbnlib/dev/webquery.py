@@ -54,11 +54,13 @@ class WEBQuery(object):
         return parser(self.data)  # <-- data is now unicode
 
 
-def query(url,
-          user_agent=UA,
-          data_checker=None,
-          parser=json.loads,
-          throttling=THROTTLING):
+def query(
+    url,
+    user_agent=UA,
+    data_checker=None,
+    parser=json.loads,
+    throttling=THROTTLING,
+):
     """Put call and return the data from the web service."""
     wq = WEBQuery(url, user_agent, throttling)
     return wq.parse_data(parser) if wq.check_data(data_checker) else None

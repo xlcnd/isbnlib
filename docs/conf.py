@@ -201,8 +201,13 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-    ('index', 'isbnlib.tex', u'isbnlib Documentation', u'Alexandre Conde',
-     'manual'),
+    (
+        'index',
+        'isbnlib.tex',
+        u'isbnlib Documentation',
+        u'Alexandre Conde',
+        'manual',
+    ),
 ]
 
 # The name of an image file (relative to this directory) to place at the top of
@@ -229,8 +234,13 @@ latex_documents = [
 
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
-man_pages = [('index', 'isbnlib', u'isbnlib Documentation',
-              [u'Alexandre Conde'], 1)]
+man_pages = [(
+    'index',
+    'isbnlib',
+    u'isbnlib Documentation',
+    [u'Alexandre Conde'],
+    1,
+)]
 
 # If true, show URL addresses after external links.
 #man_show_urls = False
@@ -241,9 +251,15 @@ man_pages = [('index', 'isbnlib', u'isbnlib Documentation',
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-    ('index', 'isbnlib', u'isbnlib Documentation', u'Alexandre Conde',
-     'isbnlib', 'Tools for extracting, cleaning and transforming ISBNs.',
-     'Miscellaneous'),
+    (
+        'index',
+        'isbnlib',
+        u'isbnlib Documentation',
+        u'Alexandre Conde',
+        'isbnlib',
+        'Tools for extracting, cleaning and transforming ISBNs.',
+        'Miscellaneous',
+    ),
 ]
 
 # Documents to append as an appendix to all manuals.

@@ -40,7 +40,9 @@ RE_STRICT = re.compile(
 )
 RE_NORMAL = re.compile(
     r'97[89]{1}(?:-?\d){10}|\d{9}[0-9X]{1}|'
-    r'[-0-9X]{10,16}', re.I | re.M | re.S)
+    r'[-0-9X]{10,16}',
+    re.I | re.M | re.S,
+)
 RE_LOOSE = re.compile(r'[- 0-9X]{10,19}', re.I | re.M | re.S)
 ISBN13_PREFIX = '978'
 LEGAL = '0123456789xXisbnISBN- '

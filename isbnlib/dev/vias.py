@@ -16,8 +16,12 @@ def serial(named_tasks, arg):
         try:
             results[name] = task(arg)
         except Exception:  # pragma: no cover
-            LOGGER.debug("No result in 'serial' for %s[%s](%s)", task, name,
-                         arg)
+            LOGGER.debug(
+                "No result in 'serial' for %s[%s](%s)",
+                task,
+                name,
+                arg,
+            )
             results[name] = None
     return results
 
@@ -33,8 +37,12 @@ def parallel(named_tasks, arg):
         try:
             results[name] = task(arg)
         except Exception:  # pragma: no cover
-            LOGGER.debug("No result in 'parallel' for %s[%s](%s)", task, name,
-                         arg)
+            LOGGER.debug(
+                "No result in 'parallel' for %s[%s](%s)",
+                task,
+                name,
+                arg,
+            )
             results[name] = None
 
     for name, task in named_tasks:
@@ -56,8 +64,12 @@ def multi(named_tasks, arg):
         try:  # pragma: no cover
             q.put((name, task(arg)))
         except Exception:  # pragma: no cover
-            LOGGER.debug("No result in 'multi' for %s[%s](%s)", task, name,
-                         arg)
+            LOGGER.debug(
+                "No result in 'multi' for %s[%s](%s)",
+                task,
+                name,
+                arg,
+            )
             q.put((name, None))
 
     for name, task in named_tasks:

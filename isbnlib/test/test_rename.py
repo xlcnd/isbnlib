@@ -18,7 +18,7 @@ WINDOWS = os.name == 'nt'
 ENCODING = locale.getpreferredencoding()
 if ENCODING != 'UTF-8':
     print(
-        "Your default locale encoding (%s) doesn't allow unicode filenames!" % ENCODING
+        "Your default locale encoding (%s) doesn't allow unicode filenames!" % ENCODING,
     )
     print('=> Some tests could fail.')
 
@@ -56,7 +56,7 @@ def create_files(files):
         except UnicodeEncodeError:
             print(
                 "Your default locale (%s) doesn't allow non-ascii filenames!"
-                % locale.CODESET
+                % locale.CODESET,
             )
 
 

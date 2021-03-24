@@ -36,8 +36,10 @@ PROJECT_VERSION = __version__
 PROJECT_GITHUB_USERNAME = 'xlcnd'
 PROJECT_GITHUB_REPOSITORY = 'isbnlib'
 
-GITHUB_PATH = '{}/{}'.format(PROJECT_GITHUB_USERNAME,
-                             PROJECT_GITHUB_REPOSITORY)
+GITHUB_PATH = '{}/{}'.format(
+    PROJECT_GITHUB_USERNAME,
+    PROJECT_GITHUB_REPOSITORY,
+)
 GITHUB_URL = 'https://github.com/{}'.format(GITHUB_PATH)
 
 DOWNLOAD_URL = '{}/archive/{}.zip'.format(GITHUB_URL, 'v' + PROJECT_VERSION)

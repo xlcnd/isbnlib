@@ -60,6 +60,5 @@ def msk(isbn, separator='-'):
             check = check10
         return separator.join(
             [group, ib[cur + 1:cur + idx + 1], ib[cur + idx + 1:-1], check])
-    LOGGER.warning('identifier not found! '
-                   'Please, update the program.')  # pragma: no cover
+    LOGGER.warning('identifier not found!')  # pragma: no cover
     return ''  # pragma: no cover

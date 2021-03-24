@@ -52,12 +52,18 @@ class WEBService(object):
         # - urlopen doesn't catch a 102 code!
         #   https://docs.python.org/3/howto/urllib2.html#error-codes
         try:
-            response = urlopen(self._request,
-                               timeout=options.get('URLOPEN_TIMEOUT'))
+            response = urlopen(
+                self._request,
+                timeout=options.get('URLOPEN_TIMEOUT'),
+            )
             LOGGER.debug('Request headers:\n%s', self._request.header_items())
         except HTTPError as e:  # pragma: no cover
-            LOGGER.critical('ISBNLibHTTPError for %s with code %s [%s]',
-                            self._url, e.code, e.msg)
+            LOGGER.critical(
+                'ISBNLibHTTPError for %s with code %s [%s]',
+                self._url,
+                e.code,
+                e.msg,
+            )
             if e.code in (401, 403, 429):
                 raise ISBNLibHTTPError('%s Are you making many requests?' %
                                        e.code)
@@ -66,12 +72,18 @@ class WEBService(object):
                                        e.code)
             raise ISBNLibHTTPError('(%s) %s' % (e.code, e.msg))
         except URLError as e:  # pragma: no cover
-            LOGGER.critical('ISBNLibURLError for %s with reason %s', self._url,
-                            e.reason)
+            LOGGER.critical(
+                'ISBNLibURLError for %s with reason %s',
+                self._url,
+                e.reason,
+            )
             raise ISBNLibURLError(e.reason)
         except sockettimeout:  # pragma: no cover
-            LOGGER.critical('ServiceIsDownError for %s with reason %s',
-                            self._url, 'timeout')
+            LOGGER.critical(
+                'ServiceIsDownError for %s with reason %s',
+                self._url,
+                'timeout',
+            )
             raise ServiceIsDownError('service timeout')
         return response if response else None
 
@@ -90,10 +102,12 @@ class WEBService(object):
 
 def query(url, user_agent=UA, values=None, appheaders=None):
     """Query to a web service."""
-    service = WEBService(url,
-                         user_agent=user_agent,
-                         values=values,
-                         appheaders=appheaders)
+    service = WEBService(
+        url,
+        user_agent=user_agent,
+        values=values,
+        appheaders=appheaders,
+    )
     data = service.data()
     LOGGER.debug('Raw data from service:\n%s', data)
     return data
