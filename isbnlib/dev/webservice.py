@@ -6,7 +6,6 @@ import logging
 from socket import timeout as sockettimeout
 
 from ..config import options
-from . import cache
 from ._bouth23 import bstream, s
 from ._exceptions import ISBNLibHTTPError, ISBNLibURLError, ServiceIsDownError
 
@@ -101,7 +100,6 @@ class WEBService(object):
         return s(data)
 
 
-@cache
 def query(url, user_agent=UA, values=None, appheaders=None):
     """Query to a web service."""
     service = WEBService(
