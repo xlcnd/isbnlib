@@ -171,8 +171,8 @@ def notisbn(isbnlike, level='strict'):
     """Check with the goal to invalidate isbn-like.
 
     level:
-    strict for certain they are not ISBNs (default)
-    loose  only filters obvious NO ISBNs
+    'strict' when certain they are not ISBNs (default)
+    'loose'  only filters obvious NO ISBNs
 
     """
     if level not in ('strict', 'loose'):  # pragma: no cover
@@ -253,7 +253,6 @@ def get_canonical_isbn(isbnlike, output='bouth'):
     return ''
 
 
-# TODO(make return type consistent)!
 def ean13(isbnlike):
     """Transform an `isbnlike` string in an EAN number (canonical ISBN-13)."""
     ib = canonical(isbnlike)
