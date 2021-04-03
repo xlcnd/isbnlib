@@ -2,7 +2,7 @@
 """Interface for namespace 'isbnlib.dev'."""
 
 from ._data import Metadata, stdmeta
-from ._decorators import cache
+from ._decorators import cache, imcache
 from ._exceptions import (
     DataNotFoundAtServiceError,
     DataWrongShapeError,
@@ -34,4 +34,5 @@ __all__ = (
     'WEBService',
     'WEBQuery',
     'cache',
+    'imcache',
 )
