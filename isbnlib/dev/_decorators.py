@@ -38,11 +38,7 @@ def imcache(func):
     @wraps(func)
     def memoized_func(*args, **kwargs):
         cch = im_cache
-        if cch is None:  # pragma: no cover
-            return func(*args, **kwargs)
 
-        # Persistent caches will NOT work IF
-        # 'func' has callables in the arguments
         key = str(func.__name__) + str(args) + str(kwargs)
 
         if key in cch:

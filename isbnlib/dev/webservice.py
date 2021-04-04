@@ -6,8 +6,8 @@ import logging
 from socket import timeout as sockettimeout
 
 from ..config import options
-from . import imcache
 from ._bouth23 import bstream, s
+from ._decorators import imcache
 from ._exceptions import ISBNLibHTTPError, ISBNLibURLError, ServiceIsDownError
 
 # pylint: disable=import-error
