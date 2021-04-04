@@ -12,7 +12,7 @@ UA = 'isbnlib (gzip)'
 SERVICE_URL = (
     'https://www.googleapis.com/books/v1/volumes?q=isbn:{isbn}'
     '&fields=items/volumeInfo(title,subtitle,authors,publisher,publishedDate,'
-    'language,industryIdentifiers)&maxResults=1')
+    'language,industryIdentifiers,description,imageLinks)&maxResults=1')
 LOGGER = logging.getLogger(__name__)
 
 
