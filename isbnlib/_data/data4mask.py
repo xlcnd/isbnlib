@@ -3,7 +3,7 @@
 # pylint:skip-file
 # isort:skip_file
 # fmt:off
-# Produced by 'isbntools-dev'@'['07','Apr','2021','17:03:21+0000']'
+# Produced by 'isbntools-dev'@'2021-04-07T17:03:21+00:00'
 
 #                   WARNING
 # THIS FILE WAS PRODUCED BY TOOLS THAT AUTOMATICALLY
