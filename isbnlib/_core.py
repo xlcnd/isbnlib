@@ -105,8 +105,7 @@ def is_isbn10(isbn10):
     isbn10 = canonical(isbn10)
     if len(isbn10) != 10:
         return False  # pragma: no cover
-    else:
-        return bool(not check_digit10(isbn10[:-1]) != isbn10[-1])
+    return bool(not check_digit10(isbn10[:-1]) != isbn10[-1])
 
 
 def is_isbn13(isbn13):
@@ -114,10 +113,9 @@ def is_isbn13(isbn13):
     isbn13 = canonical(isbn13)
     if len(isbn13) != 13:
         return False  # pragma: no cover
-    else:
-        if isbn13[0:3] not in ('978', '979'):
-            return False
-        return bool(not check_digit13(isbn13[:-1]) != isbn13[-1])
+    if isbn13[0:3] not in ('978', '979'):
+        return False
+    return bool(not check_digit13(isbn13[:-1]) != isbn13[-1])
 
 
 def to_isbn10(isbn13):
@@ -185,8 +183,7 @@ def notisbn(isbnlike, level='strict'):
         return False
     if len(isbnlike) == 10:
         return not is_isbn10(isbnlike)
-    else:
-        return not is_isbn13(isbnlike)
+    return not is_isbn13(isbnlike)
 
 
 def get_isbnlike(text, level='normal'):
