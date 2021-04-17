@@ -255,7 +255,7 @@ def ean13(isbnlike):
     ib = canonical(isbnlike)
     if len(ib) == 13:
         return ib if is_isbn13(ib) else ''
-    elif len(ib) == 10:
+    if len(ib) == 10:
         return to_isbn13(ib) if is_isbn10(ib) else ''
     return ''
 
