@@ -33,7 +33,8 @@ def _mapper(isbn, records):
             canonical['Authors'] = [
                 author.replace('.', u('')) for author in authors
             ]
-            if len(canonical.get('Authors', [])) == 1:
+            buf = canonical.get('Authors', [])
+            if not buf or len(buf[0]) == 0:
                 raise IndexError
         except IndexError:
             try:
