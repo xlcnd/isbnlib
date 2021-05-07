@@ -1,3 +1,4 @@
 ## What's new?
 
-1. TENTATIVE...
+1. New 'Authors' parsing strategy for 'wiki'.
+2. Updated 'DR data'.
