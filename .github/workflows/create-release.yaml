@@ -18,7 +18,7 @@ jobs:
           [[ ! -z $(tail -1 CHANGES.txt | grep -o 'NOT RELEASED\|TENTATIVE') ]] && echo 'NO_RELEASE condition detected! Skip release.' && exit 1 || exit 0
       - name: Create Release
         id: create_release
-        uses: actions/create-release@v1
+        uses: actions/create-release@v1.1.4
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
