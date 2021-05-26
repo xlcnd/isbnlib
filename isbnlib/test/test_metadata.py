@@ -16,7 +16,7 @@ def test_query():
     # test query from metadata
     assert_raises(Exception, query, '9781849692341', 'goog')
     assert_raises(Exception, query, '9781849692343', 'goob')
-    assert_equals(query('9789934015960', 'goob'), {})
+    # assert_equals(query('9789934015960', 'goob'), {})
     assert_equals(len(repr(query('9780321534965'))) > 100, True)
     assert_equals(len(repr(query('9780321534965', 'goob'))) > 100, True)
     # assert_equals(len(repr(query('9789934015960'))) > 100, True)
