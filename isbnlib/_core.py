@@ -227,6 +227,8 @@ def get_canonical_isbn(isbnlike, output='bouth'):
     if match:
         # Get only canonical characters
         cisbn = canonical(match.group())
+        if not cisbn:
+            return ''
         # Split into a list
         chars = list(cisbn)
         # Remove the last digit from `chars` and assign it to `last`
