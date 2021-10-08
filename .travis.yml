@@ -22,15 +22,12 @@ matrix:
       env: TOXENV=py39
     - python: "3.7"
       env: TOXENV=checkers
-    - python: "3.7"
-      env: DOC=sphinx
     - python: "2.7"
       env: TOXENV=py27
     - python: "nightly"
       env: TOXENV=nightly
 
   allow_failures:
-    - env: DOC=sphinx
     - env: TOXENV=py27
     - env: TOXENV=nightly
     - env: TOXENV=checkers
@@ -41,12 +38,10 @@ install:
   - if [[ $TRAVIS_OS_NAME == 'linux' ]]; then pip install tox; fi
   - if [[ $TOXENV == 'checkers' ]]; then pip install flake8; fi
   - if [[ $TOXENV == 'checkers' ]]; then pip install pep8-naming; fi
-  - if [[ $DOC == 'sphinx' ]]; then pip install sphinx; fi
 
 script:
   # - if [[ $TRAVIS_PULL_REQUEST != 'false' ]]; then ...; fi
   - if [[ ! -z $TOXENV ]]; then tox -e $TOXENV; fi
-  - if [[ $DOC == 'sphinx' ]]; then cd docs; sphinx-build -n -b html -d _build/.doctrees . _build/html; fi
 
 after_success:
   - if [[ $TOXENV == 'py37' ]] && [[ $TRAVIS_OS_NAME == 'linux' ]]; then pip install coveralls && coveralls; fi
