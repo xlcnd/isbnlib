@@ -42,19 +42,6 @@ build: false  # First tests then build (is python not C)
 
 test_script:
   - "%TOXPYTHON% -m tox -e %TOXENV%"
-# - "%WITH_COMPILER% %PYTHON_HOME%/Scripts/tox -e %TOXENV%"
-# - "%PYTHON_HOME%\\Scripts\\tox -e %TOXENV%"
 
 on_failure:
   - ps: dir "env:"
-# - ps: dir "%TOXPYTHON%/Scripts"
-# - ps: get-content .tox\*\log\*
-
-# clone_folder: 'C:\\projects\\isbnlib'
-
-# after_test:
-#   - "%TOXPYTHON% setup.py bdist_wheel"
-#   - ps: "ls dist"
-
-# artifacts:
-#   - path: 'dist\\*.whl'

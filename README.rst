@@ -8,7 +8,7 @@
     :alt: Built Status
 
 .. image:: https://img.shields.io/travis/xlcnd/isbnlib/v3.10.8?label=travis&svg=true&style=flat
-    :target: https://travis-ci.org/xlcnd/isbnlib
+    :target: https://app.travis-ci.com/github/xlcnd/isbnlib
     :alt: Built Status
 
 .. image:: https://ci.appveyor.com/api/projects/status/github/xlcnd/isbnlib?branch=v3.10.8&svg=true

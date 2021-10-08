@@ -40,7 +40,6 @@ install:
   - if [[ $TOXENV == 'checkers' ]]; then pip install pep8-naming; fi
 
 script:
-  # - if [[ $TRAVIS_PULL_REQUEST != 'false' ]]; then ...; fi
   - if [[ ! -z $TOXENV ]]; then tox -e $TOXENV; fi
 
 after_success:
