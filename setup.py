@@ -46,7 +46,7 @@ GITHUB_URL = 'https://github.com/{}'.format(GITHUB_PATH)
 DOWNLOAD_URL = '{}/archive/{}.zip'.format(GITHUB_URL, 'v' + PROJECT_VERSION)
 PROJECT_URLS = {
     'Bug Reports': '{}/issues'.format(GITHUB_URL),
-    'Dev Docs': 'https://isbnlib.readthedocs.io/en/latest/devs.html',
+    'Dev Docs': 'https://github.com/xlcnd/isbnlib#info',
     'Forum': 'https://stackoverflow.com/search?tab=newest&q=isbnlib',
     'License': PROJECT_LICENSE_URL,
 }

@@ -1,12 +1,4 @@
 
-.. image:: https://img.shields.io/badge/source-analyze-blue.svg?style=flat
-    :target: https://sourcegraph.com/github.com/xlcnd/isbnlib
-    :alt: Graph
-
-.. image:: https://readthedocs.org/projects/isbnlib/badge/?version=latest
-    :target: https://isbnlib.readthedocs.org/en/latest/
-    :alt: Documentation Status
-
 .. image:: https://coveralls.io/repos/github/xlcnd/isbnlib/badge.svg?branch=master
     :target: https://coveralls.io/github/xlcnd/isbnlib?branch=master
     :alt: Coverage Status
@@ -31,12 +23,6 @@
     :target: https://pypi.org/project/isbnlib/
     :alt: PYPI Downloads
 
-
-
-Warning
-=======
-
-   If you still use python 2.7, please install ``isbnlib-3.10.8``!
 
 
 Info
@@ -394,15 +380,6 @@ Help
 If you need help, please take a look at github_ or post a question on
 stackoverflow_ .
 
-
-
-----------------------------------------------------------------------------------------------
-
-.. class:: center
-
-Read ``isbnlib`` code in a very sctructured way at sourcegraph_ or 'the docs' at readthedocs_.
-
-----------------------------------------------------------------------------------------------
 
 
 .. _github: https://github.com/xlcnd/isbnlib/discussions
