@@ -7,10 +7,6 @@
     :target: https://github.com/xlcnd/isbnlib/actions
     :alt: Built Status
 
-.. image:: https://img.shields.io/travis/xlcnd/isbnlib/v3.10.8?label=travis&svg=true&style=flat
-    :target: https://app.travis-ci.com/github/xlcnd/isbnlib
-    :alt: Built Status
-
 .. image:: https://ci.appveyor.com/api/projects/status/github/xlcnd/isbnlib?branch=v3.10.8&svg=true
     :target: https://ci.appveyor.com/project/xlcnd/isbnlib
     :alt: Windows Built Status
