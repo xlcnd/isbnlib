@@ -108,7 +108,7 @@ Main Functions
     uses 'merge' (merges 'thingl' and 'wiki'), but other providers are available:
     'thingl' (uses the service ThingISBN from **LibraryThing**),
     'wiki' (uses the service Citation from **Wikipedia**)
-    and 'any' (first tries 'wiki', if no data, then 'thingl').
+    and 'any' (first tries 'wiki', if no data then 'thingl').
 
 ``isbn_from_words(words)``
     Returns the most probable ISBN from a list of words (for your geographic area).
