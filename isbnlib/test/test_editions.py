@@ -17,11 +17,6 @@ from .._ext import editions
 # nose tests
 
 
-def test_editions_openl():
-    """Test the 'openl editions' service."""
-    assert_equals(len(editions('9780099536017', service='openl')) > 1, True)
-
-
 def test_editions_thingl():
     """Test the 'thingl editions' service."""
     assert_equals(len(editions('9780151446476', service='thingl')) > 2, True)
