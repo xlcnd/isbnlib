@@ -39,7 +39,6 @@ def _fake_provider_merge(isbn):
     try:  # pragma: no cover
         named_tasks = (('thingl', _ted), ('wiki', _wiki))
         results = vias.parallel(named_tasks, isbn)
-        # odata = results.get('openl', set())
         tdata = results.get('thingl', set())
         wdata = results.get('wiki', set())
         return list(tdata | wdata)
