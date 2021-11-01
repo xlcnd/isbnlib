@@ -61,3 +61,4 @@ v3.10.6, 2021-01-26 -- Fix 'wiki' (close #75).
 v3.10.7, 2021-04-12 -- Common url for GB services.
 v3.10.8, 2021-05-10 -- New 'Authors' parsing strategy for 'wiki'.
 v3.10.9, 2021-11-01 -- Fix 'editions'.
+v3.10.10, 2021-11-01 -- TENTATIVE
