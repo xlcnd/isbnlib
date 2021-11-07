@@ -7,6 +7,16 @@ on:
   - cron: '15 5 * * *'
 
 jobs:
+  run-nose2pytest:  # See what changes nose2pytest would make
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions/setup-python@v2.2.2
+      with:
+        python-version: 3.6  # nose2pytest must run on old Py3
+    - run: pip install nose2pytest
+    - run: nose2pytest
+    - run: git diff dev
   basic-tests-linux:
     runs-on: ubuntu-latest
     strategy:
@@ -35,6 +45,7 @@ jobs:
       run: |
         pip install pytest pytest-cov pytest-xdist coverage
         pytest --doctest-modules .
+
   basic-tests-macos:
     runs-on: macos-latest
     strategy:
