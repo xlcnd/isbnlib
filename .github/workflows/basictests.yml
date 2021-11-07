@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: [3.6, 3.9]
+        python-version: ["3.6", "3.10"]
     env:
       GITHUB_OS: linux
     steps:
