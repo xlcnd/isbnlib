@@ -1,14 +1,9 @@
 # -*- coding: utf-8 -*-
 # flake8: noqa
 # pylint: skip-file
-"""
-nose tests
-"""
 
 import locale
 import os
-
-from nose.tools import assert_equals
 
 from .._ext import ren
 from ..dev._bouth23 import b2u3
@@ -80,7 +75,7 @@ def teardown_module():
 def test_ren():
     """Test 'high level' ren function."""
     ren(F1)
-    assert_equals(F7 in cwdfiles('*.pdf'), True)
+    assert (F7 in cwdfiles('*.pdf')) == True
     # assert_equals(F7 in cwdfiles("*.pdf") or F7a in cwdfiles("*.pdf"), True)
     # create_files([F5])
     # ren(F5)

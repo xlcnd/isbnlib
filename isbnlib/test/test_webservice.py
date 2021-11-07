@@ -1,11 +1,6 @@
 # -*- coding: utf-8 -*-
 # flake8: noqa
 # pylint: skip-file
-"""
-nose tests
-"""
-
-from nose.tools import assert_equals
 
 from ..dev.webservice import query as wsquery
 
