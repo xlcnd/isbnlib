@@ -16,8 +16,7 @@ jobs:
         python-version: 3.6  # nose2pytest must run on old Py3
     - run: pip install nose2pytest
     - run: nose2pytest -h
-    - run: nose2pytest -v .
-    - run: git diff dev
+    - run: nose2pytest -w .
   basic-tests-linux:
     runs-on: ubuntu-latest
     strategy:
