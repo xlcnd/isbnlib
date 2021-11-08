@@ -19,11 +19,11 @@ adventure in open-source.
 4. `pip install -r requirements-dev.txt` (at your local directory).
 5. Do your code... (**remember the code must run on python 2.7, 3.5+
    and be OS independent** It is easier if you start to write in python 3 and then
-   adapt for python 2) (you will find [Travis](https://travis-ci.org/xlcnd/isbnlib) very handy for
+   adapt for python 2) (you will find [Github Actions](https://docs.github.com/en/actions) very handy for
    testing with this requirement!)
 6. Write tests for your code using `nose` and put then in the directory `isbnlib/test`
 7. Pass **all tests** and with **coverage > 90%**.
-   Check the coverage in [Coveralls](https://coveralls.io/r/xlcnd/isbnlib) or locally with the command
+   Check the coverage locally with the command
    `nosetests --with-coverage --cover-package=isbnlib`.
 8. **Check if all requirements are fulfilled**!
 9. **Push** your local changes to GitHub and make there a **pull request**
