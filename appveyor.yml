@@ -1,7 +1,7 @@
 # appveyor.yml - https://www.appveyor.com/docs/lang/python
 ---
 image:
-  - Visual Studio 2019
+  - Visual Studio 2019  # https://www.appveyor.com/docs/windows-images-software/#python
 
 environment:
   matrix:
@@ -9,8 +9,8 @@ environment:
   # - TOXENV: py35
   - TOXENV: py36    # https://devguide.python.org/#status-of-python-branches
   - TOXENV: py37
-  - TOXENV: py38
-  - TOXENV: py39
+  # - TOXENV: py38
+  # - TOXENV: py39
   # - TOXENV: py310  # nose.tools.assert_equals() is not Py3.10 compatible
 
 build: false
