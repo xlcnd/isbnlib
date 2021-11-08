@@ -1,0 +1,24 @@
+# appveyor.yml - https://www.appveyor.com/docs/lang/python
+---
+image:
+  - Visual Studio 2019
+
+environment:
+  matrix:
+  # - TOXENV: py27  # https://devguide.python.org/devcycle/#end-of-life-branches
+  # - TOXENV: py35
+  - TOXENV: py36    # https://devguide.python.org/#status-of-python-branches
+  - TOXENV: py37
+  - TOXENV: py38
+  - TOXENV: py39
+  # - TOXENV: py310  # nose.tools.assert_equals() is not Py3.10 compatible
+
+build: false
+
+install:
+  # - py --list
+  # - py -m pip install --upgrade pip
+  - py -m pip install tox
+
+test_script:
+  - py -m tox
