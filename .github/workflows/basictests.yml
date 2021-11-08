@@ -7,23 +7,23 @@ on:
   - cron: '15 5 * * *'
 
 jobs:
-  run-nose2pytest:  # See what changes nose2pytest would make
+  run-nose2pytest:  # Make a `git apply` patch - https://git-scm.com/docs/git-apply
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - uses: actions/setup-python@v2.2.2
+    - uses: actions/setup-python@v2
       with:
-        python-version: 3.6  # nose2pytest must run on old Py3
+        python-version: 3.6  # nose2pytest must run on Python <= 3.6
     - run: pip install nose2pytest
     - run: nose2pytest -h
-    - run: nose2pytest -v -w .
+    # - run: nose2pytest -v -w .
     - run: nose2pytest -v .
-    - run: git remote -v
-    - run: git branch
-    - run: git diff || true
-    - run: git diff origin/${GITHUB_HEAD_REF} || true
-    - run: git diff origin/dev || true
-    - run: git diff origin/dev origin/${GITHUB_HEAD_REF} || true
+    # - run: git remote -v
+    # - run: git branch
+    - run: git diff
+    # - run: git diff origin/${GITHUB_HEAD_REF} || true
+    # - run: git diff origin/dev || true
+    # - run: git diff origin/dev origin/${GITHUB_HEAD_REF} || true
   basic-tests-linux:
     runs-on: ubuntu-latest
     strategy:
