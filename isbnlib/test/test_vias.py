@@ -44,15 +44,9 @@ def test_vias_parallel():
 def test_vias_multi():
     """Test 'vias' (multi)."""
     # Is NOT allowed in Windows & macOS!
-    if os.getenv('APPVEYOR', '') != '':
+    if os.getenv('GITHUB_OS', '') in ('windows', 'macOS'):
         return True
-    if os.getenv('GITHUB_OS', '') == 'windows':
-        return True
-    if os.getenv('GITHUB_OS', '') == 'macOS':
-        return True
-    if platform.system() == 'Windows':
-        return True
-    if platform.system() == 'Darwin':
+    if platform.system() in ('Windows', 'Darwin'):
         return True
     named_tasks = (('task1', task1), ('task2', task2))
     results = vias.multi(named_tasks, 5)
