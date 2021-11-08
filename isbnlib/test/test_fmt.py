@@ -22,12 +22,12 @@ canonical = {
 
 def test_fmtbib():
     """Test the formatting into several bibliographic formats."""
-    assert_equals(len(_fmtbib('bibtex', canonical)), 182)
-    assert_equals(len(_fmtbib('labels', canonical)), 158)
-    assert_equals(len(_fmtbib('endnote', canonical)), 103)
-    assert_equals(len(_fmtbib('msword', canonical)), 485)
-    assert_equals(len(_fmtbib('json', canonical)), 229)
-    assert_equals(len(_fmtbib('csl', canonical)), 253)
-    assert_equals(len(_fmtbib('csv', canonical)), 94)
-    assert_equals(len(_fmtbib('ris', canonical)), 130)
-    assert_equals(len(_fmtbib('opf', canonical)), 861)
+    assert len(_fmtbib('bibtex', canonical)) == 182
+    assert len(_fmtbib('labels', canonical)) == 158
+    assert len(_fmtbib('endnote', canonical)) == 103
+    assert len(_fmtbib('msword', canonical)) == 485
+    assert len(_fmtbib('json', canonical)) == 229
+    assert len(_fmtbib('csl', canonical)) == 253
+    assert len(_fmtbib('csv', canonical)) == 94
+    assert len(_fmtbib('ris', canonical)) == 130
+    assert len(_fmtbib('opf', canonical)) == 861

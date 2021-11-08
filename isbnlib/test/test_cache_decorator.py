@@ -23,13 +23,11 @@ def teardown_module():
 
 def test_cache_meta():
     """Test '@cache' meta."""
-    assert_equals(
-        len(repr(cache.get("query('9780375869020', 'default'){}"))) > 100, True,
-    )
-    assert_equals(
-        len(repr(cache.get("query('9780375869020', 'default'){}"))),
-        len(repr(cache["query('9780375869020', 'default'){}"])),
-    )
+    assert (
+        (len(repr(cache.get("query('9780375869020', 'default'){}"))) > 100) == True)
+    assert (
+        len(repr(cache.get("query('9780375869020', 'default'){}"))) ==
+        len(repr(cache["query('9780375869020', 'default'){}"])))
 
 
 # def test_cache_classify():

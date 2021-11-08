@@ -19,7 +19,7 @@ def test_catchall():
         except ISBNLibException as ex:
             return str(ex.message)
 
-    assert_equals(f1(), '(9781849692343) is not a valid ISBN')
+    assert f1() == '(9781849692343) is not a valid ISBN'
 
     def f2():
         try:
@@ -27,7 +27,7 @@ def test_catchall():
         except ISBNLibException as ex:
             return str(ex.message)
 
-    assert_equals(f2(), '(xxx) is not a recognized service')
+    assert f2() == '(xxx) is not a recognized service'
 
 
 # NOTE the tests for other Exceptions are spread in the other tests

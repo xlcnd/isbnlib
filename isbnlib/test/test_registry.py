@@ -10,7 +10,7 @@ from ..registry import setdefaultbibformatter, setdefaultservice
 # nose tests
 def test_setdefaultbibformatter():
     """Test setdefaultbibformatter."""
-    assert_equals(setdefaultbibformatter('json'), None)
+    assert setdefaultbibformatter('json') == None
     assert_raises(Exception, setdefaultbibformatter, 'default')
     assert_raises(Exception, setdefaultbibformatter, '')
     assert_raises(Exception, setdefaultbibformatter, 'xxx')
@@ -18,7 +18,7 @@ def test_setdefaultbibformatter():
 
 def test_setdefaultservice():
     """Test setdefaultservice."""
-    assert_equals(setdefaultservice('goob'), None)
+    assert setdefaultservice('goob') == None
     assert_raises(Exception, setdefaultservice, 'default')
     assert_raises(Exception, setdefaultservice, '')
     assert_raises(Exception, setdefaultservice, 'xxx')

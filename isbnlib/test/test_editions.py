@@ -19,22 +19,22 @@ from .._ext import editions
 
 def test_editions_thingl():
     """Test the 'thingl editions' service."""
-    assert_equals(len(editions('9780151446476', service='thingl')) > 2, True)
+    assert (len(editions('9780151446476', service='thingl')) > 2) == True
 
 
 def test_editions_wiki():
     """Test the 'wiki editions' service."""
-    assert_equals(len(editions('9780375869020', service='wiki')) > 5, True)
+    assert (len(editions('9780375869020', service='wiki')) > 5) == True
 
 
 def test_editions_any():
     """Test the 'any editions' service."""
-    assert_equals(len(editions('9780151446476', service='any')) > 1, True)
+    assert (len(editions('9780151446476', service='any')) > 1) == True
 
 
 def test_editions_merge():
     """Test the 'merge editions' service."""
-    assert_equals(len(editions('9780151446476', service='merge')) > 2, True)
+    assert (len(editions('9780151446476', service='merge')) > 2) == True
 
 
 @raises(NotValidISBNError)
@@ -52,7 +52,7 @@ def test_editions_NotRecognizedServiceError():
 def test_cache():
     """Test the 'editions' cache."""
     t = timer()
-    assert_equals(len(editions('9780151446476', service='merge')) > 19, True)
+    assert (len(editions('9780151446476', service='merge')) > 19) == True
     elapsed_time = timer() - t
     millis = int(elapsed_time * 1000)
-    assert_equals(millis < 100, True)
+    assert (millis < 100) == True

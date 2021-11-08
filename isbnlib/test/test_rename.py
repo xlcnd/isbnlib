@@ -80,7 +80,7 @@ def teardown_module():
 def test_ren():
     """Test 'high level' ren function."""
     ren(F1)
-    assert_equals(F7 in cwdfiles('*.pdf'), True)
+    assert (F7 in cwdfiles('*.pdf')) == True
     # assert_equals(F7 in cwdfiles("*.pdf") or F7a in cwdfiles("*.pdf"), True)
     # create_files([F5])
     # ren(F5)
