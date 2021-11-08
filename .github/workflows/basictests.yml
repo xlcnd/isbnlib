@@ -16,10 +16,14 @@ jobs:
         python-version: 3.6  # nose2pytest must run on old Py3
     - run: pip install nose2pytest
     - run: nose2pytest -h
-    - run: nose2pytest -w .
-    - run: nose2pytest .
+    - run: nose2pytest -v -w .
+    - run: nose2pytest -v .
     - run: git remote -v
-    - run: git diff origin/dev origin/${GITHUB_HEAD_REF}
+    - run: git branch
+    - run: git diff || true
+    - run: git diff origin/${GITHUB_HEAD_REF} || true
+    - run: git diff origin/dev || true
+    - run: git diff origin/dev origin/${GITHUB_HEAD_REF} || true
   basic-tests-linux:
     runs-on: ubuntu-latest
     strategy:
