@@ -18,7 +18,8 @@ jobs:
     - run: nose2pytest -h
     - run: nose2pytest -w .
     - run: nose2pytest .
-    - run: git diff origin/dev
+    - run: git remote -v
+    - run: git diff origin/dev origin/${GITHUB_HEAD_REF}
   basic-tests-linux:
     runs-on: ubuntu-latest
     strategy:
