@@ -96,8 +96,8 @@ Main Functions
     with ``config.add_apikey(service, apikey)`` (see example below).
     The output can be formatted as ``bibtex``, ``csl`` (CSL-JSON), ``msword``, ``endnote``, ``refworks``,
     ``opf`` or ``json`` (BibJSON) bibliographic formats with ``registry.bibformatters``.
-    Now, you can extend the functionality of this function by adding pluggins, more metadata
-    providers or new bibliographic formatters (check_ for available pluggins).
+    Now, you can extend the functionality of this function by adding plugins, more metadata
+    providers or new bibliographic formatters (check_ for available plugins).
 
 ``editions(isbn, service='merge')``
     Returns the list of ISBNs of editions related with this ISBN. By default

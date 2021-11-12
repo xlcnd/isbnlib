@@ -32,9 +32,6 @@ adventure in open-source.
    **VERY IMPORTANT:** Don't put in the same pull request unrelated changes in the code,
    make one pull request for each set of related changes!
 
-> **NOTE**: *Travis*, *coverage*, *flake8* and  *pylint*, have already
-configuration files adapted to the project.
-
 ## Style
 
 Your code **must** be [PEP8](http://legacy.python.org/dev/peps/pep-0008/) compliant
