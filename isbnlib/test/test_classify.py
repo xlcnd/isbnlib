@@ -41,17 +41,17 @@ def test_query_exists_lcc():
 
 def test_query_fast():
     """Test exists 'fast' classifiers."""
-    assert_equals(len(repr(q1['fast'])) > 10, True)
-    assert_equals(len(repr(q2['fast'])) > 10, True)
+    assert_equals(len(repr(q1['fast'])) > 7, True)
+    assert_equals(len(repr(q2['fast'])) > 7, True)
 
 
 def test_query_owi():
     """Test exists 'owi' classifiers."""
-    assert_equals(len(repr(q1['owi'])) > 10, True)
-    assert_equals(len(repr(q2['owi'])) > 10, True)
+    assert_equals(len(repr(q1['owi'])) > 5, True)
+    assert_equals(len(repr(q2['owi'])) > 5, True)
 
 
 def test_query_oclc():
     """Test exists 'oclc' classifiers."""
-    assert_equals(len(repr(q1['oclc'])) > 10, True)
-    assert_equals(len(repr(q2['oclc'])) > 10, True)
+    assert_equals(len(repr(q1['oclc'])) > 7, True)
+    assert_equals(len(repr(q2['oclc'])) > 7, True)
