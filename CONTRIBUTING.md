@@ -59,8 +59,6 @@ suggestions on the code at the
 
 ## Suggestions
 
-Read the code in a structured way at [sourcegraph](https://sourcegraph.com/github.com/xlcnd/isbnlib).
-
 Goto [issues/enhancement](https://github.com/xlcnd/isbnlib/issues?labels=enhancement&page=1&state=open)
 for possible enhancements to the code.
 If you have some idea that is not there enter your own.
@@ -72,34 +70,3 @@ Select some focused issue and enter some comments on how you plan to tackle it.
 If you don't have experience with these issues, don't be put off by these requirements,
 see them as a learning opportunity. Thanks!
 
-
-
-## Resources (for *newbies*)
-
-
-### Minimum git & GitHub
-
-- https://guides.github.com/activities/hello-world/
-- https://guides.github.com/introduction/flow/index.html
-- https://www.youtube.com/watch?v=IeW1Irw45hQ
-- https://www.youtube.com/watch?v=U8GBXvdmHT4
-- https://www.youtube.com/watch?v=9Blbj1HMROU
-
-
-### More Resources by Topic
-
-|                  **Topic**  |                              **Resource**                               |
-|----------------------------:|:------------------------------------------------------------------------|
-|                 fork a repo | https://help.github.com/articles/fork-a-repo                            |
-|                pull request | https://help.github.com/articles/using-pull-requests/                   |
-|                     git log | https://www.youtube.com/watch?v=U8GBXvdmHT4                             |
-|      local feature branches | https://www.youtube.com/watch?v=ImhZj6tpXLE                             |
-|           git & GitHub tips | https://github.com/tiimgreen/github-cheat-sheet                         |
-|                             | http://cbx33.github.io/gitt/intro.html                                  |
-|                             | http://git-scm.com/documentation                                        |
-|                             | http://gitimmersion.com/                                                |
-|                             | http://www.youtube.com/playlist?list=PLq0VzNtDZbe9QLq8YCizFN2TVWvlLjrvX |
-|                   nosetests | http://pythontesting.net/framework/nose/nose-introduction/              |
-|                contributing | https://www.youtube.com/watch?v=IXnNgLmd6BM                             |
-|                             | http://openhatch.org/missions                                           |
-|                             | http://opensource.com/resources/how-get-started-open-source             |
