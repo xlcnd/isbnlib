@@ -38,5 +38,6 @@ def test_cache_contains():
 
 def test_cache_del():
     """Test 'cache' operations (del)."""
+    cache['567'] = 'jkl'
     del cache['567']
     assert_equals('567' not in cache, True)
