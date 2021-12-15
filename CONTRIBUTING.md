@@ -16,7 +16,7 @@ adventure in open-source.
    (if possible wait for some feedback before any serious commitment... :)
 3. **Fork** the repository on GitHub and **clone it locally**
    ([help](https://help.github.com/articles/fork-a-repo)).
-4. `pip install -r requirements-dev.txt` (at your local directory).
+4. `pip install -r requirements-gh-dev.txt` (at your local directory).
 5. Do your code... (**remember the code must run on python 3.6+
    and be OS independent**, you will find [Github Actions](https://docs.github.com/en/actions) very handy for
    testing with this requirement!)
