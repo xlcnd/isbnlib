@@ -17,9 +17,8 @@ adventure in open-source.
 3. **Fork** the repository on GitHub and **clone it locally**
    ([help](https://help.github.com/articles/fork-a-repo)).
 4. `pip install -r requirements-dev.txt` (at your local directory).
-5. Do your code... (**remember the code must run on python 2.7, 3.5+
-   and be OS independent** It is easier if you start to write in python 3 and then
-   adapt for python 2) (you will find [Github Actions](https://docs.github.com/en/actions) very handy for
+5. Do your code... (**remember the code must run on python 3.6+
+   and be OS independent**, you will find [Github Actions](https://docs.github.com/en/actions) very handy for
    testing with this requirement!)
 6. Write tests for your code using `nose` and put then in the directory `isbnlib/test`
 7. Pass **all tests** and with **coverage > 90%**.
