@@ -2,7 +2,7 @@ bandit==1.7.1
 coverage==6.2
 flake8==4.0.1
 flake8-blind-except==0.2.0
-flake8-bugbear==21.11.28
+flake8-bugbear==21.11.29
 flake8-commas==2.1.0
 flake8-comprehensions==3.7.0
 flake8-deprecated==1.3
