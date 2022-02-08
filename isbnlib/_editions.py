@@ -10,9 +10,6 @@ from ._thinged import query as _ted
 from ._wikied import query as _wiki
 from .dev import cache, vias
 
-# Replace 'openl' by 'goob' -- Issue #87
-
-
 PROVIDERS = ('any', 'merge', 'openl', 'thingl', 'wiki')
 LOGGER = logging.getLogger(__name__)
 
