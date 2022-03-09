@@ -3,7 +3,7 @@
 # pylint:skip-file
 # isort:skip_file
 # fmt:off
-# Produced by 'isbntools-dev'@'2022-03-09T09:27:05+00:00'
+# Produced by 'isbntools-dev'@'2022-03-09T10:25:03+00:00'
 
 #                   WARNING
 # THIS FILE WAS PRODUCED BY TOOLS THAT AUTOMATICALLY
