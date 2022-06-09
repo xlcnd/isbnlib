@@ -17,7 +17,7 @@ def msk(isbn, separator='-'):
     ISBN-10 identifiers: country-publisher-title-check
 
     Used the iterative version of the `sliding-window` algorithm.
-    Not pretty, but fast! Lines 42-52 implement the search loop:
+    Not pretty, but fast! Lines 45-52 implement the search loop:
       O(n) for n (number of keys),
       with data structure 'ranges' (see data4mask.py)
     """
