@@ -2,4 +2,5 @@
 
 ## What's new?
 
-1. TENTATIVE...
+1. Updated data for new issued books.
+2. Add new values to some tests.
