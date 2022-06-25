@@ -29,7 +29,7 @@ def test_editions_thingl():
 
 def test_editions_wiki():
     """Test the 'wiki editions' service."""
-    assert_equals(len(editions('9780375869020', service='wiki')) > 5, True)
+    assert_equals(len(editions('9780440414803', service='wiki')) > 5, True)
 
 
 def test_editions_any():
