@@ -130,10 +130,10 @@ def test_get_isbnlike():
     assert_equals(len(get_isbnlike(ISBNs, 'loose')), 81)
     assert_equals(get_isbnlike(ISBNs, 'e'), [])
     # issue 60 and 103
-    # TODO add test!
+    # TODO add test...
     # issue 107
-    assert_equals(get_isbnlike('978-0-9790173-4-6', 'normal')[0], '978-0-9790173-4-6'))
-    assert_equals(get_isbnlike('978-9788461784', 'normal')[0], '9788461784'))
+    assert_equals(get_isbnlike('978-0-9790173-4-6', 'normal')[0], '978-0-9790173-4-6')
+    assert_equals(get_isbnlike('978-9788461784', 'normal')[0], '9788461784')
 
 
 def test_get_canonical_isbn():
