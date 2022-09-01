@@ -196,6 +196,7 @@ def get_isbnlike(text, level='normal'):
 
     """
     if level == 'normal':  # pragma: no cover
+        # see issues: #60, #103 and #107
         text = text.replace('-97', '- 97')
         isbnlike = RE_NORMAL
     elif level == 'strict':
