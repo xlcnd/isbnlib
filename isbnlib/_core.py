@@ -39,7 +39,8 @@ RE_STRICT = re.compile(
     re.I | re.M | re.S,
 )
 RE_NORMAL = re.compile(
-    r'97[89]{1}(?:-?\d){10}|\d{9}[0-9X]{1}|'
+    r'97[89]{1}-?[0-9]{10}|'
+    r'97[89]{1}-[-0-9]{13}|\d{9}[0-9X]{1}|'
     r'[-0-9X]{10,16}',
     re.I | re.M | re.S,
 )
@@ -197,7 +198,7 @@ def get_isbnlike(text, level='normal'):
     """
     if level == 'normal':  # pragma: no cover
         # see issues: #60, #103 and #107
-        text = text.replace('-97', '- 97')
+        #text = text.replace('-97', '- 97')
         isbnlike = RE_NORMAL
     elif level == 'strict':
         isbnlike = RE_STRICT

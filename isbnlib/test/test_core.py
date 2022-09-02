@@ -124,8 +124,8 @@ def test_notisbn():
 
 def test_get_isbnlike():
     """Test the extraction of ISBN-like strings."""
-    assert_equals(len(get_isbnlike(ISBNs)), 78)
-    assert_equals(len(get_isbnlike(ISBNs, 'normal')), 78)
+    assert_equals(len(get_isbnlike(ISBNs)), 79)
+    assert_equals(len(get_isbnlike(ISBNs, 'normal')), 79)
     assert_equals(len(get_isbnlike(ISBNs, 'strict')), 69)
     assert_equals(len(get_isbnlike(ISBNs, 'loose')), 81)
     assert_equals(get_isbnlike(ISBNs, 'e'), [])
