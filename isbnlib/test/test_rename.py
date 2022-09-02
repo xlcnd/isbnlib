@@ -32,7 +32,8 @@ F3 = '9781852330729.pdf'
 F4 = '9787500117018.pdf'
 F5 = '9789727576807.pdf'
 
-F6 = 'Campos2011_Emergências obstétricas_9789727576807.pdf'
+# issue #60 (related with issue #107)
+F6 = 'Campos2011_Emergências obstétricas_978-9727576807.pdf'
 # F7 = 'Knuth2008_The Art Of Computer Programming_9780321534965.pdf'
 # F7a = 'Knuth2008_Introduction To Combinatorial Algorithms And Boolean Functions_9780321534965.pdf'
 F7 = 'Plato1997_Complete Works_9780872203495.pdf'
