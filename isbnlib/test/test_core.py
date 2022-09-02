@@ -133,7 +133,7 @@ def test_get_isbnlike():
     # TODO add test...
     # issue 107
     assert_equals(get_isbnlike('978-0-9790173-4-6', 'normal')[0], '978-0-9790173-4-6')
-    assert_equals(get_isbnlike('978-9788461784', 'normal')[0], '9788461784')
+    assert_equals(get_isbnlike('978-9788461784', 'normal')[0], '978-9788461784')
 
 
 def test_get_canonical_isbn():
