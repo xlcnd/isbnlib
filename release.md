@@ -4,3 +4,4 @@
 
 1. Updated data for new issued books.
 2. Add new values to some tests.
+3. Fix issue #107.
