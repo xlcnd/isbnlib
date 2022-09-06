@@ -2,13 +2,11 @@
 # flake8: noqa
 # pylint: skip-file
 """
-nose tests
+tests
 """
 
 import os
 import platform
-
-from nose.tools import assert_equals
 
 from ..dev import vias
 
@@ -28,7 +26,7 @@ def test_vias_serial():
     data1 = results.get('task1', 0)
     data2 = results.get('task2', 0)
     data = data1 + data2
-    assert_equals(data, 5 * 5 + 5 + 5)
+    assert data == 5 * 5 + 5 + 5
 
 
 def test_vias_parallel():
@@ -38,7 +36,7 @@ def test_vias_parallel():
     data1 = results.get('task1', 0)
     data2 = results.get('task2', 0)
     data = data1 + data2
-    assert_equals(data, 5 * 5 + 5 + 5)
+    assert data == 5 * 5 + 5 + 5
 
 
 def test_vias_multi():
@@ -53,4 +51,4 @@ def test_vias_multi():
     data1 = results.get('task1', 0)
     data2 = results.get('task2', 0)
     data = data1 + data2
-    assert_equals(data, 5 * 5 + 5 + 5)
+    assert data == 5 * 5 + 5 + 5

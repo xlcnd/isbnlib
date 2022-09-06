@@ -10,8 +10,9 @@ jobs:
   basic-tests-linux:
     runs-on: ubuntu-latest
     strategy:
+      fail-fast: false
       matrix:
-        python-version: [3.6, 3.9]
+        python-version: ['3.6', '3.8', '3.10', '3.11-dev']
     env:
       GITHUB_OS: linux
     steps:
@@ -31,16 +32,17 @@ jobs:
         flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
         # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
         flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
-    - name: Test with nose
+    - name: Test with pytest
       run: |
-        pip install nose coverage
-        nosetests -v --with-coverage --cover-package=isbnlib --cover-min-percentage=90
+        pip install pytest coverage
+        pytest --ignore=isbnlib/test/test_openl.py
+        # pytest -v --with-coverage --cover-package=isbnlib --cover-min-percentage=90
 
   basic-tests-macos:
     runs-on: macos-latest
     strategy:
       matrix:
-        python-version: [3.8]
+        python-version: [3.x]
     env:
       GITHUB_OS: macos
     steps:
@@ -53,16 +55,17 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         pip install -r requirements.txt
-    - name: Test with nose
+    - name: Test with pytest
       run: |
-        pip install nose coverage
-        nosetests -v --with-coverage --cover-package=isbnlib --cover-min-percentage=90
+        pip install pytest coverage
+        pytest --ignore=isbnlib/test/test_openl.py
+        # pytest -v --with-coverage --cover-package=isbnlib --cover-min-percentage=90
 
   basic-tests-windows:
     runs-on: windows-latest
     strategy:
       matrix:
-        python-version: [3.8]
+        python-version: [3.x]
     env:
       GITHUB_OS: windows
     steps:
@@ -75,7 +78,8 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         pip install -r requirements.txt
-    - name: Test with nose
+    - name: Test with pytest
       run: |
-        pip install nose coverage
-        nosetests -v --with-coverage --cover-package=isbnlib --cover-min-percentage=30
+        pip install pytest coverage
+        pytest --ignore=isbnlib/test/test_openl.py
+        # pytest -v --with-coverage --cover-package=isbnlib --cover-min-percentage=30

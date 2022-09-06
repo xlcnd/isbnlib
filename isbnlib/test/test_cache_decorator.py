@@ -5,8 +5,6 @@
 
 # TODO add more tests for other operations
 
-from nose.tools import assert_equals
-
 from .. import classify, meta, registry
 
 cache = registry.metadata_cache
@@ -23,13 +21,11 @@ def teardown_module():
 
 def test_cache_meta():
     """Test '@cache' meta."""
-    assert_equals(
-        len(repr(cache.get("query('9780375869020', 'default'){}"))) > 100, True,
-    )
-    assert_equals(
-        len(repr(cache.get("query('9780375869020', 'default'){}"))),
-        len(repr(cache["query('9780375869020', 'default'){}"])),
-    )
+    assert (
+        (len(repr(cache.get("query('9780375869020', 'default'){}"))) > 100) == True)
+    assert (
+        len(repr(cache.get("query('9780375869020', 'default'){}"))) ==
+        len(repr(cache["query('9780375869020', 'default'){}"])))
 
 
 # def test_cache_classify():

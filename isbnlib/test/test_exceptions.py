@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 # flake8: noqa
 # pylint: skip-file
-"""nose tests for Exceptions."""
+"""tests for Exceptions."""
 
-from nose.tools import assert_equals, assert_raises
+import pytest
 
 from .. import ISBNLibException
 from .._ext import meta
@@ -11,7 +11,8 @@ from .._ext import meta
 
 def test_catchall():
     """Test the 'catch all' exception (ISBNLibException)."""
-    assert_raises(Exception, meta, '9781849692343', 'goob', None)
+    with pytest.raises(Exception):
+        meta('9781849692343', 'goob', None)
 
     def f1():
         try:
@@ -19,7 +20,7 @@ def test_catchall():
         except ISBNLibException as ex:
             return str(ex.message)
 
-    assert_equals(f1(), '(9781849692343) is not a valid ISBN')
+    assert f1() == '(9781849692343) is not a valid ISBN'
 
     def f2():
         try:
@@ -27,7 +28,7 @@ def test_catchall():
         except ISBNLibException as ex:
             return str(ex.message)
 
-    assert_equals(f2(), '(xxx) is not a recognized service')
+    assert f2() == '(xxx) is not a recognized service'
 
 
 # NOTE the tests for other Exceptions are spread in the other tests
