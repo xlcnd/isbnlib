@@ -42,7 +42,7 @@ jobs:
     runs-on: macos-latest
     strategy:
       matrix:
-        python-version: [3.x]
+        python-version: [3.8]
     env:
       GITHUB_OS: macos
     steps:
