@@ -35,7 +35,7 @@ jobs:
     - name: Test with pytest
       run: |
         pip install pytest coverage
-        pytest --ignore=isbnlib/test/test_openl.py
+        pytest --ignore=isbnlib/test/test_editions.py --ignore=isbnlib/test/test_openl.py
         # pytest -v --with-coverage --cover-package=isbnlib --cover-min-percentage=90
 
   basic-tests-macos:
@@ -58,7 +58,7 @@ jobs:
     - name: Test with pytest
       run: |
         pip install pytest coverage
-        pytest --ignore=isbnlib/test/test_openl.py
+        pytest --ignore=isbnlib/test/test_editions.py --ignore=isbnlib/test/test_openl.py
         # pytest -v --with-coverage --cover-package=isbnlib --cover-min-percentage=90
 
   basic-tests-windows:
@@ -81,5 +81,5 @@ jobs:
     - name: Test with pytest
       run: |
         pip install pytest coverage
-        pytest --ignore=isbnlib/test/test_openl.py
+        pytest --ignore=isbnlib/test/test_editions.py --ignore=isbnlib/test/test_openl.py
         # pytest -v --with-coverage --cover-package=isbnlib --cover-min-percentage=30
