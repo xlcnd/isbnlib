@@ -2,23 +2,29 @@
 # flake8: noqa
 # pylint: skip-file
 
-from nose.tools import assert_equals, assert_raises
+import pytest
 
 from ..registry import setdefaultbibformatter, setdefaultservice
 
 
-# nose tests
+# tests
 def test_setdefaultbibformatter():
     """Test setdefaultbibformatter."""
-    assert_equals(setdefaultbibformatter('json'), None)
-    assert_raises(Exception, setdefaultbibformatter, 'default')
-    assert_raises(Exception, setdefaultbibformatter, '')
-    assert_raises(Exception, setdefaultbibformatter, 'xxx')
+    assert setdefaultbibformatter('json') == None
+    with pytest.raises(Exception):
+        setdefaultbibformatter('default')
+    with pytest.raises(Exception):
+        setdefaultbibformatter('')
+    with pytest.raises(Exception):
+        setdefaultbibformatter('xxx')
 
 
 def test_setdefaultservice():
     """Test setdefaultservice."""
-    assert_equals(setdefaultservice('goob'), None)
-    assert_raises(Exception, setdefaultservice, 'default')
-    assert_raises(Exception, setdefaultservice, '')
-    assert_raises(Exception, setdefaultservice, 'xxx')
+    assert setdefaultservice('goob') == None
+    with pytest.raises(Exception):
+        setdefaultservice('default')
+    with pytest.raises(Exception):
+        setdefaultservice('')
+    with pytest.raises(Exception):
+        setdefaultservice('xxx')

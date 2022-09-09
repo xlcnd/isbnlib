@@ -9,55 +9,55 @@ except:  # for py2
 
     timer = timeit.default_timer
 
-from nose.tools import assert_equals, raises
+import pytest
 
 from .._exceptions import NotRecognizedServiceError, NotValidISBNError
 from .._ext import editions
 
-# nose tests
+# tests
 
 
 def test_editions_openl():
     """Test the 'openl editions' service."""
-    assert_equals(len(editions('9780151446476', service='openl')) > 2, True)
+    assert len(editions('9780151446476', service='openl')) > 2 == True
 
 
 def test_editions_thingl():
     """Test the 'thingl editions' service."""
-    assert_equals(len(editions('9780151446476', service='thingl')) > 2, True)
+    assert (len(editions('9780151446476', service='thingl')) > 2) == True
 
 
 def test_editions_wiki():
     """Test the 'wiki editions' service."""
-    assert_equals(len(editions('9780440414803', service='wiki')) > 5, True)
+    assert (len(editions('9780440414803', service='wiki')) > 5) == True
 
 
 def test_editions_any():
     """Test the 'any editions' service."""
-    assert_equals(len(editions('9780151446476', service='any')) > 1, True)
+    assert (len(editions('9780151446476', service='any')) > 1) == True
 
 
 def test_editions_merge():
     """Test the 'merge editions' service."""
-    assert_equals(len(editions('9780151446476', service='merge')) > 2, True)
+    assert (len(editions('9780151446476', service='merge')) > 2) == True
 
 
-@raises(NotValidISBNError)
 def test_editions_NotValidISBNError():
     """Test the 'editions' service error detection (NotValidISBNError)."""
-    editions('978')
+    with pytest.raises(NotValidISBNError):
+        editions('978')
 
 
-@raises(NotRecognizedServiceError)
 def test_editions_NotRecognizedServiceError():
     """Test the 'editions' service error detection (NotRecognizedServiceError)."""
-    editions('9780156001311', service='xxx')
+    with pytest.raises(NotRecognizedServiceError):
+        editions('9780156001311', service='xxx')
 
 
 def test_cache():
     """Test the 'editions' cache."""
     t = timer()
-    assert_equals(len(editions('9780151446476', service='merge')) > 19, True)
+    assert (len(editions('9780151446476', service='merge')) > 19) == True
     elapsed_time = timer() - t
     millis = int(elapsed_time * 1000)
-    assert_equals(millis < 100, True)
+    assert (millis < 100) == True

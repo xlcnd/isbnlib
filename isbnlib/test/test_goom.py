@@ -2,15 +2,13 @@
 # flake8: noqa
 # pylint: skip-file
 """
-nose tests
+tests
 """
-
-from nose.tools import assert_equals
 
 from .. import _goom as goom
 
 
 def test_goom():
     """Test the Google's Multiple Books service."""
-    assert_equals(len(repr(goom.query('the old man and the sea'))) > 500, True)
-    assert_equals(len(repr(goom.query('plato republic'))) > 500, True)
+    assert (len(repr(goom.query('the old man and the sea'))) > 500) == True
+    assert (len(repr(goom.query('plato republic'))) > 500) == True
