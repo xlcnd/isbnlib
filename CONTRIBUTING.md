@@ -23,7 +23,7 @@ adventure in open-source.
 6. Write tests for your code using `pytest` and put then in the directory `isbnlib/test`
 7. Pass **all tests** and with **coverage > 90%**.
    Check the coverage locally with the command
-   `pytest --with-coverage --cover-package=isbnlib`.
+   `pytest -v --cov-config=setup.cfg isbnlib/test`.
 8. **Check if all requirements are fulfilled**!
 9. **Push** your local changes to GitHub and make there a **pull request**
    ([help](https://help.github.com/articles/using-pull-requests/))
