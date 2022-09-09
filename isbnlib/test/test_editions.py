@@ -19,7 +19,7 @@ from .._ext import editions
 
 def test_editions_openl():
     """Test the 'openl editions' service."""
-    assert len(editions('9780151446476', service='openl')) > 2 == True
+    assert (len(editions('9780151446476', service='openl')) >= 1) == True
 
 
 def test_editions_thingl():
