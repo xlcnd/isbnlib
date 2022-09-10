@@ -35,7 +35,7 @@ jobs:
     - name: Test with pytest
       run: |
         pip install pytest coverage
-        pytest -v --cov-config=setup.cfg isbnlib/test
+        pytest -v --cov-config=./setup.cfg ./isbnlib/test
 
   basic-tests-macos:
     runs-on: macos-latest
@@ -57,7 +57,7 @@ jobs:
     - name: Test with pytest
       run: |
         pip install pytest coverage
-        pytest -v --cov-config=setup.cfg isbnlib/test
+        pytest -v --cov-config=./setup.cfg ./isbnlib/test
 
   basic-tests-windows:
     runs-on: windows-latest
@@ -79,4 +79,4 @@ jobs:
     - name: Test with pytest
       run: |
         pip install pytest coverage
-        pytest pytest -v --cov-config=setup.cfg isbnlib/test
+        pytest -v --cov-config=./setup.cfg ./isbnlib/test
