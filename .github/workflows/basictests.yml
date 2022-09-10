@@ -34,7 +34,7 @@ jobs:
         flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
     - name: Test with pytest
       run: |
-        pip install wheel pytest coverage
+        pip install wheel pytest coverage pytest-cov
         pytest --cov-config=setup.cfg isbnlib/test
 
   basic-tests-macos:
@@ -56,7 +56,7 @@ jobs:
         pip install -r requirements.txt
     - name: Test with pytest
       run: |
-        pip install pytest coverage
+        pip install wheel pytest coverage pytest-cov
         pytest -v --cov-config=./setup.cfg ./isbnlib/test
 
   basic-tests-windows:
@@ -78,5 +78,5 @@ jobs:
         pip install -r requirements.txt
     - name: Test with pytest
       run: |
-        pip install pytest coverage
+        pip install wheel pytest coverage pytest-cov
         pytest -v --cov-config=./setup.cfg ./isbnlib/test
