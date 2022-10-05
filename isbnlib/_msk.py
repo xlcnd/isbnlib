@@ -54,7 +54,7 @@ def msk(isbn, separator='-'):
         buf = ib[igi:cur + 1]
         group = group + buf[-1:]  # <-- HACK!
 
-    if idx:
+    if idx is not None:  # <-- issue #114
         if isbn10:
             group = group[4:]
             check = check10
