@@ -10,14 +10,15 @@ jobs:
   basic-tests-linux:
     runs-on: ubuntu-latest
     strategy:
+      fail-fast: false
       matrix:
-        python-version: [3.6, 3.9]
+        python-version: ['3.6', '3.8', '3.10', '3.11-dev', 'pypy3.9']
     env:
       GITHUB_OS: linux
     steps:
-    - uses: actions/checkout@v2.4.0
+    - uses: actions/checkout@v3
     - name: Set up Python ${{ matrix.python-version }}
-      uses: actions/setup-python@v2.3.2
+      uses: actions/setup-python@v4
       with:
         python-version: ${{ matrix.python-version }}
     - name: Install dependencies
@@ -31,10 +32,10 @@ jobs:
         flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
         # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
         flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
-    - name: Test with nose
+    - name: Test with pytest
       run: |
-        pip install nose coverage
-        nosetests -v --with-coverage --cover-package=isbnlib --cover-min-percentage=90
+        pip install wheel pytest coverage pytest-cov
+        pytest --cov-config=setup.cfg isbnlib/test
 
   basic-tests-macos:
     runs-on: macos-latest
@@ -44,38 +45,38 @@ jobs:
     env:
       GITHUB_OS: macos
     steps:
-    - uses: actions/checkout@v2.4.0
+    - uses: actions/checkout@v3
     - name: Set up Python ${{ matrix.python-version }}
-      uses: actions/setup-python@v2.3.2
+      uses: actions/setup-python@v4
       with:
         python-version: ${{ matrix.python-version }}
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
         pip install -r requirements.txt
-    - name: Test with nose
+    - name: Test with pytest
       run: |
-        pip install nose coverage
-        nosetests -v --with-coverage --cover-package=isbnlib --cover-min-percentage=90
+        pip install wheel pytest coverage pytest-cov
+        pytest -v --cov-config=./setup.cfg ./isbnlib/test
 
   basic-tests-windows:
     runs-on: windows-latest
     strategy:
       matrix:
-        python-version: [3.8]
+        python-version: [3.x]
     env:
       GITHUB_OS: windows
     steps:
-    - uses: actions/checkout@v2.4.0
+    - uses: actions/checkout@v3
     - name: Set up Python ${{ matrix.python-version }}
-      uses: actions/setup-python@v2.3.2
+      uses: actions/setup-python@v4
       with:
         python-version: ${{ matrix.python-version }}
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
         pip install -r requirements.txt
-    - name: Test with nose
+    - name: Test with pytest
       run: |
-        pip install nose coverage
-        nosetests -v --with-coverage --cover-package=isbnlib --cover-min-percentage=30
+        pip install wheel pytest coverage pytest-cov
+        pytest -v --cov-config=./setup.cfg ./isbnlib/test

@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 # flake8: noqa
 # pylint: skip-file
-"""nose tests"""
+"""tests"""
 
-from nose.tools import assert_equals, assert_raises
+import pytest
 
 from ..dev import Metadata, stdmeta
 from ..dev._bouth23 import u
@@ -44,10 +44,12 @@ def test_stdmeta():
         'Language': u('en'),
         'Authors': u('author1'),
     }
-    assert_equals(stdmeta(r), R)
-    assert_equals(stdmeta(R), R)
-    assert_raises(Exception, stdmeta, A)
-    assert_raises(Exception, stdmeta, B)
+    assert stdmeta(r) == R
+    assert stdmeta(R) == R
+    with pytest.raises(Exception):
+        stdmeta(A)
+    with pytest.raises(Exception):
+        stdmeta(B)
 
 
 def test_metaclass():
@@ -61,7 +63,7 @@ def test_metaclass():
         'Authors': [u('author1. mba'), u('author2')],
     }
     dt = Metadata(R)
-    assert_equals(dt.value, R)
+    assert dt.value == R
 
 
 def test_metrge():
@@ -84,4 +86,4 @@ def test_metrge():
     }
     dt = Metadata(R)
     dt.merge(T)
-    assert_equals(dt.value, T)
+    assert dt.value == T

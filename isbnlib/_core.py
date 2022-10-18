@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 # isbnlib - tools for extracting, cleaning and transforming ISBNs
-# Copyright (C) 2014-2021 Alexandre Lima Conde
+# Copyright (C) 2014-2022 Alexandre Lima Conde
 # SPDX-License-Identifier: LGPL-3.0-or-later
 
 # This program is free software: you can redistribute it and/or modify
@@ -39,7 +39,9 @@ RE_STRICT = re.compile(
     re.I | re.M | re.S,
 )
 RE_NORMAL = re.compile(
-    r'97[89]{1}(?:-?\d){10}|\d{9}[0-9X]{1}|'
+    r'97[89]{1}-?[0-9]{10}|'
+    r'97[89]{1}-[-0-9]{13}|'
+    r'\d{9}[0-9X]{1}|'
     r'[-0-9X]{10,16}',
     re.I | re.M | re.S,
 )
@@ -196,7 +198,6 @@ def get_isbnlike(text, level='normal'):
 
     """
     if level == 'normal':  # pragma: no cover
-        text = text.replace('-97', '- 97')
         isbnlike = RE_NORMAL
     elif level == 'strict':
         isbnlike = RE_STRICT

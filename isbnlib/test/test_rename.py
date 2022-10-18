@@ -2,13 +2,11 @@
 # flake8: noqa
 # pylint: skip-file
 """
-nose tests
+tests
 """
 
 import locale
 import os
-
-from nose.tools import assert_equals
 
 from .._ext import ren
 from ..dev._bouth23 import b2u3
@@ -32,7 +30,8 @@ F3 = '9781852330729.pdf'
 F4 = '9787500117018.pdf'
 F5 = '9789727576807.pdf'
 
-F6 = 'Campos2011_Emergências obstétricas_9789727576807.pdf'
+# issue #60 (related with issue #107)
+F6 = 'Campos2011_Emergências obstétricas_978-9727576807.pdf'
 # F7 = 'Knuth2008_The Art Of Computer Programming_9780321534965.pdf'
 # F7a = 'Knuth2008_Introduction To Combinatorial Algorithms And Boolean Functions_9780321534965.pdf'
 F7 = 'Plato1997_Complete Works_9780872203495.pdf'
@@ -80,8 +79,8 @@ def teardown_module():
 def test_ren():
     """Test 'high level' ren function."""
     ren(F1)
-    assert_equals(F7 in cwdfiles('*.pdf'), True)
-    # assert_equals(F7 in cwdfiles("*.pdf") or F7a in cwdfiles("*.pdf"), True)
+    assert (F7 in cwdfiles('*.pdf')) == True
+    # assert F7 in cwdfiles("*.pdf") or F7a in cwdfiles("*.pdf") is True
     # create_files([F5])
     # ren(F5)
-    # assert_equals('Campos2011_Emergências obstétricas_9789727576807.pdf' in cwdfiles("*.pdf"), True)
+    # assert 'Campos2011_Emergências obstétricas_9789727576807.pdf' in cwdfiles("*.pdf") is True

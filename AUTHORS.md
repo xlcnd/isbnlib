@@ -10,6 +10,8 @@ xlcnd <xlcnd@outlook.com>
 With fine contributions from
 ----------------------------
 
+Alex Ioannidis
+
 Christian Clauss
 
 Daniel Himmelstein
