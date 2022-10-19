@@ -5,7 +5,6 @@
 tests
 """
 
-import pytest
 
 from .._metadata import query
 
