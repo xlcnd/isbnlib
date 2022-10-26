@@ -9,4 +9,4 @@ jobs:
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
-      - uses: wip/action@v1.1.0
+      - uses: wip/action@v1.1.1
