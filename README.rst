@@ -21,6 +21,22 @@ useful methods and functions to validate, clean, transform, hyphenate and
 get metadata for ISBN strings.
 
 
+Install
+-------
+
+From the command line, enter (in some cases you have to precede the
+command with ``sudo``):
+
+
+.. code-block:: bash
+
+    $ pip install isbnlib
+
+
+If you use linux systems, you can install using your distribution package
+manager (all major distributions have packages ``python-isbnlib``
+and ``python3-isbnlib``), however (usually) are **very old and don't work well anymore**!
+
 ISBN
 ----
 
@@ -138,27 +154,9 @@ Main Functions
 See files test_core_ and test_ext_ for **a lot of examples**.
 
 
-Install
-=======
-
-
-From the command line, enter (in some cases you have to precede the
-command with ``sudo``):
-
-
-.. code-block:: bash
-
-    $ pip install isbnlib
-
-
-If you use linux systems, you can install using your distribution package
-manager (all major distributions have packages ``python-isbnlib``
-and ``python3-isbnlib``), however (usually) are **very old and don't work well anymore**!
-
-
 
 Plugins
-=======
+-------
 
 You can extend the functionality of the library by adding plugins (for now, just
 new metadata providers or new bibliographic formatters).
