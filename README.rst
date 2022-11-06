@@ -156,6 +156,18 @@ manager (all major distributions have packages ``python-isbnlib``
 and ``python3-isbnlib``), however (usually) are **very old and don't work well anymore**!
 
 
+Plugins
+-------
+
+You can extend the functionality of the library by adding plugins (for now, just
+new metadata providers or new bibliographic formatters).
+
+For available plugins check_ here.
+
+After install, your plugin will blend transparently in ``isbnlib`` (you will have more options in ``meta`` and ``bibformatters``).
+
+If you want to develop a plugin, start with this template_ and follow the instructions there. For inspiration take a look at goob_.
+
 
 For Devs
 ========
@@ -245,21 +257,6 @@ A minimal script would be:
     isbn = "9780446310789"
     bibtex = bibformatters["bibtex"]
     print(bibtex(meta(isbn, SERVICE)))
-
-
-
-
-Plugins
--------
-
-You can extend the functionality of the library by adding plugins (for now, just
-new metadata providers or new bibliographic formatters).
-
-For available plugins check_ here.
-
-After install, your plugin will blend transparently in ``isbnlib`` (you will have more options in ``meta`` and ``bibformatters``).
-
-If you want to develop a plugin, start with this template_ and follow the instructions there. For inspiration take a look at goob_.
 
 
 
