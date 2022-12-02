@@ -217,7 +217,7 @@ namespace ``isbnlib.dev``, namely:
   You can use ``vias.serial`` to make serial calls and
   ``vias.multi`` to use several cores. The default is ``vias.serial``.
 
-The exceptions raised by these methods can all be caught using ``ISBNLibDevException``.
+The exceptions raised by these methods can all be caught using ``ISBNLibDevException`` (or, more general, ``ISBNLibException``).
 You **shouldn't raise** this exception in your code, only raise the specific exceptions
 exposed in ``isbnlib.dev`` whose name ends in Error.
 
