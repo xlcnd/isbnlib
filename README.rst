@@ -416,4 +416,4 @@ stackoverflow_ .
 
 .. _sbn: https://github.com/arangb/isbnlib-sbn/blob/main/isbnlib_sbn/_sbn.py
 
-.. _porbase: https://github.com/xlcnd/isbnlib-bnf/blob/dev/isbnlib_porbase/_porbase.py
+.. _porbase: https://github.com/xlcnd/isbnlib-porbase/blob/dev/isbnlib_porbase/_porbase.py
