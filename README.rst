@@ -328,7 +328,8 @@ D. You want to build a **plugin** or use **isbnlib.dev** in your code:
    and follow the instructions there. For inspiration take a look at goob_.
 
    Most of the public bibliographic catalog services return data in **SRU** or **Unimarc** format. It is very easy
-   to write a customer **plugin** for these services, just use porbase_ (SRU) or sbn_ (Unimarc) as templates.
+   to write a customer **plugin** for these services, just use porbase_ (SRU) or sbn_ (Unimarc) as templates
+   and consult this project_.
 
 
 
@@ -417,3 +418,5 @@ stackoverflow_ .
 .. _sbn: https://github.com/arangb/isbnlib-sbn/blob/main/isbnlib_sbn/_sbn.py
 
 .. _porbase: https://github.com/xlcnd/isbnlib-porbase/blob/dev/isbnlib_porbase/_porbase.py
+
+.. _project: https://github.com/xlcnd/isbnlib/projects/2
