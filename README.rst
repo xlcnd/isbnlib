@@ -327,6 +327,9 @@ D. You want to build a **plugin** or use **isbnlib.dev** in your code:
    You should study very carefully the **public** methods in ``dir(isbnlib.dev)``, start with this template_
    and follow the instructions there. For inspiration take a look at goob_.
 
+   Most of the public bibliographic catalog services return data in `SRU` or `Unimarc` format. It is very easy
+   to write a customer **plugin** for these services, just use bnf_ (SRU) or sbn_ (Unimarc) as templates.
+
 
 
 Caveats
@@ -410,3 +413,7 @@ stackoverflow_ .
 .. _OCLC: http://classify.oclc.org/classify2/
 
 .. _this: https://bisg.org/news/479346/New-979-ISBN-Prefixes-Expected-in-2020.htm
+
+.. _sbn: https://github.com/arangb/isbnlib-sbn/blob/main/isbnlib_sbn/_sbn.py
+
+.. _bnf: https://github.com/xlcnd/isbnlib-bnf/blob/dev/isbnlib_bnf/_bnf.py
