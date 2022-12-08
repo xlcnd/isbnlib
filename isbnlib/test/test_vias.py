@@ -44,10 +44,10 @@ def test_vias_multi():
     # Is NOT allowed in Windows & macOS!
     if os.getenv('GITHUB_OS', '') in ('windows', 'macOS'):
         assert True
-        return True
+        return
     if platform.system() in ('Windows', 'Darwin'):
         assert True
-        return True
+        return
     named_tasks = (('task1', task1), ('task2', task2))
     results = vias.multi(named_tasks, 5)
     data1 = results.get('task1', 0)
