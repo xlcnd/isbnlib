@@ -10,7 +10,7 @@ from .dev.webquery import query as wquery
 
 UA = 'isbnlib (gzip)'
 SERVICE_URL = (
-    'https://www.googleapis.com/books/v1/volumes?q=isbn:{isbn}'
+    'https://www.googleapis.com/books/v1/volumes?q={isbn}'
     '&fields=items/volumeInfo(title,subtitle,authors,publisher,publishedDate,'
     'language,industryIdentifiers,description,imageLinks)&maxResults=1')
 LOGGER = logging.getLogger(__name__)
@@ -69,5 +69,10 @@ def _records(isbn, data):
 
 def query(isbn):
     """Query the Google Books (JSON API v1) service for metadata."""
-    data = wquery(SERVICE_URL.format(isbn=isbn), user_agent=UA)
+    data = wquery(SERVICE_URL.format(isbn='isbn:' + isbn), user_agent=UA)
+    if not data:
+        # some times this work (see #119)
+        data = wquery(SERVICE_URL.format(isbn=isbn), user_agent=UA)
+    if not data:
+        return {}
     return _records(isbn, data)
