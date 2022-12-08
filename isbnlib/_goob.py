@@ -74,5 +74,6 @@ def query(isbn):
         # some times this work (see #119)
         data = wquery(SERVICE_URL.format(isbn=isbn), user_agent=UA)
     if not data:
+        LOGGER.debug('No data from "goob" for isbn %s', isbn)
         return {}
     return _records(isbn, data)
