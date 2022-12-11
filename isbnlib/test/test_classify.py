@@ -3,13 +3,12 @@
 # pylint: skip-file
 """tests for classifiers."""
 
+
 from .._oclc import query_classify as query
 
 # this is a slow service
-
 q1 = query('9781786330444') or {}
 q2 = query('9780425284629') or {}
-
 
 
 def test_query():
