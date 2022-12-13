@@ -3,12 +3,16 @@
 # pylint: skip-file
 """tests for classifiers."""
 
+from random import randint
+from time import sleep
 
 from .._oclc import query_classify as query
 
 # this is a slow service
 q1 = query('9781786330444') or {}
+sleep(randint(10, 30))
 q2 = query('9780425284629') or {}
+sleep(randint(10, 30))
 
 
 def test_query():
@@ -16,11 +20,13 @@ def test_query():
     assert (len(repr(query('9782253112105'))) > 10) == True
     assert (len(repr(q1)) > 10) == True
     assert (len(repr(q2)) > 10) == True
+    sleep(randint(10, 30))
 
 
 def test_query_no_data():
     """Test the query of classifiers (oclc.org) with 'low level' queries (no data)."""
     assert (len(repr(query('9781849692341'))) == 2) == True
+    sleep(randint(10, 30))
     assert (len(repr(query('9781849692343'))) == 2) == True
 
 
