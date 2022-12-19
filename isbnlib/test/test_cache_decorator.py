@@ -12,7 +12,7 @@ cache = registry.metadata_cache
 
 def setup_module():
     meta('9780375869020')  #  <-- set
-    classify('9781118241257')  #  <-- set
+#    classify('9781118241257')  #  <-- set
 
 
 def teardown_module():
