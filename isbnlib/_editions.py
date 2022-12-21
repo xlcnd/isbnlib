@@ -52,6 +52,7 @@ def _fake_provider_merge(isbn):
 @cache
 def get_editions(isbn, service):
     """Select the provider."""
+    eds = []
     if service == 'merge':
         eds = _fake_provider_merge(isbn)
     if service == 'any':
