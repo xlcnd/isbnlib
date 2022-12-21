@@ -25,14 +25,13 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         pip install -r requirements.txt
-    - name: Lint the code (with flake8 and pylint)
+    - name: Lint the code with flake8
       run: |
         pip install flake8 pylint
         # stop the build if there are Python syntax errors or undefined names
         flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
         # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
         flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
-        pylint isbnlib/
     - name: Sleep for 1-30 seconds
       run: SECONDS=$[ ($RANDOM % 30) + 1 ];echo $SECONDS;sleep "$SECONDS"s
       shell: bash
