@@ -46,7 +46,7 @@ RE_NORMAL = re.compile(
     re.I | re.M | re.S,
 )
 RE_LOOSE = re.compile(r'[- 0-9X]{10,19}', re.I | re.M | re.S)
-ISBN13_PREFIX = '978'
+ISBN13_PREFIX = '978'  # just the prefix with isbn-10
 LEGAL = '0123456789xXisbnISBN- '
 
 
