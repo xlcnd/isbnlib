@@ -3,7 +3,7 @@
 # isort:skip_file
 
 # isbnlib -- tools for extracting, cleaning and transforming ISBNs
-# Copyright (C) 2014-2022 Alexandre Lima Conde
+# Copyright (C) 2014-2023 Alexandre Lima Conde
 # SPDX-License-Identifier: LGPL-3.0-or-later
 
 # This program is free software: you can redistribute it and/or modify
@@ -62,6 +62,7 @@ PYPI_CLASSIFIERS = [
     'Programming Language :: Python :: 3.8',
     'Programming Language :: Python :: 3.9',
     'Programming Language :: Python :: 3.10',
+    'Programming Language :: Python :: 3.11',
     'License :: OSI Approved :: GNU Lesser General Public License v3 (LGPLv3)',
     'Operating System :: OS Independent',
     'Development Status :: 5 - Production/Stable',
