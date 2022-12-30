@@ -17,11 +17,8 @@ LOGGER = _logging.getLogger(__name__)
 class Isbn(object):
     """Class for ISBN objects."""
     def __init__(self, isbnlike):
-        try:
-            self.ean13 = EAN13(isbnlike)
-            if not self.ean13:
-                raise NotValidISBNError(isbnlike)
-        except Exception:
+        self.ean13 = EAN13(isbnlike)
+        if not self.ean13:
             LOGGER.debug('error: %s is not a valid ISBN', isbnlike)
             raise NotValidISBNError(isbnlike)
         self.canonical = canonical(isbnlike)
