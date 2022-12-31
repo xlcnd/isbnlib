@@ -348,17 +348,19 @@ Caveats
 Projects using *isbnlib*
 ========================
 
-**isbntools**      https://github.com/xlcnd/isbntools
-
-**isbnsrv**        https://github.com/xlcnd/isbnsrv
-
 **Open Library**   https://github.com/internetarchive/openlibrary
 
 **NYPL Library Simplified**  https://github.com/NYPL-Simplified
 
+**RERO ILS**  https://github.com/rero/rero-ils
+
 **Manubot**   https://github.com/manubot
 
 **Spreads**  https://github.com/DIYBookScanner/spreads
+
+**isbntools**      https://github.com/xlcnd/isbntools
+
+**isbnsrv**        https://github.com/xlcnd/isbnsrv
 
 
 
