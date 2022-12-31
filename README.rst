@@ -354,9 +354,9 @@ Projects using *isbnlib*
 
 **RERO ILS**  https://github.com/rero/rero-ils
 
-**Manubot**   https://github.com/manubot
+**CERN CDS RDM** https://github.com/CERNDocumentServer/cds-rdm
 
-**Spreads**  https://github.com/DIYBookScanner/spreads
+**Manubot**   https://github.com/manubot
 
 **isbntools**      https://github.com/xlcnd/isbntools
 
