@@ -14,8 +14,6 @@ import pytest
 from .._exceptions import NotRecognizedServiceError, NotValidISBNError
 from .._ext import editions
 
-# tests
-
 
 def test_editions_openl():
     """Test the 'openl editions' service."""
