@@ -21,6 +21,7 @@ SERVICE_URL = (
 LOGGER = logging.getLogger(__name__)
 
 
+# pylint: disable=broad-except
 def _mapper(record):
     """Map canonical <- record."""
     # canonical:
@@ -52,6 +53,7 @@ def _mapper(record):
     return stdmeta(canonical)
 
 
+# pylint: disable=broad-except
 def _records(words, data):
     """Classify (canonically) the parsed data."""
     # put the selected data in records
