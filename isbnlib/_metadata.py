@@ -20,7 +20,7 @@ def query(isbn, service='default'):
         LOGGER.critical('%s is not a valid ISBN', isbn)
         raise NotValidISBNError(isbn)
     isbn = ean
-    # only import when needed
+    # only import 'services' when needed
     reg = import_module('isbnlib.registry')
     services = reg.services
 
