@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
-# isort:skip_file
 """Query providers for metadata."""
 
 import logging
+from importlib import import_module
 
 from ._core import EAN13
 from ._exceptions import NotRecognizedServiceError, NotValidISBNError
@@ -21,9 +21,10 @@ def query(isbn, service='default'):
         raise NotValidISBNError(isbn)
     isbn = ean
     # only import when needed
-    from .registry import services
+    reg = import_module('isbnlib.registry')
+    services = reg.services
 
-    if service != 'default' and service not in services:  # pragma: no cover
+    if service not in services:  # pragma: no cover
         LOGGER.critical('%s is not a valid service', service)
         raise NotRecognizedServiceError(service)
     meta = services[service](isbn)
