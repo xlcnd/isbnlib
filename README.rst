@@ -356,6 +356,8 @@ Projects using *isbnlib*
 
 **CERN CDS RDM** https://github.com/CERNDocumentServer/cds-rdm
 
+**ResearchHub** https://github.com/ResearchHub/researchhub-backend
+
 **Manubot**   https://github.com/manubot
 
 **isbntools**      https://github.com/xlcnd/isbntools
