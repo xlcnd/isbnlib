@@ -50,7 +50,6 @@ ISBN13_PREFIX = '978'  # just the prefix with isbn-10
 LEGAL = '0123456789xXisbnISBN- '
 
 
-# pylint: disable=broad-except
 def check_digit10(firstninedigits):
     """Check sum ISBN-10."""
     # minimum checks
@@ -58,7 +57,7 @@ def check_digit10(firstninedigits):
         return ''
     try:
         int(firstninedigits)
-    except Exception:  # pragma: no cover
+    except ValueError:  # pragma: no cover
         return ''
     # checksum
     val = sum(
@@ -73,7 +72,6 @@ def check_digit10(firstninedigits):
     return str(tenthdigit)
 
 
-# pylint: disable=broad-except
 def check_digit13(firsttwelvedigits):
     """Check sum ISBN-13."""
     # minimum checks
@@ -81,7 +79,7 @@ def check_digit13(firsttwelvedigits):
         return ''
     try:
         int(firsttwelvedigits)
-    except Exception:  # pragma: no cover
+    except ValueError:  # pragma: no cover
         return ''
     # checksum
     val = sum(
