@@ -11,21 +11,24 @@ from .dev import cache
 LOGGER = logging.getLogger(__name__)
 
 
+def get_services():
+    """Import 'services' only when needed."""
+    reg = import_module('isbnlib.registry')
+    return reg.services
+
+
 @cache
 def query(isbn, service='default'):
     """Query services like Google Books (JSON API), ... for metadata."""
-    # validate inputs
     ean = EAN13(isbn)
     if not ean:
         LOGGER.critical('%s is not a valid ISBN', isbn)
         raise NotValidISBNError(isbn)
     isbn = ean
-    # only import 'services' when needed
-    reg = import_module('isbnlib.registry')
-    services = reg.services
-
+    services = get_services()
     if service not in services:  # pragma: no cover
         LOGGER.critical('%s is not a valid service', service)
         raise NotRecognizedServiceError(service)
+
     meta = services[service](isbn)
     return meta or {}
