@@ -48,7 +48,8 @@ for fellow developers. Make your code as clear as possible.
 already in the repo!**
 Don't expect kindness if you do that :) You **can** comment and give
 suggestions on the code at the
-[issues](https://github.com/xlcnd/isbnlib/issues/5) page.
+[issues](https://github.com/xlcnd/isbnlib/issues/5) page
+or use the link **`Give feedback`** at the bottom of each Github page..
 
 **No** doc tests! Remember point 6 above.
 
