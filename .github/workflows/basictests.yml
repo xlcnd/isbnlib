@@ -21,10 +21,9 @@ jobs:
       uses: actions/setup-python@v4
       with:
         python-version: ${{ matrix.python-version }}
-    - name: Install dependencies
+    - name: Update pip
       run: |
         python -m pip install --upgrade pip
-        pip install -r requirements.txt
     - name: Lint the code with flake8
       run: |
         pip install flake8
@@ -53,10 +52,9 @@ jobs:
       uses: actions/setup-python@v4
       with:
         python-version: ${{ matrix.python-version }}
-    - name: Install dependencies
+    - name: Update pip
       run: |
         python -m pip install --upgrade pip
-        pip install -r requirements.txt
     - name: Test with pytest
       run: |
         pip install wheel pytest coverage pytest-cov
@@ -75,10 +73,9 @@ jobs:
       uses: actions/setup-python@v4
       with:
         python-version: ${{ matrix.python-version }}
-    - name: Install dependencies
+    - name: Update pip
       run: |
         python -m pip install --upgrade pip
-        pip install -r requirements.txt
     - name: Test with pytest
       run: |
         pip install wheel pytest coverage pytest-cov
