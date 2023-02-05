@@ -15,6 +15,7 @@ from .._exceptions import NotRecognizedServiceError, NotValidISBNError
 from .._ext import editions
 
 
+@pytest.mark.network
 def test_editions_openl():
     """Test the 'openl editions' service."""
     assert (len(editions('9780151446476', service='openl')) >= 1) == True
