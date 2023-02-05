@@ -6,7 +6,11 @@
 from random import randint
 from time import sleep
 
+import pytest
+
 from .._oclc import query_classify as query
+
+pytestmark = pytest.mark.skip("OCLC doesn't allow so many tests for now!")
 
 # this is a slow service
 q1 = query('9781786330444') or {}
