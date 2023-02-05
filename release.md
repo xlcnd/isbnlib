@@ -2,4 +2,5 @@
 
 ## What's new?
 
-1. TENTATIVE...
+1. Improved strategy for 'goob' (issue #119).
+2. Added pytest mark 'network' (issue #121)
