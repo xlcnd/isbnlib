@@ -2,13 +2,16 @@
 # flake8: noqa
 # pylint: skip-file
 """Tests for the @cache."""
-
-# TODO add more tests for other operations
+import pytest
 
 from .. import classify, meta, registry
 
+# TODO add more tests for other operations
+
+
 cache = registry.metadata_cache
 
+pytestmark = pytest.mark.network
 
 def setup_module():
     meta('9780375869020')  #  <-- set

@@ -4,9 +4,11 @@
 """
 tests
 """
+import pytest
 
 from .. import _gwords as words
 
+pytestmark = pytest.mark.network
 
 def test_words():
     """Test 'isbn_from_words' function."""

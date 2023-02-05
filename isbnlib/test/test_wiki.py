@@ -2,9 +2,11 @@
 # flake8: noqa
 # pylint: skip-file
 """ tests for wikipedia."""
+import pytest
 
 from .._metadata import query
 
+pytestmark = pytest.mark.network
 
 def test_query():
     """Test 'wiki' metadata service."""

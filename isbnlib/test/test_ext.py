@@ -38,7 +38,7 @@ def test_mask():
     with pytest.raises(Exception):
         mask('0000000000000')
 
-
+@pytest.mark.network
 def test_isbn_from_words():
     """Test 'isbn_from_words' command."""
     assert len(isbn_from_words('old men and sea')) == 13
@@ -51,12 +51,14 @@ def test_doi():
     assert doi('9791090636071') == '10.979.1090636/071'
 
 
+@pytest.mark.network
 def test_desc():
     """Test 'desc' command."""
     assert (len(desc('9780156001311')) > 10) == True
     assert desc('9780000000000') == ''
 
 
+@pytest.mark.network
 def test_cover():
     """Test 'cover' command."""
     assert (len(repr(cover('9780156001311'))) > 50) == True

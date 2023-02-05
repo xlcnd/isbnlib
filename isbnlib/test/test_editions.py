@@ -20,21 +20,25 @@ def test_editions_openl():
     assert (len(editions('9780151446476', service='openl')) >= 1) == True
 
 
+@pytest.mark.network
 def test_editions_thingl():
     """Test the 'thingl editions' service."""
     assert (len(editions('9780151446476', service='thingl')) > 2) == True
 
 
+@pytest.mark.network
 def test_editions_wiki():
     """Test the 'wiki editions' service."""
     assert (len(editions('9780440414803', service='wiki')) > 5) == True
 
 
+@pytest.mark.network
 def test_editions_any():
     """Test the 'any editions' service."""
     assert (len(editions('9780151446476', service='any')) > 1) == True
 
 
+@pytest.mark.network
 def test_editions_merge():
     """Test the 'merge editions' service."""
     assert (len(editions('9780151446476', service='merge')) > 2) == True
@@ -52,6 +56,7 @@ def test_editions_NotRecognizedServiceError():
         editions('9780156001311', service='xxx')
 
 
+@pytest.mark.network
 def test_cache():
     """Test the 'editions' cache."""
     t = timer()

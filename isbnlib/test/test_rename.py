@@ -8,9 +8,13 @@ tests
 import locale
 import os
 
+import pytest
+
 from .._ext import ren
 from ..dev._bouth23 import b2u3
 from ..dev.helpers import cwdfiles
+
+pytestmark = pytest.mark.network
 
 WINDOWS = os.name == 'nt'
 ENCODING = locale.getpreferredencoding()

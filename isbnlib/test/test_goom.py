@@ -4,9 +4,11 @@
 """
 tests
 """
+import pytest
 
 from .. import _goom as goom
 
+pytestmark = pytest.mark.network
 
 def test_goom():
     """Test the Google's Multiple Books service."""

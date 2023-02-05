@@ -10,6 +10,7 @@ import pytest
 from .._ext import meta
 from .._metadata import query
 
+pytestmark = pytest.mark.network
 
 def test_query():
     """Test the query of metadata with 'low level' queries."""

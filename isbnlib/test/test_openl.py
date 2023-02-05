@@ -5,9 +5,11 @@
 tests
 """
 
+import pytest
 
 from .._metadata import query
 
+pytestmark = pytest.mark.network
 
 def test_query():
     """Test 'openl' metadata service."""
