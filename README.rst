@@ -99,11 +99,14 @@ Main Functions
 ``ean13(isbnlike)``
     Transforms an `isbnlike` string into an EAN13 number (validated canonical ISBN-13).
 
-``info(isbn)``
-    Gets the language or country assigned to this ISBN.
+``doi(isbn)``
+    Returns a DOI's ISBN-A from a ISBN-13.
 
 ``mask(isbn, separator='-')``
     `Mask` (hyphenate) a canonical ISBN.
+
+``info(isbn)``
+    Gets the language or country assigned to this ISBN.
 
 ``meta(isbn, service='default')``
     Gives you the main metadata associated with the ISBN. As `service` parameter you can use:
@@ -136,15 +139,6 @@ Main Functions
     Returns a dictionary of **classifiers** for a canonical ISBN. For the meaning of these classifiers see OCLC_.
     Most of the data in the underlying service are for books in english.
 
-``doi(isbn)``
-    Returns a DOI's ISBN-A from a ISBN-13.
-
-``doi2tex(DOI)``
-    Returns metadata formatted as BibTeX for a given DOI.
-
-``ren(filename)``
-    Renames a file using metadata from an ISBN in his filename.
-
 ``desc(isbn)``
     Returns a small description of the book.
     *Almost all data available are for US books!*
@@ -152,6 +146,12 @@ Main Functions
 ``cover(isbn)``
     Returns a dictionary with the url for cover.
     *Almost all data available are for US books!*
+
+``doi2tex(DOI)``
+    Returns metadata formatted as BibTeX for a given DOI.
+
+``ren(filename)``
+    Renames a file using metadata from an ISBN in his filename.
 
 
 See files test_core_ and test_ext_ for **a lot of examples**.
