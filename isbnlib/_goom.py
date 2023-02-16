@@ -9,7 +9,6 @@ except ImportError:
     from urllib import quote
 
 from .dev import cache, stdmeta
-from .dev._bouth23 import u
 from .dev._exceptions import NoDataForSelectorError, RecordMappingError
 from .dev.webquery import query as wquery
 
@@ -39,14 +38,14 @@ def _mapper(record):
         if not isbn:  # pragma: no cover
             return {}
         canonical['ISBN-13'] = isbn
-        canonical['Title'] = record.get('title', u('')).replace(' :', ':')
+        canonical['Title'] = record.get('title', '').replace(' :', ':')
         canonical['Authors'] = record.get('authors', [])
-        canonical['Publisher'] = record.get('publisher', u(''))
+        canonical['Publisher'] = record.get('publisher', '')
         if 'publishedDate' in record and len(record['publishedDate']) >= 4:
             canonical['Year'] = record['publishedDate'][0:4]
         else:  # pragma: no cover
-            canonical['Year'] = u('')
-        canonical['Language'] = record.get('language', u(''))
+            canonical['Year'] = ''
+        canonical['Language'] = record.get('language', '')
     except Exception:  # pragma: no cover
         raise RecordMappingError(isbn)
     # call stdmeta for extra cleaning and validation

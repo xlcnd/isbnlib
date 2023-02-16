@@ -4,8 +4,6 @@
 import re
 from hashlib import md5
 
-from ._bouth23 import b, s
-
 
 def fake_isbn(title, author='unkown', publisher='unkown', sid=1):
     """Produce a fake ISBN from the (title, author, publisher) of the book."""
@@ -16,7 +14,7 @@ def fake_isbn(title, author='unkown', publisher='unkown', sid=1):
     key = regex1.sub(' ', key)
     key = regex2.sub(' ', key).strip().lower()
     # hash
-    return (str(sid) + str(int(md5(b(key)).hexdigest()[:10], 16)))[:13]
+    return (str(sid) + str(int(md5(key.encode('utf-8')).hexdigest()[:10], 16)))[:13]
 
 
 def normalize_space(item):
@@ -64,7 +62,7 @@ def unicode_to_utf8tex(utex, filtre=()):
         k.encode('utf-8'): v
         for k, v in unicode_to_tex.items() if v not in filtre
     }
-    regex = re.compile(b('|'.join(re.escape(s(k)) for k in table)))
+    regex = re.compile('|'.join(re.escape(k.decode('utf-8', 'ignore')) for k in table).encode('utf-8'))
     return regex.sub(lambda m: table[m.group(0)], btex)
 
 

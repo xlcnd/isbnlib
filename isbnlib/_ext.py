@@ -11,7 +11,6 @@ from ._gwords import goos
 from ._infogroup import infogroup
 from ._metadata import query
 from ._msk import msk
-from .dev._bouth23 import b2u3, u
 from .dev.helpers import File, cutoff_tokens, last_first
 
 
@@ -60,27 +59,27 @@ def ren(fp):
     if not isbn:  # pragma: no cover
         return None
     data = meta(isbn)
-    author = data.get('Authors', u('UNKNOWN'))
-    if author != u('UNKNOWN'):  # pragma: no cover
+    author = data.get('Authors', 'UNKNOWN')
+    if author != 'UNKNOWN':  # pragma: no cover
         author = last_first(author[0])['last']
-    year = data.get('Year', u('UNKNOWN'))
+    year = data.get('Year', 'UNKNOWN')
     maxlen = 98 - (20 + len(author) + len(year))
-    title = data.get('Title', u('UNKNOWN'))
-    if title != u('UNKNOWN'):
+    title = data.get('Title', 'UNKNOWN')
+    if title != 'UNKNOWN':
         regex1 = re.compile(r'[.,_!?/\\]')
         regex2 = re.compile(r'\s\s+')
         title = regex1.sub(' ', title)
         title = regex2.sub(' ', title)
         title = title.strip()
-    if title == u('UNKNOWN') or not title:  # pragma: no cover
+    if title == 'UNKNOWN' or not title:  # pragma: no cover
         return None
     if ' ' in title:  # pragma: no cover
         tokens = title.split(' ')
         stitle = cutoff_tokens(tokens, maxlen)
         title = ' '.join(stitle)
-    isbn13 = data.get('ISBN-13', u('UNKNOWN'))
+    isbn13 = data.get('ISBN-13', 'UNKNOWN')
     new_name = '%s%s_%s_%s' % (author, year, title, isbn13)
-    return cfp.baserename(b2u3(new_name + cfp.ext))
+    return cfp.baserename((new_name + cfp.ext).encode('utf-8'))
 
 
 def cover(isbn):

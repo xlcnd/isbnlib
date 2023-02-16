@@ -5,7 +5,6 @@ import logging
 import re
 
 from .dev import stdmeta
-from .dev._bouth23 import u
 from .dev._exceptions import RecordMappingError
 from .dev.webquery import query as wquery
 
@@ -23,16 +22,16 @@ def _mapper(isbn, records):
     try:
         # mapping: canonical <- records
         canonical = {}
-        canonical['ISBN-13'] = u(isbn)
-        title = records.get('title', u('')).replace(' :', ':')
-        subtitle = records.get('subtitle', u(''))
+        canonical['ISBN-13'] = isbn
+        title = records.get('title', '').replace(' :', ':')
+        subtitle = records.get('subtitle', '')
         title = title + ' - ' + subtitle if subtitle else title
         canonical['Title'] = title
         canonical['Authors'] = [
             a['name'] for a in records.get(
                 'authors',
                 ({
-                    'name': u(''),
+                    'name': '',
                 }, ),
             )
         ]
@@ -40,12 +39,12 @@ def _mapper(isbn, records):
             'publishers',
             [
                 {
-                    'name': u(''),
+                    'name': '',
                 },
             ],
         )[0]['name']
-        canonical['Year'] = u('')
-        strdate = records.get('publish_date', u(''))
+        canonical['Year'] = ''
+        strdate = records.get('publish_date', '')
         if strdate:  # pragma: no cover
             match = re.search(r'\d{4}', strdate)
             if match:

@@ -4,7 +4,6 @@
 import logging
 
 from .dev import stdmeta
-from .dev._bouth23 import u
 from .dev._exceptions import ISBNNotConsistentError, RecordMappingError
 from .dev.webquery import query as wquery
 
@@ -22,19 +21,19 @@ def _mapper(isbn, records):
     # canonical: ISBN-13, Title, Authors, Publisher, Year, Language
     try:
         canonical = {}
-        canonical['ISBN-13'] = u(isbn)
-        title = records.get('title', u('')).replace(' :', ':')
-        subtitle = records.get('subtitle', u(''))
+        canonical['ISBN-13'] = isbn
+        title = records.get('title', '').replace(' :', ':')
+        subtitle = records.get('subtitle', '')
         title = title + ' - ' + subtitle if subtitle else title
         canonical['Title'] = title
-        canonical['Authors'] = records.get('authors', [u('')])
+        canonical['Authors'] = records.get('authors', [''])
         # see issue #64
-        canonical['Publisher'] = records.get('publisher', u('')).strip('"')
+        canonical['Publisher'] = records.get('publisher', '').strip('"')
         if 'publishedDate' in records and len(records['publishedDate']) >= 4:
             canonical['Year'] = records['publishedDate'][0:4]
         else:  # pragma: no cover
-            canonical['Year'] = u('')
-        canonical['Language'] = records.get('language', u(''))
+            canonical['Year'] = ''
+        canonical['Language'] = records.get('language', '')
     except Exception:  # pragma: no cover
         LOGGER.debug('RecordMappingError for %s with data %s', isbn, records)
         raise RecordMappingError(isbn)
@@ -54,7 +53,7 @@ def _records(isbn, data):
     # consistency check (isbn request = isbn response)
     if recs:
         ids = recs.get('industryIdentifiers', '')
-        if u('ISBN_13') in repr(ids) and isbn not in repr(
+        if 'ISBN_13' in repr(ids) and isbn not in repr(
                 ids):  # pragma: no cover
             LOGGER.debug('ISBNNotConsistentError for %s (%s)', isbn, repr(ids))
             raise ISBNNotConsistentError('{0} not in {1}'.format(

@@ -5,7 +5,6 @@ import logging
 import re
 
 from .dev import stdmeta
-from .dev._bouth23 import u
 from .dev._exceptions import RecordMappingError
 from .dev.webquery import query as wquery
 
@@ -22,16 +21,16 @@ def _mapper(isbn, records):
     try:
         # mapping: canonical <- records
         canonical = {}
-        canonical['ISBN-13'] = u(isbn)
-        canonical['Title'] = records.get('title', u('')).replace(' :', ':')
+        canonical['ISBN-13'] = isbn
+        canonical['Title'] = records.get('title', '').replace(' :', ':')
         # try to handle the inconsistent use of fields by Wikipedia (issue #65)!
         try:
             authors = [
                 ' '.join(sublist)
-                for sublist in records.get('author', [u('')])
+                for sublist in records.get('author', [''])
             ]
             canonical['Authors'] = [
-                author.replace('.', u('')) for author in authors
+                author.replace('.', '') for author in authors
             ]
             buf = canonical.get('Authors', [])
             if not buf or len(buf[0]) == 0:
@@ -40,17 +39,17 @@ def _mapper(isbn, records):
             try:
                 authors = [
                     ' '.join(sublist)
-                    for sublist in records.get('contributor', [u('')])
+                    for sublist in records.get('contributor', [''])
                 ]
                 canonical['Authors'] = [
-                    author.replace('.', u('')) for author in authors
+                    author.replace('.', '') for author in authors
                 ]
             except IndexError:
                 pass
-        canonical['Publisher'] = records.get('publisher', u('')) or u(' '.join(
-            [pub for pub in records.get('contributor', [u('')])[0] if pub]))
-        canonical['Year'] = u('')
-        strdate = records.get('date', u(''))
+        canonical['Publisher'] = records.get('publisher', '') or ' '.join(
+            [pub for pub in records.get('contributor', [''])[0] if pub])
+        canonical['Year'] = ''
+        strdate = records.get('date', '')
         if strdate:  # pragma: no cover
             match = re.search(r'\d{4}', strdate)
             if match:

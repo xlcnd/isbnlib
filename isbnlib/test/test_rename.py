@@ -11,7 +11,6 @@ import os
 import pytest
 
 from .._ext import ren
-from ..dev._bouth23 import b2u3
 from ..dev.helpers import cwdfiles
 
 pytestmark = pytest.mark.network
@@ -57,7 +56,7 @@ def create_files(files):
     for fn in files:
         try:
             with open(fn, 'w') as f:
-                f.write(b2u3('ooo') + b2u3(fn))
+                f.write('ooo'.encode('utf-8') + fn.encode('utf-8'))
         except UnicodeEncodeError:
             print(
                 "Your default locale (%s) doesn't allow non-ascii filenames!"

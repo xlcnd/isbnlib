@@ -3,10 +3,10 @@
 
 import gzip
 import logging
+from io import BytesIO
 from socket import timeout as sockettimeout
 
 from ..config import options
-from ._bouth23 import bstream, s
 from ._decorators import imcache
 from ._exceptions import ISBNLibHTTPError, ISBNLibURLError, ServiceIsDownError
 
@@ -93,12 +93,12 @@ class WEBService(object):
         res = self.response()
         LOGGER.debug('Response headers:\n%s', res.info())
         if res.info().get('Content-Encoding') == 'gzip':
-            buf = bstream(res.read())
+            buf = BytesIO(res.read())
             f = gzip.GzipFile(fileobj=buf)
             data = f.read()
         else:  # pragma: no cover
             data = res.read()
-        return s(data)
+        return data.decode('utf-8', 'ignore')
 
 
 @imcache

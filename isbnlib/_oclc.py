@@ -5,7 +5,6 @@ import logging
 import re
 
 from .dev import cache
-from .dev._bouth23 import u
 from .dev.webquery import query as wquery
 
 UA = 'isbnlib (gzip)'
@@ -43,21 +42,21 @@ def parser(xml):
 
     data = {}
 
-    match = RE_OWI.search(u(xml))
+    match = RE_OWI.search(xml)
     if match:
         data['owi'] = match.group(1)
-    match = RE_OCLC.search(u(xml))
+    match = RE_OCLC.search(xml)
     if match:
         data['oclc'] = match.group(1)
 
-    match = RE_LCC.search(u(xml))
+    match = RE_LCC.search(xml)
     if match:
         buf = match.group()
         match = RE_SFA.search(buf)
         if match:
             data['lcc'] = match.group(1)
 
-    match = RE_DDC.search(u(xml))
+    match = RE_DDC.search(xml)
     if match:
         buf = match.group()
         match = RE_SFA.search(buf)
@@ -74,7 +73,7 @@ def parser(xml):
 # pylint: disable=broad-except
 def parser_headings(xmlthing):
     """RE parser for classify.oclc service (headings branch)."""
-    match = RE_HEADINGS.search(u(xmlthing))
+    match = RE_HEADINGS.search(xmlthing)
     if match:
         try:
             buf = match.group()
