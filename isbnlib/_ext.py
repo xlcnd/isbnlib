@@ -79,7 +79,7 @@ def ren(fp):
         title = ' '.join(stitle)
     isbn13 = data.get('ISBN-13', 'UNKNOWN')
     new_name = '%s%s_%s_%s' % (author, year, title, isbn13)
-    return cfp.baserename((new_name + cfp.ext).encode('utf-8'))
+    return cfp.baserename(new_name + cfp.ext)
 
 
 def cover(isbn):
