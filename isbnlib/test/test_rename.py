@@ -56,7 +56,7 @@ def create_files(files):
     for fn in files:
         try:
             with open(fn, 'w') as f:
-                f.write('ooo'.encode('utf-8') + fn.encode('utf-8'))
+                f.write('ooo' + fn)
         except UnicodeEncodeError:
             print(
                 "Your default locale (%s) doesn't allow non-ascii filenames!"
