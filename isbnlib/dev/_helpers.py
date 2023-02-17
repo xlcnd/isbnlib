@@ -4,7 +4,7 @@
 import re
 from hashlib import md5
 
-from ._bouth23 import b, s
+from ._bouth23 import b
 
 
 def fake_isbn(title, author='unkown', publisher='unkown', sid=1):
@@ -53,19 +53,6 @@ def last_first(author):
         last = tokens[-1].strip()
         first = ' '.join(tokens[:-1]).strip()
     return {'last': last, 'first': first}
-
-
-def unicode_to_utf8tex(utex, filtre=()):
-    """Replace unicode entities with tex entities and returns utf8 bytes."""
-    from .._data.data4tex import unicode_to_tex
-
-    btex = utex.encode('utf-8')
-    table = {
-        k.encode('utf-8'): v
-        for k, v in unicode_to_tex.items() if v not in filtre
-    }
-    regex = re.compile(b('|'.join(re.escape(s(k)) for k in table)))
-    return regex.sub(lambda m: table[m.group(0)], btex)
 
 
 def cutoff_tokens(tokens, cutoff):

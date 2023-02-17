@@ -13,7 +13,6 @@ from ._helpers import (
     normalize_space,
     parse_placeholders,
 )
-from ._helpers import unicode_to_utf8tex as to_utf8tex
 
 # alias (to keep backwards compatibility)
 fmtbib = _fmtbib
@@ -29,6 +28,5 @@ __all__ = [
     'last_first',
     'normalize_space',
     'parse_placeholders',
-    'to_utf8tex',
     'fake_isbn',
 ]
