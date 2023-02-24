@@ -84,3 +84,9 @@ def multi(named_tasks, arg):
             break
         results[el[0]] = el[1]
     return results
+
+
+# TODO implement 'vias.custom'
+# def custom(named_tasks, arg):
+#     """Use a 'custom' method implemented by user."""
+#     raise ISBNLibException("The function 'vias.custom' MUST be implemented first.")
