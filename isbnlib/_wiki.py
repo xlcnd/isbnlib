@@ -6,7 +6,7 @@ import re
 
 from .dev import stdmeta
 from .dev._bouth23 import u
-from .dev._exceptions import RecordMappingError
+from .dev._exceptions import DataNotFoundAtServiceError, RecordMappingError
 from .dev.webquery import query as wquery
 
 UA = 'isbnlib (gzip)'
@@ -79,5 +79,9 @@ def _records(isbn, data):
 
 def query(isbn):
     """Query the wikipedia.org service for metadata."""
-    data = wquery(SERVICE_URL.format(isbn=isbn), user_agent=UA, throttling=0)
+    try:
+        data = wquery(SERVICE_URL.format(isbn=isbn), user_agent=UA, throttling=0)
+    except DataNotFoundAtServiceError:
+        LOGGER.debug('No data from "wikipedia" for isbn %s', isbn)
+        return {}
     return _records(isbn, data)
