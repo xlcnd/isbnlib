@@ -423,4 +423,4 @@ stackoverflow_ .
 
 .. _porbase: https://github.com/xlcnd/isbnlib-porbase/blob/dev/isbnlib_porbase/_porbase.py
 
-.. _project: https://github.com/users/xlcnd/projects/1
+.. _project: https://github.com/xlcnd/isbnlib/issues?q=is%3Aissue+is%3Aopen+label%3Aproject
