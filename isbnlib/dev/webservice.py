@@ -3,24 +3,19 @@
 
 import gzip
 import logging
+from io import BytesIO
 from socket import timeout as sockettimeout
 
 from ..config import options
-from ._bouth23 import bstream, s
 from ._decorators import imcache
 from ._exceptions import ISBNLibHTTPError, ISBNLibURLError, ServiceIsDownError
 
 # pylint: disable=import-error
 # pylint: disable=wrong-import-order
 # pylint: disable=no-name-in-module
-try:  # pragma: no cover
-    from urllib.error import HTTPError, URLError
-    from urllib.parse import urlencode
-    from urllib.request import Request, urlopen
-except ImportError:  # pragma: no cover
-    from urllib import urlencode
-
-    from urllib2 import HTTPError, Request, URLError, urlopen
+from urllib.error import HTTPError, URLError
+from urllib.parse import urlencode
+from urllib.request import Request, urlopen
 
 UA = 'isbnlib (gzip)'
 LOGGER = logging.getLogger(__name__)
@@ -93,12 +88,12 @@ class WEBService(object):
         res = self.response()
         LOGGER.debug('Response headers:\n%s', res.info())
         if res.info().get('Content-Encoding') == 'gzip':
-            buf = bstream(res.read())
+            buf = BytesIO(res.read())
             f = gzip.GzipFile(fileobj=buf)
             data = f.read()
         else:  # pragma: no cover
             data = res.read()
-        return s(data)
+        return data.decode('utf-8', 'ignore')
 
 
 @imcache

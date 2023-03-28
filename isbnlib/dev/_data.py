@@ -3,7 +3,6 @@
 
 import logging
 
-from ._bouth23 import type3str, u
 from ._exceptions import NotValidMetadataError
 from ._helpers import normalize_space, titlecase
 
@@ -72,13 +71,13 @@ class Metadata(object):
         self,
         record,
         overwrite=(),
-        overrule=lambda x: x == u('') or x == [u('')],
+        overrule=lambda x: x == '' or x == [''],
     ):
         """Merge the record with value."""
         # by default do nothing
         self._content.update(
             (k, v) for k, v in list(record.items())
-            if k in overwrite and not overrule(v) or self._content[k] == u('')
+            if k in overwrite and not overrule(v) or self._content[k] == ''
         )
         if not self._validate():  # pragma: no cover
             self._set_empty()
@@ -90,7 +89,7 @@ class Metadata(object):
         """Validate value."""
         # 'minimal' check
         for k in self._content:
-            if not isinstance(self._content[k], type3str()) and k != 'Authors':
+            if not isinstance(self._content[k], type('')) and k != 'Authors':
                 return False
         if not isinstance(self._content['Authors'], list):
             return False
@@ -98,8 +97,8 @@ class Metadata(object):
 
     def _set_empty(self):
         """Set an empty value record."""
-        self._content = dict.fromkeys(list(FIELDS), u(''))
-        self._content['Authors'] = [u('')]
+        self._content = dict.fromkeys(list(FIELDS), '')
+        self._content['Authors'] = ['']
 
 
 def stdmeta(records):
