@@ -2,5 +2,4 @@
 
 ## What's new?
 
-1. Drop support for helper function 'to_utf8tex'.
-2. Fix issue #123.
+1. TENTATIVE...
