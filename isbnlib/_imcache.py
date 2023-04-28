@@ -1,10 +1,7 @@
 # -*- coding: utf-8 -*-
 """Read and write to a dict-like cache."""
 
-try:
-    from collections.abc import MutableMapping  # noqa
-except ImportError:  # PY27
-    from collections import MutableMapping  # noqa
+from collections.abc import MutableMapping  # noqa
 
 
 class IMCache(MutableMapping):

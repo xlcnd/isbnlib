@@ -5,16 +5,15 @@
 tests
 """
 
-from ..dev._bouth23 import u
 from ..dev._fmt import _fmtbib
 
 canonical = {
-    'ISBN-13': u('9780123456789'),
-    'Title': u('A book about nothing'),
-    'Publisher': u('No Paper Press'),
-    'Year': u('2000'),
-    'Language': u('en'),
-    'Authors': [u('John Smith'), u('José Silva')],
+    'ISBN-13': '9780123456789',
+    'Title': 'A book about nothing',
+    'Publisher': 'No Paper Press',
+    'Year': '2000',
+    'Language': 'en',
+    'Authors': ['John Smith', 'José Silva'],
 }
 
 

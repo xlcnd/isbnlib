@@ -4,7 +4,6 @@
 import logging
 
 from . import to_isbn13
-from .dev._bouth23 import u
 from .dev.webquery import query as wquery
 
 LOGGER = logging.getLogger(__name__)
@@ -20,7 +19,7 @@ def query(isbn):
             SERVICE_URL.format(isbn=isbn),
             user_agent=UA,
         )
-        isbns = {u(to_isbn13(isbn)) for isbn in data['docs'][0]['isbn']}
+        isbns = {to_isbn13(isbn) for isbn in data['docs'][0]['isbn']}
     except Exception as ex:  # pragma: no cover
         LOGGER.debug(
             'No data from Open Library for isbn %s -- %s',
