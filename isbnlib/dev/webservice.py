@@ -5,17 +5,16 @@ import gzip
 import logging
 from io import BytesIO
 from socket import timeout as sockettimeout
-
-from ..config import options
-from ._decorators import imcache
-from ._exceptions import ISBNLibHTTPError, ISBNLibURLError, ServiceIsDownError
-
 # pylint: disable=import-error
 # pylint: disable=wrong-import-order
 # pylint: disable=no-name-in-module
 from urllib.error import HTTPError, URLError
 from urllib.parse import urlencode
 from urllib.request import Request, urlopen
+
+from ..config import options
+from ._decorators import imcache
+from ._exceptions import ISBNLibHTTPError, ISBNLibURLError, ServiceIsDownError
 
 UA = 'isbnlib (gzip)'
 LOGGER = logging.getLogger(__name__)

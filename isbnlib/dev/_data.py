@@ -71,7 +71,7 @@ class Metadata(object):
         self,
         record,
         overwrite=(),
-        overrule=lambda x: x == '' or x == [''],
+        overrule=lambda x: x in ('', ['']),
     ):
         """Merge the record with value."""
         # by default do nothing
