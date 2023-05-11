@@ -2,12 +2,7 @@
 # flake8: noqa
 # pylint: skip-file
 
-try:
-    from time import process_time as timer
-except:  # for py2
-    import timeit
-
-    timer = timeit.default_timer
+from time import process_time as timer
 
 import pytest
 
