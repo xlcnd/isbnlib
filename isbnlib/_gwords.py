@@ -2,14 +2,10 @@
 """Use Google to get an ISBN from words from title and author's name."""
 
 import logging
+from urllib.parse import quote
 
 from ._core import get_canonical_isbn, get_isbnlike
 from .dev import cache, webservice
-
-try:  # pragma: no cover
-    from urllib.parse import quote
-except ImportError:  # pragma: no cover
-    from urllib import quote
 
 LOGGER = logging.getLogger(__name__)
 
