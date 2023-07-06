@@ -2,11 +2,7 @@
 """Query the Google Books (JSON API v1) for metadata."""
 
 import logging
-
-try:
-    from urllib.parse import quote
-except ImportError:
-    from urllib import quote
+from urllib.parse import quote
 
 from .dev import cache, stdmeta
 from .dev._exceptions import NoDataForSelectorError, RecordMappingError
