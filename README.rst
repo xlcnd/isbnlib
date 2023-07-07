@@ -417,7 +417,7 @@ stackoverflow_ .
 
 .. _OCLC: http://classify.oclc.org/classify2/
 
-.. _this: https://bisg.org/news/479346/New-979-ISBN-Prefixes-Expected-in-2020.htm
+.. _this: http://web.archive.org/web/20211024015637/https://bisg.org/news/479346/New-979-ISBN-Prefixes-Expected-in-2020.htm
 
 .. _sbn: https://github.com/arangb/isbnlib-sbn/blob/main/isbnlib_sbn/_sbn.py
 
