@@ -137,7 +137,7 @@ Main Functions
 
 ``classify(isbn)``
     Returns a dictionary of **classifiers** for a canonical ISBN. For the meaning of these classifiers see OCLC_.
-    Most of the data in the underlying service are for books in English. (See issue #138_).
+    Most of the data in the underlying service are for books in English. (See issue 138_).
 
 ``desc(isbn)``
     Returns a small description of the book.
