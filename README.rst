@@ -425,4 +425,4 @@ stackoverflow_.
 
 .. _project: https://github.com/xlcnd/isbnlib/issues?q=is%3Aissue+is%3Aopen+label%3Aproject
 
-.. _#138: https://github.com/xlcnd/isbnlib/issues/138
+.. _138: https://github.com/xlcnd/isbnlib/issues/138
