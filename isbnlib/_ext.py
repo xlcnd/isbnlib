@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """Extra methods."""
 
 import re
@@ -46,7 +45,7 @@ def isbn_from_words(words):
 def doi(isbn):
     """Return a DOI's ISBN-A from a ISBN-13."""
     try:
-        value = '10.%s.%s%s/%s%s' % tuple(msk(EAN13(isbn), '-').split('-'))
+        value = '10.{}.{}{}/{}{}'.format(*tuple(msk(EAN13(isbn), '-').split('-')))
     except TypeError:
         return ''
     return value
@@ -78,7 +77,7 @@ def ren(fp):
         stitle = cutoff_tokens(tokens, maxlen)
         title = ' '.join(stitle)
     isbn13 = data.get('ISBN-13', 'UNKOWN')
-    new_name = '%s%s_%s_%s' % (author, year, title, isbn13)
+    new_name = f'{author}{year}_{title}_{isbn13}'
     return cfp.baserename(new_name + cfp.ext)
 
 

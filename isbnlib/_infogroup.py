@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """Get the Language/Country of an ISBN."""
 
 import logging

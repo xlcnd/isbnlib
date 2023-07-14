@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """Get image links of the book's cover."""
 
 import logging

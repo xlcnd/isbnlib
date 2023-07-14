@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """Base class to query a webservice and parse the result to py objects."""
 
 import json
@@ -17,7 +16,7 @@ THROTTLING = 1
 
 
 # pylint: disable=useless-object-inheritance
-class WEBQuery(object):
+class WEBQuery:
     """Base class to query a webservice and parse the result to py objects."""
 
     T = {'id': timestamp()}  # noqa

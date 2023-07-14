@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """Query providers for metadata."""
 
 import logging

@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """Read and write to a dict-like cache."""
 
 from collections.abc import MutableMapping  # noqa

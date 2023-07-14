@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-
 # isbnlib - tools for extracting, cleaning and transforming ISBNs
 # Copyright (C) 2014-2023 Alexandre Lima Conde
 # SPDX-License-Identifier: LGPL-3.0-or-later

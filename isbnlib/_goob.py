@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """Query the Google Books (JSON API v1) service for metadata."""
 
 import logging
@@ -55,10 +54,8 @@ def _records(isbn, data):
         ids = recs.get('industryIdentifiers', '')
         if 'ISBN_13' in repr(ids) and isbn not in repr(ids):  # pragma: no cover
             LOGGER.debug('ISBNNotConsistentError for %s (%s)', isbn, repr(ids))
-            raise ISBNNotConsistentError('{0} not in {1}'.format(
-                isbn,
-                repr(ids),
-            ))
+            msg = f'{isbn} not in {ids!r}'
+            raise ISBNNotConsistentError(msg)
     else:
         return {}  # pragma: no cover
     # map canonical <- records

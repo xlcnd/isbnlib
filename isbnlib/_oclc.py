@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """Query the 'classify.oclc.org' service for classifiers."""
 
 import logging

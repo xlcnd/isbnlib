@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """Query the ThingISBN api (Library Thing) for related ISBNs."""
 
 import logging

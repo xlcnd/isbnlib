@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """Handle metadata objects."""
 
 import logging
@@ -12,7 +11,7 @@ LOGGER = logging.getLogger(__name__)
 
 
 # pylint: disable=useless-object-inheritance
-class Metadata(object):
+class Metadata:
     """Class for metadata objects."""
 
     def __init__(self, record=None):
@@ -24,7 +23,7 @@ class Metadata(object):
             if not self._validate():
                 self._set_empty()
                 LOGGER.debug(record)
-                raise NotValidMetadataError()
+                raise NotValidMetadataError
             self.clean()
 
     @staticmethod
@@ -59,7 +58,7 @@ class Metadata(object):
         if not self._validate():
             self._set_empty()
             LOGGER.debug(record)
-            raise NotValidMetadataError()
+            raise NotValidMetadataError
         self.clean()
 
     @value.deleter
@@ -82,14 +81,14 @@ class Metadata(object):
         if not self._validate():  # pragma: no cover
             self._set_empty()
             LOGGER.debug(record)
-            raise NotValidMetadataError()
+            raise NotValidMetadataError
         self.clean()
 
     def _validate(self):
         """Validate value."""
         # 'minimal' check
         for k in self._content:
-            if not isinstance(self._content[k], type('')) and k != 'Authors':
+            if not isinstance(self._content[k], str) and k != 'Authors':
                 return False
         if not isinstance(self._content['Authors'], list):
             return False
