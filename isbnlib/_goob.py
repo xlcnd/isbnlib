@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Query the Google Books (JSON API v1) service for metadata."""
 
 import logging

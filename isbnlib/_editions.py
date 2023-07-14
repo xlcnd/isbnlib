@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Return editions for a given ISBN."""
 
 import logging

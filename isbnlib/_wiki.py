@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Query the wikipedia.org service for metadata."""
 
 import logging

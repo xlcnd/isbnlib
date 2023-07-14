@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Process tasks in several modes."""
 
 import logging

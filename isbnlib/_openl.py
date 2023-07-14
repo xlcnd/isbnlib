@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Query the openlibrary.org service for metadata."""
 
 import logging

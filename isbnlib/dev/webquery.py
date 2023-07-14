@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Base class to query a webservice and parse the result to py objects."""
 
 import json

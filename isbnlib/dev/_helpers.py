@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Private helper functions."""
 
 import re

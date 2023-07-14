@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Interface for namespace 'isbnlib.dev'."""
 
 from ._data import Metadata, stdmeta

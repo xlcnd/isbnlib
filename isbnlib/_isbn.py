@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Isbn class."""
 
 import logging as _logging

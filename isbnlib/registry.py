@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Registry for metadata services, formatters and cache."""
 
 import logging

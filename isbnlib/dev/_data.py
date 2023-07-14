@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Handle metadata objects."""
 
 import logging

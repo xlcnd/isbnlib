@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Query the Open Library for related ISBNs."""
 
 import logging

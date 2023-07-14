@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Hyphenate an ISBN."""
 
 import logging

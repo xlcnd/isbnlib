@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Helper module to work with files."""
 
 import fnmatch

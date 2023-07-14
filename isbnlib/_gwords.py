@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Use Google to get an ISBN from words from title and author's name."""
 
 import logging

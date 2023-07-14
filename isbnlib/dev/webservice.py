@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Query web services."""
 
 import gzip

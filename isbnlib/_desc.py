@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Return a small description of the book."""
 
 import logging
