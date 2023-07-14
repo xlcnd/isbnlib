@@ -27,8 +27,7 @@ def goo_desc(isbn):
         content = loads(content)
         content = content['items'][0]['volumeInfo']['description']
         # TODO(MV) don't format content here!
-        content = fill(content, width=75) if content else ''
-        return content
+        return fill(content, width=75) if content else ''
     except Exception:  # pragma: no cover
         LOGGER.debug('No description for %s', isbn)
         return ''

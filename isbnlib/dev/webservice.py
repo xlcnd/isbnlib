@@ -22,8 +22,9 @@ LOGGER = logging.getLogger(__name__)
 
 # pylint: disable=too-few-public-methods
 # pylint: disable=useless-object-inheritance
-class WEBService(object):
+class WEBService:
     """Class to query web services."""
+
     def __init__(self, url, user_agent=UA, values=None, appheaders=None):
         """Initialize main properties."""
         # TODO(use urllib.quote to the non-ascii part?)
@@ -65,7 +66,8 @@ class WEBService(object):
             if e.code in (502, 504):
                 raise ISBNLibHTTPError('%s Service temporarily unavailable!' %
                                        e.code)
-            raise ISBNLibHTTPError('(%s) %s' % (e.code, e.msg))
+            msg = f'({e.code}) {e.msg}'
+            raise ISBNLibHTTPError(msg)
         except URLError as e:  # pragma: no cover
             LOGGER.critical(
                 'ISBNLibURLError for %s with reason %s',
@@ -79,7 +81,8 @@ class WEBService(object):
                 self._url,
                 'timeout',
             )
-            raise ServiceIsDownError('service timeout')
+            msg = 'service timeout'
+            raise ServiceIsDownError(msg)
         return response if response else None
 
     def data(self):

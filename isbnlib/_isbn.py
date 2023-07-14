@@ -14,8 +14,9 @@ LOGGER = _logging.getLogger(__name__)
 # pylint: disable=too-many-instance-attributes
 # pylint: disable=too-few-public-methods
 # pylint: disable=broad-except
-class Isbn(object):
+class Isbn:
     """Class for ISBN objects."""
+
     def __init__(self, isbnlike):
         self.ean13 = EAN13(isbnlike)
         if not self.ean13:

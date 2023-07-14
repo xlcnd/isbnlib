@@ -78,7 +78,7 @@ def ren(fp):
         stitle = cutoff_tokens(tokens, maxlen)
         title = ' '.join(stitle)
     isbn13 = data.get('ISBN-13', 'UNKOWN')
-    new_name = '%s%s_%s_%s' % (author, year, title, isbn13)
+    new_name = f'{author}{year}_{title}_{isbn13}'
     return cfp.baserename(new_name + cfp.ext)
 
 
