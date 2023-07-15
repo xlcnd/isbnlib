@@ -23,11 +23,10 @@ def cache(func):
 
         if key in cch:
             return cch[key]
-        else:
-            value = func(*args, **kwargs)
-            if value:
-                cch[key] = value
-            return value
+        value = func(*args, **kwargs)
+        if value:
+            cch[key] = value
+        return value
 
     return memoized_func
 
@@ -43,10 +42,9 @@ def imcache(func):
 
         if key in cch:
             return cch[key]
-        else:
-            value = func(*args, **kwargs)
-            if value:
-                cch[key] = value
-            return value
+        value = func(*args, **kwargs)
+        if value:
+            cch[key] = value
+        return value
 
     return memoized_func
