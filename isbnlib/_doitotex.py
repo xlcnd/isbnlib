@@ -21,7 +21,7 @@ def doi2tex(doi):
         appheaders={
             'Accept': 'application/x-bibtex; charset=utf-8',
         },
-    )  # noqa  pragma: no cover
+    )  # pragma: no cover
     if not data:  # pragma: no cover
         LOGGER.warning('no data return for doi: %s', doi)
     return data if data else None  # pragma: no cover

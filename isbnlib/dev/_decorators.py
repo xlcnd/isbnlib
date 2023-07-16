@@ -9,7 +9,6 @@ im_cache = IMCache(maxlen=200)
 
 def cache(func):
     """Cache decorator (cache)."""
-    # noqa
     @wraps(func)
     def memoized_func(*args, **kwargs):
         from ..registry import metadata_cache  # <-- dynamic and lazy
@@ -33,7 +32,6 @@ def cache(func):
 
 def imcache(func):
     """Cache decorator (imcache)."""
-    # noqa
     @wraps(func)
     def memoized_func(*args, **kwargs):
         cch = im_cache

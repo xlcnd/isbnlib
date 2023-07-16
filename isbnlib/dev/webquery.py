@@ -20,7 +20,7 @@ THROTTLING = 1
 class WEBQuery:
     """Base class to query a webservice and parse the result to py objects."""
 
-    T = {'id': timestamp()}  # noqa
+    T = {'id': timestamp()}
 
     def __init__(self, service_url, ua=UA, throttling=THROTTLING):
         """Initialize & call webservice."""
@@ -36,7 +36,7 @@ class WEBQuery:
         """Check the data & handle errors."""
         if data_checker:
             return data_checker(self.data)
-        if self.data == '{}':  # noqa
+        if self.data == '{}':
             LOGGER.warning('DataNotFoundAtServiceError for %s', self.url)
             raise DataNotFoundAtServiceError(self.url)
         if BOOK_NOT_FOUND in self.data:
