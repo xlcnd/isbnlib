@@ -59,25 +59,25 @@ def ren(fp):
     if not isbn:  # pragma: no cover
         return None
     data = meta(isbn)
-    author = data.get('Authors', 'UNKOWN')
-    if author != 'UNKOWN':  # pragma: no cover
+    author = data.get('Authors', 'UNKNOWN')
+    if author != 'UNKNOWN':  # pragma: no cover
         author = last_first(author[0])['last']
-    year = data.get('Year', 'UNKOWN')
+    year = data.get('Year', 'UNKNOWN')
     maxlen = 98 - (20 + len(author) + len(year))
-    title = data.get('Title', 'UNKOWN')
-    if title != 'UNKOWN':
+    title = data.get('Title', 'UNKNOWN')
+    if title != 'UNKNOWN':
         regex1 = re.compile(r'[.,_!?/\\]')
         regex2 = re.compile(r'\s\s+')
         title = regex1.sub(' ', title)
         title = regex2.sub(' ', title)
         title = title.strip()
-    if title == 'UNKOWN' or not title:  # pragma: no cover
+    if title == 'UNKNOWN' or not title:  # pragma: no cover
         return None
     if ' ' in title:  # pragma: no cover
         tokens = title.split(' ')
         stitle = cutoff_tokens(tokens, maxlen)
         title = ' '.join(stitle)
-    isbn13 = data.get('ISBN-13', 'UNKOWN')
+    isbn13 = data.get('ISBN-13', 'UNKNOWN')
     new_name = f'{author}{year}_{title}_{isbn13}'
     return cfp.baserename(new_name + cfp.ext)
 
@@ -89,6 +89,6 @@ def cover(isbn):
 
 
 def desc(isbn):
-    """Return a descripion of the ISBN."""
+    """Return a description of the ISBN."""
     isbn = EAN13(isbn)
     return goo_desc(isbn) if isbn else ''

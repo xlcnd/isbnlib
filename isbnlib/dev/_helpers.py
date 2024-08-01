@@ -5,7 +5,7 @@ import re
 from hashlib import md5
 
 
-def fake_isbn(title, author='unkown', publisher='unkown', sid=1):
+def fake_isbn(title, author='unknown', publisher='unknown', sid=1):
     """Produce a fake ISBN from the (title, author, publisher) of the book."""
     key = f'{title} {author} {publisher}'
     # normalize

@@ -28,13 +28,13 @@ class ISBNLibDevException(ISBNLibException):
 class ISBNLibHTTPError(ISBNLibDevException):
     """Exception raised for HTTP related errors."""
 
-    message = 'an HTTP error has ocurred'
+    message = 'an HTTP error has occurred'
 
 
 class ISBNLibURLError(ISBNLibDevException):
     """Exception raised for URL related errors."""
 
-    message = 'an URL error has ocurred'
+    message = 'an URL error has occurred'
 
 
 class DataNotFoundAtServiceError(ISBNLibDevException):
