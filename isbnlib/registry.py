@@ -3,8 +3,7 @@
 
 import logging
 
-# 'pkg_resources' is deprecated! SEE https://setuptools.pypa.io/en/latest/pkg_resources.html
-from pkg_resources import iter_entry_points
+from importlib.metadata import entry_points
 
 from . import NotValidDefaultFormatterError, NotValidDefaultServiceError
 from . import _goob as goob
@@ -86,7 +85,7 @@ def load_plugins():  # pragma: no cover
     # get metadata plugins from entry_points
     if options.get('LOAD_METADATA_PLUGINS', True):
         try:
-            for entry in iter_entry_points(group='isbnlib.metadata'):
+            for entry in entry_points(group='isbnlib.metadata'):
                 add_service(entry.name, entry.load())
         except Exception:
             LOGGER.critical('Some metadata plugins were not loaded!')
